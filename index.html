@@ -58,8 +58,8 @@
               </div>
               <div class="meta col-12">
                 You can optionally export all deadlines to
-                <a href="https://calendar.google.com/calendar/r?cid={{ site.url }}/ai-deadlines.ics">Google Calendar</a> or
-                <a href="/ai-deadlines.ics">.ics</a>.
+                <a href="https://calendar.google.com/calendar/r?cid={{ site.url }}/some-deadlines.ics">Google Calendar</a> or
+                <a href="/some-deadlines.ics">.ics</a>.
               </div>
             </div>
         </div>
@@ -248,6 +248,9 @@
             $("#subject-select").multiselect('select', subs);
             update_filtering({ subs: subs, all_subs: all_subs});
         });
+
+        // also sort past events
+        $("#sort-order-checkbox input").click();
 
     });
     {% include google_analytics.js %}

@@ -1,13 +1,14 @@
-title: AI Conference Deadlines
-description: Countdowns to top CV/NLP/ML/Robotics/AI conference deadlines
-author: Abhishek Das
+title: Some Deadlines
+description: Countdowns to some academic conference deadlines
+author: Yanju Chen
 
+# comment out for local debugging
 domain: "ucsb.edu"
 baseurl: "https://sites.cs.ucsb.edu/~yanju/deadlines"
 
-twitter_hashtag: machinelearning
-github_username: paperswithcode
-github_repo: ai-deadlines
+twitter_hashtag: iffyanju
+github_username: chyanju
+github_repo: some-deadlines
 
 markdown: kramdown
 ga_id:
