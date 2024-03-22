@@ -235,7 +235,11 @@ footer {
 
 #past-events-title {
   padding-bottom: 15px;
-  border-bottom: 2px solid #bb2d3b;
+  border-bottom: 2px solid #e3716e;
+}
+
+#past_confs {
+  opacity: 0.5;
 }
 
 .badge-link {

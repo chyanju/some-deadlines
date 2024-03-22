@@ -11,15 +11,27 @@
     <div class="container">
         <div class="page-header">
             <div class="row">
-                <div class="col-12 col-sm-12">
+                <!-- <div class="col-12 col-sm-12">
                   <h1>
                     {{ site.title }} 
                   </h1>
-                </div>
+                </div> -->
                 <div class="meta col-12">
                   {{ site.description }}.
-                  To add/edit a conference, <a target="_blank" href="//github.com/{{ site.github_username }}/{{ site.github_repo }}">send in a pull request</a>.
                 </div>
+            </div>
+            <div class="row">
+              <div class="meta col-12">
+                <span class="local-timezone-hide">
+                  Deadlines are shown in <span class="local-timezone">America/New_York</span> time.
+                  To view them in conference website timezones, click on them.
+                </span>
+              </div>
+              <div class="meta col-12">
+                You can optionally export all deadlines to
+                <a href="https://calendar.google.com/calendar/r?cid={{site.baseurl}}/some-deadlines.ics">Google Calendar</a> or
+                <a href="{{site.baseurl}}/some-deadlines.ics">.ics</a>.
+              </div>
             </div>
             <br>
             <div class="row">
@@ -28,7 +40,7 @@
                   <div class="row align-items-md-center col-12 col-10-md">
                     <div class="col-12 col-md-5 filter-label">
                       <label for="subject-select" class="align-center" style="margin-bottom: 0px; line-height: 1.5;">
-                        Subject Filter:
+                        Collection Filter:
                       </label>
                     </div>
                     <div class="col-12 col-md-6">
@@ -48,19 +60,6 @@
                   </div>
                 </div>
               </form>
-            </div>
-            <div class="row">
-              <div class="meta col-12">
-                <span class="local-timezone-hide">
-                  Deadlines are shown in <span class="local-timezone">America/New_York</span> time.
-                  To view them in conference website timezones, click on them.
-                </span>
-              </div>
-              <div class="meta col-12">
-                You can optionally export all deadlines to
-                <a href="https://calendar.google.com/calendar/r?cid={{ site.url }}/some-deadlines.ics">Google Calendar</a> or
-                <a href="/some-deadlines.ics">.ics</a>.
-              </div>
             </div>
         </div>
         <div id="confs">
@@ -110,22 +109,24 @@
                       <b>Note: </b>{{conf.note}}
                   </div>
                 {% endif %}
-
+                <div>
+                  {% for sub in conf.sub %}
+                  <span title="Click to only show {{sub}} conferences" data-sub="{{sub}}" class="conf-sub {{sub}}-tag"></span>
+                  {% endfor %}
+                </div>
               </div>
               <div class="col-12 col-sm-6">
                 <div class="deadline">
-                  <div>Deadline:
+                  <div>Paper Deadline:
                     <span class="deadline-time"></span>
                   </div>
                 </div>
+                <div class="deadline">
+                  <div>Abstract Deadline:
+                    <span class="abs-deadline-time"></span>
+                  </div>
+                </div>
                 <div class="calendar"></div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-12">
-                {% for sub in conf.sub %}
-                <span title="Click to only show {{sub}} conferences" data-sub="{{sub}}" class="conf-sub {{sub}}-tag"></span>
-                {% endfor %}
               </div>
             </div>
             <hr>
@@ -135,7 +136,7 @@
         <div id="past_confs">
           <h1 id="past-events-title">Past Events</h1>
           <div id="sort-order-checkbox">
-                <label for="sort-order"><input type="checkbox" id="sort-order" name="sort-order" checked>Most recent first</label>
+                <label for="sort-order"><input type="checkbox" id="sort-order" name="sort-order" checked> Most Recent First</label>
             </div>
         </div>
       </div>
@@ -168,15 +169,17 @@
 
         {% for conf in site.data.conferences %}
         {% for sub in conf.sub %}
-        $('#{{conf.id}} .{{sub}}-tag').html(sub2name["{{sub}}"].toLocaleLowerCase());
+        $('#{{conf.id}} .{{sub}}-tag').html(sub2name["{{sub}}"]);
         {% endfor %}
         {% if conf.deadline == "TBA" %}
           $('#{{conf.id}} .timer').html("TBA");
           $('#{{conf.id}} .deadline-time').html("TBA");
+          $('#{{conf.id}} .abs-deadline-time').html("TBA");
         {% else %}
           // adjust date according to deadline timezone
           var timezone = {% if conf.timezone %}"{{conf.timezone}}" {% else %} "America/New_York" {% endif %};
           var confDate = moment.tz("{{conf.deadline}}", timezone);
+          var absDate = moment.tz("{{conf.abstract_deadline}}", timezone);
 
           // render countdown timer
           $('#{{conf.id}} .timer').countdown(confDate.toDate(), function (event) {
@@ -194,7 +197,20 @@
             $('#{{conf.id}} .deadline-time').html(localConfDate.toString());
           }
           catch(err) {
-            console.log("Error converting to local timezone.");
+            console.log("Error converting paper deadline to local timezone.");
+          }
+
+          // convert abstract deadline to local timezone
+          if (absDate.isValid()) {
+            try {
+              var localAbsDate = moment.tz(absDate, local_timezone);
+              $('#{{conf.id}} .abs-deadline-time').html(localAbsDate.toString());
+            }
+            catch(err) {
+              console.log("Error converting abstract deadline to local timezone.");
+            }
+          } else {
+            $('#{{conf.id}} .abs-deadline-time').html("-");
           }
 
           // add calendar button

@@ -57,19 +57,34 @@ permalink:  /conference/
           </div>
           <div id="conference-deadline" class="calendar meta col-sm-12 col-md-6">
           </div>
+
           <div class="meta deadline col-12 col-md-6">
-            Deadline in timezone from conference website:
+            Paper deadline in timezone from conference website:
           </div>
           <div class="meta col-sm-12 col-md-6">
             <span class="deadline-time"></span>
           </div>
-              <div class="meta col-sm-12 col-md-6">
-                Deadline in your local <span class="local-timezone">America/New_York</span> timezone:
-              </div>
-              <div class="local-timezone-hide meta col-sm-12 col-md-6">
-                <span class="deadline-local-time"></span>
-              </div>
+          <div class="meta col-sm-12 col-md-6">
+            Paper deadline in your local <span class="local-timezone">America/New_York</span> timezone:
           </div>
+          <div class="local-timezone-hide meta col-sm-12 col-md-6">
+            <span class="deadline-local-time"></span>
+          </div>
+
+          <div class="meta col-12 col-md-6">
+            Abstract deadline in timezone from conference website:
+          </div>
+          <div class="meta col-sm-12 col-md-6">
+            <span class="abs-deadline-time"></span>
+          </div>
+          <div class="meta col-sm-12 col-md-6">
+            Abstract deadline in your local <span class="local-timezone">America/New_York</span> timezone:
+          </div>
+          <div class="local-timezone-hide meta col-sm-12 col-md-6">
+            <span class="abs-deadline-local-time"></span>
+          </div>
+
+        </div>
         <div id="conf-deadline-timer" class="row">
           <div id="conf-timer" class="col-12">
           </div>
@@ -103,7 +118,7 @@ permalink:  /conference/
               $('#conf-title-href').text("{{conf.title}} {{conf.year}}");
               $('#conf-title-href').attr('href', "/conference?id={{conf.id}}");
               // set badges
-              var subs = '{{conf.sub}}'.split(',');
+              var subs = ['{{conf.sub}}'];
               for (let i = 0; i < subs.length; i++) {
                 var sub = subs[i].replace(" ", "");
                 var sub_element = document.createElement('span');
@@ -138,10 +153,13 @@ permalink:  /conference/
                 $('#conf-timer').html("TBA");
                 $('.deadline-time').html("TBA");
                 $('.deadline-local-time').html("TBA");
+                $('.abs-deadline-time').html("TBA");
+                $('.abs-deadline-local-time').html("TBA");
               {% else %}
                 // adjust date according to deadline timezone
                 var timezone = {% if conf.timezone %}"{{conf.timezone}}" {% else %} "America/New_York" {% endif %};
                 var confDeadline = moment.tz("{{conf.deadline}}", timezone);
+                var absDeadline = moment.tz("{{conf.abstract_deadline}}", timezone);
 
                 // add calendar 
                 var conferenceDeadlineCalendar = createCalendarFromObject({
@@ -157,8 +175,10 @@ permalink:  /conference/
                   $(this).html(event.strftime('%D days %Hh %Mm %Ss'));
                 });
                 $('.deadline-time').html(confDeadline.toString());
+                if (absDeadline.isValid()) $('.abs-deadline-time').html(absDeadline.toString());
+                else $('.abs-deadline-time').html("-");
 
-                // convert deadline to local timezone
+                // convert paper deadline to local timezone
                 try {
                   var localConfDeadline = moment.tz(confDeadline, local_timezone);
                   $('.deadline-local-time').html(localConfDeadline.toString());
@@ -166,6 +186,20 @@ permalink:  /conference/
                 catch(err) {
                   console.log("Error converting to local timezone.");
                 }
+
+                // convert abstract deadline to local timezone
+                if (absDeadline.isValid()) {
+                  try {
+                    var localAbsDeadline = moment.tz(absDeadline, local_timezone);
+                    $('.abs-deadline-local-time').html(localAbsDeadline.toString());
+                  }
+                  catch(err) {
+                    console.log("Error converting to local timezone.");
+                  }
+                } else {
+                  $('.abs-deadline-local-time').html("-");
+                }
+
               {% endif %}
             }
         {% endfor %}
