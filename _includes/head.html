@@ -23,3 +23,12 @@
 <script type="text/javascript" src="{{ "/static/js/store.min.js" | prepend:site.baseurl }}"></script>
 <script type="text/javascript" src="{{ "/static/js/ouical.min.js" | prepend:site.baseurl }}"></script>
 <script type="text/javascript" src="{{ "/static/js/bootstrap-multiselect.min.js" |prepend:site.baseurl }}"></script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ site.ga_id }}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', '{{ site.ga_id }}');
+</script>

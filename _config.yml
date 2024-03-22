@@ -11,6 +11,6 @@ github_username: chyanju
 github_repo: some-deadlines
 
 markdown: kramdown
-ga_id:
+# ga_id: G-G350W8SSRE
 
 include: ['_pages']
