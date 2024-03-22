@@ -151,10 +151,11 @@ footer {
 }
 
 #conf-timer {
-  font-size: 72px;
+  font-size: large;
   color: #444;
-  margin-top: 40px;
-  margin-bottom: 0.5em;
+  margin-top: 32px;
+  margin-bottom: 24px;
+  font-weight: bold;
 }
 
 #conf-key-facts {
