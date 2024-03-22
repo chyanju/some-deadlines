@@ -230,8 +230,10 @@
           if (diff > 0) {
             $('#{{conf.id}}').addClass('past');
             $('#{{conf.id}}').appendTo($("#past_confs"))
-            $('#{{conf.id}} .timer').replaceWith($('#{{conf.id}} .deadline'));
-            $('#{{conf.id}} .timer-small').replaceWith($('#{{conf.id}} .deadline'));
+            // $('#{{conf.id}} .timer').replaceWith($('#{{conf.id}} .deadline'));
+            // $('#{{conf.id}} .timer-small').replaceWith($('#{{conf.id}} .deadline'));
+            $('#{{conf.id}} .timer').html("&nbsp;");
+            $('#{{conf.id}} .timer-small').html("&nbsp;");
             $('#{{conf.id}} .calendar').remove();
           }
         {% endif %}

@@ -314,3 +314,16 @@
   end: 2024-09-20
   sub: MORE
   note: <a href='https://2024.ecoop.org/'>conference site</a>
+
+- title: ICFP
+  year: 2024
+  id: icfp2024
+  link: https://icfp24.sigplan.org/
+  deadline: '2024-02-28 23:59:59'
+  timezone: UTC-12
+  place: Milan, Italy
+  date: September 2 - 7, 2024
+  start: 2024-09-02
+  end: 2024-09-07
+  sub: MORE
+  note: <a href='https://icfp24.sigplan.org/'>conference site</a>
