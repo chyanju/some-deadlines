@@ -262,3 +262,55 @@
   end: 2024-07-12
   sub: "OS"
   note: <a href='https://www.usenix.org/conference/osdi24'>conference site</a>
+
+- title: ISSTA (Round 1)
+  year: 2024
+  id: issta2024a
+  link: https://2024.issta.org/
+  deadline: '2023-12-15 23:59:59'
+  timezone: UTC-12
+  place: Vienna, Austria
+  date: September 16 - 20, 2024
+  start: 2024-09-16
+  end: 2024-09-20
+  sub: MORE
+  note: <a href='https://2024.issta.org/'>conference site</a>
+
+- title: ISSTA (Round 2)
+  year: 2024
+  id: issta2024b
+  link: https://2024.issta.org/
+  deadline: '2024-04-12 23:59:59'
+  timezone: UTC-12
+  place: Vienna, Austria
+  date: September 16 - 20, 2024
+  start: 2024-09-16
+  end: 2024-09-20
+  sub: MORE
+  note: <a href='https://2024.issta.org/'>conference site</a>
+
+- title: ECOOP (Round 1)
+  year: 2024
+  id: ecoop2024a
+  link: https://2024.ecoop.org/
+  deadline: '2024-01-17 23:59:59'
+  timezone: UTC-12
+  place: Vienna, Austria
+  date: September 16 - 20, 2024
+  start: 2024-09-16
+  end: 2024-09-20
+  sub: MORE
+  note: <a href='https://2024.ecoop.org/'>conference site</a>
+
+- title: ECOOP (Round 2)
+  year: 2024
+  id: ecoop2024b
+  link: https://2024.ecoop.org/
+  deadline: '2024-04-17 23:59:59'
+  timezone: UTC-12
+  place: Vienna, Austria
+  date: September 16 - 20, 2024
+  start: 2024-09-16
+  end: 2024-09-20
+  sub: MORE
+  note: <a href='https://2024.ecoop.org/'>conference site</a>

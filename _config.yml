@@ -3,8 +3,8 @@ description: Countdowns to some academic conference deadlines
 author: Yanju Chen
 
 # comment out for local debugging
-domain: "ucsb.edu"
-baseurl: "https://sites.cs.ucsb.edu/~yanju/deadlines"
+# domain: "ucsb.edu"
+# baseurl: "https://sites.cs.ucsb.edu/~yanju/deadlines"
 
 twitter_hashtag: iffyanju
 github_username: chyanju

@@ -5,6 +5,12 @@ Adapted from [ai-deadlines](https://github.com/paperswithcode/ai-deadlines) with
 ## Quick Commands
 
 ```bash
-jekyll build -d ./deadlines
+# for deployment
+jekyll build -d <target_directory> -b "https://sites.cs.ucsb.edu/~yanju/deadlines"
+```
+
+```bash
+# for local testing
+jekyll serve -b ""
 ```
 

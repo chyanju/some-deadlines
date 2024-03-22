@@ -11,6 +11,6 @@
 - name: Operating Systems
   sub: OS
   color: "#bdb5e1"
-- name: Many More
-  sub: MM
+- name: More
+  sub: MORE
   color: "#f7df87"
