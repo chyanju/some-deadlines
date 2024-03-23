@@ -6,7 +6,10 @@ Adapted from [ai-deadlines](https://github.com/paperswithcode/ai-deadlines) with
 
 ```bash
 # for deployment
+# also uncomment GA in config
 jekyll build -d <target_directory> -b "https://sites.cs.ucsb.edu/~yanju/deadlines"
+# e.g.
+jekyll build -d ./deadlines -b "https://sites.cs.ucsb.edu/~yanju/deadlines"
 ```
 
 ```bash

@@ -1,3 +1,7 @@
+# ====================== #
+# ======== PLDI ======== #
+# ====================== #
+
 - title: PLDI
   year: 2024
   id: pldi24
@@ -10,6 +14,10 @@
   end: 2024-06-28
   sub: PL
   note: <a href='https://pldi24.sigplan.org/'>conference site</a>
+
+# ====================== #
+# ======== ICSE ======== #
+# ====================== #
 
 - title: ICSE (First Cycle)
   year: 2025
@@ -39,6 +47,10 @@
   sub: SE
   note: <a href='https://conf.researchr.org/home/icse-2025'>conference site</a>
 
+# ====================== #
+# ======== SOSP ======== #
+# ====================== #
+
 - title: SOSP
   year: 2024
   id: sosp2024
@@ -52,6 +64,10 @@
   end: 2024-11-06
   sub: OS
   note: <a href='https://sigops.org/s/conferences/sosp/2024/index.html'>conference site</a>
+
+# ======================== #
+# ======== OOPSLA ======== #
+# ======================== #
 
 - title: OOPSLA (Round 1)
   year: 2024
@@ -79,6 +95,10 @@
   sub: ["PL", "SE"]
   note: <a href='https://2024.splashcon.org/track/splash-2024-oopsla'>conference site</a>
 
+# ===================== #
+# ======== CAV ======== #
+# ===================== #
+
 - title: CAV
   year: 2024
   id: cav2024
@@ -91,6 +111,10 @@
   end: 2024-07-27
   sub: "PL"
   note: <a href='https://i-cav.org/2024/'>conference site</a>
+
+# ===================== #
+# ======== ASE ======== #
+# ===================== #
 
 - title: ASE
   year: 2024
@@ -106,6 +130,10 @@
   sub: "SE"
   note: <a href='https://conf.researchr.org/home/ase-2024'>conference site</a>
 
+# ====================== #
+# ======== FSE ======== #
+# ====================== #
+
 - title: FSE
   year: 2024
   id: fse2024
@@ -120,6 +148,10 @@
   sub: "SE"
   note: <a href='https://2024.esec-fse.org/'>conference site</a>
 
+# ====================== #
+# ======== POPL ======== #
+# ====================== #
+
 - title: POPL
   year: 2025
   id: popl2025
@@ -132,6 +164,10 @@
   end: 2025-01-25
   sub: "PL"
   note: <a href='https://conf.researchr.org/home/POPL-2025'>conference site</a>
+
+# ===================== #
+# ======== S&P ======== #
+# ===================== #
 
 - title: S&P (First Round)
   year: 2025
@@ -159,6 +195,10 @@
   sub: "SECURITY"
   note: <a href='https://www.ieee-security.org/TC/SP2025/index.html'>conference site</a>
 
+# ===================== #
+# ======== CCS ======== #
+# ===================== #
+
 - title: CCS (First Cycle)
   year: 2024
   id: ccs2024a
@@ -185,6 +225,37 @@
   sub: "SECURITY"
   note: <a href='https://www.sigsac.org/ccs/CCS2024/home.html'>conference site</a>
 
+# ====================== #
+# ======== NDSS ======== #
+# ====================== #
+
+- title: NDSS (Summer Cycle)
+  year: 2025
+  id: ndss2025a
+  link: https://www.ndss-symposium.org/ndss2025/
+  deadline: '2024-04-17 23:59:59'
+  timezone: UTC-12
+  place: San Diego, California, USA
+  date: February 23 - 28, 2025
+  start: 2025-02-23
+  end: 2025-02-28
+  sub: "SECURITY"
+  note: <a href='https://www.ndss-symposium.org/ndss2025/'>conference site</a>
+
+- title: NDSS (Fall Cycle)
+  year: 2025
+  id: ndss2025b
+  link: https://www.ndss-symposium.org/ndss2025/
+  deadline: '2024-07-10 23:59:59'
+  timezone: UTC-12
+  place: San Diego, California, USA
+  date: February 23 - 28, 2025
+  start: 2025-02-23
+  end: 2025-02-28
+  sub: "SECURITY"
+  note: <a href='https://www.ndss-symposium.org/ndss2025/'>conference site</a>
+
+# past
 - title: NDSS (Summer Cycle)
   year: 2024
   id: ndss2024a
@@ -198,6 +269,7 @@
   sub: "SECURITY"
   note: <a href='https://www.ndss-symposium.org/ndss2024/'>conference site</a>
 
+# past
 - title: NDSS (Fall Cycle)
   year: 2024
   id: ndss2024b
@@ -210,6 +282,10 @@
   end: 2024-03-01
   sub: "SECURITY"
   note: <a href='https://www.ndss-symposium.org/ndss2024/'>conference site</a>
+
+# ======================== #
+# ======== USENIX ======== #
+# ======================== #
 
 - title: USENIX Security (Summer Cycle)
   year: 2024
@@ -250,6 +326,10 @@
   sub: "SECURITY"
   note: <a href='https://www.usenix.org/conference/usenixsecurity24'>conference site</a>
 
+# ====================== #
+# ======== OSDI ======== #
+# ====================== #
+
 - title: OSDI
   year: 2024
   id: osdi2024
@@ -262,6 +342,10 @@
   end: 2024-07-12
   sub: "OS"
   note: <a href='https://www.usenix.org/conference/osdi24'>conference site</a>
+
+# ======================= #
+# ======== ISSTA ======== #
+# ======================= #
 
 - title: ISSTA (Round 1)
   year: 2024
@@ -289,6 +373,10 @@
   sub: MORE
   note: <a href='https://2024.issta.org/'>conference site</a>
 
+# ======================= #
+# ======== ECOOP ======== #
+# ======================= #
+
 - title: ECOOP (Round 1)
   year: 2024
   id: ecoop2024a
@@ -314,6 +402,10 @@
   end: 2024-09-20
   sub: MORE
   note: <a href='https://2024.ecoop.org/'>conference site</a>
+
+# ====================== #
+# ======== ICFP ======== #
+# ====================== #
 
 - title: ICFP
   year: 2024
