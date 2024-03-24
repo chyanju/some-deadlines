@@ -419,3 +419,20 @@
   end: 2024-09-07
   sub: MORE
   note: <a href='https://icfp24.sigplan.org/'>conference site</a>
+
+# ===================== #
+# ======== SBC ======== #
+# ===================== #
+
+- title: SBC
+  year: 2024
+  id: sbc2024
+  link: https://www.sbc-conference.com/
+  deadline: '2024-04-16 23:59:59'
+  timezone: UTC-7
+  place: Columbia University, New York, New York, USA
+  date: August 7-9, 2024
+  start: 2024-08-07
+  end: 2024-08-09
+  sub: MORE
+  note: <a href='https://www.sbc-conference.com/'>conference site</a>
