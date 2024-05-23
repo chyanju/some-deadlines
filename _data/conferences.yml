@@ -2,6 +2,7 @@
 # ======== PLDI ======== #
 # ====================== #
 
+# past
 - title: PLDI
   year: 2024
   id: pldi24
@@ -19,6 +20,7 @@
 # ======== ICSE ======== #
 # ====================== #
 
+# past
 - title: ICSE (First Cycle)
   year: 2025
   id: icse2025a
@@ -51,6 +53,7 @@
 # ======== SOSP ======== #
 # ====================== #
 
+# past
 - title: SOSP
   year: 2024
   id: sosp2024
@@ -69,6 +72,7 @@
 # ======== OOPSLA ======== #
 # ======================== #
 
+# past
 - title: OOPSLA (Round 1)
   year: 2024
   id: oopsla2024a
@@ -82,6 +86,7 @@
   sub: ["PL", "SE"]
   note: <a href='https://2024.splashcon.org/track/splash-2024-oopsla'>conference site</a>
 
+# past
 - title: OOPSLA (Round 2)
   year: 2024
   id: oopsla2024b
@@ -99,6 +104,7 @@
 # ======== CAV ======== #
 # ===================== #
 
+# past
 - title: CAV
   year: 2024
   id: cav2024
@@ -191,9 +197,9 @@
   deadline: '2024-06-06 23:59:59'
   timezone: UTC-12
   place: San Francisco, California, USA
-  date: TBD
-  start: TBD
-  end: TBD
+  date: May 12 - 15, 2025
+  start: 2025-05-12
+  end: 2025-05-15
   sub: "SECURITY"
   note: <a href='https://www.ieee-security.org/TC/SP2025/index.html'>conference site</a>
 
@@ -204,9 +210,9 @@
   deadline: '2024-11-14 23:59:59'
   timezone: UTC-12
   place: San Francisco, California, USA
-  date: TBD
-  start: TBD
-  end: TBD
+  date: May 12 - 15, 2025
+  start: 2025-05-12
+  end: 2025-05-15
   sub: "SECURITY"
   note: <a href='https://www.ieee-security.org/TC/SP2025/index.html'>conference site</a>
 
@@ -214,6 +220,7 @@
 # ======== CCS ======== #
 # ===================== #
 
+# past
 - title: CCS (First Cycle)
   year: 2024
   id: ccs2024a
@@ -227,6 +234,7 @@
   sub: "SECURITY"
   note: <a href='https://www.sigsac.org/ccs/CCS2024/home.html'>conference site</a>
 
+# past
 - title: CCS (Second Cycle)
   year: 2024
   id: ccs2024b
@@ -244,6 +252,7 @@
 # ======== NDSS ======== #
 # ====================== #
 
+# past
 - title: NDSS (Summer Cycle)
   year: 2025
   id: ndss2025a
@@ -271,32 +280,32 @@
   note: <a href='https://www.ndss-symposium.org/ndss2025/'>conference site</a>
 
 # past
-- title: NDSS (Summer Cycle)
-  year: 2024
-  id: ndss2024a
-  link: https://www.ndss-symposium.org/ndss2024/
-  deadline: '2023-04-19 23:59:59'
-  timezone: UTC-12
-  place: San Diego, California, USA
-  date: February 26 - March 1, 2024
-  start: 2024-02-26
-  end: 2024-03-01
-  sub: "SECURITY"
-  note: <a href='https://www.ndss-symposium.org/ndss2024/'>conference site</a>
+# - title: NDSS (Summer Cycle)
+#   year: 2024
+#   id: ndss2024a
+#   link: https://www.ndss-symposium.org/ndss2024/
+#   deadline: '2023-04-19 23:59:59'
+#   timezone: UTC-12
+#   place: San Diego, California, USA
+#   date: February 26 - March 1, 2024
+#   start: 2024-02-26
+#   end: 2024-03-01
+#   sub: "SECURITY"
+#   note: <a href='https://www.ndss-symposium.org/ndss2024/'>conference site</a>
 
 # past
-- title: NDSS (Fall Cycle)
-  year: 2024
-  id: ndss2024b
-  link: https://www.ndss-symposium.org/ndss2024/
-  deadline: '2023-06-28 23:59:59'
-  timezone: UTC-12
-  place: San Diego, California, USA
-  date: February 26 - March 1, 2024
-  start: 2024-02-26
-  end: 2024-03-01
-  sub: "SECURITY"
-  note: <a href='https://www.ndss-symposium.org/ndss2024/'>conference site</a>
+# - title: NDSS (Fall Cycle)
+#   year: 2024
+#   id: ndss2024b
+#   link: https://www.ndss-symposium.org/ndss2024/
+#   deadline: '2023-06-28 23:59:59'
+#   timezone: UTC-12
+#   place: San Diego, California, USA
+#   date: February 26 - March 1, 2024
+#   start: 2024-02-26
+#   end: 2024-03-01
+#   sub: "SECURITY"
+#   note: <a href='https://www.ndss-symposium.org/ndss2024/'>conference site</a>
 
 # ======================== #
 # ======== USENIX ======== #
@@ -374,6 +383,7 @@
 # ======== OSDI ======== #
 # ====================== #
 
+# past
 - title: OSDI
   year: 2024
   id: osdi2024
@@ -391,6 +401,20 @@
 # ======== ISSTA ======== #
 # ======================= #
 
+- title: ISSTA
+  year: 2025
+  id: issta2025
+  link: https://conf.researchr.org/home/issta-2025
+  deadline: '2024-10-31 23:59:59'
+  timezone: UTC-12
+  place: Trondheim, Norway
+  date: June 25 - 28, 2025
+  start: 2025-06-25
+  end: 2025-06-28
+  sub: MORE
+  note: <a href='https://conf.researchr.org/home/issta-2025'>conference site</a>
+
+# past
 - title: ISSTA (Round 1)
   year: 2024
   id: issta2024a
@@ -404,6 +428,7 @@
   sub: MORE
   note: <a href='https://2024.issta.org/'>conference site</a>
 
+# past
 - title: ISSTA (Round 2)
   year: 2024
   id: issta2024b
@@ -421,6 +446,7 @@
 # ======== ECOOP ======== #
 # ======================= #
 
+# past
 - title: ECOOP (Round 1)
   year: 2024
   id: ecoop2024a
@@ -434,6 +460,7 @@
   sub: MORE
   note: <a href='https://2024.ecoop.org/'>conference site</a>
 
+# past
 - title: ECOOP (Round 2)
   year: 2024
   id: ecoop2024b
@@ -451,6 +478,7 @@
 # ======== ICFP ======== #
 # ====================== #
 
+# past
 - title: ICFP
   year: 2024
   id: icfp2024
@@ -468,6 +496,7 @@
 # ======== SBC ======== #
 # ===================== #
 
+# past
 - title: SBC
   year: 2024
   id: sbc2024
