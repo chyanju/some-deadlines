@@ -2,25 +2,23 @@
 # ======== PLDI ======== #
 # ====================== #
 
-# past
-- title: PLDI
-  year: 2024
-  id: pldi24
-  link: https://pldi24.sigplan.org/
-  deadline: '2023-11-16 23:59:59'
-  timezone: UTC-12
-  place: Copenhagen, Denmark
-  date: June 24-28, 2024
-  start: 2024-06-24
-  end: 2024-06-28
-  sub: PL
-  note: <a href='https://pldi24.sigplan.org/'>conference site</a>
+# - title: PLDI
+#   year: 2024
+#   id: pldi24
+#   link: https://pldi24.sigplan.org/
+#   deadline: '2023-11-16 23:59:59'
+#   timezone: UTC-12
+#   place: Copenhagen, Denmark
+#   date: June 24-28, 2024
+#   start: 2024-06-24
+#   end: 2024-06-28
+#   sub: PL
+#   note: <a href='https://pldi24.sigplan.org/'>conference site</a>
 
 # ====================== #
 # ======== ICSE ======== #
 # ====================== #
 
-# past
 - title: ICSE (First Cycle)
   year: 2025
   id: icse2025a
@@ -53,7 +51,6 @@
 # ======== SOSP ======== #
 # ====================== #
 
-# past
 - title: SOSP
   year: 2024
   id: sosp2024
@@ -72,7 +69,6 @@
 # ======== OOPSLA ======== #
 # ======================== #
 
-# past
 - title: OOPSLA (Round 1)
   year: 2024
   id: oopsla2024a
@@ -86,7 +82,6 @@
   sub: ["PL", "SE"]
   note: <a href='https://2024.splashcon.org/track/splash-2024-oopsla'>conference site</a>
 
-# past
 - title: OOPSLA (Round 2)
   year: 2024
   id: oopsla2024b
@@ -104,19 +99,18 @@
 # ======== CAV ======== #
 # ===================== #
 
-# past
-- title: CAV
-  year: 2024
-  id: cav2024
-  link: https://i-cav.org/2024/
-  deadline: '2024-01-19 23:59:59'
-  timezone: UTC-12
-  place: Montreal, Canada
-  date: July 22-27, 2024
-  start: 2024-07-22
-  end: 2024-07-27
-  sub: "PL"
-  note: <a href='https://i-cav.org/2024/'>conference site</a>
+# - title: CAV
+#   year: 2024
+#   id: cav2024
+#   link: https://i-cav.org/2024/
+#   deadline: '2024-01-19 23:59:59'
+#   timezone: UTC-12
+#   place: Montreal, Canada
+#   date: July 22-27, 2024
+#   start: 2024-07-22
+#   end: 2024-07-27
+#   sub: "PL"
+#   note: <a href='https://i-cav.org/2024/'>conference site</a>
 
 # ===================== #
 # ======== ASE ======== #
@@ -137,7 +131,7 @@
   note: <a href='https://conf.researchr.org/home/ase-2024'>conference site</a>
 
 # ====================== #
-# ======== FSE ======== #
+# ======== FSE ========= #
 # ====================== #
 
 - title: FSE
@@ -154,20 +148,19 @@
   sub: "SE"
   note: <a href='https://conf.researchr.org/home/fse-2025'>conference site</a>
 
-# past
-- title: FSE
-  year: 2024
-  id: fse2024
-  link: https://2024.esec-fse.org/
-  deadline: '2023-09-28 23:59:59'
-  abstract_deadline: '2023-09-21 23:59:59'
-  timezone: UTC-12
-  place: Porto de Galinhas, Brazil, Brazil
-  date: July 15 - 19, 2024
-  start: 2024-07-15
-  end: 2024-07-19
-  sub: "SE"
-  note: <a href='https://2024.esec-fse.org/'>conference site</a>
+# - title: FSE
+#   year: 2024
+#   id: fse2024
+#   link: https://2024.esec-fse.org/
+#   deadline: '2023-09-28 23:59:59'
+#   abstract_deadline: '2023-09-21 23:59:59'
+#   timezone: UTC-12
+#   place: Porto de Galinhas, Brazil, Brazil
+#   date: July 15 - 19, 2024
+#   start: 2024-07-15
+#   end: 2024-07-19
+#   sub: "SE"
+#   note: <a href='https://2024.esec-fse.org/'>conference site</a>
 
 # ====================== #
 # ======== POPL ======== #
@@ -220,7 +213,6 @@
 # ======== CCS ======== #
 # ===================== #
 
-# past
 - title: CCS (First Cycle)
   year: 2024
   id: ccs2024a
@@ -234,7 +226,6 @@
   sub: "SECURITY"
   note: <a href='https://www.sigsac.org/ccs/CCS2024/home.html'>conference site</a>
 
-# past
 - title: CCS (Second Cycle)
   year: 2024
   id: ccs2024b
@@ -252,7 +243,6 @@
 # ======== NDSS ======== #
 # ====================== #
 
-# past
 - title: NDSS (Summer Cycle)
   year: 2025
   id: ndss2025a
@@ -279,7 +269,6 @@
   sub: "SECURITY"
   note: <a href='https://www.ndss-symposium.org/ndss2025/'>conference site</a>
 
-# past
 # - title: NDSS (Summer Cycle)
 #   year: 2024
 #   id: ndss2024a
@@ -293,7 +282,6 @@
 #   sub: "SECURITY"
 #   note: <a href='https://www.ndss-symposium.org/ndss2024/'>conference site</a>
 
-# past
 # - title: NDSS (Fall Cycle)
 #   year: 2024
 #   id: ndss2024b
@@ -337,7 +325,6 @@
   sub: "SECURITY"
   note: <a href='https://www.usenix.org/conference/usenixsecurity25'>conference site</a>
 
-# past
 - title: USENIX Security (Summer Cycle)
   year: 2024
   id: usenix2024a
@@ -351,7 +338,6 @@
   sub: "SECURITY"
   note: <a href='https://www.usenix.org/conference/usenixsecurity24'>conference site</a>
 
-# past
 - title: USENIX Security (Fall Cycle)
   year: 2024
   id: usenix2024b
@@ -365,7 +351,6 @@
   sub: "SECURITY"
   note: <a href='https://www.usenix.org/conference/usenixsecurity24'>conference site</a>
 
-# past
 - title: USENIX Security (Winter Cycle)
   year: 2024
   id: usenix2024c
@@ -383,19 +368,32 @@
 # ======== OSDI ======== #
 # ====================== #
 
-# past
 - title: OSDI
-  year: 2024
-  id: osdi2024
-  link: https://www.usenix.org/conference/osdi24
-  deadline: '2023-11-30 23:59:59'
-  timezone: UTC-12
-  place: Santa Clara, CA, USA
-  date: July 10 - 12, 2024
-  start: 2024-07-10
-  end: 2024-07-12
+  year: 2025
+  id: osdi2025
+  link: https://www.usenix.org/conference/osdi25
+  deadline: '2024-12-10 22:59:59'
+  abstract_deadline: '2024-12-03 22:59:59'
+  timezone: UTC-0
+  place: Boston, MA, USA
+  date: July 7 - 9, 2025
+  start: 2025-07-07
+  end: 2025-07-09
   sub: "OS"
-  note: <a href='https://www.usenix.org/conference/osdi24'>conference site</a>
+  note: <a href='https://www.usenix.org/conference/osdi25'>conference site</a>
+
+# - title: OSDI
+#   year: 2024
+#   id: osdi2024
+#   link: https://www.usenix.org/conference/osdi24
+#   deadline: '2023-11-30 23:59:59'
+#   timezone: UTC-12
+#   place: Santa Clara, CA, USA
+#   date: July 10 - 12, 2024
+#   start: 2024-07-10
+#   end: 2024-07-12
+#   sub: "OS"
+#   note: <a href='https://www.usenix.org/conference/osdi24'>conference site</a>
 
 # ======================= #
 # ======== ISSTA ======== #
@@ -414,7 +412,6 @@
   sub: MORE
   note: <a href='https://conf.researchr.org/home/issta-2025'>conference site</a>
 
-# past
 - title: ISSTA (Round 1)
   year: 2024
   id: issta2024a
@@ -428,7 +425,6 @@
   sub: MORE
   note: <a href='https://2024.issta.org/'>conference site</a>
 
-# past
 - title: ISSTA (Round 2)
   year: 2024
   id: issta2024b
@@ -446,7 +442,6 @@
 # ======== ECOOP ======== #
 # ======================= #
 
-# past
 - title: ECOOP (Round 1)
   year: 2024
   id: ecoop2024a
@@ -460,7 +455,6 @@
   sub: MORE
   note: <a href='https://2024.ecoop.org/'>conference site</a>
 
-# past
 - title: ECOOP (Round 2)
   year: 2024
   id: ecoop2024b
@@ -478,7 +472,6 @@
 # ======== ICFP ======== #
 # ====================== #
 
-# past
 - title: ICFP
   year: 2024
   id: icfp2024
@@ -492,11 +485,56 @@
   sub: MORE
   note: <a href='https://icfp24.sigplan.org/'>conference site</a>
 
+# ======================== #
+# ======== ASPLOS ======== #
+# ======================== #
+
+- title: ASPLOS (Spring Cycle)
+  year: 2025
+  id: asplos2025a
+  link: https://www.asplos-conference.org/asplos2025/
+  deadline: '2024-03-01 23:59:59'
+  abstract_deadline: '2024-02-23 23:59:59'
+  timezone: UTC-12
+  place: Rotterdam, The Netherlands
+  date: March 30 - April 3, 2025
+  start: 2025-03-30
+  end: 2025-04-03
+  sub: MORE
+  note: <a href='https://www.asplos-conference.org/asplos2025/'>conference site</a>
+
+- title: ASPLOS (Summer Cycle)
+  year: 2025
+  id: asplos2025b
+  link: https://www.asplos-conference.org/asplos2025/
+  deadline: '2024-06-24 23:59:59'
+  abstract_deadline: '2024-06-17 23:59:59'
+  timezone: UTC-12
+  place: Rotterdam, The Netherlands
+  date: March 30 - April 3, 2025
+  start: 2025-03-30
+  end: 2025-04-03
+  sub: MORE
+  note: <a href='https://www.asplos-conference.org/asplos2025/'>conference site</a>
+
+- title: ASPLOS (Fall Cycle)
+  year: 2025
+  id: asplos2025c
+  link: https://www.asplos-conference.org/asplos2025/
+  deadline: '2024-10-18 23:59:59'
+  abstract_deadline: '2024-10-11 23:59:59'
+  timezone: UTC-12
+  place: Rotterdam, The Netherlands
+  date: March 30 - April 3, 2025
+  start: 2025-03-30
+  end: 2025-04-03
+  sub: MORE
+  note: <a href='https://www.asplos-conference.org/asplos2025/'>conference site</a>
+
 # ===================== #
 # ======== SBC ======== #
 # ===================== #
 
-# past
 - title: SBC
   year: 2024
   id: sbc2024
