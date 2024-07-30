@@ -130,6 +130,21 @@
   sub: "SE"
   note: <a href='https://conf.researchr.org/home/ase-2024'>conference site</a>
 
+# TBD
+# - title: ASE
+#   year: 2025
+#   id: ase2025
+#   link: https://conf.researchr.org/home/ase-2025
+#   deadline: '??'
+#   abstract_deadline: '??'
+#   timezone: UTC-12
+#   place: Seoul, South Korea
+#   date: November 16 - November 20, 2025
+#   start: 2025-11-16
+#   end: 2025-11-20
+#   sub: "SE"
+#   note: <a href='https://conf.researchr.org/home/ase-2025'>conference site</a>
+
 # ====================== #
 # ======== FSE ========= #
 # ====================== #
@@ -547,3 +562,20 @@
   end: 2024-08-09
   sub: MORE
   note: <a href='https://www.sbc-conference.com/'>conference site</a>
+
+# ===================== #
+# ======== CGO ======== #
+# ===================== #
+
+- title: CGO (R2)
+  year: 2025
+  id: cgo2025b
+  link: https://2025.cgo.org/
+  deadline: '2024-09-12 23:59:59'
+  timezone: UTC-12
+  place: Las Vegas, Nevada, USA
+  date: March 1-5, 2025
+  start: 2025-03-01
+  end: 2025-03-05
+  sub: MORE
+  note: <a href='https://2025.cgo.org/'>conference site</a>
