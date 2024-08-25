@@ -70,6 +70,32 @@
 # ======================== #
 
 - title: OOPSLA (Round 1)
+  year: 2025
+  id: oopsla2025a
+  link: https://2025.splashcon.org/track/OOPSLA
+  deadline: '2024-10-15 23:59:59'
+  timezone: UTC-12
+  place: TBA
+  date: TBA
+  start: TBA
+  end: TBA
+  sub: ["PL", "SE"]
+  note: <a href='https://2025.splashcon.org/track/OOPSLA'>conference site</a>
+
+- title: OOPSLA (Round 2)
+  year: 2025
+  id: oopsla2025b
+  link: https://2025.splashcon.org/track/OOPSLA
+  deadline: '2025-03-25 23:59:59'
+  timezone: UTC-12
+  place: TBA
+  date: TBA
+  start: TBA
+  end: TBA
+  sub: ["PL", "SE"]
+  note: <a href='https://2025.splashcon.org/track/OOPSLA'>conference site</a>
+
+- title: OOPSLA (Round 1)
   year: 2024
   id: oopsla2024a
   link: https://2024.splashcon.org/track/splash-2024-oopsla
@@ -129,21 +155,6 @@
   end: 2024-11-01
   sub: "SE"
   note: <a href='https://conf.researchr.org/home/ase-2024'>conference site</a>
-
-# TBD
-# - title: ASE
-#   year: 2025
-#   id: ase2025
-#   link: https://conf.researchr.org/home/ase-2025
-#   deadline: '??'
-#   abstract_deadline: '??'
-#   timezone: UTC-12
-#   place: Seoul, South Korea
-#   date: November 16 - November 20, 2025
-#   start: 2025-11-16
-#   end: 2025-11-20
-#   sub: "SE"
-#   note: <a href='https://conf.researchr.org/home/ase-2025'>conference site</a>
 
 # ====================== #
 # ======== FSE ========= #
@@ -340,44 +351,44 @@
   sub: "SECURITY"
   note: <a href='https://www.usenix.org/conference/usenixsecurity25'>conference site</a>
 
-- title: USENIX Security (Summer Cycle)
-  year: 2024
-  id: usenix2024a
-  link: https://www.usenix.org/conference/usenixsecurity24
-  deadline: '2023-06-06 23:59:59'
-  timezone: UTC-12
-  place: Philadelphia, Pennsylvania, USA
-  date: August 14 - 16, 2024
-  start: 2024-08-14
-  end: 2024-08-16
-  sub: "SECURITY"
-  note: <a href='https://www.usenix.org/conference/usenixsecurity24'>conference site</a>
+# - title: USENIX Security (Summer Cycle)
+#   year: 2024
+#   id: usenix2024a
+#   link: https://www.usenix.org/conference/usenixsecurity24
+#   deadline: '2023-06-06 23:59:59'
+#   timezone: UTC-12
+#   place: Philadelphia, Pennsylvania, USA
+#   date: August 14 - 16, 2024
+#   start: 2024-08-14
+#   end: 2024-08-16
+#   sub: "SECURITY"
+#   note: <a href='https://www.usenix.org/conference/usenixsecurity24'>conference site</a>
 
-- title: USENIX Security (Fall Cycle)
-  year: 2024
-  id: usenix2024b
-  link: https://www.usenix.org/conference/usenixsecurity24
-  deadline: '2023-10-17 23:59:59'
-  timezone: UTC-12
-  place: Philadelphia, Pennsylvania, USA
-  date: August 14 - 16, 2024
-  start: 2024-08-14
-  end: 2024-08-16
-  sub: "SECURITY"
-  note: <a href='https://www.usenix.org/conference/usenixsecurity24'>conference site</a>
+# - title: USENIX Security (Fall Cycle)
+#   year: 2024
+#   id: usenix2024b
+#   link: https://www.usenix.org/conference/usenixsecurity24
+#   deadline: '2023-10-17 23:59:59'
+#   timezone: UTC-12
+#   place: Philadelphia, Pennsylvania, USA
+#   date: August 14 - 16, 2024
+#   start: 2024-08-14
+#   end: 2024-08-16
+#   sub: "SECURITY"
+#   note: <a href='https://www.usenix.org/conference/usenixsecurity24'>conference site</a>
 
-- title: USENIX Security (Winter Cycle)
-  year: 2024
-  id: usenix2024c
-  link: https://www.usenix.org/conference/usenixsecurity24
-  deadline: '2024-02-08 23:59:59'
-  timezone: UTC-12
-  place: Philadelphia, Pennsylvania, USA
-  date: August 14 - 16, 2024
-  start: 2024-08-14
-  end: 2024-08-16
-  sub: "SECURITY"
-  note: <a href='https://www.usenix.org/conference/usenixsecurity24'>conference site</a>
+# - title: USENIX Security (Winter Cycle)
+#   year: 2024
+#   id: usenix2024c
+#   link: https://www.usenix.org/conference/usenixsecurity24
+#   deadline: '2024-02-08 23:59:59'
+#   timezone: UTC-12
+#   place: Philadelphia, Pennsylvania, USA
+#   date: August 14 - 16, 2024
+#   start: 2024-08-14
+#   end: 2024-08-16
+#   sub: "SECURITY"
+#   note: <a href='https://www.usenix.org/conference/usenixsecurity24'>conference site</a>
 
 # ====================== #
 # ======== OSDI ======== #
@@ -550,18 +561,18 @@
 # ======== SBC ======== #
 # ===================== #
 
-- title: SBC
-  year: 2024
-  id: sbc2024
-  link: https://www.sbc-conference.com/
-  deadline: '2024-04-16 23:59:59'
-  timezone: UTC-7
-  place: Columbia University, New York, New York, USA
-  date: August 7-9, 2024
-  start: 2024-08-07
-  end: 2024-08-09
-  sub: MORE
-  note: <a href='https://www.sbc-conference.com/'>conference site</a>
+# - title: SBC
+#   year: 2024
+#   id: sbc2024
+#   link: https://www.sbc-conference.com/
+#   deadline: '2024-04-16 23:59:59'
+#   timezone: UTC-7
+#   place: Columbia University, New York, New York, USA
+#   date: August 7-9, 2024
+#   start: 2024-08-07
+#   end: 2024-08-09
+#   sub: MORE
+#   note: <a href='https://www.sbc-conference.com/'>conference site</a>
 
 # ===================== #
 # ======== CGO ======== #
