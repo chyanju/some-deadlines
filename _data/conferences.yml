@@ -2,6 +2,19 @@
 # ======== PLDI ======== #
 # ====================== #
 
+- title: PLDI
+  year: 2025
+  id: pldi25
+  link: https://pldi25.sigplan.org/
+  deadline: '2024-11-14 23:59:59'
+  timezone: UTC-12
+  place: Seoul, South Korea
+  date: June 16-20, 2025
+  start: 2025-06-16
+  end: 2025-06-20
+  sub: PL
+  note: <a href='https://pldi25.sigplan.org/'>conference site</a>
+
 # - title: PLDI
 #   year: 2024
 #   id: pldi24
