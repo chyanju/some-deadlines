@@ -12,7 +12,7 @@
   date: June 16-20, 2025
   start: 2025-06-16
   end: 2025-06-20
-  sub: PL
+  sub: "PL"
   note: <a href='https://pldi25.sigplan.org/'>conference site</a>
 
 # - title: PLDI
@@ -25,7 +25,7 @@
 #   date: June 24-28, 2024
 #   start: 2024-06-24
 #   end: 2024-06-28
-#   sub: PL
+#   sub: "PL"
 #   note: <a href='https://pldi24.sigplan.org/'>conference site</a>
 
 # ====================== #
@@ -43,7 +43,7 @@
   date: April 26 - May 4, 2025
   start: 2025-04-26
   end: 2025-05-04
-  sub: SE
+  sub: "SE"
   note: <a href='https://conf.researchr.org/home/icse-2025'>conference site</a>
 
 - title: ICSE (Second Cycle)
@@ -57,7 +57,7 @@
   date: April 26 - May 4, 2025
   start: 2025-04-26
   end: 2025-05-04
-  sub: SE
+  sub: "SE"
   note: <a href='https://conf.researchr.org/home/icse-2025'>conference site</a>
 
 # ====================== #
@@ -75,7 +75,7 @@
   date: November 4-6, 2024
   start: 2024-11-04
   end: 2024-11-06
-  sub: OS
+  sub: "OS"
   note: <a href='https://sigops.org/s/conferences/sosp/2024/index.html'>conference site</a>
 
 # ======================== #
@@ -448,7 +448,7 @@
   date: June 25 - 28, 2025
   start: 2025-06-25
   end: 2025-06-28
-  sub: MORE
+  sub: "SE"
   note: <a href='https://conf.researchr.org/home/issta-2025'>conference site</a>
 
 - title: ISSTA (Round 1)
@@ -461,7 +461,7 @@
   date: September 16 - 20, 2024
   start: 2024-09-16
   end: 2024-09-20
-  sub: MORE
+  sub: "SE"
   note: <a href='https://2024.issta.org/'>conference site</a>
 
 - title: ISSTA (Round 2)
@@ -474,7 +474,7 @@
   date: September 16 - 20, 2024
   start: 2024-09-16
   end: 2024-09-20
-  sub: MORE
+  sub: "SE"
   note: <a href='https://2024.issta.org/'>conference site</a>
 
 # ======================= #
@@ -491,7 +491,7 @@
   date: September 16 - 20, 2024
   start: 2024-09-16
   end: 2024-09-20
-  sub: MORE
+  sub: "PL"
   note: <a href='https://2024.ecoop.org/'>conference site</a>
 
 - title: ECOOP (Round 2)
@@ -504,7 +504,7 @@
   date: September 16 - 20, 2024
   start: 2024-09-16
   end: 2024-09-20
-  sub: MORE
+  sub: "PL"
   note: <a href='https://2024.ecoop.org/'>conference site</a>
 
 # ====================== #
@@ -521,7 +521,7 @@
   date: September 2 - 7, 2024
   start: 2024-09-02
   end: 2024-09-07
-  sub: MORE
+  sub: "PL"
   note: <a href='https://icfp24.sigplan.org/'>conference site</a>
 
 # ======================== #
@@ -539,7 +539,7 @@
   date: March 30 - April 3, 2025
   start: 2025-03-30
   end: 2025-04-03
-  sub: MORE
+  sub: ["OS","PL"]
   note: <a href='https://www.asplos-conference.org/asplos2025/'>conference site</a>
 
 - title: ASPLOS (Summer Cycle)
@@ -553,7 +553,7 @@
   date: March 30 - April 3, 2025
   start: 2025-03-30
   end: 2025-04-03
-  sub: MORE
+  sub: ["OS","PL"]
   note: <a href='https://www.asplos-conference.org/asplos2025/'>conference site</a>
 
 - title: ASPLOS (Fall Cycle)
@@ -567,7 +567,7 @@
   date: March 30 - April 3, 2025
   start: 2025-03-30
   end: 2025-04-03
-  sub: MORE
+  sub: ["OS","PL"]
   note: <a href='https://www.asplos-conference.org/asplos2025/'>conference site</a>
 
 # ===================== #
@@ -584,7 +584,7 @@
 #   date: August 7-9, 2024
 #   start: 2024-08-07
 #   end: 2024-08-09
-#   sub: MORE
+#   sub: "MORE"
 #   note: <a href='https://www.sbc-conference.com/'>conference site</a>
 
 # ===================== #
@@ -601,7 +601,7 @@
   date: March 1-5, 2025
   start: 2025-03-01
   end: 2025-03-05
-  sub: MORE
+  sub: "MORE"
   note: <a href='https://2025.cgo.org/'>conference site</a>
 
 # ========================= #
@@ -619,7 +619,7 @@
   date: March 30 - April 3, 2025
   start: 2025-03-30
   end: 2025-04-03
-  sub: MORE
+  sub: "OS"
   note: <a href='https://2025.eurosys.org//'>conference site</a>
 
 - title: EuroSys (Fall)
@@ -633,5 +633,5 @@
   date: March 30 - April 3, 2025
   start: 2025-03-30
   end: 2025-04-03
-  sub: MORE
+  sub: "OS"
   note: <a href='https://2025.eurosys.org//'>conference site</a>
