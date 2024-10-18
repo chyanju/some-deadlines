@@ -252,31 +252,57 @@
 # ======== CCS ======== #
 # ===================== #
 
-- title: CCS (First Cycle)
-  year: 2024
-  id: ccs2024a
-  link: https://www.sigsac.org/ccs/CCS2024/home.html
-  deadline: '2024-01-28 23:59:59'
+- title: CCS (First Review Cycle)
+  year: 2025
+  id: ccs2025a
+  link: https://www.sigsac.org/ccs/CCS2025/
+  deadline: '2025-01-09 23:59:59'
   timezone: UTC-12
-  place: Salt Lake City, Utah, USA
-  date: October 14 - 18, 2024
-  start: 2024-10-14
-  end: 2024-10-18
+  place: Taipei, Taiwan
+  date: October 13 - 17, 2025
+  start: 2025-10-13
+  end: 2025-10-17
   sub: "SECURITY"
-  note: <a href='https://www.sigsac.org/ccs/CCS2024/home.html'>conference site</a>
+  note: <a href='https://www.sigsac.org/ccs/CCS2025/'>conference site</a>
 
-- title: CCS (Second Cycle)
-  year: 2024
-  id: ccs2024b
-  link: https://www.sigsac.org/ccs/CCS2024/home.html
-  deadline: '2024-04-29 23:59:59'
+- title: CCS (Second Review Cycle)
+  year: 2025
+  id: ccs2025b
+  link: https://www.sigsac.org/ccs/CCS2025/
+  deadline: '2025-04-14 23:59:59'
   timezone: UTC-12
-  place: Salt Lake City, Utah, USA
-  date: October 14 - 18, 2024
-  start: 2024-10-14
-  end: 2024-10-18
+  place: Taipei, Taiwan
+  date: October 13 - 17, 2025
+  start: 2025-10-13
+  end: 2025-10-17
   sub: "SECURITY"
-  note: <a href='https://www.sigsac.org/ccs/CCS2024/home.html'>conference site</a>
+  note: <a href='https://www.sigsac.org/ccs/CCS2025/'>conference site</a>
+
+# - title: CCS (First Cycle)
+#   year: 2024
+#   id: ccs2024a
+#   link: https://www.sigsac.org/ccs/CCS2024/home.html
+#   deadline: '2024-01-28 23:59:59'
+#   timezone: UTC-12
+#   place: Salt Lake City, Utah, USA
+#   date: October 14 - 18, 2024
+#   start: 2024-10-14
+#   end: 2024-10-18
+#   sub: "SECURITY"
+#   note: <a href='https://www.sigsac.org/ccs/CCS2024/home.html'>conference site</a>
+
+# - title: CCS (Second Cycle)
+#   year: 2024
+#   id: ccs2024b
+#   link: https://www.sigsac.org/ccs/CCS2024/home.html
+#   deadline: '2024-04-29 23:59:59'
+#   timezone: UTC-12
+#   place: Salt Lake City, Utah, USA
+#   date: October 14 - 18, 2024
+#   start: 2024-10-14
+#   end: 2024-10-18
+#   sub: "SECURITY"
+#   note: <a href='https://www.sigsac.org/ccs/CCS2024/home.html'>conference site</a>
 
 # ====================== #
 # ======== NDSS ======== #
