@@ -64,19 +64,19 @@
 # ======== SOSP ======== #
 # ====================== #
 
-- title: SOSP
-  year: 2024
-  id: sosp2024
-  link: https://sigops.org/s/conferences/sosp/2024/index.html
-  deadline: '2024-04-19 23:59:00'
-  abstract_deadline: '2024-04-12 23:59:59'
-  timezone: UTC-7
-  place: Austin, Texas, USA
-  date: November 4-6, 2024
-  start: 2024-11-04
-  end: 2024-11-06
-  sub: "OS"
-  note: <a href='https://sigops.org/s/conferences/sosp/2024/index.html'>conference site</a>
+# - title: SOSP
+#   year: 2024
+#   id: sosp2024
+#   link: https://sigops.org/s/conferences/sosp/2024/index.html
+#   deadline: '2024-04-19 23:59:00'
+#   abstract_deadline: '2024-04-12 23:59:59'
+#   timezone: UTC-7
+#   place: Austin, Texas, USA
+#   date: November 4-6, 2024
+#   start: 2024-11-04
+#   end: 2024-11-06
+#   sub: "OS"
+#   note: <a href='https://sigops.org/s/conferences/sosp/2024/index.html'>conference site</a>
 
 # ======================== #
 # ======== OOPSLA ======== #
@@ -88,7 +88,7 @@
   link: https://2025.splashcon.org/track/OOPSLA
   deadline: '2024-10-15 23:59:59'
   timezone: UTC-12
-  place: Singapore
+  place: Singapore, Singapore
   date: October 12-18, 2025
   start: 2025-10-12
   end: 2025-10-18
@@ -101,42 +101,55 @@
   link: https://2025.splashcon.org/track/OOPSLA
   deadline: '2025-03-25 23:59:59'
   timezone: UTC-12
-  place: Singapore
+  place: Singapore, Singapore
   date: October 12-18, 2025
   start: 2025-10-12
   end: 2025-10-18
   sub: ["PL", "SE"]
   note: <a href='https://2025.splashcon.org/track/OOPSLA'>conference site</a>
 
-- title: OOPSLA (Round 1)
-  year: 2024
-  id: oopsla2024a
-  link: https://2024.splashcon.org/track/splash-2024-oopsla
-  deadline: '2023-10-20 23:59:59'
-  timezone: UTC-12
-  place: Pasadena, California, USA
-  date: October 20-25, 2024
-  start: 2024-10-20
-  end: 2024-10-25
-  sub: ["PL", "SE"]
-  note: <a href='https://2024.splashcon.org/track/splash-2024-oopsla'>conference site</a>
+# - title: OOPSLA (Round 1)
+#   year: 2024
+#   id: oopsla2024a
+#   link: https://2024.splashcon.org/track/splash-2024-oopsla
+#   deadline: '2023-10-20 23:59:59'
+#   timezone: UTC-12
+#   place: Pasadena, California, USA
+#   date: October 20-25, 2024
+#   start: 2024-10-20
+#   end: 2024-10-25
+#   sub: ["PL", "SE"]
+#   note: <a href='https://2024.splashcon.org/track/splash-2024-oopsla'>conference site</a>
 
-- title: OOPSLA (Round 2)
-  year: 2024
-  id: oopsla2024b
-  link: https://2024.splashcon.org/track/splash-2024-oopsla
-  deadline: '2024-04-05 23:59:59'
-  timezone: UTC-12
-  place: Pasadena, California, USA
-  date: October 20-25, 2024
-  start: 2024-10-20
-  end: 2024-10-25
-  sub: ["PL", "SE"]
-  note: <a href='https://2024.splashcon.org/track/splash-2024-oopsla'>conference site</a>
+# - title: OOPSLA (Round 2)
+#   year: 2024
+#   id: oopsla2024b
+#   link: https://2024.splashcon.org/track/splash-2024-oopsla
+#   deadline: '2024-04-05 23:59:59'
+#   timezone: UTC-12
+#   place: Pasadena, California, USA
+#   date: October 20-25, 2024
+#   start: 2024-10-20
+#   end: 2024-10-25
+#   sub: ["PL", "SE"]
+#   note: <a href='https://2024.splashcon.org/track/splash-2024-oopsla'>conference site</a>
 
 # ===================== #
 # ======== CAV ======== #
 # ===================== #
+
+- title: CAV
+  year: 2025
+  id: cav2025
+  link: https://conferences.i-cav.org/2025/
+  deadline: '2025-01-31 23:59:59'
+  timezone: UTC-12
+  place: Zagreb, Croatia
+  date: July 21-25, 2025
+  start: 2025-07-21
+  end: 2025-07-25
+  sub: "PL"
+  note: <a href='https://conferences.i-cav.org/2025/'>conference site</a>
 
 # - title: CAV
 #   year: 2024
@@ -155,19 +168,19 @@
 # ======== ASE ======== #
 # ===================== #
 
-- title: ASE
-  year: 2024
-  id: ase2024
-  link: https://conf.researchr.org/home/ase-2024
-  deadline: '2024-06-07 23:59:59'
-  abstract_deadline: '2024-05-31 23:59:59'
-  timezone: UTC-12
-  place: Sacramento, California, USA
-  date: October 27 - November 1, 2024
-  start: 2024-10-27
-  end: 2024-11-01
-  sub: "SE"
-  note: <a href='https://conf.researchr.org/home/ase-2024'>conference site</a>
+# - title: ASE
+#   year: 2024
+#   id: ase2024
+#   link: https://conf.researchr.org/home/ase-2024
+#   deadline: '2024-06-07 23:59:59'
+#   abstract_deadline: '2024-05-31 23:59:59'
+#   timezone: UTC-12
+#   place: Sacramento, California, USA
+#   date: October 27 - November 1, 2024
+#   start: 2024-10-27
+#   end: 2024-11-01
+#   sub: "SE"
+#   note: <a href='https://conf.researchr.org/home/ase-2024'>conference site</a>
 
 # ====================== #
 # ======== FSE ========= #
@@ -507,6 +520,32 @@
 # ======== ECOOP ======== #
 # ======================= #
 
+- title: ECOOP (Round 1)
+  year: 2025
+  id: ecoop2025a
+  link: https://2025.ecoop.org/
+  deadline: '2025-01-06 23:59:59'
+  timezone: UTC-12
+  place: Bergen, Norway
+  date: June 30 - July 4, 2025
+  start: 2025-06-30
+  end: 2025-07-04
+  sub: "PL"
+  note: <a href='https://2025.ecoop.org/'>conference site</a>
+
+- title: ECOOP (Round 2)
+  year: 2025
+  id: ecoop2025b
+  link: https://2025.ecoop.org/
+  deadline: '2025-03-05 23:59:59'
+  timezone: UTC-12
+  place: Bergen, Norway
+  date: June 30 - July 4, 2025
+  start: 2025-06-30
+  end: 2025-07-04
+  sub: "PL"
+  note: <a href='https://2025.ecoop.org/'>conference site</a>
+
 # - title: ECOOP (Round 1)
 #   year: 2024
 #   id: ecoop2024a
@@ -536,6 +575,19 @@
 # ====================== #
 # ======== ICFP ======== #
 # ====================== #
+
+- title: ICFP
+  year: 2025
+  id: icfp2025
+  link: https://icfp25.sigplan.org/
+  deadline: '2025-02-27 23:59:59'
+  timezone: UTC-12
+  place: Singapore, Singapore
+  date: October 12 - 18, 2025
+  start: 2025-10-12
+  end: 2025-10-18
+  sub: "PL"
+  note: <a href='https://icfp25.sigplan.org/'>conference site</a>
 
 # - title: ICFP
 #   year: 2024
@@ -612,23 +664,6 @@
 #   end: 2024-08-09
 #   sub: "MORE"
 #   note: <a href='https://www.sbc-conference.com/'>conference site</a>
-
-# ===================== #
-# ======== CGO ======== #
-# ===================== #
-
-- title: CGO (R2)
-  year: 2025
-  id: cgo2025b
-  link: https://2025.cgo.org/
-  deadline: '2024-09-12 23:59:59'
-  timezone: UTC-12
-  place: Las Vegas, Nevada, USA
-  date: March 1-5, 2025
-  start: 2025-03-01
-  end: 2025-03-05
-  sub: "MORE"
-  note: <a href='https://2025.cgo.org/'>conference site</a>
 
 # ========================= #
 # ======== EuroSys ======== #
