@@ -168,6 +168,19 @@
 # ======== ASE ======== #
 # ===================== #
 
+- title: ASE
+  year: 2025
+  id: ase2025
+  link: https://conf.researchr.org/home/ase-2025
+  deadline: '2025-05-30 23:59:59'
+  timezone: UTC-12
+  place: Seoul, South Korea
+  date: November 16 - 20, 2025
+  start: 2025-11-16
+  end: 2025-11-20
+  sub: "SE"
+  note: <a href='https://conf.researchr.org/home/ase-2025'>conference site</a>
+
 # - title: ASE
 #   year: 2024
 #   id: ase2024
