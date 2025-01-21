@@ -33,6 +33,34 @@
 # ====================== #
 
 - title: ICSE (First Cycle)
+  year: 2026
+  id: icse2026a
+  link: https://conf.researchr.org/home/icse-2026
+  deadline: '2025-03-14 23:59:59'
+  abstract_deadline: '2025-03-07 23:59:59'
+  timezone: UTC-12
+  place: Rio de Janeiro, Brazil
+  date: April 12 - April 18, 2026
+  start: 2026-04-12
+  end: 2026-04-18
+  sub: "SE"
+  note: <a href='https://conf.researchr.org/home/icse-2026'>conference site</a>
+
+- title: ICSE (Second Cycle)
+  year: 2026
+  id: icse2026b
+  link: https://conf.researchr.org/home/icse-2026
+  deadline: '2025-07-18 23:59:59'
+  abstract_deadline: '2025-07-11 23:59:59'
+  timezone: UTC-12
+  place: Rio de Janeiro, Brazil
+  date: April 12 - April 18, 2026
+  start: 2026-04-12
+  end: 2026-04-18
+  sub: "SE"
+  note: <a href='https://conf.researchr.org/home/icse-2026'>conference site</a>
+
+- title: ICSE (First Cycle)
   year: 2025
   id: icse2025a
   link: https://conf.researchr.org/home/icse-2025
@@ -63,6 +91,20 @@
 # ====================== #
 # ======== SOSP ======== #
 # ====================== #
+
+- title: SOSP
+  year: 2025
+  id: sosp2025
+  link: https://sigops.org/s/conferences/sosp/2025/index.html
+  deadline: '2025-04-17 23:59:00'
+  abstract_deadline: '2025-04-10 23:59:00'
+  timezone: UTC-7
+  place: Seoul, Republic of Korea
+  date: October 13-16, 2025
+  start: 2025-10-13
+  end: 2025-10-16
+  sub: "OS"
+  note: <a href='https://sigops.org/s/conferences/sosp/2025/index.html'>conference site</a>
 
 # - title: SOSP
 #   year: 2024
@@ -247,6 +289,32 @@
 # ===================== #
 # ======== S&P ======== #
 # ===================== #
+
+- title: S&P (First Deadline)
+  year: 2026
+  id: sp2026a
+  link: https://www.ieee-security.org/TC/SP2026/index.html
+  deadline: '2025-06-05 23:59:59'
+  timezone: UTC-12
+  place: TBD, California, USA
+  date: May TBA - TBA, 2026
+  start: 2025-00-10
+  end: 2025-00-00
+  sub: "SECURITY"
+  note: <a href='https://www.ieee-security.org/TC/SP2026/index.html'>conference site</a>
+
+- title: S&P (Second Deadline)
+  year: 2026
+  id: sp2026b
+  link: https://www.ieee-security.org/TC/SP2026/index.html
+  deadline: '2025-11-13 23:59:59'
+  timezone: UTC-12
+  place: TBD, California, USA
+  date: May TBA - TBA, 2026
+  start: 2025-00-10
+  end: 2025-00-00
+  sub: "SECURITY"
+  note: <a href='https://www.ieee-security.org/TC/SP2026/index.html'>conference site</a>
 
 - title: S&P (First Round)
   year: 2025
