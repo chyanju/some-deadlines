@@ -274,17 +274,30 @@
 # ====================== #
 
 - title: POPL
-  year: 2025
-  id: popl2025
-  link: https://conf.researchr.org/home/POPL-2025
-  deadline: '2024-07-11 23:59:59'
+  year: 2026
+  id: popl2026
+  link: https://conf.researchr.org/home/POPL-2026
+  deadline: '2025-07-10 23:59:59'
   timezone: UTC-12
-  place: Denver, Colorado, USA
-  date: Jan 19 - 25, 2025
-  start: 2025-01-19
-  end: 2025-01-25
+  place: Rennes, France
+  date: January 11 - 17, 2026
+  start: 2026-01-11
+  end: 2026-01-17
   sub: "PL"
-  note: <a href='https://conf.researchr.org/home/POPL-2025'>conference site</a>
+  note: <a href='https://conf.researchr.org/home/POPL-2026'>conference site</a>
+
+# - title: POPL
+#   year: 2025
+#   id: popl2025
+#   link: https://conf.researchr.org/home/POPL-2025
+#   deadline: '2024-07-11 23:59:59'
+#   timezone: UTC-12
+#   place: Denver, Colorado, USA
+#   date: Jan 19 - 25, 2025
+#   start: 2025-01-19
+#   end: 2025-01-25
+#   sub: "PL"
+#   note: <a href='https://conf.researchr.org/home/POPL-2025'>conference site</a>
 
 # ===================== #
 # ======== S&P ======== #
