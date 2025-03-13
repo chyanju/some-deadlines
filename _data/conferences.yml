@@ -309,7 +309,7 @@
   link: https://www.ieee-security.org/TC/SP2026/index.html
   deadline: '2025-06-05 23:59:59'
   timezone: UTC-12
-  place: TBD, California, USA
+  place: San Francisco, California, USA
   date: May TBA - TBA, 2026
   start: 2025-00-10
   end: 2025-00-00
@@ -322,7 +322,7 @@
   link: https://www.ieee-security.org/TC/SP2026/index.html
   deadline: '2025-11-13 23:59:59'
   timezone: UTC-12
-  place: TBD, California, USA
+  place: San Francisco, California, USA
   date: May TBA - TBA, 2026
   start: 2025-00-10
   end: 2025-00-00
@@ -759,9 +759,50 @@
 #   sub: "MORE"
 #   note: <a href='https://www.sbc-conference.com/'>conference site</a>
 
+- title: SBC
+  year: 2025
+  id: sbc2025
+  link: https://www.sbc-conference.com/2025/
+  deadline: '2025-03-13 23:59:59'
+  timezone: UTC-7
+  place: U.C. Berkeley, CA, USA
+  date: August 4-6, 2024
+  start: 2025-08-04
+  end: 2025-08-06
+  sub: "MORE"
+  note: <a href='https://www.sbc-conference.com/2025/'>conference site</a>
+
 # ========================= #
 # ======== EuroSys ======== #
 # ========================= #
+
+- title: EuroSys (Spring)
+  year: 2026
+  id: eurosys2026a
+  link: https://2026.eurosys.org/
+  deadline: '2025-05-15 23:59:59'
+  abstract_deadline: '2025-05-08 23:59:59'
+  timezone: UTC-12
+  place: Edinburgh, UK
+  date: April 13 - April 16, 2026
+  start: 2026-04-13
+  end: 2026-04-16
+  sub: "OS"
+  note: <a href='https://2026.eurosys.org//'>conference site</a>
+
+- title: EuroSys (Fall)
+  year: 2026
+  id: eurosys2026b
+  link: https://2026.eurosys.org/
+  deadline: '2025-09-25 23:59:59'
+  abstract_deadline: '2025-09-18 23:59:59'
+  timezone: UTC-12
+  place: Edinburgh, UK
+  date: April 13 - April 16, 2026
+  start: 2026-04-13
+  end: 2026-04-16
+  sub: "OS"
+  note: <a href='https://2026.eurosys.org//'>conference site</a>
 
 - title: EuroSys (Spring)
   year: 2025
