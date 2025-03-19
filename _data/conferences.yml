@@ -134,7 +134,7 @@
   date: October 12-18, 2025
   start: 2025-10-12
   end: 2025-10-18
-  sub: ["PL", "SE"]
+  sub: ["PL"]
   note: <a href='https://2025.splashcon.org/track/OOPSLA'>conference site</a>
 
 - title: OOPSLA (Round 2)
@@ -147,7 +147,7 @@
   date: October 12-18, 2025
   start: 2025-10-12
   end: 2025-10-18
-  sub: ["PL", "SE"]
+  sub: ["PL"]
   note: <a href='https://2025.splashcon.org/track/OOPSLA'>conference site</a>
 
 # - title: OOPSLA (Round 1)
@@ -160,7 +160,7 @@
 #   date: October 20-25, 2024
 #   start: 2024-10-20
 #   end: 2024-10-25
-#   sub: ["PL", "SE"]
+#   sub: ["PL"]
 #   note: <a href='https://2024.splashcon.org/track/splash-2024-oopsla'>conference site</a>
 
 # - title: OOPSLA (Round 2)
@@ -173,7 +173,7 @@
 #   date: October 20-25, 2024
 #   start: 2024-10-20
 #   end: 2024-10-25
-#   sub: ["PL", "SE"]
+#   sub: ["PL"]
 #   note: <a href='https://2024.splashcon.org/track/splash-2024-oopsla'>conference site</a>
 
 # ===================== #
