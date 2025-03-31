@@ -310,7 +310,7 @@
   deadline: '2025-06-05 23:59:59'
   timezone: UTC-12
   place: San Francisco, California, USA
-  date: May TBA - TBA, 2026
+  date: May 18 - 21, 2026
   start: 2025-00-10
   end: 2025-00-00
   sub: "SECURITY"
@@ -323,7 +323,7 @@
   deadline: '2025-11-13 23:59:59'
   timezone: UTC-12
   place: San Francisco, California, USA
-  date: May TBA - TBA, 2026
+  date: May 18 - 21, 2026
   start: 2025-00-10
   end: 2025-00-00
   sub: "SECURITY"
@@ -363,6 +363,7 @@
   year: 2025
   id: ccs2025a
   link: https://www.sigsac.org/ccs/CCS2025/
+  abstract_deadline: '2025-01-02 23:59:59'
   deadline: '2025-01-09 23:59:59'
   timezone: UTC-12
   place: Taipei, Taiwan
@@ -376,6 +377,7 @@
   year: 2025
   id: ccs2025b
   link: https://www.sigsac.org/ccs/CCS2025/
+  abstract_deadline: '2025-04-07 23:59:59'
   deadline: '2025-04-14 23:59:59'
   timezone: UTC-12
   place: Taipei, Taiwan
@@ -416,30 +418,58 @@
 # ====================== #
 
 - title: NDSS (Summer Cycle)
-  year: 2025
-  id: ndss2025a
-  link: https://www.ndss-symposium.org/ndss2025/
-  deadline: '2024-04-17 23:59:59'
+  year: 2026
+  id: ndss2026a
+  link: https://www.ndss-symposium.org/ndss2026
+  deadline: '2025-04-23 23:59:59'
+  abstract_deadline: '2025-04-16 23:59:59'
   timezone: UTC-12
   place: San Diego, California, USA
-  date: February 23 - 28, 2025
-  start: 2025-02-23
-  end: 2025-02-28
+  date: February 23 - 27, 2026
+  start: 2026-02-23
+  end: 2026-02-27
   sub: "SECURITY"
-  note: <a href='https://www.ndss-symposium.org/ndss2025/'>conference site</a>
+  note: <a href='https://www.ndss-symposium.org/ndss2026'>conference site</a>
 
 - title: NDSS (Fall Cycle)
-  year: 2025
-  id: ndss2025b
-  link: https://www.ndss-symposium.org/ndss2025/
-  deadline: '2024-07-10 23:59:59'
+  year: 2026
+  id: ndss2026b
+  link: https://www.ndss-symposium.org/ndss2026
+  deadline: '2025-08-06 23:59:59'
+  abstract_deadline: '2025-07-30 23:59:59'
   timezone: UTC-12
   place: San Diego, California, USA
-  date: February 23 - 28, 2025
-  start: 2025-02-23
-  end: 2025-02-28
+  date: February 23 - 27, 2026
+  start: 2026-02-23
+  end: 2026-02-27
   sub: "SECURITY"
-  note: <a href='https://www.ndss-symposium.org/ndss2025/'>conference site</a>
+  note: <a href='https://www.ndss-symposium.org/ndss2026'>conference site</a>
+
+# - title: NDSS (Summer Cycle)
+#   year: 2025
+#   id: ndss2025a
+#   link: https://www.ndss-symposium.org/ndss2025/
+#   deadline: '2024-04-17 23:59:59'
+#   timezone: UTC-12
+#   place: San Diego, California, USA
+#   date: February 23 - 28, 2025
+#   start: 2025-02-23
+#   end: 2025-02-28
+#   sub: "SECURITY"
+#   note: <a href='https://www.ndss-symposium.org/ndss2025/'>conference site</a>
+
+# - title: NDSS (Fall Cycle)
+#   year: 2025
+#   id: ndss2025b
+#   link: https://www.ndss-symposium.org/ndss2025/
+#   deadline: '2024-07-10 23:59:59'
+#   timezone: UTC-12
+#   place: San Diego, California, USA
+#   date: February 23 - 28, 2025
+#   start: 2025-02-23
+#   end: 2025-02-28
+#   sub: "SECURITY"
+#   note: <a href='https://www.ndss-symposium.org/ndss2025/'>conference site</a>
 
 # - title: NDSS (Summer Cycle)
 #   year: 2024
@@ -700,47 +730,47 @@
 # ======== ASPLOS ======== #
 # ======================== #
 
-- title: ASPLOS (Spring Cycle)
-  year: 2025
-  id: asplos2025a
-  link: https://www.asplos-conference.org/asplos2025/
-  deadline: '2024-03-01 23:59:59'
-  abstract_deadline: '2024-02-23 23:59:59'
-  timezone: UTC-12
-  place: Rotterdam, The Netherlands
-  date: March 30 - April 3, 2025
-  start: 2025-03-30
-  end: 2025-04-03
-  sub: ["OS","PL"]
-  note: <a href='https://www.asplos-conference.org/asplos2025/'>conference site</a>
+# - title: ASPLOS (Spring Cycle)
+#   year: 2025
+#   id: asplos2025a
+#   link: https://www.asplos-conference.org/asplos2025/
+#   deadline: '2024-03-01 23:59:59'
+#   abstract_deadline: '2024-02-23 23:59:59'
+#   timezone: UTC-12
+#   place: Rotterdam, The Netherlands
+#   date: March 30 - April 3, 2025
+#   start: 2025-03-30
+#   end: 2025-04-03
+#   sub: ["OS","PL"]
+#   note: <a href='https://www.asplos-conference.org/asplos2025/'>conference site</a>
 
-- title: ASPLOS (Summer Cycle)
-  year: 2025
-  id: asplos2025b
-  link: https://www.asplos-conference.org/asplos2025/
-  deadline: '2024-06-24 23:59:59'
-  abstract_deadline: '2024-06-17 23:59:59'
-  timezone: UTC-12
-  place: Rotterdam, The Netherlands
-  date: March 30 - April 3, 2025
-  start: 2025-03-30
-  end: 2025-04-03
-  sub: ["OS","PL"]
-  note: <a href='https://www.asplos-conference.org/asplos2025/'>conference site</a>
+# - title: ASPLOS (Summer Cycle)
+#   year: 2025
+#   id: asplos2025b
+#   link: https://www.asplos-conference.org/asplos2025/
+#   deadline: '2024-06-24 23:59:59'
+#   abstract_deadline: '2024-06-17 23:59:59'
+#   timezone: UTC-12
+#   place: Rotterdam, The Netherlands
+#   date: March 30 - April 3, 2025
+#   start: 2025-03-30
+#   end: 2025-04-03
+#   sub: ["OS","PL"]
+#   note: <a href='https://www.asplos-conference.org/asplos2025/'>conference site</a>
 
-- title: ASPLOS (Fall Cycle)
-  year: 2025
-  id: asplos2025c
-  link: https://www.asplos-conference.org/asplos2025/
-  deadline: '2024-10-18 23:59:59'
-  abstract_deadline: '2024-10-11 23:59:59'
-  timezone: UTC-12
-  place: Rotterdam, The Netherlands
-  date: March 30 - April 3, 2025
-  start: 2025-03-30
-  end: 2025-04-03
-  sub: ["OS","PL"]
-  note: <a href='https://www.asplos-conference.org/asplos2025/'>conference site</a>
+# - title: ASPLOS (Fall Cycle)
+#   year: 2025
+#   id: asplos2025c
+#   link: https://www.asplos-conference.org/asplos2025/
+#   deadline: '2024-10-18 23:59:59'
+#   abstract_deadline: '2024-10-11 23:59:59'
+#   timezone: UTC-12
+#   place: Rotterdam, The Netherlands
+#   date: March 30 - April 3, 2025
+#   start: 2025-03-30
+#   end: 2025-04-03
+#   sub: ["OS","PL"]
+#   note: <a href='https://www.asplos-conference.org/asplos2025/'>conference site</a>
 
 # ===================== #
 # ======== SBC ======== #
@@ -776,58 +806,58 @@
 # ======== EuroSys ======== #
 # ========================= #
 
-- title: EuroSys (Spring)
-  year: 2026
-  id: eurosys2026a
-  link: https://2026.eurosys.org/
-  deadline: '2025-05-15 23:59:59'
-  abstract_deadline: '2025-05-08 23:59:59'
-  timezone: UTC-12
-  place: Edinburgh, UK
-  date: April 13 - April 16, 2026
-  start: 2026-04-13
-  end: 2026-04-16
-  sub: "OS"
-  note: <a href='https://2026.eurosys.org//'>conference site</a>
+# - title: EuroSys (Spring)
+#   year: 2026
+#   id: eurosys2026a
+#   link: https://2026.eurosys.org/
+#   deadline: '2025-05-15 23:59:59'
+#   abstract_deadline: '2025-05-08 23:59:59'
+#   timezone: UTC-12
+#   place: Edinburgh, UK
+#   date: April 13 - April 16, 2026
+#   start: 2026-04-13
+#   end: 2026-04-16
+#   sub: "OS"
+#   note: <a href='https://2026.eurosys.org//'>conference site</a>
 
-- title: EuroSys (Fall)
-  year: 2026
-  id: eurosys2026b
-  link: https://2026.eurosys.org/
-  deadline: '2025-09-25 23:59:59'
-  abstract_deadline: '2025-09-18 23:59:59'
-  timezone: UTC-12
-  place: Edinburgh, UK
-  date: April 13 - April 16, 2026
-  start: 2026-04-13
-  end: 2026-04-16
-  sub: "OS"
-  note: <a href='https://2026.eurosys.org//'>conference site</a>
+# - title: EuroSys (Fall)
+#   year: 2026
+#   id: eurosys2026b
+#   link: https://2026.eurosys.org/
+#   deadline: '2025-09-25 23:59:59'
+#   abstract_deadline: '2025-09-18 23:59:59'
+#   timezone: UTC-12
+#   place: Edinburgh, UK
+#   date: April 13 - April 16, 2026
+#   start: 2026-04-13
+#   end: 2026-04-16
+#   sub: "OS"
+#   note: <a href='https://2026.eurosys.org//'>conference site</a>
 
-- title: EuroSys (Spring)
-  year: 2025
-  id: eurosys2025a
-  link: https://2025.eurosys.org/
-  deadline: '2024-05-21 23:59:59'
-  abstract_deadline: '2024-05-14 23:59:59'
-  timezone: UTC-12
-  place: Rotterdam, The Netherlands
-  date: March 30 - April 3, 2025
-  start: 2025-03-30
-  end: 2025-04-03
-  sub: "OS"
-  note: <a href='https://2025.eurosys.org//'>conference site</a>
+# - title: EuroSys (Spring)
+#   year: 2025
+#   id: eurosys2025a
+#   link: https://2025.eurosys.org/
+#   deadline: '2024-05-21 23:59:59'
+#   abstract_deadline: '2024-05-14 23:59:59'
+#   timezone: UTC-12
+#   place: Rotterdam, The Netherlands
+#   date: March 30 - April 3, 2025
+#   start: 2025-03-30
+#   end: 2025-04-03
+#   sub: "OS"
+#   note: <a href='https://2025.eurosys.org//'>conference site</a>
 
-- title: EuroSys (Fall)
-  year: 2025
-  id: eurosys2025b
-  link: https://2025.eurosys.org/
-  deadline: '2024-10-22 23:59:59'
-  abstract_deadline: '2024-10-15 23:59:59'
-  timezone: UTC-12
-  place: Rotterdam, The Netherlands
-  date: March 30 - April 3, 2025
-  start: 2025-03-30
-  end: 2025-04-03
-  sub: "OS"
-  note: <a href='https://2025.eurosys.org//'>conference site</a>
+# - title: EuroSys (Fall)
+#   year: 2025
+#   id: eurosys2025b
+#   link: https://2025.eurosys.org/
+#   deadline: '2024-10-22 23:59:59'
+#   abstract_deadline: '2024-10-15 23:59:59'
+#   timezone: UTC-12
+#   place: Rotterdam, The Netherlands
+#   date: March 30 - April 3, 2025
+#   start: 2025-03-30
+#   end: 2025-04-03
+#   sub: "OS"
+#   note: <a href='https://2025.eurosys.org//'>conference site</a>
