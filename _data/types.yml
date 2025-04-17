@@ -11,6 +11,9 @@
 - name: Operating Systems
   sub: OS
   color: "#bdb5e1"
+- name: Computer Architecture
+  sub: ARCH
+  color: "#bad077"
 - name: More
   sub: MORE
   color: "#f7df87"

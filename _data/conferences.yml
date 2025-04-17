@@ -502,6 +502,32 @@
 # ======================== #
 
 - title: USENIX Security (Cycle 1)
+  year: 2026
+  id: usenix2026a
+  link: https://www.usenix.org/conference/usenixsecurity26
+  deadline: '2025-08-26 23:59:59'
+  timezone: UTC-12
+  place: Baltimore, MD, USA
+  date: August 12 - 14, 2026
+  start: 2026-08-12
+  end: 2026-08-14
+  sub: "SECURITY"
+  note: <a href='https://www.usenix.org/conference/usenixsecurity26'>conference site</a>
+
+- title: USENIX Security (Cycle 2)
+  year: 2026
+  id: usenix2026b
+  link: https://www.usenix.org/conference/usenixsecurity26
+  deadline: '2026-02-05 23:59:59'
+  timezone: UTC-12
+  place: Baltimore, MD, USA
+  date: August 12 - 14, 2026
+  start: 2026-08-12
+  end: 2026-08-14
+  sub: "SECURITY"
+  note: <a href='https://www.usenix.org/conference/usenixsecurity26'>conference site</a>
+
+- title: USENIX Security (Cycle 1)
   year: 2025
   id: usenix2025a
   link: https://www.usenix.org/conference/usenixsecurity25
@@ -729,6 +755,34 @@
 # ======================== #
 # ======== ASPLOS ======== #
 # ======================== #
+
+- title: ASPLOS (Spring Cycle)
+  year: 2026
+  id: asplos2026a
+  link: https://www.asplos-conference.org/asplos2026/
+  abstract_deadline: '2025-03-05 23:59:59'
+  deadline: '2025-03-12 23:59:59'
+  timezone: UTC-5
+  place: Pittsburgh, PA, USA
+  date: March 30 - April 3, 2025
+  start: 2026-03-30
+  end: 2026-04-03
+  sub: ["ARCH"]
+  note: <a href='https://www.asplos-conference.org/asplos2026/'>conference site</a>
+
+- title: ASPLOS (Summer Cycle)
+  year: 2026
+  id: asplos2026b
+  link: https://www.asplos-conference.org/asplos2026/
+  abstract_deadline: '2025-08-13 23:59:59'
+  deadline: '2025-08-20 23:59:59'
+  timezone: UTC-5
+  place: Pittsburgh, PA, USA
+  date: March 30 - April 3, 2025
+  start: 2026-03-30
+  end: 2026-04-03
+  sub: ["ARCH"]
+  note: <a href='https://www.asplos-conference.org/asplos2026/'>conference site</a>
 
 # - title: ASPLOS (Spring Cycle)
 #   year: 2025
