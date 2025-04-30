@@ -60,33 +60,33 @@
   sub: "SE"
   note: <a href='https://conf.researchr.org/home/icse-2026'>conference site</a>
 
-- title: ICSE (First Cycle)
-  year: 2025
-  id: icse2025a
-  link: https://conf.researchr.org/home/icse-2025
-  deadline: '2024-03-22 23:59:59'
-  abstract_deadline: '2024-03-15 23:59:59'
-  timezone: UTC-12
-  place: Ottawa, Ontario, Canada
-  date: April 26 - May 4, 2025
-  start: 2025-04-26
-  end: 2025-05-04
-  sub: "SE"
-  note: <a href='https://conf.researchr.org/home/icse-2025'>conference site</a>
+# - title: ICSE (First Cycle)
+#   year: 2025
+#   id: icse2025a
+#   link: https://conf.researchr.org/home/icse-2025
+#   deadline: '2024-03-22 23:59:59'
+#   abstract_deadline: '2024-03-15 23:59:59'
+#   timezone: UTC-12
+#   place: Ottawa, Ontario, Canada
+#   date: April 26 - May 4, 2025
+#   start: 2025-04-26
+#   end: 2025-05-04
+#   sub: "SE"
+#   note: <a href='https://conf.researchr.org/home/icse-2025'>conference site</a>
 
-- title: ICSE (Second Cycle)
-  year: 2025
-  id: icse2025b
-  link: https://conf.researchr.org/home/icse-2025
-  deadline: '2024-08-02 23:59:59'
-  abstract_deadline: '2024-07-26 23:59:59'
-  timezone: UTC-12
-  place: Ottawa, Ontario, Canada
-  date: April 26 - May 4, 2025
-  start: 2025-04-26
-  end: 2025-05-04
-  sub: "SE"
-  note: <a href='https://conf.researchr.org/home/icse-2025'>conference site</a>
+# - title: ICSE (Second Cycle)
+#   year: 2025
+#   id: icse2025b
+#   link: https://conf.researchr.org/home/icse-2025
+#   deadline: '2024-08-02 23:59:59'
+#   abstract_deadline: '2024-07-26 23:59:59'
+#   timezone: UTC-12
+#   place: Ottawa, Ontario, Canada
+#   date: April 26 - May 4, 2025
+#   start: 2025-04-26
+#   end: 2025-05-04
+#   sub: "SE"
+#   note: <a href='https://conf.researchr.org/home/icse-2025'>conference site</a>
 
 # ====================== #
 # ======== SOSP ======== #
@@ -242,6 +242,20 @@
 # ====================== #
 
 - title: FSE
+  year: 2026
+  id: fse2026
+  link: https://conf.researchr.org/home/fse-2026
+  abstract_deadline: '2025-09-04 23:59:59'
+  deadline: '2025-09-11 23:59:59'
+  timezone: UTC-12
+  place: Montreal, Canada
+  date: TBD, 2026
+  start: TBD
+  end: TBD
+  sub: "SE"
+  note: <a href='https://conf.researchr.org/home/fse-2026'>conference site</a>
+
+- title: FSE
   year: 2025
   id: fse2025
   link: https://conf.researchr.org/home/fse-2025
@@ -329,31 +343,31 @@
   sub: "SECURITY"
   note: <a href='https://www.ieee-security.org/TC/SP2026/index.html'>conference site</a>
 
-- title: S&P (First Round)
-  year: 2025
-  id: sp2025a
-  link: https://www.ieee-security.org/TC/SP2025/index.html
-  deadline: '2024-06-06 23:59:59'
-  timezone: UTC-12
-  place: San Francisco, California, USA
-  date: May 12 - 15, 2025
-  start: 2025-05-12
-  end: 2025-05-15
-  sub: "SECURITY"
-  note: <a href='https://www.ieee-security.org/TC/SP2025/index.html'>conference site</a>
+# - title: S&P (First Round)
+#   year: 2025
+#   id: sp2025a
+#   link: https://www.ieee-security.org/TC/SP2025/index.html
+#   deadline: '2024-06-06 23:59:59'
+#   timezone: UTC-12
+#   place: San Francisco, California, USA
+#   date: May 12 - 15, 2025
+#   start: 2025-05-12
+#   end: 2025-05-15
+#   sub: "SECURITY"
+#   note: <a href='https://www.ieee-security.org/TC/SP2025/index.html'>conference site</a>
 
-- title: S&P (Second Round)
-  year: 2025
-  id: sp2025b
-  link: https://www.ieee-security.org/TC/SP2025/index.html
-  deadline: '2024-11-14 23:59:59'
-  timezone: UTC-12
-  place: San Francisco, California, USA
-  date: May 12 - 15, 2025
-  start: 2025-05-12
-  end: 2025-05-15
-  sub: "SECURITY"
-  note: <a href='https://www.ieee-security.org/TC/SP2025/index.html'>conference site</a>
+# - title: S&P (Second Round)
+#   year: 2025
+#   id: sp2025b
+#   link: https://www.ieee-security.org/TC/SP2025/index.html
+#   deadline: '2024-11-14 23:59:59'
+#   timezone: UTC-12
+#   place: San Francisco, California, USA
+#   date: May 12 - 15, 2025
+#   start: 2025-05-12
+#   end: 2025-05-15
+#   sub: "SECURITY"
+#   note: <a href='https://www.ieee-security.org/TC/SP2025/index.html'>conference site</a>
 
 # ===================== #
 # ======== CCS ======== #
@@ -505,6 +519,7 @@
   year: 2026
   id: usenix2026a
   link: https://www.usenix.org/conference/usenixsecurity26
+  abstract_deadline: '2025-08-19 23:59:59'
   deadline: '2025-08-26 23:59:59'
   timezone: UTC-12
   place: Baltimore, MD, USA
@@ -518,6 +533,7 @@
   year: 2026
   id: usenix2026b
   link: https://www.usenix.org/conference/usenixsecurity26
+  abstract_deadline: '2026-01-29 23:59:59'
   deadline: '2026-02-05 23:59:59'
   timezone: UTC-12
   place: Baltimore, MD, USA
@@ -764,7 +780,7 @@
   deadline: '2025-03-12 23:59:59'
   timezone: UTC-5
   place: Pittsburgh, PA, USA
-  date: March 30 - April 3, 2025
+  date: March 30 - April 3, 2026
   start: 2026-03-30
   end: 2026-04-03
   sub: ["ARCH"]
@@ -778,7 +794,7 @@
   deadline: '2025-08-20 23:59:59'
   timezone: UTC-5
   place: Pittsburgh, PA, USA
-  date: March 30 - April 3, 2025
+  date: March 30 - April 3, 2026
   start: 2026-03-30
   end: 2026-04-03
   sub: ["ARCH"]
