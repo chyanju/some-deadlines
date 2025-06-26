@@ -2,18 +2,18 @@
 # ======== PLDI ======== #
 # ====================== #
 
-- title: PLDI
-  year: 2025
-  id: pldi25
-  link: https://pldi25.sigplan.org/
-  deadline: '2024-11-14 23:59:59'
-  timezone: UTC-12
-  place: Seoul, South Korea
-  date: June 16-20, 2025
-  start: 2025-06-16
-  end: 2025-06-20
-  sub: "PL"
-  note: <a href='https://pldi25.sigplan.org/'>conference site</a>
+# - title: PLDI
+#   year: 2025
+#   id: pldi25
+#   link: https://pldi25.sigplan.org/
+#   deadline: '2024-11-14 23:59:59'
+#   timezone: UTC-12
+#   place: Seoul, South Korea
+#   date: June 16-20, 2025
+#   start: 2025-06-16
+#   end: 2025-06-20
+#   sub: "PL"
+#   note: <a href='https://pldi25.sigplan.org/'>conference site</a>
 
 # - title: PLDI
 #   year: 2024
@@ -91,6 +91,20 @@
 # ====================== #
 # ======== SOSP ======== #
 # ====================== #
+
+- title: SOSP
+  year: 2026
+  id: sosp2026
+  link: https://sigops.org/s/conferences/sosp/2026/index.html
+  abstract_deadline: '2026-03-26 23:59:00'
+  deadline: '2026-04-01 23:59:00'
+  timezone: UTC-12
+  place: Prague, Czechia
+  date: September 29 - October 2, 2026
+  start: 2026-09-29
+  end: 2026-10-02
+  sub: "OS"
+  note: <a href='https://sigops.org/s/conferences/sosp/2026/index.html'>conference site</a>
 
 - title: SOSP
   year: 2025
@@ -249,25 +263,25 @@
   deadline: '2025-09-11 23:59:59'
   timezone: UTC-12
   place: Montreal, Canada
-  date: TBD, 2026
-  start: TBD
-  end: TBD
+  date: July 5-9, 2026
+  start: 2026-07-05
+  end: 2026-07-09
   sub: "SE"
   note: <a href='https://conf.researchr.org/home/fse-2026'>conference site</a>
 
-- title: FSE
-  year: 2025
-  id: fse2025
-  link: https://conf.researchr.org/home/fse-2025
-  deadline: '2024-09-12 23:59:59'
-  abstract_deadline: '2024-09-05 23:59:59'
-  timezone: UTC-12
-  place: Trondheim, Norway
-  date: June 23 - 27, 2025
-  start: 2025-06-23
-  end: 2025-06-27
-  sub: "SE"
-  note: <a href='https://conf.researchr.org/home/fse-2025'>conference site</a>
+# - title: FSE
+#   year: 2025
+#   id: fse2025
+#   link: https://conf.researchr.org/home/fse-2025
+#   deadline: '2024-09-12 23:59:59'
+#   abstract_deadline: '2024-09-05 23:59:59'
+#   timezone: UTC-12
+#   place: Trondheim, Norway
+#   date: June 23 - 27, 2025
+#   start: 2025-06-23
+#   end: 2025-06-27
+#   sub: "SE"
+#   note: <a href='https://conf.researchr.org/home/fse-2025'>conference site</a>
 
 # - title: FSE
 #   year: 2024
@@ -321,6 +335,7 @@
   year: 2026
   id: sp2026a
   link: https://www.ieee-security.org/TC/SP2026/index.html
+  abstract_deadline: '2025-05-29 23:59:59'
   deadline: '2025-06-05 23:59:59'
   timezone: UTC-12
   place: San Francisco, California, USA
@@ -334,6 +349,7 @@
   year: 2026
   id: sp2026b
   link: https://www.ieee-security.org/TC/SP2026/index.html
+  abstract_deadline: '2025-11-06 23:59:59'
   deadline: '2025-11-13 23:59:59'
   timezone: UTC-12
   place: San Francisco, California, USA
@@ -643,18 +659,18 @@
 # ======== ISSTA ======== #
 # ======================= #
 
-- title: ISSTA
-  year: 2025
-  id: issta2025
-  link: https://conf.researchr.org/home/issta-2025
-  deadline: '2024-10-31 23:59:59'
-  timezone: UTC-12
-  place: Trondheim, Norway
-  date: June 25 - 28, 2025
-  start: 2025-06-25
-  end: 2025-06-28
-  sub: "SE"
-  note: <a href='https://conf.researchr.org/home/issta-2025'>conference site</a>
+# - title: ISSTA
+#   year: 2025
+#   id: issta2025
+#   link: https://conf.researchr.org/home/issta-2025
+#   deadline: '2024-10-31 23:59:59'
+#   timezone: UTC-12
+#   place: Trondheim, Norway
+#   date: June 25 - 28, 2025
+#   start: 2025-06-25
+#   end: 2025-06-28
+#   sub: "SE"
+#   note: <a href='https://conf.researchr.org/home/issta-2025'>conference site</a>
 
 # - title: ISSTA (Round 1)
 #   year: 2024
@@ -686,31 +702,31 @@
 # ======== ECOOP ======== #
 # ======================= #
 
-- title: ECOOP (Round 1)
-  year: 2025
-  id: ecoop2025a
-  link: https://2025.ecoop.org/
-  deadline: '2025-01-06 23:59:59'
-  timezone: UTC-12
-  place: Bergen, Norway
-  date: June 30 - July 4, 2025
-  start: 2025-06-30
-  end: 2025-07-04
-  sub: "PL"
-  note: <a href='https://2025.ecoop.org/'>conference site</a>
+# - title: ECOOP (Round 1)
+#   year: 2025
+#   id: ecoop2025a
+#   link: https://2025.ecoop.org/
+#   deadline: '2025-01-06 23:59:59'
+#   timezone: UTC-12
+#   place: Bergen, Norway
+#   date: June 30 - July 4, 2025
+#   start: 2025-06-30
+#   end: 2025-07-04
+#   sub: "PL"
+#   note: <a href='https://2025.ecoop.org/'>conference site</a>
 
-- title: ECOOP (Round 2)
-  year: 2025
-  id: ecoop2025b
-  link: https://2025.ecoop.org/
-  deadline: '2025-03-05 23:59:59'
-  timezone: UTC-12
-  place: Bergen, Norway
-  date: June 30 - July 4, 2025
-  start: 2025-06-30
-  end: 2025-07-04
-  sub: "PL"
-  note: <a href='https://2025.ecoop.org/'>conference site</a>
+# - title: ECOOP (Round 2)
+#   year: 2025
+#   id: ecoop2025b
+#   link: https://2025.ecoop.org/
+#   deadline: '2025-03-05 23:59:59'
+#   timezone: UTC-12
+#   place: Bergen, Norway
+#   date: June 30 - July 4, 2025
+#   start: 2025-06-30
+#   end: 2025-07-04
+#   sub: "PL"
+#   note: <a href='https://2025.ecoop.org/'>conference site</a>
 
 # - title: ECOOP (Round 1)
 #   year: 2024
@@ -780,7 +796,7 @@
   deadline: '2025-03-12 23:59:59'
   timezone: UTC-5
   place: Pittsburgh, PA, USA
-  date: March 30 - April 3, 2026
+  date: March 22 - March 26, 2026
   start: 2026-03-30
   end: 2026-04-03
   sub: ["ARCH"]
@@ -794,7 +810,7 @@
   deadline: '2025-08-20 23:59:59'
   timezone: UTC-5
   place: Pittsburgh, PA, USA
-  date: March 30 - April 3, 2026
+  date: March 22 - March 26, 2026
   start: 2026-03-30
   end: 2026-04-03
   sub: ["ARCH"]
