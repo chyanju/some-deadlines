@@ -139,6 +139,32 @@
 # ======================== #
 
 - title: OOPSLA (Round 1)
+  year: 2026
+  id: oopsla2026a
+  link: https://2026.splashcon.org/track/oopsla-2026
+  deadline: '2025-10-10 23:59:59'
+  timezone: UTC-12
+  place: Oakland, California, United States
+  date: October 3-9, 2026
+  start: 2026-10-03
+  end: 2026-10-09
+  sub: ["PL"]
+  note: <a href='https://2026.splashcon.org/track/oopsla-2026'>conference site</a>
+
+- title: OOPSLA (Round 2)
+  year: 2026
+  id: oopsla2026b
+  link: https://2026.splashcon.org/track/oopsla-2026
+  deadline: '2026-03-17 23:59:59'
+  timezone: UTC-12
+  place: Oakland, California, United States
+  date: October 3-9, 2026
+  start: 2026-10-03
+  end: 2026-10-09
+  sub: ["PL"]
+  note: <a href='https://2026.splashcon.org/track/oopsla-2026'>conference site</a>
+
+- title: OOPSLA (Round 1)
   year: 2025
   id: oopsla2025a
   link: https://2025.splashcon.org/track/OOPSLA
@@ -194,18 +220,18 @@
 # ======== CAV ======== #
 # ===================== #
 
-- title: CAV
-  year: 2025
-  id: cav2025
-  link: https://conferences.i-cav.org/2025/
-  deadline: '2025-01-31 23:59:59'
-  timezone: UTC-12
-  place: Zagreb, Croatia
-  date: July 21-25, 2025
-  start: 2025-07-21
-  end: 2025-07-25
-  sub: "PL"
-  note: <a href='https://conferences.i-cav.org/2025/'>conference site</a>
+# - title: CAV
+#   year: 2025
+#   id: cav2025
+#   link: https://conferences.i-cav.org/2025/
+#   deadline: '2025-01-31 23:59:59'
+#   timezone: UTC-12
+#   place: Zagreb, Croatia
+#   date: July 21-25, 2025
+#   start: 2025-07-21
+#   end: 2025-07-25
+#   sub: "PL"
+#   note: <a href='https://conferences.i-cav.org/2025/'>conference site</a>
 
 # - title: CAV
 #   year: 2024
@@ -629,18 +655,32 @@
 # ====================== #
 
 - title: OSDI
-  year: 2025
-  id: osdi2025
-  link: https://www.usenix.org/conference/osdi25
-  deadline: '2024-12-10 22:59:59'
-  abstract_deadline: '2024-12-03 22:59:59'
+  year: 2026
+  id: osdi2026
+  link: https://www.usenix.org/conference/osdi26
+  abstract_deadline: '2025-12-04 22:59:59'
+  deadline: '2025-12-11 22:59:59'
   timezone: UTC-0
-  place: Boston, MA, USA
-  date: July 7 - 9, 2025
-  start: 2025-07-07
-  end: 2025-07-09
+  place: Seattle, WA, USA
+  date: July 13 - 15, 2026
+  start: 2026-07-13
+  end: 2026-07-15
   sub: "OS"
-  note: <a href='https://www.usenix.org/conference/osdi25'>conference site</a>
+  note: <a href='https://www.usenix.org/conference/osdi26'>conference site</a>
+
+# - title: OSDI
+#   year: 2025
+#   id: osdi2025
+#   link: https://www.usenix.org/conference/osdi25
+#   deadline: '2024-12-10 22:59:59'
+#   abstract_deadline: '2024-12-03 22:59:59'
+#   timezone: UTC-0
+#   place: Boston, MA, USA
+#   date: July 7 - 9, 2025
+#   start: 2025-07-07
+#   end: 2025-07-09
+#   sub: "OS"
+#   note: <a href='https://www.usenix.org/conference/osdi25'>conference site</a>
 
 # - title: OSDI
 #   year: 2024
@@ -658,6 +698,19 @@
 # ======================= #
 # ======== ISSTA ======== #
 # ======================= #
+
+- title: ISSTA
+  year: 2026
+  id: issta2026
+  link: https://conf.researchr.org/home/issta-2026
+  deadline: '2026-01-29 23:59:59'
+  timezone: UTC-12
+  place: Oakland, California, United States
+  date: October 3 - 9, 2026
+  start: 2026-10-03
+  end: 2026-10-09
+  sub: "SE"
+  note: <a href='https://conf.researchr.org/home/issta-2026'>conference site</a>
 
 # - title: ISSTA
 #   year: 2025
@@ -701,6 +754,32 @@
 # ======================= #
 # ======== ECOOP ======== #
 # ======================= #
+
+- title: ECOOP (Round 1)
+  year: 2026
+  id: ecoop2026a
+  link: https://2026.ecoop.org/
+  deadline: '2025-11-27 23:59:59'
+  timezone: UTC-12
+  place: Brussels, Belgium
+  date: June 29 - July 3, 2026
+  start: 2026-06-29
+  end: 2026-07-03
+  sub: "PL"
+  note: <a href='https://2026.ecoop.org/'>conference site</a>
+
+- title: ECOOP (Round 2)
+  year: 2026
+  id: ecoop2026b
+  link: https://2026.ecoop.org/
+  deadline: '2026-02-12 23:59:59'
+  timezone: UTC-12
+  place: Brussels, Belgium
+  date: June 29 - July 3, 2026
+  start: 2026-06-29
+  end: 2026-07-03
+  sub: "PL"
+  note: <a href='https://2026.ecoop.org/'>conference site</a>
 
 # - title: ECOOP (Round 1)
 #   year: 2025
