@@ -119,19 +119,19 @@
   sub: "OS"
   note: <a href='https://sigops.org/s/conferences/sosp/2026/index.html'>conference site</a>
 
-- title: SOSP
-  year: 2025
-  id: sosp2025
-  link: https://sigops.org/s/conferences/sosp/2025/index.html
-  deadline: '2025-04-17 23:59:00'
-  abstract_deadline: '2025-04-10 23:59:00'
-  timezone: UTC-7
-  place: Seoul, Republic of Korea
-  date: October 13-16, 2025
-  start: 2025-10-13
-  end: 2025-10-16
-  sub: "OS"
-  note: <a href='https://sigops.org/s/conferences/sosp/2025/index.html'>conference site</a>
+# - title: SOSP
+#   year: 2025
+#   id: sosp2025
+#   link: https://sigops.org/s/conferences/sosp/2025/index.html
+#   deadline: '2025-04-17 23:59:00'
+#   abstract_deadline: '2025-04-10 23:59:00'
+#   timezone: UTC-7
+#   place: Seoul, Republic of Korea
+#   date: October 13-16, 2025
+#   start: 2025-10-13
+#   end: 2025-10-16
+#   sub: "OS"
+#   note: <a href='https://sigops.org/s/conferences/sosp/2025/index.html'>conference site</a>
 
 # - title: SOSP
 #   year: 2024
@@ -177,31 +177,31 @@
   sub: ["PL"]
   note: <a href='https://2026.splashcon.org/track/oopsla-2026'>conference site</a>
 
-- title: OOPSLA (Round 1)
-  year: 2025
-  id: oopsla2025a
-  link: https://2025.splashcon.org/track/OOPSLA
-  deadline: '2024-10-15 23:59:59'
-  timezone: UTC-12
-  place: Singapore, Singapore
-  date: October 12-18, 2025
-  start: 2025-10-12
-  end: 2025-10-18
-  sub: ["PL"]
-  note: <a href='https://2025.splashcon.org/track/OOPSLA'>conference site</a>
+# - title: OOPSLA (Round 1)
+#   year: 2025
+#   id: oopsla2025a
+#   link: https://2025.splashcon.org/track/OOPSLA
+#   deadline: '2024-10-15 23:59:59'
+#   timezone: UTC-12
+#   place: Singapore, Singapore
+#   date: October 12-18, 2025
+#   start: 2025-10-12
+#   end: 2025-10-18
+#   sub: ["PL"]
+#   note: <a href='https://2025.splashcon.org/track/OOPSLA'>conference site</a>
 
-- title: OOPSLA (Round 2)
-  year: 2025
-  id: oopsla2025b
-  link: https://2025.splashcon.org/track/OOPSLA
-  deadline: '2025-03-25 23:59:59'
-  timezone: UTC-12
-  place: Singapore, Singapore
-  date: October 12-18, 2025
-  start: 2025-10-12
-  end: 2025-10-18
-  sub: ["PL"]
-  note: <a href='https://2025.splashcon.org/track/OOPSLA'>conference site</a>
+# - title: OOPSLA (Round 2)
+#   year: 2025
+#   id: oopsla2025b
+#   link: https://2025.splashcon.org/track/OOPSLA
+#   deadline: '2025-03-25 23:59:59'
+#   timezone: UTC-12
+#   place: Singapore, Singapore
+#   date: October 12-18, 2025
+#   start: 2025-10-12
+#   end: 2025-10-18
+#   sub: ["PL"]
+#   note: <a href='https://2025.splashcon.org/track/OOPSLA'>conference site</a>
 
 # - title: OOPSLA (Round 1)
 #   year: 2024
@@ -232,6 +232,19 @@
 # ===================== #
 # ======== CAV ======== #
 # ===================== #
+
+- title: CAV
+  year: 2026
+  id: cav2026
+  link: https://conferences.i-cav.org/2026/
+  deadline: '2026-01-28 23:59:59'
+  timezone: UTC-12
+  place: Lisbon, Portugal
+  date: July 26-29, 2026
+  start: 2026-07-26
+  end: 2026-07-29
+  sub: "PL"
+  note: <a href='https://conferences.i-cav.org/2026/'>conference site</a>
 
 # - title: CAV
 #   year: 2025
@@ -429,32 +442,60 @@
 # ===================== #
 
 - title: CCS (First Review Cycle)
-  year: 2025
-  id: ccs2025a
-  link: https://www.sigsac.org/ccs/CCS2025/
-  abstract_deadline: '2025-01-02 23:59:59'
-  deadline: '2025-01-09 23:59:59'
+  year: 2026
+  id: ccs2026a
+  link: https://www.sigsac.org/ccs/CCS2026/
+  abstract_deadline: 'TBD'
+  deadline: '2026-01-14 23:59:59'
   timezone: UTC-12
-  place: Taipei, Taiwan
-  date: October 13 - 17, 2025
-  start: 2025-10-13
-  end: 2025-10-17
+  place: The Hague, The Netherlands
+  date: November 15 - 19, 2026
+  start: 2026-11-15
+  end: 2026-11-19
   sub: "SECURITY"
-  note: <a href='https://www.sigsac.org/ccs/CCS2025/'>conference site</a>
+  note: <a href='https://www.sigsac.org/ccs/CCS2026/'>conference site</a>
 
-- title: CCS (Second Review Cycle)
-  year: 2025
-  id: ccs2025b
-  link: https://www.sigsac.org/ccs/CCS2025/
-  abstract_deadline: '2025-04-07 23:59:59'
-  deadline: '2025-04-14 23:59:59'
+- title: CCS (First Review Cycle)
+  year: 2026
+  id: ccs2026b
+  link: https://www.sigsac.org/ccs/CCS2026/
+  abstract_deadline: 'TBD'
+  deadline: '2026-04-29 23:59:59'
   timezone: UTC-12
-  place: Taipei, Taiwan
-  date: October 13 - 17, 2025
-  start: 2025-10-13
-  end: 2025-10-17
+  place: The Hague, The Netherlands
+  date: November 15 - 19, 2026
+  start: 2026-11-15
+  end: 2026-11-19
   sub: "SECURITY"
-  note: <a href='https://www.sigsac.org/ccs/CCS2025/'>conference site</a>
+  note: <a href='https://www.sigsac.org/ccs/CCS2026/'>conference site</a>
+
+# - title: CCS (First Review Cycle)
+#   year: 2025
+#   id: ccs2025a
+#   link: https://www.sigsac.org/ccs/CCS2025/
+#   abstract_deadline: '2025-01-02 23:59:59'
+#   deadline: '2025-01-09 23:59:59'
+#   timezone: UTC-12
+#   place: Taipei, Taiwan
+#   date: October 13 - 17, 2025
+#   start: 2025-10-13
+#   end: 2025-10-17
+#   sub: "SECURITY"
+#   note: <a href='https://www.sigsac.org/ccs/CCS2025/'>conference site</a>
+
+# - title: CCS (Second Review Cycle)
+#   year: 2025
+#   id: ccs2025b
+#   link: https://www.sigsac.org/ccs/CCS2025/
+#   abstract_deadline: '2025-04-07 23:59:59'
+#   deadline: '2025-04-14 23:59:59'
+#   timezone: UTC-12
+#   place: Taipei, Taiwan
+#   date: October 13 - 17, 2025
+#   start: 2025-10-13
+#   end: 2025-10-17
+#   sub: "SECURITY"
+#   note: <a href='https://www.sigsac.org/ccs/CCS2025/'>conference site</a>
 
 # - title: CCS (First Cycle)
 #   year: 2024
@@ -851,17 +892,30 @@
 # ====================== #
 
 - title: ICFP
-  year: 2025
-  id: icfp2025
-  link: https://icfp25.sigplan.org/
-  deadline: '2025-02-27 23:59:59'
+  year: 2026
+  id: icfp2026
+  link: https://icfp26.sigplan.org/
+  deadline: '2026-02-19 23:59:59'
   timezone: UTC-12
-  place: Singapore, Singapore
-  date: October 12 - 18, 2025
-  start: 2025-10-12
-  end: 2025-10-18
+  place: Indiana University, Indianapolis, United States
+  date: August 23 - 29, 2026
+  start: 2026-08-23
+  end: 2026-08-29
   sub: "PL"
-  note: <a href='https://icfp25.sigplan.org/'>conference site</a>
+  note: <a href='https://icfp26.sigplan.org/'>conference site</a>
+
+# - title: ICFP
+#   year: 2025
+#   id: icfp2025
+#   link: https://icfp25.sigplan.org/
+#   deadline: '2025-02-27 23:59:59'
+#   timezone: UTC-12
+#   place: Singapore, Singapore
+#   date: October 12 - 18, 2025
+#   start: 2025-10-12
+#   end: 2025-10-18
+#   sub: "PL"
+#   note: <a href='https://icfp25.sigplan.org/'>conference site</a>
 
 # - title: ICFP
 #   year: 2024
@@ -954,18 +1008,18 @@
 # ======== SBC ======== #
 # ===================== #
 
-# - title: SBC
-#   year: 2024
-#   id: sbc2024
-#   link: https://www.sbc-conference.com/
-#   deadline: '2024-04-16 23:59:59'
-#   timezone: UTC-7
-#   place: Columbia University, New York, New York, USA
-#   date: August 7-9, 2024
-#   start: 2024-08-07
-#   end: 2024-08-09
-#   sub: "MORE"
-#   note: <a href='https://www.sbc-conference.com/'>conference site</a>
+- title: SBC
+  year: 2026
+  id: sbc2026
+  link: https://www.sbc-conference.com/2026/
+  deadline: '2026-03-13 23:59:59'
+  timezone: UTC-7
+  place: Arrillaga Alumni Center, Stanford University, United States
+  date: July 27-29, 2026
+  start: 2026-07-27
+  end: 2026-07-29
+  sub: "MORE"
+  note: <a href='https://www.sbc-conference.com/2026/'>conference site</a>
 
 # - title: SBC
 #   year: 2025
@@ -979,6 +1033,19 @@
 #   end: 2025-08-06
 #   sub: "MORE"
 #   note: <a href='https://www.sbc-conference.com/2025/'>conference site</a>
+
+# - title: SBC
+#   year: 2024
+#   id: sbc2024
+#   link: https://www.sbc-conference.com/
+#   deadline: '2024-04-16 23:59:59'
+#   timezone: UTC-7
+#   place: Columbia University, New York, New York, USA
+#   date: August 7-9, 2024
+#   start: 2024-08-07
+#   end: 2024-08-09
+#   sub: "MORE"
+#   note: <a href='https://www.sbc-conference.com/'>conference site</a>
 
 # ========================= #
 # ======== EuroSys ======== #

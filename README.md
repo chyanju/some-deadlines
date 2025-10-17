@@ -7,15 +7,20 @@ Adapted from [ai-deadlines](https://github.com/paperswithcode/ai-deadlines) with
 ```bash
 # for deployment
 # also uncomment GA in config
-jekyll build -d <target_directory> -b "https://sites.cs.ucsb.edu/~yanju/deadlines"
+bundle exec jekyll build -d <target_directory> -b "https://sites.cs.ucsb.edu/~yanju/deadlines"
 # e.g.
-jekyll build -d ./deadlines -b "https://sites.cs.ucsb.edu/~yanju/deadlines"
+bundle exec jekyll build -d ./deadlines -b "https://sites.cs.ucsb.edu/~yanju/deadlines"
 # e.g.
-jekyll build -d ./deadlines -b "https://chyanju.github.io/deadlines"
+bundle exec jekyll build -d ./deadlines -b "https://chyanju.github.io/deadlines"
 ```
 
 ```bash
-# for local testing
-jekyll serve -b ""
-```
+# local config
+bundle config set path 'vendor/bundle'
+bundle add csv
+bundle add logger
+bundle install
 
+# for local testing
+bundle exec jekyll serve -b ""
+```

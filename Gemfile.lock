@@ -34,6 +34,7 @@ GEM
       fiber-annotation
       fiber-local
       json
+    csv (3.3.5)
     dnsruby (1.71.0)
       simpleidn (~> 0.2.1)
     drb (2.2.1)
@@ -238,6 +239,7 @@ GEM
     listen (3.9.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
+    logger (1.7.0)
     mercenary (0.3.6)
     mini_portile2 (2.8.5)
     minima (2.5.1)
@@ -305,8 +307,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  csv (~> 3.3)
   github-pages
   html-proofer
+  logger (~> 1.7)
   webrick (~> 1.7)
 
 BUNDLED WITH
