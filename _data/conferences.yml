@@ -277,17 +277,30 @@
 # ===================== #
 
 - title: ASE
-  year: 2025
-  id: ase2025
-  link: https://conf.researchr.org/home/ase-2025
-  deadline: '2025-05-30 23:59:59'
+  year: 2026
+  id: ase2026
+  link: https://conf.researchr.org/home/ase-2026
+  deadline: '2026-03-26 23:59:59'
   timezone: UTC-12
-  place: Seoul, South Korea
-  date: November 16 - 20, 2025
-  start: 2025-11-16
-  end: 2025-11-20
+  place: Munich, Germany
+  date: October 12 - 16, 2026
+  start: 2026-10-12
+  end: 2026-10-16
   sub: "SE"
-  note: <a href='https://conf.researchr.org/home/ase-2025'>conference site</a>
+  note: <a href='https://conf.researchr.org/home/ase-2026'>conference site</a>
+
+# - title: ASE
+#   year: 2025
+#   id: ase2025
+#   link: https://conf.researchr.org/home/ase-2025
+#   deadline: '2025-05-30 23:59:59'
+#   timezone: UTC-12
+#   place: Seoul, South Korea
+#   date: November 16 - 20, 2025
+#   start: 2025-11-16
+#   end: 2025-11-20
+#   sub: "SE"
+#   note: <a href='https://conf.researchr.org/home/ase-2025'>conference site</a>
 
 # - title: ASE
 #   year: 2024
@@ -445,7 +458,7 @@
   year: 2026
   id: ccs2026a
   link: https://www.sigsac.org/ccs/CCS2026/
-  abstract_deadline: 'TBD'
+  abstract_deadline: '2026-01-07 23:59:59'
   deadline: '2026-01-14 23:59:59'
   timezone: UTC-12
   place: The Hague, The Netherlands
@@ -459,7 +472,7 @@
   year: 2026
   id: ccs2026b
   link: https://www.sigsac.org/ccs/CCS2026/
-  abstract_deadline: 'TBD'
+  abstract_deadline: '2026-04-22 23:59:59'
   deadline: '2026-04-29 23:59:59'
   timezone: UTC-12
   place: The Hague, The Netherlands
