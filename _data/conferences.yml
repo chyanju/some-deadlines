@@ -45,6 +45,20 @@
 # ======== ICSE ======== #
 # ====================== #
 
+- title: ICSE
+  year: 2027
+  id: icse2027
+  link: https://conf.researchr.org/home/icse-2027
+  deadline: '2026-06-30 23:59:59'
+  abstract_deadline: '2026-06-23 23:59:59'
+  timezone: UTC-12
+  place: Dublin, Ireland
+  date: April 25 - May 1, 2027
+  start: 2027-04-25
+  end: 2027-05-01
+  sub: "SE"
+  note: <a href='https://conf.researchr.org/home/icse-2027'>conference site</a>
+
 - title: ICSE (First Cycle)
   year: 2026
   id: icse2026a
@@ -367,17 +381,30 @@
 # ====================== #
 
 - title: POPL
-  year: 2026
-  id: popl2026
-  link: https://conf.researchr.org/home/POPL-2026
-  deadline: '2025-07-10 23:59:59'
+  year: 2027
+  id: popl2027
+  link: https://conf.researchr.org/home/POPL-2027
+  deadline: '2026-07-09 23:59:59'
   timezone: UTC-12
-  place: Rennes, France
-  date: January 11 - 17, 2026
-  start: 2026-01-11
-  end: 2026-01-17
+  place: Mexico City, Mexico
+  date: January 10 - 16, 2027
+  start: 2027-01-10
+  end: 2027-01-16
   sub: "PL"
-  note: <a href='https://conf.researchr.org/home/POPL-2026'>conference site</a>
+  note: <a href='https://conf.researchr.org/home/POPL-2027'>conference site</a>
+
+# - title: POPL
+#   year: 2026
+#   id: popl2026
+#   link: https://conf.researchr.org/home/POPL-2026
+#   deadline: '2025-07-10 23:59:59'
+#   timezone: UTC-12
+#   place: Rennes, France
+#   date: January 11 - 17, 2026
+#   start: 2026-01-11
+#   end: 2026-01-17
+#   sub: "PL"
+#   note: <a href='https://conf.researchr.org/home/POPL-2026'>conference site</a>
 
 # - title: POPL
 #   year: 2025
@@ -540,31 +567,31 @@
 # ======== NDSS ======== #
 # ====================== #
 
-- title: NDSS (Summer Cycle)
-  year: 2026
-  id: ndss2026a
-  link: https://www.ndss-symposium.org/ndss2026
-  deadline: '2025-04-23 23:59:59'
-  timezone: UTC-12
-  place: San Diego, California, USA
-  date: February 23 - 27, 2026
-  start: 2026-02-23
-  end: 2026-02-27
-  sub: "SECURITY"
-  note: <a href='https://www.ndss-symposium.org/ndss2026'>conference site</a>
+# - title: NDSS (Summer Cycle)
+#   year: 2026
+#   id: ndss2026a
+#   link: https://www.ndss-symposium.org/ndss2026
+#   deadline: '2025-04-23 23:59:59'
+#   timezone: UTC-12
+#   place: San Diego, California, USA
+#   date: February 23 - 27, 2026
+#   start: 2026-02-23
+#   end: 2026-02-27
+#   sub: "SECURITY"
+#   note: <a href='https://www.ndss-symposium.org/ndss2026'>conference site</a>
 
-- title: NDSS (Fall Cycle)
-  year: 2026
-  id: ndss2026b
-  link: https://www.ndss-symposium.org/ndss2026
-  deadline: '2025-08-06 23:59:59'
-  timezone: UTC-12
-  place: San Diego, California, USA
-  date: February 23 - 27, 2026
-  start: 2026-02-23
-  end: 2026-02-27
-  sub: "SECURITY"
-  note: <a href='https://www.ndss-symposium.org/ndss2026'>conference site</a>
+# - title: NDSS (Fall Cycle)
+#   year: 2026
+#   id: ndss2026b
+#   link: https://www.ndss-symposium.org/ndss2026
+#   deadline: '2025-08-06 23:59:59'
+#   timezone: UTC-12
+#   place: San Diego, California, USA
+#   date: February 23 - 27, 2026
+#   start: 2026-02-23
+#   end: 2026-02-27
+#   sub: "SECURITY"
+#   note: <a href='https://www.ndss-symposium.org/ndss2026'>conference site</a>
 
 # - title: NDSS (Summer Cycle)
 #   year: 2025
@@ -945,6 +972,32 @@
 # ======== ASPLOS ======== #
 # ======================== #
 
+- title: ASPLOS (April Cycle)
+  year: 2027
+  id: asplos2027a
+  link: https://www.asplos-conference.org/call-for-papers-asplos27/
+  deadline: '2026-04-15 23:59:59'
+  timezone: UTC-12
+  place: Crete, Greece
+  date: TBD, 2027
+  start: 2027-03-01
+  end: 2027-03-05
+  sub: ["ARCH"]
+  note: <a href='https://www.asplos-conference.org/call-for-papers-asplos27/'>conference site</a>
+
+- title: ASPLOS (September Cycle)
+  year: 2027
+  id: asplos2027b
+  link: https://www.asplos-conference.org/call-for-papers-asplos27/
+  deadline: '2026-09-09 23:59:59'
+  timezone: UTC-12
+  place: Crete, Greece
+  date: TBD, 2027
+  start: 2027-03-01
+  end: 2027-03-05
+  sub: ["ARCH"]
+  note: <a href='https://www.asplos-conference.org/call-for-papers-asplos27/'>conference site</a>
+
 - title: ASPLOS (Spring Cycle)
   year: 2026
   id: asplos2026a
@@ -1062,33 +1115,33 @@
 # ======== EuroSys ======== #
 # ========================= #
 
-# - title: EuroSys (Spring)
-#   year: 2026
-#   id: eurosys2026a
-#   link: https://2026.eurosys.org/
-#   deadline: '2025-05-15 23:59:59'
-#   abstract_deadline: '2025-05-08 23:59:59'
-#   timezone: UTC-12
-#   place: Edinburgh, UK
-#   date: April 13 - April 16, 2026
-#   start: 2026-04-13
-#   end: 2026-04-16
-#   sub: "OS"
-#   note: <a href='https://2026.eurosys.org//'>conference site</a>
+- title: EuroSys (Spring)
+  year: 2026
+  id: eurosys2026a
+  link: https://2026.eurosys.org/
+  deadline: '2025-05-15 23:59:59'
+  abstract_deadline: '2025-05-08 23:59:59'
+  timezone: UTC-12
+  place: Edinburgh, UK
+  date: April 27 - April 30, 2026
+  start: 2026-04-27
+  end: 2026-04-30
+  sub: "OS"
+  note: <a href='https://2026.eurosys.org/'>conference site</a>
 
-# - title: EuroSys (Fall)
-#   year: 2026
-#   id: eurosys2026b
-#   link: https://2026.eurosys.org/
-#   deadline: '2025-09-25 23:59:59'
-#   abstract_deadline: '2025-09-18 23:59:59'
-#   timezone: UTC-12
-#   place: Edinburgh, UK
-#   date: April 13 - April 16, 2026
-#   start: 2026-04-13
-#   end: 2026-04-16
-#   sub: "OS"
-#   note: <a href='https://2026.eurosys.org//'>conference site</a>
+- title: EuroSys (Fall)
+  year: 2026
+  id: eurosys2026b
+  link: https://2026.eurosys.org/
+  deadline: '2025-09-25 23:59:59'
+  abstract_deadline: '2025-09-18 23:59:59'
+  timezone: UTC-12
+  place: Edinburgh, UK
+  date: April 27 - April 30, 2026
+  start: 2026-04-27
+  end: 2026-04-30
+  sub: "OS"
+  note: <a href='https://2026.eurosys.org/'>conference site</a>
 
 # - title: EuroSys (Spring)
 #   year: 2025
