@@ -677,6 +677,34 @@
   sub: "SECURITY"
   note: <a href='https://www.usenix.org/conference/usenixsecurity26'>conference site</a>
 
+- title: USENIX Security (Cycle 1)
+  year: 2027
+  id: usenix2027a
+  link: https://www.usenix.org/conference/usenixsecurity27
+  abstract_deadline: '2026-08-18 23:59:59'
+  deadline: '2026-08-25 23:59:59'
+  timezone: UTC-12
+  place: Denver, CO, USA
+  date: August 11 - 13, 2027
+  start: 2027-08-11
+  end: 2027-08-13
+  sub: "SECURITY"
+  note: <a href='https://www.usenix.org/conference/usenixsecurity27'>conference site</a>
+
+- title: USENIX Security (Cycle 2)
+  year: 2027
+  id: usenix2027b
+  link: https://www.usenix.org/conference/usenixsecurity27
+  abstract_deadline: '2027-01-19 23:59:59'
+  deadline: '2027-01-26 23:59:59'
+  timezone: UTC-12
+  place: Denver, CO, USA
+  date: August 11 - 13, 2027
+  start: 2027-08-11
+  end: 2027-08-13
+  sub: "SECURITY"
+  note: <a href='https://www.usenix.org/conference/usenixsecurity27'>conference site</a>
+
 # - title: USENIX Security (Cycle 1)
 #   year: 2025
 #   id: usenix2025a
@@ -1018,7 +1046,7 @@
   link: https://www.asplos-conference.org/asplos2026/
   abstract_deadline: '2025-08-13 23:59:59'
   deadline: '2025-08-20 23:59:59'
-  timezone: UTC-5
+  timezone: UTC-4
   place: Pittsburgh, PA, USA
   date: March 22 - March 26, 2026
   start: 2026-03-22
@@ -1067,6 +1095,42 @@
 #   end: 2025-04-03
 #   sub: ["OS","PL"]
 #   note: <a href='https://www.asplos-conference.org/asplos2025/'>conference site</a>
+
+# ===================== #
+# ======== CHI ======== #
+# ===================== #
+
+- title: CHI
+  year: 2026
+  id: chi2026
+  link: https://chi2026.acm.org/
+  abstract_deadline: '2025-09-04 23:59:59'
+  deadline: '2025-09-11 23:59:59'
+  timezone: UTC-12
+  place: Barcelona, Spain
+  date: April 13-17, 2026
+  start: 2026-04-13
+  end: 2026-04-17
+  sub: "MORE"
+  note: <a href='https://chi2026.acm.org/'>conference site</a>
+
+# ====================== #
+# ======== UIST ======== #
+# ====================== #
+
+- title: UIST
+  year: 2026
+  id: uist2026
+  link: https://uist.acm.org/2026/
+  abstract_deadline: '2026-03-24 23:59:59'
+  deadline: '2026-03-31 23:59:59'
+  timezone: UTC-12
+  place: Detroit, MI, USA
+  date: November 2-5, 2026
+  start: 2026-11-02
+  end: 2026-11-05
+  sub: "MORE"
+  note: <a href='https://uist.acm.org/2026/'>conference site</a>
 
 # ===================== #
 # ======== SBC ======== #
