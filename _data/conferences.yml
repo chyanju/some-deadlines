@@ -59,33 +59,33 @@
   sub: "SE"
   note: <a href='https://conf.researchr.org/home/icse-2027'>conference site</a>
 
-- title: ICSE (First Cycle)
-  year: 2026
-  id: icse2026a
-  link: https://conf.researchr.org/home/icse-2026
-  deadline: '2025-03-14 23:59:59'
-  abstract_deadline: '2025-03-07 23:59:59'
-  timezone: UTC-12
-  place: Rio de Janeiro, Brazil
-  date: April 12 - April 18, 2026
-  start: 2026-04-12
-  end: 2026-04-18
-  sub: "SE"
-  note: <a href='https://conf.researchr.org/home/icse-2026'>conference site</a>
+# - title: ICSE (First Cycle)
+#   year: 2026
+#   id: icse2026a
+#   link: https://conf.researchr.org/home/icse-2026
+#   deadline: '2025-03-14 23:59:59'
+#   abstract_deadline: '2025-03-07 23:59:59'
+#   timezone: UTC-12
+#   place: Rio de Janeiro, Brazil
+#   date: April 12 - April 18, 2026
+#   start: 2026-04-12
+#   end: 2026-04-18
+#   sub: "SE"
+#   note: <a href='https://conf.researchr.org/home/icse-2026'>conference site</a>
 
-- title: ICSE (Second Cycle)
-  year: 2026
-  id: icse2026b
-  link: https://conf.researchr.org/home/icse-2026
-  deadline: '2025-07-18 23:59:59'
-  abstract_deadline: '2025-07-11 23:59:59'
-  timezone: UTC-12
-  place: Rio de Janeiro, Brazil
-  date: April 12 - April 18, 2026
-  start: 2026-04-12
-  end: 2026-04-18
-  sub: "SE"
-  note: <a href='https://conf.researchr.org/home/icse-2026'>conference site</a>
+# - title: ICSE (Second Cycle)
+#   year: 2026
+#   id: icse2026b
+#   link: https://conf.researchr.org/home/icse-2026
+#   deadline: '2025-07-18 23:59:59'
+#   abstract_deadline: '2025-07-11 23:59:59'
+#   timezone: UTC-12
+#   place: Rio de Janeiro, Brazil
+#   date: April 12 - April 18, 2026
+#   start: 2026-04-12
+#   end: 2026-04-18
+#   sub: "SE"
+#   note: <a href='https://conf.researchr.org/home/icse-2026'>conference site</a>
 
 # - title: ICSE (First Cycle)
 #   year: 2025
@@ -348,6 +348,19 @@
   sub: "SE"
   note: <a href='https://conf.researchr.org/home/fse-2026'>conference site</a>
 
+- title: FSE
+  year: 2027
+  id: fse2027
+  link: https://conf.researchr.org/home/fse-2027
+  deadline: '2026-10-02 23:59:59'
+  timezone: UTC-12
+  place: Shenzhen, China
+  date: July 12 - 16, 2027
+  start: 2027-07-12
+  end: 2027-07-16
+  sub: "SE"
+  note: <a href='https://conf.researchr.org/home/fse-2027'>conference site</a>
+
 # - title: FSE
 #   year: 2025
 #   id: fse2025
@@ -450,6 +463,34 @@
   end: 2026-05-21
   sub: "SECURITY"
   note: <a href='https://www.ieee-security.org/TC/SP2026/index.html'>conference site</a>
+
+- title: S&P (First Deadline)
+  year: 2027
+  id: sp2027a
+  link: https://sp2027.ieee-security.org/
+  abstract_deadline: '2026-06-04 23:59:59'
+  deadline: '2026-06-11 23:59:59'
+  timezone: UTC-12
+  place: Montreal, Canada
+  date: TBA, May 2027
+  start: 2027-05-17
+  end: 2027-05-20
+  sub: "SECURITY"
+  note: <a href='https://sp2027.ieee-security.org/'>conference site</a>
+
+- title: S&P (Second Deadline)
+  year: 2027
+  id: sp2027b
+  link: https://sp2027.ieee-security.org/
+  abstract_deadline: '2026-11-10 23:59:59'
+  deadline: '2026-11-17 23:59:59'
+  timezone: UTC-12
+  place: Montreal, Canada
+  date: TBA, May 2027
+  start: 2027-05-17
+  end: 2027-05-20
+  sub: "SECURITY"
+  note: <a href='https://sp2027.ieee-security.org/'>conference site</a>
 
 # - title: S&P (First Round)
 #   year: 2025
@@ -573,10 +614,10 @@
   link: https://www.ndss-symposium.org/ndss2027/
   deadline: '2026-05-06 23:59:59'
   timezone: UTC-12
-  place: TBD
-  date: TBD, 2027
-  start: 2027-02-22
-  end: 2027-02-26
+  place: Seoul, Republic of Korea
+  date: March 22 - 26, 2027
+  start: 2027-03-22
+  end: 2027-03-26
   sub: "SECURITY"
   note: <a href='https://www.ndss-symposium.org/ndss2027/'>conference site</a>
 
@@ -586,10 +627,10 @@
   link: https://www.ndss-symposium.org/ndss2027/
   deadline: '2026-08-19 23:59:59'
   timezone: UTC-12
-  place: TBD
-  date: TBD, 2027
-  start: 2027-02-22
-  end: 2027-02-26
+  place: Seoul, Republic of Korea
+  date: March 22 - 26, 2027
+  start: 2027-03-22
+  end: 2027-03-26
   sub: "SECURITY"
   note: <a href='https://www.ndss-symposium.org/ndss2027/'>conference site</a>
 
@@ -1127,18 +1168,31 @@
 # ===================== #
 
 - title: CHI
-  year: 2026
-  id: chi2026
-  link: https://chi2026.acm.org/
-  abstract_deadline: '2025-09-04 23:59:59'
-  deadline: '2025-09-11 23:59:59'
+  year: 2027
+  id: chi2027
+  link: https://chi2027.acm.org/
+  deadline: '2026-09-10 23:59:59'
   timezone: UTC-12
-  place: Barcelona, Spain
-  date: April 13-17, 2026
-  start: 2026-04-13
-  end: 2026-04-17
+  place: Pittsburgh, PA, USA
+  date: May 10 - 14, 2027
+  start: 2027-05-10
+  end: 2027-05-14
   sub: "MORE"
-  note: <a href='https://chi2026.acm.org/'>conference site</a>
+  note: <a href='https://chi2027.acm.org/'>conference site</a>
+
+# - title: CHI
+#   year: 2026
+#   id: chi2026
+#   link: https://chi2026.acm.org/
+#   abstract_deadline: '2025-09-04 23:59:59'
+#   deadline: '2025-09-11 23:59:59'
+#   timezone: UTC-12
+#   place: Barcelona, Spain
+#   date: April 13-17, 2026
+#   start: 2026-04-13
+#   end: 2026-04-17
+#   sub: "MORE"
+#   note: <a href='https://chi2026.acm.org/'>conference site</a>
 
 # ====================== #
 # ======== UIST ======== #
