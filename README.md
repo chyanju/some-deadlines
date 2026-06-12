@@ -1,91 +1,102 @@
 # Some Deadlines
 
-Adapted from [ai-deadlines](https://github.com/paperswithcode/ai-deadlines) with small glitches fixed. Now you can put it under website sub-folders.
+Countdowns to some academic conference deadlines. A standalone static site built
+with [Astro](https://astro.build) + [Tailwind CSS](https://tailwindcss.com).
+Originally adapted from [ai-deadlines](https://github.com/paperswithcode/ai-deadlines);
+rewritten from the old Jekyll/jQuery stack.
 
-## Quick Commands
-
-```bash
-# for deployment
-# also uncomment GA in config
-bundle exec jekyll build -d <target_directory> -b "https://sites.cs.ucsb.edu/~yanju/deadlines"
-# e.g.
-bundle exec jekyll build -d ./deadlines -b "https://sites.cs.ucsb.edu/~yanju/deadlines"
-# e.g.
-bundle exec jekyll build -d ./deadlines -b "https://chyanju.github.io/deadlines"
-```
+## Quick start
 
 ```bash
-# local config
-bundle config set path 'vendor/bundle'
-bundle add csv
-bundle add logger
-bundle install
-
-# for local testing
-bundle exec jekyll serve -b ""
+npm install
+npm run dev       # local dev server at http://localhost:4321
+npm run build     # static build into ./dist
+npm run preview   # serve ./dist locally to check the production build
+npm run check     # type-check (astro check)
 ```
 
-## Maintaining Conference Data
+No deployment is configured — this is a standalone site for local use. To host it
+later, serve the static `dist/` folder from any static host.
 
-**99% of upkeep is editing one file: [`_data/conferences.yml`](_data/conferences.yml).**
-Everything else (countdown cards, the calendar view, the per-conference page, and
-the `.ics` feed) is generated from it at build time. Workflow:
+## Tech stack
 
-1. Edit `_data/conferences.yml`.
-2. Preview locally: `bundle exec jekyll serve -b ""` → open http://localhost:4000.
-3. Build + deploy with one of the commands at the top of this file.
+- **Astro** — static site generator (zero JS shipped by default).
+- **Tailwind CSS v4** — styling (via `@tailwindcss/vite`).
+- **Luxon** — timezone math at build time; the browser ships **no** date library.
+- **TypeScript** — typed data model and client scripts.
 
-### Record schema
+## Project structure
 
-Each conference is one list item. Fields actually used today:
+```
+src/
+  data/
+    conferences.yml   # ★ the data — edit this to add/update conferences
+    types.yml         # subject categories (PL/SE/SECURITY/OS/ARCH/MORE) + colors
+    conferences.ts    # loads + validates the YAML, exports typed records
+    site.ts           # site config (title, author, optional GA id)
+  lib/
+    deadlines.ts      # Luxon: parse deadline+timezone -> epoch ms + formatting
+    ics.ts            # builds the VCALENDAR feed
+  layouts/Layout.astro        # shared HTML shell (one place, not three)
+  components/                 # Header, Footer, ConferenceCard, CategoryFilter
+  scripts/                    # client-side: countdown, filter, calendar, conf page
+  pages/
+    index.astro               # countdown list  ->  /
+    calendar.astro            # year calendar    ->  /calendar/
+    conference/[id].astro     # one static page per conference -> /conference/<id>/
+    some-deadlines.ics.ts     # ICS feed endpoint -> /some-deadlines.ics
+public/
+    favicon.png
+```
 
-| Field               | Required | Example                              | Notes |
-|---------------------|----------|--------------------------------------|-------|
-| `title`             | yes      | `PLDI`                               | Short name shown on the card. |
-| `year`              | yes      | `2026`                               | |
-| `id`                | yes      | `pldi26`                             | **Unique slug.** Used as the DOM anchor and the `/conference?id=` URL. Don't reuse across years. |
-| `link`              | yes      | `https://pldi26.sigplan.org/`        | Official site (globe icon). |
-| `deadline`          | yes      | `'2025-11-13 23:59:59'`              | Paper deadline, `'YYYY-MM-DD HH:MM:SS'` (quoted). Use `TBA` if unknown. |
-| `abstract_deadline` | optional | `'2025-11-06 23:59:59'`              | Abstract deadline; omit if none. |
-| `timezone`          | yes      | `UTC-12`                             | See timezone note below. |
-| `place`             | yes      | `Boulder, Colorado, United States`   | Linked to Google Maps (`Online` is special-cased). |
-| `date`              | yes      | `June 15-19, 2026`                   | Free-text conference dates (display only). |
-| `start` / `end`     | yes      | `2026-06-15` / `2026-06-19`          | `YYYY-MM-DD`; drives the **calendar** event span. |
-| `sub`               | yes      | `"PL"`                               | Category — must be a valid `sub` (see below). |
-| `note`              | yes      | `<a href='...'>conference site</a>`  | Free-text/HTML note under the card. |
+How it fits together: `conferences.yml` is loaded and validated by
+`conferences.ts`, enriched in `deadlines.ts` (each deadline resolved to an
+absolute epoch-ms instant via Luxon), and rendered by the pages. Countdowns,
+timezone-to-local conversion, filtering, and the calendar grid all run client-side
+from data baked into the page — there is no backend.
 
-Optional fields the templates already support but the current data doesn't use —
-add them when relevant: `full_name` (long name on the detail page),
-`paperslink` (accepted-papers list), `pwclink` (Papers with Code), `hindex`
-(shown in the calendar hover card).
+## Maintaining conference data
 
-### Conventions
+**Almost all upkeep is editing one file: `src/data/conferences.yml`.** The dev
+server hot-reloads on save. Each conference is one list item:
 
-- **Keep history by commenting out, not deleting.** When a conference's deadline
-  passes, leave the old record in place but comment it out (`#` every line) and add
-  the new year's record above it. See the PLDI/ICSE blocks for the pattern.
-- **Newest record on top** within each conference's block.
-- A passed deadline auto-moves to the "Past Events" section client-side — you don't
-  need to move it manually; commenting out is only for keeping the file tidy.
+```yaml
+- title: PLDI
+  year: 2026
+  id: pldi26                       # unique slug -> /conference/pldi26/
+  link: https://pldi26.sigplan.org/
+  deadline: '2025-11-13 23:59:59'  # 'YYYY-MM-DD HH:MM:SS' (quoted), or TBA
+  abstract_deadline: '2025-11-06 23:59:59'   # optional
+  timezone: UTC-12                 # 'UTC-12'..'UTC+14' or an IANA name
+  place: Boulder, Colorado, United States
+  date: June 15-19, 2026           # free-text, display only
+  start: 2026-06-15                # conference span (drives the calendar)
+  end: 2026-06-19
+  sub: "PL"                        # category code(s); must exist in types.yml
+  note: <a href='https://pldi26.sigplan.org/'>conference site</a>
+```
 
-### Categories (`sub`)
+Optional fields the templates also support: `full_name`, `paperslink`,
+`pwclink`, `hindex`.
 
-Valid values come from [`_data/types.yml`](_data/types.yml): `PL`, `SE`,
-`SECURITY`, `OS`, `ARCH`, `MORE`. To add a new category, add an entry to
-`types.yml` (with `name`, `sub`, and a `color`) — the filter dropdown, badges,
-and calendar colors pick it up automatically.
+Conventions:
+
+- **Keep history by commenting out, not deleting.** When a deadline passes, comment
+  the old record (`#` each line) and add the new year above it.
+- Passed deadlines move to a "Past deadlines" section in the browser automatically.
+- The loader **validates** on build: a missing required field, an unknown `sub`, or
+  a duplicate `id` fails the build with a clear message.
+
+### Categories
+
+Edit `src/data/types.yml` to add/rename a category (`name`, `sub`, `color`); the
+filter chips, badges, and calendar colors update automatically.
 
 ### Timezones
 
-Write the deadline's timezone as `UTC-12` … `UTC+14`, or any IANA name like
-`America/New_York`. Note the deliberate sign convention: `UTC-12` is mapped to
-the IANA `Etc/GMT+12` zone (IANA inverts the sign) by `addUtcTimeZones()` in
-[`_includes/utils.js`](_includes/utils.js) and by the `.ics` layout. Just match
-the conference website's stated timezone and the conversion is handled for you.
+Write the deadline's timezone as `UTC-12`..`UTC+14` or an IANA name like
+`America/New_York`. Luxon resolves both directly — no sign tricks needed.
 
-### Optional: sort/clean helper
+## License
 
-[`utils/process.py`](utils/process.py) reads `../_data/conferences.yml`, sorts by
-absolute deadline, and writes `sorted_data.yml` / `cleaned_data.yml` for you to
-review and copy back. Requires `pyyaml` and `pytz`. It is a maintainer tool only
-and is excluded from the published site.
+See [LICENSE](LICENSE).

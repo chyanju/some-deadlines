@@ -1,6 +1,14 @@
-_site
-.bundle
-vendor
-.vscode
+# build output
+dist/
+.astro/
+
+# dependencies
+node_modules/
+
+# logs / env / editor / os
+*.log
+.env
+.env.production
 .DS_Store
+.vscode
 .idea

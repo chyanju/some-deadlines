@@ -1,0 +1,57 @@
+---
+import Layout from "../layouts/Layout.astro";
+import CategoryFilter from "../components/CategoryFilter.astro";
+import ConferenceCard from "../components/ConferenceCard.astro";
+import { byDeadline } from "../lib/deadlines";
+import { site } from "../data/site";
+---
+
+<Layout>
+  <section class="space-y-2">
+    <p class="text-gray-600">{site.description}.</p>
+    <p class="text-sm text-gray-500">
+      Deadlines are shown in your local time (<span class="local-tz"
+        >your local</span
+      > timezone). Export everything as <a
+        href="/some-deadlines.ics"
+        class="underline hover:text-gray-700">.ics</a
+      >.
+    </p>
+  </section>
+
+  <div class="mt-5">
+    <CategoryFilter />
+  </div>
+
+  <section id="upcoming" class="mt-6 space-y-4">
+    {byDeadline.map((c) => <ConferenceCard conf={c} />)}
+  </section>
+
+  <h2 id="past-heading" class="mt-10 mb-4 text-xl font-bold text-gray-700">
+    Past deadlines
+  </h2>
+  <section id="past" class="space-y-4"></section>
+</Layout>
+
+<script>
+  import { initCountdowns } from "../scripts/countdown";
+  import { initFilter } from "../scripts/filter";
+
+  initCountdowns();
+
+  initFilter((subs) => {
+    const set = new Set(subs);
+    for (const el of document.querySelectorAll<HTMLElement>("[data-conf]")) {
+      const cs = (el.dataset.subs ?? "").split(",").filter(Boolean);
+      el.hidden = !cs.some((s) => set.has(s));
+    }
+    const past = document.getElementById("past");
+    const heading = document.getElementById("past-heading");
+    if (past && heading) {
+      const anyVisible = Array.from(
+        past.querySelectorAll<HTMLElement>("[data-conf]"),
+      ).some((e) => !e.hidden);
+      heading.hidden = !anyVisible;
+    }
+  });
+</script>

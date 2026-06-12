@@ -1,0 +1,32 @@
+---
+import { types } from "../data/conferences";
+---
+
+<div class="flex flex-wrap items-center gap-2" data-filter>
+  <span class="text-sm font-medium text-gray-500">Filter:</span>
+  {
+    types.map((t) => (
+      <button
+        type="button"
+        class="chip"
+        data-sub={t.sub}
+        style={`--c:${t.color}`}
+        aria-pressed="true"
+        title={t.name}
+      >
+        {t.name} <span class="opacity-60">({t.sub})</span>
+      </button>
+    ))
+  }
+  <span class="mx-1 text-gray-300">|</span>
+  <button
+    type="button"
+    class="text-sm text-gray-500 underline hover:text-gray-700"
+    data-filter-all>All</button
+  >
+  <button
+    type="button"
+    class="text-sm text-gray-500 underline hover:text-gray-700"
+    data-filter-clear>None</button
+  >
+</div>

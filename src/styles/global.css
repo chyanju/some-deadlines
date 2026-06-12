@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+/* Site theme tokens (used across components) */
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Smooth tap targets on mobile */
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+/* ---- Reusable component classes (use the per-category --c custom prop) ---- */
+
+/* Category filter toggle chip */
+.chip {
+  @apply cursor-pointer rounded-full border px-3 py-1 text-sm font-medium transition select-none;
+  border-color: color-mix(in srgb, var(--c, #999) 45%, transparent);
+  background: white;
+  color: #374151;
+}
+.chip[aria-pressed="true"] {
+  background: var(--c, #999);
+  border-color: var(--c, #999);
+  color: #1f2937;
+}
+
+/* Small category badge */
+.badge {
+  @apply inline-flex items-center rounded px-1.5 py-0.5 text-xs font-semibold;
+  background: var(--c, #999);
+  color: #1f2937;
+}
+
+/* A conference card */
+.card {
+  @apply rounded-xl border border-gray-200 bg-white p-4 shadow-sm transition;
+}
+.card.is-past {
+  @apply opacity-60;
+}
+

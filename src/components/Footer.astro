@@ -1,0 +1,30 @@
+---
+import { site } from "../data/site";
+---
+
+<footer class="border-t border-gray-200 py-8 text-center text-sm text-gray-500">
+  <p class="px-4">
+    {site.title} · adapted from{" "}
+    <a
+      class="underline hover:text-gray-700"
+      href="https://github.com/paperswithcode/ai-deadlines"
+      target="_blank"
+      rel="noopener">ai-deadlines</a
+    >
+    {
+      site.githubRepo && (
+        <>
+          {" · "}
+          <a
+            class="underline hover:text-gray-700"
+            href={`https://github.com/${site.githubRepo}`}
+            target="_blank"
+            rel="noopener"
+          >
+            source
+          </a>
+        </>
+      )
+    }
+  </p>
+</footer>

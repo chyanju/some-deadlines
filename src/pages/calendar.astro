@@ -1,0 +1,95 @@
+---
+import Layout from "../layouts/Layout.astro";
+import CategoryFilter from "../components/CategoryFilter.astro";
+import { allConferences } from "../lib/deadlines";
+import { types } from "../data/conferences";
+
+const events = allConferences.flatMap((c) => {
+  const out: Array<Record<string, unknown>> = [];
+  if (!c.isTba) {
+    const d = c.deadline.slice(0, 10);
+    out.push({
+      id: c.id,
+      title: `${c.title} ${c.year}`,
+      kind: "deadline",
+      from: d,
+      to: d,
+      color: "#ef4444",
+      subs: c.subs,
+      place: c.place,
+      dateLabel: c.date,
+    });
+  }
+  if (c.start && c.end) {
+    out.push({
+      id: c.id,
+      title: `${c.title} ${c.year}`,
+      kind: "conference",
+      from: c.start,
+      to: c.end,
+      color: c.categories[0]?.color ?? "#9ca3af",
+      subs: c.subs,
+      place: c.place,
+      dateLabel: c.date,
+    });
+  }
+  return out;
+});
+
+const eventsJson = JSON.stringify(events).replace(/</g, "\\u003c");
+---
+
+<Layout title="Calendar">
+  <p class="text-gray-600">Deadlines and conference dates across the year.</p>
+
+  <div class="mt-5"><CategoryFilter /></div>
+
+  <div class="mt-6 flex items-center justify-center gap-4">
+    <button
+      data-cal-prev
+      type="button"
+      class="rounded-md border border-gray-300 px-3 py-1 text-sm hover:bg-gray-100 disabled:opacity-40"
+      >←</button
+    >
+    <span data-cal-year class="text-xl font-bold tabular-nums">—</span>
+    <button
+      data-cal-next
+      type="button"
+      class="rounded-md border border-gray-300 px-3 py-1 text-sm hover:bg-gray-100 disabled:opacity-40"
+      >→</button
+    >
+  </div>
+
+  <div
+    data-cal-grid
+    class="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
+  >
+  </div>
+
+  <div class="mt-8 flex flex-wrap gap-x-4 gap-y-2 text-xs text-gray-500">
+    <span>
+      <span
+        class="mr-1 inline-block h-3 w-3 rounded-sm align-middle"
+        style="background:#ef4444"></span>Deadline
+    </span>
+    {
+      types.map((t) => (
+        <span>
+          <span
+            class="mr-1 inline-block h-3 w-3 rounded-sm align-middle"
+            style={`background:${t.color}`}
+          />
+          {t.name}
+        </span>
+      ))
+    }
+  </div>
+
+  <script type="application/json" id="cal-data" set:html={eventsJson} is:inline
+  ></script>
+</Layout>
+
+<script>
+  import { initCalendar } from "../scripts/calendar";
+  initCalendar();
+</script>
