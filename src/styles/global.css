@@ -3,9 +3,57 @@
 /* Class-based dark mode: toggle `.dark` on <html>. */
 @custom-variant dark (&:where(.dark, .dark *));
 
+/* ----------------------------------------------------------------------------
+   Design tokens — "Calm Editorial Technical"
+   Warm-neutral surfaces, one indigo accent, red reserved for urgency.
+   Three type voices: Fraunces (display serif), Geist (body), Geist Mono (numbers).
+---------------------------------------------------------------------------- */
 @theme {
-  --font-sans: "Inter Variable", ui-sans-serif, system-ui, -apple-system,
-    "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-sans: "Geist Variable", ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", sans-serif;
+  --font-display: "Fraunces Variable", Georgia, "Times New Roman", serif;
+  --font-mono: "Geist Mono Variable", ui-monospace, "SF Mono", monospace;
+
+  /* light theme (defaults) */
+  --color-bg: #faf9f7;
+  --color-surface: #ffffff;
+  --color-card: #ffffff;
+  --color-elevated: #ffffff;
+  --color-border: #ebe9e6;
+  --color-border-strong: #ddd9d3;
+  --color-text: #1c1b19;
+  --color-text-2: #57534e;
+  --color-text-3: #8a847c;
+  --color-accent: #5b5bd6;
+  --color-accent-fg: #ffffff;
+  --color-accent-tint: color-mix(in oklch, #5b5bd6 12%, transparent);
+  --color-danger: #dc2626;
+  --color-warn: #b06f0a;
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+
+  --ease-out: cubic-bezier(0.2, 0, 0, 1);
+}
+
+/* dark theme — override the token values; utilities reference the vars.
+   `html.dark` (unlayered) reliably beats Tailwind's layered :root tokens. */
+html.dark {
+  --color-bg: #0b0c0e;
+  --color-surface: #141518;
+  --color-card: #1a1c20;
+  --color-elevated: #222428;
+  --color-border: #2a2d33;
+  --color-border-strong: #383b42;
+  --color-text: #f5f4f2;
+  --color-text-2: #a8a39c;
+  --color-text-3: #6f6a63;
+  --color-accent: #7c7cf0;
+  --color-accent-fg: #0b0c0e;
+  --color-accent-tint: color-mix(in oklch, #7c7cf0 20%, transparent);
+  --color-danger: #f87171;
+  --color-warn: #fbbf24;
 }
 
 html {
@@ -13,64 +61,209 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Honor users who prefer less motion. */
+body {
+  font-family: var(--font-sans);
+  background: var(--color-bg);
+  color: var(--color-text);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: color-mix(in oklch, var(--color-accent) 22%, transparent);
+}
+
+*:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
 
-/* ---------- Reusable component classes (use the per-category --c prop) ---------- */
+/* ---------------------------------- helpers --------------------------------- */
 
-/* Category filter toggle chip */
-.chip {
-  @apply cursor-pointer rounded-full border border-gray-300 bg-white px-3 py-1
-    text-sm font-medium text-gray-700 transition select-none
-    hover:border-gray-400 dark:border-gray-700 dark:bg-gray-800
-    dark:text-gray-300 dark:hover:border-gray-600;
-}
-.chip[aria-pressed="true"] {
-  background: var(--c, #999);
-  border-color: var(--c, #999);
-  color: #1f2937;
+/* tabular, slashed-zero numerals for all clocks/timestamps */
+.tnum {
+  font-variant-numeric: tabular-nums slashed-zero;
+  font-feature-settings:
+    "tnum" 1,
+    "zero" 1;
 }
 
-/* Small category badge */
-.badge {
-  @apply inline-flex items-center rounded px-1.5 py-0.5 text-xs font-semibold;
-  background: var(--c, #999);
-  color: #1f2937;
+/* uppercase micro-label */
+.eyebrow {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-3);
 }
 
-/* A conference card */
+.font-display {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+}
+
+/* --------------------------------- the card -------------------------------- */
+
 .card {
-  @apply rounded-xl border border-gray-200 bg-white p-4 shadow-sm
-    dark:border-gray-800 dark:bg-gray-900;
+  position: relative;
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow:
+    0 1px 2px rgba(16, 24, 40, 0.04),
+    0 1px 3px rgba(16, 24, 40, 0.06);
   transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease,
-    background-color 0.2s ease,
-    border-color 0.2s ease,
-    opacity 0.2s ease;
+    background-color var(--dur, 180ms) var(--ease-out),
+    border-color var(--dur, 180ms) var(--ease-out),
+    box-shadow var(--dur, 180ms) var(--ease-out),
+    opacity var(--dur, 180ms) var(--ease-out);
 }
 .card:hover {
-  transform: translateY(-2px);
-  @apply shadow-md;
+  border-color: var(--color-border-strong);
+  box-shadow: 0 4px 12px rgba(16, 24, 40, 0.08);
 }
-.card.is-past {
-  @apply opacity-60;
+html.dark .card {
+  border-color: transparent;
+  box-shadow:
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.04),
+    0 1px 2px rgba(0, 0, 0, 0.4);
 }
-.card.is-past:hover {
-  transform: none;
+html.dark .card:hover {
+  background: var(--color-elevated);
+  box-shadow:
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.06),
+    0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
-/* Urgent: a deadline within ~7 days (added client-side) */
-.is-urgent [data-countdown] {
-  @apply text-red-600 dark:text-red-400;
+/* urgency: left rule + faint tint + colored days figure */
+.card.is-soon {
+  box-shadow:
+    inset 3px 0 0 0 var(--color-warn),
+    0 1px 2px rgba(16, 24, 40, 0.04),
+    0 1px 3px rgba(16, 24, 40, 0.06);
+  background: color-mix(in oklch, var(--color-warn) 4%, var(--color-card));
 }
-.is-urgent {
-  @apply ring-1 ring-red-300 dark:ring-red-500/40;
+.card.is-urgent {
+  box-shadow:
+    inset 3px 0 0 0 var(--color-danger),
+    0 1px 2px rgba(16, 24, 40, 0.04),
+    0 1px 3px rgba(16, 24, 40, 0.06);
+  background: color-mix(in oklch, var(--color-danger) 5%, var(--color-card));
+}
+html.dark .card.is-soon {
+  box-shadow:
+    inset 3px 0 0 0 var(--color-warn),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.04),
+    0 1px 2px rgba(0, 0, 0, 0.4);
+}
+html.dark .card.is-urgent {
+  box-shadow:
+    inset 3px 0 0 0 var(--color-danger),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.04),
+    0 1px 2px rgba(0, 0, 0, 0.4);
+}
+.is-soon [data-cd-days] {
+  color: var(--color-warn);
+}
+.is-urgent [data-cd-days] {
+  color: var(--color-danger);
+}
+
+/* past = quiet, compact, no hover lift */
+.card.is-past {
+  opacity: 0.5;
+  box-shadow: none;
+  background: transparent;
+  border-color: var(--color-border);
+}
+.card.is-past:hover {
+  opacity: 0.85;
+  box-shadow: none;
+}
+.is-past [data-cd-clock],
+.is-past .cd-eyebrow {
+  display: none;
+}
+.is-past [data-cd-days] {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--color-text-3);
+}
+
+/* --------------------------------- badges ---------------------------------- */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  border-radius: var(--radius-sm);
+  padding: 0.125rem 0.5rem;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  background: color-mix(in oklch, var(--c, #999) 16%, transparent);
+  color: color-mix(in oklch, var(--c, #999) 70%, var(--color-text));
+  box-shadow: inset 0 0 0 1px color-mix(in oklch, var(--c, #999) 30%, transparent);
+}
+.badge::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 9999px;
+  background: var(--c, #999);
+}
+
+/* ------------------------------ filter chips ------------------------------- */
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  cursor: pointer;
+  user-select: none;
+  border-radius: 9999px;
+  border: 1px solid var(--color-border);
+  background: transparent;
+  color: var(--color-text-2);
+  padding: 0.25rem 0.7rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  transition:
+    background-color 120ms var(--ease-out),
+    border-color 120ms var(--ease-out),
+    color 120ms var(--ease-out);
+}
+.chip::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  background: var(--c, #999);
+  opacity: 0.35;
+  transition: opacity 120ms var(--ease-out);
+}
+.chip:hover {
+  border-color: var(--color-border-strong);
+  color: var(--color-text);
+}
+.chip[aria-pressed="true"] {
+  background: var(--color-card);
+  color: var(--color-text);
+  border-color: var(--color-border-strong);
+}
+.chip[aria-pressed="true"]::before {
+  opacity: 1;
 }

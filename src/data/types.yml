@@ -1,19 +1,19 @@
 ---
 - name: Programming Languages
   sub: PL
-  color: "#99b9e9"
+  color: "#8aa0d4"
 - name: Software Engineering
   sub: SE
-  color: "#eca680"
+  color: "#cf9a78"
 - name: Security
   sub: SECURITY
-  color: "#54beaa"
+  color: "#5aa78f"
 - name: Operating Systems
   sub: OS
-  color: "#bdb5e1"
+  color: "#a99fce"
 - name: Computer Architecture
   sub: ARCH
-  color: "#bad077"
+  color: "#97ab6c"
 - name: More
   sub: MORE
-  color: "#f7df87"
+  color: "#d2ad55"

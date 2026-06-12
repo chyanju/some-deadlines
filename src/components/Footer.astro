@@ -2,13 +2,11 @@
 import { site } from "../data/site";
 ---
 
-<footer
-  class="border-t border-gray-200 py-8 text-center text-sm text-gray-500 transition-colors dark:border-gray-800 dark:text-gray-400"
->
+<footer class="border-t border-border py-10 text-center text-sm text-text-3">
   <p class="px-4">
-    {site.title} · adapted from{" "}
+    <span class="font-display">{site.title}</span> · adapted from{" "}
     <a
-      class="underline hover:text-gray-700 dark:hover:text-gray-200"
+      class="transition-colors hover:text-text-2"
       href="https://github.com/paperswithcode/ai-deadlines"
       target="_blank"
       rel="noopener">ai-deadlines</a
@@ -18,7 +16,7 @@ import { site } from "../data/site";
         <>
           {" · "}
           <a
-            class="underline hover:text-gray-700 dark:hover:text-gray-200"
+            class="transition-colors hover:text-text-2"
             href={`https://github.com/${site.githubRepo}`}
             target="_blank"
             rel="noopener"

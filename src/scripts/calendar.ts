@@ -6,7 +6,7 @@ interface CalEvent {
   kind: "deadline" | "conference";
   from: string; // YYYY-MM-DD
   to: string; // YYYY-MM-DD
-  color: string;
+  color: string; // hex (conference) or "var(--color-danger)" (deadline)
   subs: string[];
   place: string;
   dateLabel: string;
@@ -55,20 +55,18 @@ export function initCalendar(): void {
 
   function renderMonth(y: number, m: number, active: CalEvent[]): HTMLElement {
     const wrap = document.createElement("div");
-    wrap.className =
-      "rounded-lg border border-gray-200 bg-white p-3 transition-colors dark:border-gray-800 dark:bg-gray-900";
+    wrap.className = "card p-3";
 
     const head = document.createElement("div");
-    head.className =
-      "mb-2 text-center text-sm font-semibold text-gray-700 dark:text-gray-300";
+    head.className = "eyebrow mb-2 text-center";
     head.textContent = `${MONTHS[m]} ${y}`;
     wrap.appendChild(head);
 
     const g = document.createElement("div");
-    g.className = "grid grid-cols-7 gap-0.5 text-center text-[10px]";
+    g.className = "grid grid-cols-7 gap-1 text-center text-[10px]";
     for (const d of DOW) {
       const c = document.createElement("div");
-      c.className = "py-0.5 font-medium text-gray-400 dark:text-gray-500";
+      c.className = "py-0.5 font-medium text-text-3";
       c.textContent = d;
       g.appendChild(c);
     }
@@ -83,23 +81,16 @@ export function initCalendar(): void {
       const hasEvents = evs.length > 0;
       const cell = document.createElement(hasEvents ? "button" : "div");
       cell.className =
-        "flex aspect-square items-center justify-center rounded-sm";
+        "relative flex aspect-square items-center justify-center rounded-md text-text-3 transition";
       cell.textContent = String(d);
 
-      if (ds === today)
-        cell.classList.add(
-          "ring-1",
-          "ring-gray-500",
-          "font-bold",
-          "dark:ring-gray-400",
-        );
-
       if (hasEvents) {
-        const deadline = evs.find((e) => e.kind === "deadline");
-        (cell as HTMLElement).style.backgroundColor = deadline
-          ? deadline.color
-          : evs[0].color;
-        cell.classList.add("cursor-pointer", "font-medium", "text-white");
+        const ev = evs.find((e) => e.kind === "deadline") ?? evs[0];
+        const c = ev.color;
+        cell.style.backgroundColor = `color-mix(in oklch, ${c} 18%, var(--color-card))`;
+        cell.style.boxShadow = `inset 0 0 0 1.5px color-mix(in oklch, ${c} 42%, transparent)`;
+        cell.style.color = `color-mix(in oklch, ${c} 78%, var(--color-text))`;
+        cell.classList.add("cursor-pointer", "font-semibold", "hover:brightness-110");
         cell.setAttribute(
           "title",
           evs
@@ -114,9 +105,16 @@ export function initCalendar(): void {
         cell.addEventListener("click", () => {
           location.href = `/conference/${evs[0].id}/`;
         });
-      } else {
-        cell.classList.add("text-gray-500", "dark:text-gray-400");
       }
+
+      if (ds === today) {
+        cell.classList.add("font-bold", "text-text");
+        const dot = document.createElement("span");
+        dot.className =
+          "absolute bottom-[3px] left-1/2 h-1 w-1 -translate-x-1/2 rounded-full bg-accent";
+        cell.appendChild(dot);
+      }
+
       g.appendChild(cell);
     }
 

@@ -26,11 +26,19 @@ later, serve the static `dist/` folder from any static host.
   Rolldown-based Vite, so we use the PostCSS integration.)
 - **Luxon** — timezone math at build time; the browser ships **no** date library.
 - **TypeScript** — typed data model and client scripts.
-- **Inter** (self-hosted variable font via `@fontsource-variable/inter`).
+- **Type system** (self-hosted variable fonts via fontsource): **Fraunces**
+  (display serif — wordmark, titles, headings), **Geist** (body/UI), **Geist Mono**
+  (countdown digits + timestamps, tabular slashed-zero).
 
-Niceties: **dark mode** (toggle in the header, follows system, no flash),
-**View Transitions** (smooth page navigation via Astro's `<ClientRouter />`),
-card hover lift, and an "urgent" highlight for deadlines within 7 days.
+Design direction — "Calm Editorial Technical": warm-neutral surfaces, one indigo
+accent, red reserved for urgency, tamed category colors (dots / soft badges /
+tinted calendar cells). Tokens live in `src/styles/global.css` (`@theme` for light,
+`html.dark` overrides for dark — components use one set of `bg-card`/`text-text`/…
+utilities, no `dark:` variants needed).
+
+Niceties: **dark mode** (header toggle, follows system, no flash, `?theme=` URL
+override), **View Transitions** (`<ClientRouter />`), a departure-board segmented
+countdown on the detail page, and an urgency ramp (amber ≤30d, red ≤7d).
 
 ## Project structure
 

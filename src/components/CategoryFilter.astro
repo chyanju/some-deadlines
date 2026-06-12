@@ -2,8 +2,7 @@
 import { types } from "../data/conferences";
 ---
 
-<div class="flex flex-wrap items-center gap-2" data-filter>
-  <span class="text-sm font-medium text-gray-500 dark:text-gray-400">Filter:</span>
+<div class="flex flex-wrap items-center gap-1.5" data-filter>
   {
     types.map((t) => (
       <button
@@ -14,19 +13,19 @@ import { types } from "../data/conferences";
         aria-pressed="true"
         title={t.name}
       >
-        {t.name} <span class="opacity-60">({t.sub})</span>
+        {t.name}
       </button>
     ))
   }
-  <span class="mx-1 text-gray-300 dark:text-gray-700">|</span>
+  <span class="mx-1 h-4 w-px bg-border" aria-hidden="true"></span>
   <button
     type="button"
-    class="text-sm text-gray-500 underline hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+    class="rounded-md px-2 py-1 text-xs text-text-3 transition-colors hover:text-text-2"
     data-filter-all>All</button
   >
   <button
     type="button"
-    class="text-sm text-gray-500 underline hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+    class="rounded-md px-2 py-1 text-xs text-text-3 transition-colors hover:text-text-2"
     data-filter-clear>None</button
   >
 </div>

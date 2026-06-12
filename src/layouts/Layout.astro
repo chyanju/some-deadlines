@@ -1,5 +1,7 @@
 ---
-import "@fontsource-variable/inter";
+import "@fontsource-variable/fraunces";
+import "@fontsource-variable/geist";
+import "@fontsource-variable/geist-mono";
 import "../styles/global.css";
 import { ClientRouter } from "astro:transitions";
 import Header from "../components/Header.astro";
@@ -27,7 +29,8 @@ const fullTitle = title ? `${title} · ${site.title}` : site.title;
     {/* Apply the theme before first paint to avoid a flash. */}
     <script is:inline>
       (() => {
-        const t = localStorage.getItem("theme");
+        const q = new URLSearchParams(location.search).get("theme");
+        const t = q || localStorage.getItem("theme");
         const dark =
           t === "dark" ||
           (!t && window.matchMedia("(prefers-color-scheme: dark)").matches);
@@ -57,11 +60,9 @@ const fullTitle = title ? `${title} · ${site.title}` : site.title;
       )
     }
   </head>
-  <body
-    class="flex min-h-screen flex-col bg-gray-50 text-gray-800 antialiased transition-colors dark:bg-gray-950 dark:text-gray-200"
-  >
+  <body class="flex min-h-screen flex-col transition-colors">
     <Header />
-    <main class="mx-auto w-full max-w-4xl flex-1 px-4 py-8">
+    <main class="mx-auto w-full max-w-3xl flex-1 px-5 py-10">
       <slot />
     </main>
     <Footer />

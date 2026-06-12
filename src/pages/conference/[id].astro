@@ -16,144 +16,138 @@ const maps =
   conf.place === "Online"
     ? null
     : `https://maps.google.com/?q=${encodeURIComponent(conf.place)}`;
+const accentColor = conf.categories[0]?.color ?? "var(--color-border-strong)";
+
+const facts: Array<{ label: string; value: string; href?: string }> = [
+  { label: "Dates", value: conf.date },
+  { label: "Place", value: conf.place, href: maps ?? undefined },
+  { label: "Website", value: conf.link, href: conf.link },
+];
+if (conf.paperslink)
+  facts.push({ label: "Papers", value: conf.paperslink, href: conf.paperslink });
+if (conf.pwclink)
+  facts.push({ label: "Code", value: conf.pwclink, href: conf.pwclink });
 ---
 
 <Layout title={`${conf.title} ${conf.year}`}>
-  <a
-    href="/"
-    class="text-sm text-gray-500 hover:underline dark:text-gray-400"
-    >← all deadlines</a
-  >
+  <div class="mx-auto max-w-2xl">
+    <a
+      href="/"
+      class="inline-flex items-center gap-1 text-sm text-accent transition-colors hover:underline"
+    >
+      <svg
+        class="h-4 w-4"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.75"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+      >
+        <path d="m15 18-6-6 6-6"></path>
+      </svg>
+      All deadlines
+    </a>
 
-  <header class="mt-3">
-    <h1 class="text-3xl font-bold text-gray-900 dark:text-gray-100">
-      {conf.title}
-      {conf.year}
-    </h1>
-    {
-      conf.full_name && (
-        <p class="mt-1 text-lg text-gray-500 dark:text-gray-400">
-          {conf.full_name}
-        </p>
-      )
-    }
-    <div class="mt-2 flex flex-wrap gap-1">
+    <header class="mt-5">
+      <h1
+        class="font-display text-[clamp(2rem,5vw,2.75rem)] leading-[1.08] font-[520] tracking-[-0.022em] text-text"
+      >
+        {conf.title}
+        {conf.year}
+      </h1>
       {
-        conf.categories.map((t) => (
-          <span class="badge" style={`--c:${t.color}`} title={t.name}>
-            {t.name}
-          </span>
-        ))
-      }
-    </div>
-  </header>
-
-  <dl class="mt-6 grid gap-x-6 gap-y-2 text-sm sm:grid-cols-[max-content_1fr]">
-    <dt class="text-gray-400 dark:text-gray-500">Dates</dt>
-    <dd class="text-gray-700 dark:text-gray-300">{conf.date}</dd>
-
-    <dt class="text-gray-400 dark:text-gray-500">Place</dt>
-    <dd class="text-gray-700 dark:text-gray-300">
-      {
-        maps ? (
-          <a href={maps} target="_blank" rel="noopener" class="hover:underline">
-            {conf.place}
-          </a>
-        ) : (
-          conf.place
+        conf.full_name && (
+          <p class="mt-2 text-[1.0625rem] text-text-2">{conf.full_name}</p>
         )
       }
-    </dd>
+      <div class="mt-3 flex flex-wrap gap-1.5">
+        {
+          conf.categories.map((t) => (
+            <span class="badge" style={`--c:${t.color}`} title={t.name}>
+              {t.name}
+            </span>
+          ))
+        }
+      </div>
+    </header>
 
-    <dt class="text-gray-400 dark:text-gray-500">Website</dt>
-    <dd>
-      <a
-        href={conf.link}
-        target="_blank"
-        rel="noopener"
-        class="text-blue-600 hover:underline dark:text-blue-400">{conf.link}</a
-      >
-    </dd>
-
-    {
-      conf.paperslink && (
-        <>
-          <dt class="text-gray-400 dark:text-gray-500">Accepted papers</dt>
-          <dd>
-            <a
-              href={conf.paperslink}
-              target="_blank"
-              rel="noopener"
-              class="text-blue-600 hover:underline dark:text-blue-400"
-            >
-              {conf.paperslink}
-            </a>
-          </dd>
-        </>
-      )
-    }
-    {
-      conf.pwclink && (
-        <>
-          <dt class="text-gray-400 dark:text-gray-500">Papers with Code</dt>
-          <dd>
-            <a
-              href={conf.pwclink}
-              target="_blank"
-              rel="noopener"
-              class="text-blue-600 hover:underline dark:text-blue-400"
-            >
-              {conf.pwclink}
-            </a>
-          </dd>
-        </>
-      )
-    }
-  </dl>
-
-  <section
-    class="mt-8 rounded-xl border border-gray-200 bg-white p-5 shadow-sm transition-colors dark:border-gray-800 dark:bg-gray-900"
-  >
-    <div
-      data-countdown
-      data-deadline={conf.deadlineMs ?? ""}
-      class="font-mono text-2xl font-bold tabular-nums text-gray-900 sm:text-3xl dark:text-gray-100"
+    {/* Countdown hero */}
+    <section
+      class="mt-8 rounded-2xl border border-border bg-card p-8 shadow-sm"
+      style={`border-top:3px solid ${accentColor}`}
     >
-      —
-    </div>
-    <div class="mt-4 space-y-4 text-sm">
+      <div
+        data-passed
+        hidden
+        class="text-center font-display text-[1.75rem] font-[500] text-text-2"
+      >
+        Deadline passed
+      </div>
+      <div
+        data-countdown
+        data-deadline={conf.deadlineMs ?? ""}
+        class="flex items-start justify-center gap-2 sm:gap-4"
+      >
+        {
+          [
+            { id: "d", label: "days" },
+            { id: "h", label: "hrs" },
+            { id: "m", label: "min" },
+            { id: "s", label: "sec" },
+          ].map((seg, i) => (
+            <>
+              {i > 0 && (
+                <div class="font-mono text-[clamp(2rem,6vw,3rem)] leading-none text-text-3">
+                  :
+                </div>
+              )}
+              <div class="text-center">
+                <div
+                  data-cd={seg.id}
+                  class={`tnum font-mono text-[clamp(2.5rem,9vw,4rem)] leading-none font-semibold text-text cd-${seg.id}`}
+                >
+                  —
+                </div>
+                <div class="eyebrow mt-2">{seg.label}</div>
+              </div>
+            </>
+          ))
+        }
+      </div>
+    </section>
+
+    {/* Deadline details */}
+    <div class="mt-6 space-y-4 rounded-2xl border border-border bg-card p-6 shadow-sm">
       <div>
-        <div class="text-gray-400 dark:text-gray-500">
-          Paper deadline — conference timezone
-        </div>
-        <div class="text-gray-800 dark:text-gray-200">
+        <div class="eyebrow">Paper deadline · conference time</div>
+        <div class="mt-0.5 tnum font-mono text-[0.9375rem] text-text">
           {conf.deadlineInConfTz ?? "TBA"}
         </div>
-        <div class="mt-1 text-gray-400 dark:text-gray-500">
+        <div class="eyebrow mt-2">
           Your local (<span class="local-tz">local</span>) time
         </div>
         <div
           data-local-paper
           data-ms={conf.deadlineMs ?? ""}
-          class="text-gray-800 dark:text-gray-200"
+          class="mt-0.5 tnum font-mono text-[0.9375rem] text-text"
         >
           —
         </div>
       </div>
       {
         conf.absInConfTz && (
-          <div>
-            <div class="text-gray-400 dark:text-gray-500">
-              Abstract deadline — conference timezone
+          <div class="border-t border-border pt-4">
+            <div class="eyebrow">Abstract deadline · conference time</div>
+            <div class="mt-0.5 tnum font-mono text-[0.9375rem] text-text">
+              {conf.absInConfTz}
             </div>
-            <div class="text-gray-800 dark:text-gray-200">{conf.absInConfTz}</div>
-            <div class="mt-1 text-gray-400 dark:text-gray-500">
-              Your local time
-            </div>
+            <div class="eyebrow mt-2">Your local time</div>
             <div
               data-local-abs
               data-ms={conf.absDeadlineMs ?? ""}
-              class="text-gray-800 dark:text-gray-200"
+              class="mt-0.5 tnum font-mono text-[0.9375rem] text-text"
             >
               —
             </div>
@@ -166,14 +160,39 @@ const maps =
             href={gcal}
             target="_blank"
             rel="noopener"
-            class="inline-block text-blue-600 hover:underline dark:text-blue-400"
+            class="inline-flex h-9 items-center rounded-md bg-accent px-4 text-sm font-medium text-accent-fg transition hover:brightness-110"
           >
-            + Add to Google Calendar
+            Add to Google Calendar
           </a>
         )
       }
     </div>
-  </section>
+
+    {/* Facts */}
+    <dl class="mt-6 divide-y divide-border border-y border-border">
+      {
+        facts.map((f) => (
+          <div class="flex gap-4 py-3">
+            <dt class="eyebrow w-24 shrink-0 pt-0.5">{f.label}</dt>
+            <dd class="min-w-0 flex-1 text-[0.9375rem] text-text">
+              {f.href ? (
+                <a
+                  href={f.href}
+                  target="_blank"
+                  rel="noopener"
+                  class="break-words text-accent transition-colors hover:underline"
+                >
+                  {f.value}
+                </a>
+              ) : (
+                f.value
+              )}
+            </dd>
+          </div>
+        ))
+      }
+    </dl>
+  </div>
 </Layout>
 
 <script>
