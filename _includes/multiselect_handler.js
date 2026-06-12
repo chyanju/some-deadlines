@@ -9,10 +9,6 @@ $("#subject-select").multiselect({
     } else {
       var idx = subs.indexOf(csub);
       if (idx >= 0) subs.splice(idx, 1);
-      // In case a conf with multiple types (including this type) is wrongly hid, show all confs with at least one checked type.
-      for (var i = 0; i < subs.length; i++) {
-        // $('.' + subs[i] + '-conf').show();
-      }
     }
     update_filtering({ subs: subs, all_subs: all_subs });
   },

@@ -29,7 +29,7 @@
               </div>
               <div class="meta col-12">
                 You can optionally export all deadlines to
-                <a href="https://calendar.google.com/calendar/r?cid={{site.baseurl}}/some-deadlines.ics">Google Calendar</a> or
+                <a href="https://calendar.google.com/calendar/r?cid={{ site.baseurl | append: '/some-deadlines.ics' | url_encode }}">Google Calendar</a> or
                 <a href="{{site.baseurl}}/some-deadlines.ics">.ics</a>.
               </div>
             </div>

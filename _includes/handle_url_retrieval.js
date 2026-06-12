@@ -2,7 +2,7 @@
 var url = new URL(window.location);
 subs = url.searchParams.get("sub");
 if (subs == undefined) {
-  subs = store.get("{{site.domain}}-subs");
+  subs = store.get("{{site.github_repo}}-subs");
 } else {
   subs = subs.toUpperCase().split(",");
 }

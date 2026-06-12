@@ -16,9 +16,9 @@ function addUtcTimeZones() {
 
 function update_filtering(data) {
   var page_url = "{{site.baseurl}}";
-  store.set("{{site.domain}}-subs", data.subs);
+  store.set("{{site.github_repo}}-subs", data.subs);
 
-  $(".confItem").hide();
+  $(".ConfItem").hide();
   for (const j in data.all_subs) {
     const s = data.all_subs[j];
     const identifier = "." + s + "-conf";

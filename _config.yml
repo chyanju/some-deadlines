@@ -14,3 +14,22 @@ markdown: kramdown
 # ga_id: G-G350W8SSRE
 
 include: ['_pages']
+
+# Disable the github-pages default theme (jekyll-theme-primer). This site rolls
+# its own HTML/CSS and never uses any gem theme, so the theme only emitted an
+# unused assets/css/style.css and made the build fail under non-UTF-8 locales.
+theme: null
+
+# Keep maintainer-only / build files out of the published _site output.
+# (The first entries are Jekyll's defaults, which a custom `exclude` replaces.)
+exclude:
+  - .sass-cache
+  - .jekyll-cache
+  - gemfiles
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - utils
+  - README.md
+  - .travis.yml
