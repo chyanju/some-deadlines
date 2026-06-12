@@ -40,7 +40,9 @@ const eventsJson = JSON.stringify(events).replace(/</g, "\\u003c");
 ---
 
 <Layout title="Calendar">
-  <p class="text-gray-600">Deadlines and conference dates across the year.</p>
+  <p class="text-gray-600 dark:text-gray-400">
+    Deadlines and conference dates across the year.
+  </p>
 
   <div class="mt-5"><CategoryFilter /></div>
 
@@ -48,14 +50,14 @@ const eventsJson = JSON.stringify(events).replace(/</g, "\\u003c");
     <button
       data-cal-prev
       type="button"
-      class="rounded-md border border-gray-300 px-3 py-1 text-sm hover:bg-gray-100 disabled:opacity-40"
+      class="rounded-md border border-gray-300 px-3 py-1 text-sm transition hover:bg-gray-100 disabled:opacity-40 dark:border-gray-700 dark:hover:bg-gray-800"
       >←</button
     >
     <span data-cal-year class="text-xl font-bold tabular-nums">—</span>
     <button
       data-cal-next
       type="button"
-      class="rounded-md border border-gray-300 px-3 py-1 text-sm hover:bg-gray-100 disabled:opacity-40"
+      class="rounded-md border border-gray-300 px-3 py-1 text-sm transition hover:bg-gray-100 disabled:opacity-40 dark:border-gray-700 dark:hover:bg-gray-800"
       >→</button
     >
   </div>
@@ -66,7 +68,9 @@ const eventsJson = JSON.stringify(events).replace(/</g, "\\u003c");
   >
   </div>
 
-  <div class="mt-8 flex flex-wrap gap-x-4 gap-y-2 text-xs text-gray-500">
+  <div
+    class="mt-8 flex flex-wrap gap-x-4 gap-y-2 text-xs text-gray-500 dark:text-gray-400"
+  >
     <span>
       <span
         class="mr-1 inline-block h-3 w-3 rounded-sm align-middle"
@@ -91,5 +95,5 @@ const eventsJson = JSON.stringify(events).replace(/</g, "\\u003c");
 
 <script>
   import { initCalendar } from "../scripts/calendar";
-  initCalendar();
+  document.addEventListener("astro:page-load", initCalendar);
 </script>

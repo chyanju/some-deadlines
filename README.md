@@ -20,10 +20,17 @@ later, serve the static `dist/` folder from any static host.
 
 ## Tech stack
 
-- **Astro** — static site generator (zero JS shipped by default).
-- **Tailwind CSS v4** — styling (via `@tailwindcss/vite`).
+- **Astro 6** — static site generator (zero JS shipped by default).
+- **Tailwind CSS v4** — styling, wired via PostCSS (`@tailwindcss/postcss`).
+  (The `@tailwindcss/vite` plugin is currently incompatible with Astro 6's
+  Rolldown-based Vite, so we use the PostCSS integration.)
 - **Luxon** — timezone math at build time; the browser ships **no** date library.
 - **TypeScript** — typed data model and client scripts.
+- **Inter** (self-hosted variable font via `@fontsource-variable/inter`).
+
+Niceties: **dark mode** (toggle in the header, follows system, no flash),
+**View Transitions** (smooth page navigation via Astro's `<ClientRouter />`),
+card hover lift, and an "urgent" highlight for deadlines within 7 days.
 
 ## Project structure
 

@@ -1,13 +1,9 @@
 // @ts-check
 import { defineConfig } from "astro/config";
-import tailwindcss from "@tailwindcss/vite";
 
 // Standalone static site. No GitHub Pages / UCSB sub-path: served from root.
+// Tailwind v4 is wired via PostCSS (postcss.config.mjs) — the @tailwindcss/vite
+// plugin is currently incompatible with Astro 6's Rolldown-based Vite.
 export default defineConfig({
   site: "http://localhost:4321",
-  vite: {
-    // Cast: @tailwindcss/vite ships its own (newer) Vite types than Astro's,
-    // which only clash at the type level; the plugin runs fine at build time.
-    plugins: [/** @type {any} */ (tailwindcss())],
-  },
 });

@@ -19,16 +19,22 @@ const maps =
 ---
 
 <Layout title={`${conf.title} ${conf.year}`}>
-  <a href="/" class="text-sm text-gray-500 hover:underline">← all deadlines</a>
+  <a
+    href="/"
+    class="text-sm text-gray-500 hover:underline dark:text-gray-400"
+    >← all deadlines</a
+  >
 
   <header class="mt-3">
-    <h1 class="text-3xl font-bold text-gray-900">
+    <h1 class="text-3xl font-bold text-gray-900 dark:text-gray-100">
       {conf.title}
       {conf.year}
     </h1>
     {
       conf.full_name && (
-        <p class="mt-1 text-lg text-gray-500">{conf.full_name}</p>
+        <p class="mt-1 text-lg text-gray-500 dark:text-gray-400">
+          {conf.full_name}
+        </p>
       )
     }
     <div class="mt-2 flex flex-wrap gap-1">
@@ -42,14 +48,12 @@ const maps =
     </div>
   </header>
 
-  <dl
-    class="mt-6 grid gap-x-6 gap-y-2 text-sm sm:grid-cols-[max-content_1fr]"
-  >
-    <dt class="text-gray-400">Dates</dt>
-    <dd class="text-gray-700">{conf.date}</dd>
+  <dl class="mt-6 grid gap-x-6 gap-y-2 text-sm sm:grid-cols-[max-content_1fr]">
+    <dt class="text-gray-400 dark:text-gray-500">Dates</dt>
+    <dd class="text-gray-700 dark:text-gray-300">{conf.date}</dd>
 
-    <dt class="text-gray-400">Place</dt>
-    <dd class="text-gray-700">
+    <dt class="text-gray-400 dark:text-gray-500">Place</dt>
+    <dd class="text-gray-700 dark:text-gray-300">
       {
         maps ? (
           <a href={maps} target="_blank" rel="noopener" class="hover:underline">
@@ -61,26 +65,26 @@ const maps =
       }
     </dd>
 
-    <dt class="text-gray-400">Website</dt>
+    <dt class="text-gray-400 dark:text-gray-500">Website</dt>
     <dd>
       <a
         href={conf.link}
         target="_blank"
         rel="noopener"
-        class="text-blue-600 hover:underline">{conf.link}</a
+        class="text-blue-600 hover:underline dark:text-blue-400">{conf.link}</a
       >
     </dd>
 
     {
       conf.paperslink && (
         <>
-          <dt class="text-gray-400">Accepted papers</dt>
+          <dt class="text-gray-400 dark:text-gray-500">Accepted papers</dt>
           <dd>
             <a
               href={conf.paperslink}
               target="_blank"
               rel="noopener"
-              class="text-blue-600 hover:underline"
+              class="text-blue-600 hover:underline dark:text-blue-400"
             >
               {conf.paperslink}
             </a>
@@ -91,13 +95,13 @@ const maps =
     {
       conf.pwclink && (
         <>
-          <dt class="text-gray-400">Papers with Code</dt>
+          <dt class="text-gray-400 dark:text-gray-500">Papers with Code</dt>
           <dd>
             <a
               href={conf.pwclink}
               target="_blank"
               rel="noopener"
-              class="text-blue-600 hover:underline"
+              class="text-blue-600 hover:underline dark:text-blue-400"
             >
               {conf.pwclink}
             </a>
@@ -107,37 +111,49 @@ const maps =
     }
   </dl>
 
-  <section class="mt-8 rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
+  <section
+    class="mt-8 rounded-xl border border-gray-200 bg-white p-5 shadow-sm transition-colors dark:border-gray-800 dark:bg-gray-900"
+  >
     <div
       data-countdown
       data-deadline={conf.deadlineMs ?? ""}
-      class="font-mono text-2xl font-bold tabular-nums text-gray-900 sm:text-3xl"
+      class="font-mono text-2xl font-bold tabular-nums text-gray-900 sm:text-3xl dark:text-gray-100"
     >
       —
     </div>
     <div class="mt-4 space-y-4 text-sm">
       <div>
-        <div class="text-gray-400">Paper deadline — conference timezone</div>
-        <div class="text-gray-800">{conf.deadlineInConfTz ?? "TBA"}</div>
-        <div class="mt-1 text-gray-400">
+        <div class="text-gray-400 dark:text-gray-500">
+          Paper deadline — conference timezone
+        </div>
+        <div class="text-gray-800 dark:text-gray-200">
+          {conf.deadlineInConfTz ?? "TBA"}
+        </div>
+        <div class="mt-1 text-gray-400 dark:text-gray-500">
           Your local (<span class="local-tz">local</span>) time
         </div>
-        <div data-local-paper data-ms={conf.deadlineMs ?? ""} class="text-gray-800">
+        <div
+          data-local-paper
+          data-ms={conf.deadlineMs ?? ""}
+          class="text-gray-800 dark:text-gray-200"
+        >
           —
         </div>
       </div>
       {
         conf.absInConfTz && (
           <div>
-            <div class="text-gray-400">
+            <div class="text-gray-400 dark:text-gray-500">
               Abstract deadline — conference timezone
             </div>
-            <div class="text-gray-800">{conf.absInConfTz}</div>
-            <div class="mt-1 text-gray-400">Your local time</div>
+            <div class="text-gray-800 dark:text-gray-200">{conf.absInConfTz}</div>
+            <div class="mt-1 text-gray-400 dark:text-gray-500">
+              Your local time
+            </div>
             <div
               data-local-abs
               data-ms={conf.absDeadlineMs ?? ""}
-              class="text-gray-800"
+              class="text-gray-800 dark:text-gray-200"
             >
               —
             </div>
@@ -150,7 +166,7 @@ const maps =
             href={gcal}
             target="_blank"
             rel="noopener"
-            class="inline-block text-blue-600 hover:underline"
+            class="inline-block text-blue-600 hover:underline dark:text-blue-400"
           >
             + Add to Google Calendar
           </a>
@@ -162,5 +178,5 @@ const maps =
 
 <script>
   import { initConferencePage } from "../../scripts/conf";
-  initConferencePage();
+  document.addEventListener("astro:page-load", initConferencePage);
 </script>

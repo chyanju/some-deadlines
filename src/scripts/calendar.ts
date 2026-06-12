@@ -55,10 +55,12 @@ export function initCalendar(): void {
 
   function renderMonth(y: number, m: number, active: CalEvent[]): HTMLElement {
     const wrap = document.createElement("div");
-    wrap.className = "rounded-lg border border-gray-200 bg-white p-3";
+    wrap.className =
+      "rounded-lg border border-gray-200 bg-white p-3 transition-colors dark:border-gray-800 dark:bg-gray-900";
 
     const head = document.createElement("div");
-    head.className = "mb-2 text-center text-sm font-semibold text-gray-700";
+    head.className =
+      "mb-2 text-center text-sm font-semibold text-gray-700 dark:text-gray-300";
     head.textContent = `${MONTHS[m]} ${y}`;
     wrap.appendChild(head);
 
@@ -66,7 +68,7 @@ export function initCalendar(): void {
     g.className = "grid grid-cols-7 gap-0.5 text-center text-[10px]";
     for (const d of DOW) {
       const c = document.createElement("div");
-      c.className = "py-0.5 font-medium text-gray-400";
+      c.className = "py-0.5 font-medium text-gray-400 dark:text-gray-500";
       c.textContent = d;
       g.appendChild(c);
     }
@@ -84,7 +86,13 @@ export function initCalendar(): void {
         "flex aspect-square items-center justify-center rounded-sm";
       cell.textContent = String(d);
 
-      if (ds === today) cell.classList.add("ring-1", "ring-gray-500", "font-bold");
+      if (ds === today)
+        cell.classList.add(
+          "ring-1",
+          "ring-gray-500",
+          "font-bold",
+          "dark:ring-gray-400",
+        );
 
       if (hasEvents) {
         const deadline = evs.find((e) => e.kind === "deadline");
@@ -107,7 +115,7 @@ export function initCalendar(): void {
           location.href = `/conference/${evs[0].id}/`;
         });
       } else {
-        cell.classList.add("text-gray-500");
+        cell.classList.add("text-gray-500", "dark:text-gray-400");
       }
       g.appendChild(cell);
     }

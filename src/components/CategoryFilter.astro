@@ -3,7 +3,7 @@ import { types } from "../data/conferences";
 ---
 
 <div class="flex flex-wrap items-center gap-2" data-filter>
-  <span class="text-sm font-medium text-gray-500">Filter:</span>
+  <span class="text-sm font-medium text-gray-500 dark:text-gray-400">Filter:</span>
   {
     types.map((t) => (
       <button
@@ -18,15 +18,15 @@ import { types } from "../data/conferences";
       </button>
     ))
   }
-  <span class="mx-1 text-gray-300">|</span>
+  <span class="mx-1 text-gray-300 dark:text-gray-700">|</span>
   <button
     type="button"
-    class="text-sm text-gray-500 underline hover:text-gray-700"
+    class="text-sm text-gray-500 underline hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
     data-filter-all>All</button
   >
   <button
     type="button"
-    class="text-sm text-gray-500 underline hover:text-gray-700"
+    class="text-sm text-gray-500 underline hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
     data-filter-clear>None</button
   >
 </div>

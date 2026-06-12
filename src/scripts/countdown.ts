@@ -31,7 +31,11 @@ function sortInto(container: HTMLElement | null, direction: 1 | -1): void {
   for (const item of items) container.appendChild(item);
 }
 
+const URGENT_MS = 7 * 24 * 60 * 60 * 1000; // highlight deadlines within 7 days
+let timer = 0;
+
 export function initCountdowns(): void {
+  if (timer) window.clearInterval(timer); // avoid stacking across navigations
   const cards = Array.from(document.querySelectorAll<HTMLElement>("[data-conf]"));
   const upcoming = document.getElementById("upcoming");
   const past = document.getElementById("past");
@@ -56,9 +60,11 @@ export function initCountdowns(): void {
     }
     if (ms < now) {
       card.classList.add("is-past");
+      card.classList.remove("is-urgent");
       if (counter) counter.textContent = "Passed";
       past?.appendChild(card);
     } else {
+      card.classList.toggle("is-urgent", ms - now < URGENT_MS);
       upcoming?.appendChild(card);
     }
   }
@@ -76,5 +82,5 @@ export function initCountdowns(): void {
     }
   };
   tick();
-  window.setInterval(tick, 1000);
+  timer = window.setInterval(tick, 1000);
 }

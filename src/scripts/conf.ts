@@ -1,7 +1,10 @@
 import { formatRemaining, localString } from "./countdown";
 
+let timer = 0;
+
 /** Drive the single-conference detail page: local-time fills + live countdown. */
 export function initConferencePage(): void {
+  if (timer) window.clearInterval(timer); // avoid stacking across navigations
   const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
   document.querySelectorAll(".local-tz").forEach((el) => {
     el.textContent = tz;
@@ -22,7 +25,7 @@ export function initConferencePage(): void {
         remaining > 0 ? formatRemaining(remaining) : "Deadline passed";
     };
     tick();
-    window.setInterval(tick, 1000);
+    timer = window.setInterval(tick, 1000);
   } else if (counter) {
     counter.textContent = "TBA";
   }
