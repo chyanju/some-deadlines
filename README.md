@@ -26,9 +26,9 @@ later, serve the static `dist/` folder from any static host.
   Rolldown-based Vite, so we use the PostCSS integration.)
 - **Luxon** — timezone math at build time; the browser ships **no** date library.
 - **TypeScript** — typed data model and client scripts.
-- **Type system** (self-hosted variable fonts via fontsource): **Fraunces**
-  (display serif — wordmark, titles, headings), **Geist** (body/UI), **Geist Mono**
-  (countdown digits + timestamps, tabular slashed-zero).
+- **Type system** (self-hosted variable fonts via fontsource): **Source Serif 4**
+  (a calm, scholarly display serif — wordmark, titles, headings), **Geist**
+  (body/UI), **Geist Mono** (countdown digits + timestamps, tabular slashed-zero).
 
 Design direction — "Calm Editorial Technical": warm-neutral surfaces, one indigo
 accent, red reserved for urgency, tamed category colors (dots / soft badges /

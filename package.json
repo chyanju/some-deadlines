@@ -12,9 +12,9 @@
     "check": "astro check"
   },
   "dependencies": {
-    "@fontsource-variable/fraunces": "^5.2.9",
     "@fontsource-variable/geist": "^5.2.9",
     "@fontsource-variable/geist-mono": "^5.2.8",
+    "@fontsource-variable/source-serif-4": "^5.2.9",
     "astro": "^6.4.6",
     "luxon": "^3.5.0"
   },

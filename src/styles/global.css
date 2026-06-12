@@ -11,7 +11,7 @@
 @theme {
   --font-sans: "Geist Variable", ui-sans-serif, system-ui, -apple-system,
     "Segoe UI", sans-serif;
-  --font-display: "Fraunces Variable", Georgia, "Times New Roman", serif;
+  --font-display: "Source Serif 4 Variable", Georgia, "Times New Roman", serif;
   --font-mono: "Geist Mono Variable", ui-monospace, "SF Mono", monospace;
 
   /* light theme (defaults) */
