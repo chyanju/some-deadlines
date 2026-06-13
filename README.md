@@ -119,10 +119,12 @@ server hot-reloads on save. Each conference is one list item:
 
 Conventions:
 
-- **Keep history by commenting out, not deleting.** When a deadline passes, comment
-  the old record (`#` each line) and add the new year above it.
-- Passed deadlines are hidden by default and revealed via the filter menu's
-  **Past deadlines** toggle; they sort to the bottom of the list automatically.
+- **Delete a conference once it's over.** When the meeting date has passed the
+  record is done — remove it from this file (don't keep it commented out). The
+  `# ==== NAME ====` banners are just section headers for scanning the file.
+- A conference whose paper deadline has passed but whose meeting is still upcoming
+  stays in the file; it's hidden by default and revealed via the filter menu's
+  **Past deadlines** toggle, sorting to the bottom of the list.
 - The loader **validates** on build: a missing required field, an unknown `sub`, or
   a duplicate `id` fails the build with a clear message.
 - Extra keys in the YAML (e.g. a legacy `note:`) are ignored — only the fields in

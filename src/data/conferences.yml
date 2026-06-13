@@ -15,32 +15,6 @@
   sub: "PL"
   note: <a href='https://pldi26.sigplan.org/'>conference site</a>
 
-# - title: PLDI
-#   year: 2025
-#   id: pldi25
-#   link: https://pldi25.sigplan.org/
-#   deadline: '2024-11-14 23:59:59'
-#   timezone: UTC-12
-#   place: Seoul, South Korea
-#   date: June 16-20, 2025
-#   start: 2025-06-16
-#   end: 2025-06-20
-#   sub: "PL"
-#   note: <a href='https://pldi25.sigplan.org/'>conference site</a>
-
-# - title: PLDI
-#   year: 2024
-#   id: pldi24
-#   link: https://pldi24.sigplan.org/
-#   deadline: '2023-11-16 23:59:59'
-#   timezone: UTC-12
-#   place: Copenhagen, Denmark
-#   date: June 24-28, 2024
-#   start: 2024-06-24
-#   end: 2024-06-28
-#   sub: "PL"
-#   note: <a href='https://pldi24.sigplan.org/'>conference site</a>
-
 # ====================== #
 # ======== ICSE ======== #
 # ====================== #
@@ -59,62 +33,6 @@
   sub: "SE"
   note: <a href='https://conf.researchr.org/home/icse-2027'>conference site</a>
 
-# - title: ICSE (First Cycle)
-#   year: 2026
-#   id: icse2026a
-#   link: https://conf.researchr.org/home/icse-2026
-#   deadline: '2025-03-14 23:59:59'
-#   abstract_deadline: '2025-03-07 23:59:59'
-#   timezone: UTC-12
-#   place: Rio de Janeiro, Brazil
-#   date: April 12 - April 18, 2026
-#   start: 2026-04-12
-#   end: 2026-04-18
-#   sub: "SE"
-#   note: <a href='https://conf.researchr.org/home/icse-2026'>conference site</a>
-
-# - title: ICSE (Second Cycle)
-#   year: 2026
-#   id: icse2026b
-#   link: https://conf.researchr.org/home/icse-2026
-#   deadline: '2025-07-18 23:59:59'
-#   abstract_deadline: '2025-07-11 23:59:59'
-#   timezone: UTC-12
-#   place: Rio de Janeiro, Brazil
-#   date: April 12 - April 18, 2026
-#   start: 2026-04-12
-#   end: 2026-04-18
-#   sub: "SE"
-#   note: <a href='https://conf.researchr.org/home/icse-2026'>conference site</a>
-
-# - title: ICSE (First Cycle)
-#   year: 2025
-#   id: icse2025a
-#   link: https://conf.researchr.org/home/icse-2025
-#   deadline: '2024-03-22 23:59:59'
-#   abstract_deadline: '2024-03-15 23:59:59'
-#   timezone: UTC-12
-#   place: Ottawa, Ontario, Canada
-#   date: April 26 - May 4, 2025
-#   start: 2025-04-26
-#   end: 2025-05-04
-#   sub: "SE"
-#   note: <a href='https://conf.researchr.org/home/icse-2025'>conference site</a>
-
-# - title: ICSE (Second Cycle)
-#   year: 2025
-#   id: icse2025b
-#   link: https://conf.researchr.org/home/icse-2025
-#   deadline: '2024-08-02 23:59:59'
-#   abstract_deadline: '2024-07-26 23:59:59'
-#   timezone: UTC-12
-#   place: Ottawa, Ontario, Canada
-#   date: April 26 - May 4, 2025
-#   start: 2025-04-26
-#   end: 2025-05-04
-#   sub: "SE"
-#   note: <a href='https://conf.researchr.org/home/icse-2025'>conference site</a>
-
 # ====================== #
 # ======== SOSP ======== #
 # ====================== #
@@ -132,34 +50,6 @@
   end: 2026-10-02
   sub: "OS"
   note: <a href='https://sigops.org/s/conferences/sosp/2026/index.html'>conference site</a>
-
-# - title: SOSP
-#   year: 2025
-#   id: sosp2025
-#   link: https://sigops.org/s/conferences/sosp/2025/index.html
-#   deadline: '2025-04-17 23:59:00'
-#   abstract_deadline: '2025-04-10 23:59:00'
-#   timezone: UTC-7
-#   place: Seoul, Republic of Korea
-#   date: October 13-16, 2025
-#   start: 2025-10-13
-#   end: 2025-10-16
-#   sub: "OS"
-#   note: <a href='https://sigops.org/s/conferences/sosp/2025/index.html'>conference site</a>
-
-# - title: SOSP
-#   year: 2024
-#   id: sosp2024
-#   link: https://sigops.org/s/conferences/sosp/2024/index.html
-#   deadline: '2024-04-19 23:59:00'
-#   abstract_deadline: '2024-04-12 23:59:59'
-#   timezone: UTC-7
-#   place: Austin, Texas, USA
-#   date: November 4-6, 2024
-#   start: 2024-11-04
-#   end: 2024-11-06
-#   sub: "OS"
-#   note: <a href='https://sigops.org/s/conferences/sosp/2024/index.html'>conference site</a>
 
 # ======================== #
 # ======== OOPSLA ======== #
@@ -191,58 +81,6 @@
   sub: ["PL"]
   note: <a href='https://2026.splashcon.org/track/oopsla-2026'>conference site</a>
 
-# - title: OOPSLA (Round 1)
-#   year: 2025
-#   id: oopsla2025a
-#   link: https://2025.splashcon.org/track/OOPSLA
-#   deadline: '2024-10-15 23:59:59'
-#   timezone: UTC-12
-#   place: Singapore, Singapore
-#   date: October 12-18, 2025
-#   start: 2025-10-12
-#   end: 2025-10-18
-#   sub: ["PL"]
-#   note: <a href='https://2025.splashcon.org/track/OOPSLA'>conference site</a>
-
-# - title: OOPSLA (Round 2)
-#   year: 2025
-#   id: oopsla2025b
-#   link: https://2025.splashcon.org/track/OOPSLA
-#   deadline: '2025-03-25 23:59:59'
-#   timezone: UTC-12
-#   place: Singapore, Singapore
-#   date: October 12-18, 2025
-#   start: 2025-10-12
-#   end: 2025-10-18
-#   sub: ["PL"]
-#   note: <a href='https://2025.splashcon.org/track/OOPSLA'>conference site</a>
-
-# - title: OOPSLA (Round 1)
-#   year: 2024
-#   id: oopsla2024a
-#   link: https://2024.splashcon.org/track/splash-2024-oopsla
-#   deadline: '2023-10-20 23:59:59'
-#   timezone: UTC-12
-#   place: Pasadena, California, USA
-#   date: October 20-25, 2024
-#   start: 2024-10-20
-#   end: 2024-10-25
-#   sub: ["PL"]
-#   note: <a href='https://2024.splashcon.org/track/splash-2024-oopsla'>conference site</a>
-
-# - title: OOPSLA (Round 2)
-#   year: 2024
-#   id: oopsla2024b
-#   link: https://2024.splashcon.org/track/splash-2024-oopsla
-#   deadline: '2024-04-05 23:59:59'
-#   timezone: UTC-12
-#   place: Pasadena, California, USA
-#   date: October 20-25, 2024
-#   start: 2024-10-20
-#   end: 2024-10-25
-#   sub: ["PL"]
-#   note: <a href='https://2024.splashcon.org/track/splash-2024-oopsla'>conference site</a>
-
 # ===================== #
 # ======== CAV ======== #
 # ===================== #
@@ -260,32 +98,6 @@
   sub: "PL"
   note: <a href='https://conferences.i-cav.org/2026/'>conference site</a>
 
-# - title: CAV
-#   year: 2025
-#   id: cav2025
-#   link: https://conferences.i-cav.org/2025/
-#   deadline: '2025-01-31 23:59:59'
-#   timezone: UTC-12
-#   place: Zagreb, Croatia
-#   date: July 21-25, 2025
-#   start: 2025-07-21
-#   end: 2025-07-25
-#   sub: "PL"
-#   note: <a href='https://conferences.i-cav.org/2025/'>conference site</a>
-
-# - title: CAV
-#   year: 2024
-#   id: cav2024
-#   link: https://i-cav.org/2024/
-#   deadline: '2024-01-19 23:59:59'
-#   timezone: UTC-12
-#   place: Montreal, Canada
-#   date: July 22-27, 2024
-#   start: 2024-07-22
-#   end: 2024-07-27
-#   sub: "PL"
-#   note: <a href='https://i-cav.org/2024/'>conference site</a>
-
 # ===================== #
 # ======== ASE ======== #
 # ===================== #
@@ -302,33 +114,6 @@
   end: 2026-10-16
   sub: "SE"
   note: <a href='https://conf.researchr.org/home/ase-2026'>conference site</a>
-
-# - title: ASE
-#   year: 2025
-#   id: ase2025
-#   link: https://conf.researchr.org/home/ase-2025
-#   deadline: '2025-05-30 23:59:59'
-#   timezone: UTC-12
-#   place: Seoul, South Korea
-#   date: November 16 - 20, 2025
-#   start: 2025-11-16
-#   end: 2025-11-20
-#   sub: "SE"
-#   note: <a href='https://conf.researchr.org/home/ase-2025'>conference site</a>
-
-# - title: ASE
-#   year: 2024
-#   id: ase2024
-#   link: https://conf.researchr.org/home/ase-2024
-#   deadline: '2024-06-07 23:59:59'
-#   abstract_deadline: '2024-05-31 23:59:59'
-#   timezone: UTC-12
-#   place: Sacramento, California, USA
-#   date: October 27 - November 1, 2024
-#   start: 2024-10-27
-#   end: 2024-11-01
-#   sub: "SE"
-#   note: <a href='https://conf.researchr.org/home/ase-2024'>conference site</a>
 
 # ====================== #
 # ======== FSE ========= #
@@ -361,34 +146,6 @@
   sub: "SE"
   note: <a href='https://conf.researchr.org/home/fse-2027'>conference site</a>
 
-# - title: FSE
-#   year: 2025
-#   id: fse2025
-#   link: https://conf.researchr.org/home/fse-2025
-#   deadline: '2024-09-12 23:59:59'
-#   abstract_deadline: '2024-09-05 23:59:59'
-#   timezone: UTC-12
-#   place: Trondheim, Norway
-#   date: June 23 - 27, 2025
-#   start: 2025-06-23
-#   end: 2025-06-27
-#   sub: "SE"
-#   note: <a href='https://conf.researchr.org/home/fse-2025'>conference site</a>
-
-# - title: FSE
-#   year: 2024
-#   id: fse2024
-#   link: https://2024.esec-fse.org/
-#   deadline: '2023-09-28 23:59:59'
-#   abstract_deadline: '2023-09-21 23:59:59'
-#   timezone: UTC-12
-#   place: Porto de Galinhas, Brazil, Brazil
-#   date: July 15 - 19, 2024
-#   start: 2024-07-15
-#   end: 2024-07-19
-#   sub: "SE"
-#   note: <a href='https://2024.esec-fse.org/'>conference site</a>
-
 # ====================== #
 # ======== POPL ======== #
 # ====================== #
@@ -405,32 +162,6 @@
   end: 2027-01-16
   sub: "PL"
   note: <a href='https://conf.researchr.org/home/POPL-2027'>conference site</a>
-
-# - title: POPL
-#   year: 2026
-#   id: popl2026
-#   link: https://conf.researchr.org/home/POPL-2026
-#   deadline: '2025-07-10 23:59:59'
-#   timezone: UTC-12
-#   place: Rennes, France
-#   date: January 11 - 17, 2026
-#   start: 2026-01-11
-#   end: 2026-01-17
-#   sub: "PL"
-#   note: <a href='https://conf.researchr.org/home/POPL-2026'>conference site</a>
-
-# - title: POPL
-#   year: 2025
-#   id: popl2025
-#   link: https://conf.researchr.org/home/POPL-2025
-#   deadline: '2024-07-11 23:59:59'
-#   timezone: UTC-12
-#   place: Denver, Colorado, USA
-#   date: Jan 19 - 25, 2025
-#   start: 2025-01-19
-#   end: 2025-01-25
-#   sub: "PL"
-#   note: <a href='https://conf.researchr.org/home/POPL-2025'>conference site</a>
 
 # ===================== #
 # ======== S&P ======== #
@@ -492,32 +223,6 @@
   sub: "SECURITY"
   note: <a href='https://sp2027.ieee-security.org/'>conference site</a>
 
-# - title: S&P (First Round)
-#   year: 2025
-#   id: sp2025a
-#   link: https://www.ieee-security.org/TC/SP2025/index.html
-#   deadline: '2024-06-06 23:59:59'
-#   timezone: UTC-12
-#   place: San Francisco, California, USA
-#   date: May 12 - 15, 2025
-#   start: 2025-05-12
-#   end: 2025-05-15
-#   sub: "SECURITY"
-#   note: <a href='https://www.ieee-security.org/TC/SP2025/index.html'>conference site</a>
-
-# - title: S&P (Second Round)
-#   year: 2025
-#   id: sp2025b
-#   link: https://www.ieee-security.org/TC/SP2025/index.html
-#   deadline: '2024-11-14 23:59:59'
-#   timezone: UTC-12
-#   place: San Francisco, California, USA
-#   date: May 12 - 15, 2025
-#   start: 2025-05-12
-#   end: 2025-05-15
-#   sub: "SECURITY"
-#   note: <a href='https://www.ieee-security.org/TC/SP2025/index.html'>conference site</a>
-
 # ===================== #
 # ======== CCS ======== #
 # ===================== #
@@ -550,60 +255,6 @@
   sub: "SECURITY"
   note: <a href='https://www.sigsac.org/ccs/CCS2026/'>conference site</a>
 
-# - title: CCS (First Review Cycle)
-#   year: 2025
-#   id: ccs2025a
-#   link: https://www.sigsac.org/ccs/CCS2025/
-#   abstract_deadline: '2025-01-02 23:59:59'
-#   deadline: '2025-01-09 23:59:59'
-#   timezone: UTC-12
-#   place: Taipei, Taiwan
-#   date: October 13 - 17, 2025
-#   start: 2025-10-13
-#   end: 2025-10-17
-#   sub: "SECURITY"
-#   note: <a href='https://www.sigsac.org/ccs/CCS2025/'>conference site</a>
-
-# - title: CCS (Second Review Cycle)
-#   year: 2025
-#   id: ccs2025b
-#   link: https://www.sigsac.org/ccs/CCS2025/
-#   abstract_deadline: '2025-04-07 23:59:59'
-#   deadline: '2025-04-14 23:59:59'
-#   timezone: UTC-12
-#   place: Taipei, Taiwan
-#   date: October 13 - 17, 2025
-#   start: 2025-10-13
-#   end: 2025-10-17
-#   sub: "SECURITY"
-#   note: <a href='https://www.sigsac.org/ccs/CCS2025/'>conference site</a>
-
-# - title: CCS (First Cycle)
-#   year: 2024
-#   id: ccs2024a
-#   link: https://www.sigsac.org/ccs/CCS2024/home.html
-#   deadline: '2024-01-28 23:59:59'
-#   timezone: UTC-12
-#   place: Salt Lake City, Utah, USA
-#   date: October 14 - 18, 2024
-#   start: 2024-10-14
-#   end: 2024-10-18
-#   sub: "SECURITY"
-#   note: <a href='https://www.sigsac.org/ccs/CCS2024/home.html'>conference site</a>
-
-# - title: CCS (Second Cycle)
-#   year: 2024
-#   id: ccs2024b
-#   link: https://www.sigsac.org/ccs/CCS2024/home.html
-#   deadline: '2024-04-29 23:59:59'
-#   timezone: UTC-12
-#   place: Salt Lake City, Utah, USA
-#   date: October 14 - 18, 2024
-#   start: 2024-10-14
-#   end: 2024-10-18
-#   sub: "SECURITY"
-#   note: <a href='https://www.sigsac.org/ccs/CCS2024/home.html'>conference site</a>
-
 # ====================== #
 # ======== NDSS ======== #
 # ====================== #
@@ -633,84 +284,6 @@
   end: 2027-03-26
   sub: "SECURITY"
   note: <a href='https://www.ndss-symposium.org/ndss2027/'>conference site</a>
-
-# - title: NDSS (Summer Cycle)
-#   year: 2026
-#   id: ndss2026a
-#   link: https://www.ndss-symposium.org/ndss2026
-#   deadline: '2025-04-23 23:59:59'
-#   timezone: UTC-12
-#   place: San Diego, California, USA
-#   date: February 23 - 27, 2026
-#   start: 2026-02-23
-#   end: 2026-02-27
-#   sub: "SECURITY"
-#   note: <a href='https://www.ndss-symposium.org/ndss2026'>conference site</a>
-
-# - title: NDSS (Fall Cycle)
-#   year: 2026
-#   id: ndss2026b
-#   link: https://www.ndss-symposium.org/ndss2026
-#   deadline: '2025-08-06 23:59:59'
-#   timezone: UTC-12
-#   place: San Diego, California, USA
-#   date: February 23 - 27, 2026
-#   start: 2026-02-23
-#   end: 2026-02-27
-#   sub: "SECURITY"
-#   note: <a href='https://www.ndss-symposium.org/ndss2026'>conference site</a>
-
-# - title: NDSS (Summer Cycle)
-#   year: 2025
-#   id: ndss2025a
-#   link: https://www.ndss-symposium.org/ndss2025/
-#   deadline: '2024-04-17 23:59:59'
-#   timezone: UTC-12
-#   place: San Diego, California, USA
-#   date: February 23 - 28, 2025
-#   start: 2025-02-23
-#   end: 2025-02-28
-#   sub: "SECURITY"
-#   note: <a href='https://www.ndss-symposium.org/ndss2025/'>conference site</a>
-
-# - title: NDSS (Fall Cycle)
-#   year: 2025
-#   id: ndss2025b
-#   link: https://www.ndss-symposium.org/ndss2025/
-#   deadline: '2024-07-10 23:59:59'
-#   timezone: UTC-12
-#   place: San Diego, California, USA
-#   date: February 23 - 28, 2025
-#   start: 2025-02-23
-#   end: 2025-02-28
-#   sub: "SECURITY"
-#   note: <a href='https://www.ndss-symposium.org/ndss2025/'>conference site</a>
-
-# - title: NDSS (Summer Cycle)
-#   year: 2024
-#   id: ndss2024a
-#   link: https://www.ndss-symposium.org/ndss2024/
-#   deadline: '2023-04-19 23:59:59'
-#   timezone: UTC-12
-#   place: San Diego, California, USA
-#   date: February 26 - March 1, 2024
-#   start: 2024-02-26
-#   end: 2024-03-01
-#   sub: "SECURITY"
-#   note: <a href='https://www.ndss-symposium.org/ndss2024/'>conference site</a>
-
-# - title: NDSS (Fall Cycle)
-#   year: 2024
-#   id: ndss2024b
-#   link: https://www.ndss-symposium.org/ndss2024/
-#   deadline: '2023-06-28 23:59:59'
-#   timezone: UTC-12
-#   place: San Diego, California, USA
-#   date: February 26 - March 1, 2024
-#   start: 2024-02-26
-#   end: 2024-03-01
-#   sub: "SECURITY"
-#   note: <a href='https://www.ndss-symposium.org/ndss2024/'>conference site</a>
 
 # ======================== #
 # ======== USENIX ======== #
@@ -772,71 +345,6 @@
   sub: "SECURITY"
   note: <a href='https://www.usenix.org/conference/usenixsecurity27'>conference site</a>
 
-# - title: USENIX Security (Cycle 1)
-#   year: 2025
-#   id: usenix2025a
-#   link: https://www.usenix.org/conference/usenixsecurity25
-#   deadline: '2024-09-04 23:59:59'
-#   timezone: UTC-12
-#   place: Seattle, WA, USA
-#   date: August 13 - 15, 2025
-#   start: 2025-08-13
-#   end: 2025-08-15
-#   sub: "SECURITY"
-#   note: <a href='https://www.usenix.org/conference/usenixsecurity25'>conference site</a>
-
-# - title: USENIX Security (Cycle 2)
-#   year: 2025
-#   id: usenix2025b
-#   link: https://www.usenix.org/conference/usenixsecurity25
-#   deadline: '2025-01-22 23:59:59'
-#   timezone: UTC-12
-#   place: Seattle, WA, USA
-#   date: August 13 - 15, 2025
-#   start: 2025-08-13
-#   end: 2025-08-15
-#   sub: "SECURITY"
-#   note: <a href='https://www.usenix.org/conference/usenixsecurity25'>conference site</a>
-
-# - title: USENIX Security (Summer Cycle)
-#   year: 2024
-#   id: usenix2024a
-#   link: https://www.usenix.org/conference/usenixsecurity24
-#   deadline: '2023-06-06 23:59:59'
-#   timezone: UTC-12
-#   place: Philadelphia, Pennsylvania, USA
-#   date: August 14 - 16, 2024
-#   start: 2024-08-14
-#   end: 2024-08-16
-#   sub: "SECURITY"
-#   note: <a href='https://www.usenix.org/conference/usenixsecurity24'>conference site</a>
-
-# - title: USENIX Security (Fall Cycle)
-#   year: 2024
-#   id: usenix2024b
-#   link: https://www.usenix.org/conference/usenixsecurity24
-#   deadline: '2023-10-17 23:59:59'
-#   timezone: UTC-12
-#   place: Philadelphia, Pennsylvania, USA
-#   date: August 14 - 16, 2024
-#   start: 2024-08-14
-#   end: 2024-08-16
-#   sub: "SECURITY"
-#   note: <a href='https://www.usenix.org/conference/usenixsecurity24'>conference site</a>
-
-# - title: USENIX Security (Winter Cycle)
-#   year: 2024
-#   id: usenix2024c
-#   link: https://www.usenix.org/conference/usenixsecurity24
-#   deadline: '2024-02-08 23:59:59'
-#   timezone: UTC-12
-#   place: Philadelphia, Pennsylvania, USA
-#   date: August 14 - 16, 2024
-#   start: 2024-08-14
-#   end: 2024-08-16
-#   sub: "SECURITY"
-#   note: <a href='https://www.usenix.org/conference/usenixsecurity24'>conference site</a>
-
 # ====================== #
 # ======== OSDI ======== #
 # ====================== #
@@ -855,33 +363,6 @@
   sub: "OS"
   note: <a href='https://www.usenix.org/conference/osdi26'>conference site</a>
 
-# - title: OSDI
-#   year: 2025
-#   id: osdi2025
-#   link: https://www.usenix.org/conference/osdi25
-#   deadline: '2024-12-10 22:59:59'
-#   abstract_deadline: '2024-12-03 22:59:59'
-#   timezone: UTC-0
-#   place: Boston, MA, USA
-#   date: July 7 - 9, 2025
-#   start: 2025-07-07
-#   end: 2025-07-09
-#   sub: "OS"
-#   note: <a href='https://www.usenix.org/conference/osdi25'>conference site</a>
-
-# - title: OSDI
-#   year: 2024
-#   id: osdi2024
-#   link: https://www.usenix.org/conference/osdi24
-#   deadline: '2023-11-30 23:59:59'
-#   timezone: UTC-12
-#   place: Santa Clara, CA, USA
-#   date: July 10 - 12, 2024
-#   start: 2024-07-10
-#   end: 2024-07-12
-#   sub: "OS"
-#   note: <a href='https://www.usenix.org/conference/osdi24'>conference site</a>
-
 # ======================= #
 # ======== ISSTA ======== #
 # ======================= #
@@ -898,45 +379,6 @@
   end: 2026-10-09
   sub: "SE"
   note: <a href='https://conf.researchr.org/home/issta-2026'>conference site</a>
-
-# - title: ISSTA
-#   year: 2025
-#   id: issta2025
-#   link: https://conf.researchr.org/home/issta-2025
-#   deadline: '2024-10-31 23:59:59'
-#   timezone: UTC-12
-#   place: Trondheim, Norway
-#   date: June 25 - 28, 2025
-#   start: 2025-06-25
-#   end: 2025-06-28
-#   sub: "SE"
-#   note: <a href='https://conf.researchr.org/home/issta-2025'>conference site</a>
-
-# - title: ISSTA (Round 1)
-#   year: 2024
-#   id: issta2024a
-#   link: https://2024.issta.org/
-#   deadline: '2023-12-15 23:59:59'
-#   timezone: UTC-12
-#   place: Vienna, Austria
-#   date: September 16 - 20, 2024
-#   start: 2024-09-16
-#   end: 2024-09-20
-#   sub: "SE"
-#   note: <a href='https://2024.issta.org/'>conference site</a>
-
-# - title: ISSTA (Round 2)
-#   year: 2024
-#   id: issta2024b
-#   link: https://2024.issta.org/
-#   deadline: '2024-04-12 23:59:59'
-#   timezone: UTC-12
-#   place: Vienna, Austria
-#   date: September 16 - 20, 2024
-#   start: 2024-09-16
-#   end: 2024-09-20
-#   sub: "SE"
-#   note: <a href='https://2024.issta.org/'>conference site</a>
 
 # ======================= #
 # ======== ECOOP ======== #
@@ -968,58 +410,6 @@
   sub: "PL"
   note: <a href='https://2026.ecoop.org/'>conference site</a>
 
-# - title: ECOOP (Round 1)
-#   year: 2025
-#   id: ecoop2025a
-#   link: https://2025.ecoop.org/
-#   deadline: '2025-01-06 23:59:59'
-#   timezone: UTC-12
-#   place: Bergen, Norway
-#   date: June 30 - July 4, 2025
-#   start: 2025-06-30
-#   end: 2025-07-04
-#   sub: "PL"
-#   note: <a href='https://2025.ecoop.org/'>conference site</a>
-
-# - title: ECOOP (Round 2)
-#   year: 2025
-#   id: ecoop2025b
-#   link: https://2025.ecoop.org/
-#   deadline: '2025-03-05 23:59:59'
-#   timezone: UTC-12
-#   place: Bergen, Norway
-#   date: June 30 - July 4, 2025
-#   start: 2025-06-30
-#   end: 2025-07-04
-#   sub: "PL"
-#   note: <a href='https://2025.ecoop.org/'>conference site</a>
-
-# - title: ECOOP (Round 1)
-#   year: 2024
-#   id: ecoop2024a
-#   link: https://2024.ecoop.org/
-#   deadline: '2024-01-17 23:59:59'
-#   timezone: UTC-12
-#   place: Vienna, Austria
-#   date: September 16 - 20, 2024
-#   start: 2024-09-16
-#   end: 2024-09-20
-#   sub: "PL"
-#   note: <a href='https://2024.ecoop.org/'>conference site</a>
-
-# - title: ECOOP (Round 2)
-#   year: 2024
-#   id: ecoop2024b
-#   link: https://2024.ecoop.org/
-#   deadline: '2024-04-17 23:59:59'
-#   timezone: UTC-12
-#   place: Vienna, Austria
-#   date: September 16 - 20, 2024
-#   start: 2024-09-16
-#   end: 2024-09-20
-#   sub: "PL"
-#   note: <a href='https://2024.ecoop.org/'>conference site</a>
-
 # ====================== #
 # ======== ICFP ======== #
 # ====================== #
@@ -1036,32 +426,6 @@
   end: 2026-08-29
   sub: "PL"
   note: <a href='https://icfp26.sigplan.org/'>conference site</a>
-
-# - title: ICFP
-#   year: 2025
-#   id: icfp2025
-#   link: https://icfp25.sigplan.org/
-#   deadline: '2025-02-27 23:59:59'
-#   timezone: UTC-12
-#   place: Singapore, Singapore
-#   date: October 12 - 18, 2025
-#   start: 2025-10-12
-#   end: 2025-10-18
-#   sub: "PL"
-#   note: <a href='https://icfp25.sigplan.org/'>conference site</a>
-
-# - title: ICFP
-#   year: 2024
-#   id: icfp2024
-#   link: https://icfp24.sigplan.org/
-#   deadline: '2024-02-28 23:59:59'
-#   timezone: UTC-12
-#   place: Milan, Italy
-#   date: September 2 - 7, 2024
-#   start: 2024-09-02
-#   end: 2024-09-07
-#   sub: "PL"
-#   note: <a href='https://icfp24.sigplan.org/'>conference site</a>
 
 # ======================== #
 # ======== ASPLOS ======== #
@@ -1093,76 +457,6 @@
   sub: ["ARCH"]
   note: <a href='https://www.asplos-conference.org/asplos2027/cfp/'>conference site</a>
 
-# - title: ASPLOS (Spring Cycle)
-#   year: 2026
-#   id: asplos2026a
-#   link: https://www.asplos-conference.org/asplos2026/
-#   abstract_deadline: '2025-03-05 23:59:59'
-#   deadline: '2025-03-12 23:59:59'
-#   timezone: UTC-5
-#   place: Pittsburgh, PA, USA
-#   date: March 22 - March 26, 2026
-#   start: 2026-03-22
-#   end: 2026-03-26
-#   sub: ["ARCH"]
-#   note: <a href='https://www.asplos-conference.org/asplos2026/'>conference site</a>
-
-# - title: ASPLOS (Summer Cycle)
-#   year: 2026
-#   id: asplos2026b
-#   link: https://www.asplos-conference.org/asplos2026/
-#   abstract_deadline: '2025-08-13 23:59:59'
-#   deadline: '2025-08-20 23:59:59'
-#   timezone: UTC-4
-#   place: Pittsburgh, PA, USA
-#   date: March 22 - March 26, 2026
-#   start: 2026-03-22
-#   end: 2026-03-26
-#   sub: ["ARCH"]
-#   note: <a href='https://www.asplos-conference.org/asplos2026/'>conference site</a>
-
-# - title: ASPLOS (Spring Cycle)
-#   year: 2025
-#   id: asplos2025a
-#   link: https://www.asplos-conference.org/asplos2025/
-#   deadline: '2024-03-01 23:59:59'
-#   abstract_deadline: '2024-02-23 23:59:59'
-#   timezone: UTC-12
-#   place: Rotterdam, The Netherlands
-#   date: March 30 - April 3, 2025
-#   start: 2025-03-30
-#   end: 2025-04-03
-#   sub: ["OS","PL"]
-#   note: <a href='https://www.asplos-conference.org/asplos2025/'>conference site</a>
-
-# - title: ASPLOS (Summer Cycle)
-#   year: 2025
-#   id: asplos2025b
-#   link: https://www.asplos-conference.org/asplos2025/
-#   deadline: '2024-06-24 23:59:59'
-#   abstract_deadline: '2024-06-17 23:59:59'
-#   timezone: UTC-12
-#   place: Rotterdam, The Netherlands
-#   date: March 30 - April 3, 2025
-#   start: 2025-03-30
-#   end: 2025-04-03
-#   sub: ["OS","PL"]
-#   note: <a href='https://www.asplos-conference.org/asplos2025/'>conference site</a>
-
-# - title: ASPLOS (Fall Cycle)
-#   year: 2025
-#   id: asplos2025c
-#   link: https://www.asplos-conference.org/asplos2025/
-#   deadline: '2024-10-18 23:59:59'
-#   abstract_deadline: '2024-10-11 23:59:59'
-#   timezone: UTC-12
-#   place: Rotterdam, The Netherlands
-#   date: March 30 - April 3, 2025
-#   start: 2025-03-30
-#   end: 2025-04-03
-#   sub: ["OS","PL"]
-#   note: <a href='https://www.asplos-conference.org/asplos2025/'>conference site</a>
-
 # ===================== #
 # ======== CHI ======== #
 # ===================== #
@@ -1179,20 +473,6 @@
   end: 2027-05-14
   sub: "MORE"
   note: <a href='https://chi2027.acm.org/'>conference site</a>
-
-# - title: CHI
-#   year: 2026
-#   id: chi2026
-#   link: https://chi2026.acm.org/
-#   abstract_deadline: '2025-09-04 23:59:59'
-#   deadline: '2025-09-11 23:59:59'
-#   timezone: UTC-12
-#   place: Barcelona, Spain
-#   date: April 13-17, 2026
-#   start: 2026-04-13
-#   end: 2026-04-17
-#   sub: "MORE"
-#   note: <a href='https://chi2026.acm.org/'>conference site</a>
 
 # ====================== #
 # ======== UIST ======== #
@@ -1228,30 +508,4 @@
   end: 2026-07-29
   sub: "MORE"
   note: <a href='https://www.sbc-conference.com/2026/'>conference site</a>
-
-# - title: SBC
-#   year: 2025
-#   id: sbc2025
-#   link: https://www.sbc-conference.com/2025/
-#   deadline: '2025-03-13 23:59:59'
-#   timezone: UTC-7
-#   place: U.C. Berkeley, CA, USA
-#   date: August 4-6, 2024
-#   start: 2025-08-04
-#   end: 2025-08-06
-#   sub: "MORE"
-#   note: <a href='https://www.sbc-conference.com/2025/'>conference site</a>
-
-# - title: SBC
-#   year: 2024
-#   id: sbc2024
-#   link: https://www.sbc-conference.com/
-#   deadline: '2024-04-16 23:59:59'
-#   timezone: UTC-7
-#   place: Columbia University, New York, New York, USA
-#   date: August 7-9, 2024
-#   start: 2024-08-07
-#   end: 2024-08-09
-#   sub: "MORE"
-#   note: <a href='https://www.sbc-conference.com/'>conference site</a>
 
