@@ -2,6 +2,7 @@
 import type { ProcessedConference } from "../lib/deadlines";
 import { deadlineItems } from "../lib/deadlines";
 import DeadlineActions from "./DeadlineActions.astro";
+import InlineCountdown from "./InlineCountdown.astro";
 
 interface Props {
   conf: ProcessedConference;
@@ -50,32 +51,34 @@ const iconCls =
     </div>
   </div>
 
-  {/* Row 2 — dates + per-deadline rows w/ their own add-to-calendar icons (left),
-      countdown (right, dropped down) */}
+  {/* Row 2 — date·place, then a per-deadline mini-table (icons · label · date ·
+      countdown) with aligned columns; the big paper countdown (the focus) sits on
+      the right. */}
   <div class="mt-2.5 flex items-end justify-between gap-4">
     <div class="min-w-0 flex-1">
       <p class="text-[0.9375rem] text-text-2">{conf.date} · {conf.place}</p>
-      <dl class="mt-1 space-y-1 text-[0.8125rem]">
-        <div class="flex items-center gap-2">
-          <span class="flex min-w-[2.4rem] shrink-0 items-center gap-0.5">
+      <dl class="dl-grid mt-1.5 text-[0.8125rem]">
+        <div class="contents">
+          <span class="flex min-w-[2.4rem] items-center gap-0.5">
             {paper && <DeadlineActions item={paper} />}
           </span>
-          <dt class="eyebrow w-16 shrink-0">Paper</dt>
-          <dd class="tnum text-text" data-dl={conf.deadlineMs ?? ""}>
-            {conf.deadlineShort ?? "TBA"}
+          <dt class="eyebrow">Paper</dt>
+          <dd class="tnum text-text">
+            <span data-dl={conf.deadlineMs ?? ""}>{conf.deadlineShort ?? "TBA"}</span>
           </dd>
+          <InlineCountdown ms={conf.deadlineMs} />
         </div>
         {
           conf.absShort && (
-            <div class="flex items-center gap-2">
-              <span class="flex min-w-[2.4rem] shrink-0 items-center gap-0.5">
+            <div class="contents">
+              <span class="flex min-w-[2.4rem] items-center gap-0.5">
                 {abstract && <DeadlineActions item={abstract} />}
               </span>
-              <dt class="eyebrow w-16 shrink-0">Abstract</dt>
+              <dt class="eyebrow">Abstract</dt>
               <dd class="tnum text-text-2">
                 <span data-dl={conf.absDeadlineMs ?? ""}>{conf.absShort}</span>
-                <span class="abs-cd" data-abs-cd data-deadline={conf.absDeadlineMs}>(<span data-abs-days>—</span><span data-abs-clock></span>)</span>
               </dd>
+              <InlineCountdown ms={conf.absDeadlineMs} />
             </div>
           )
         }
@@ -85,8 +88,8 @@ const iconCls =
     <div class="shrink-0 text-right leading-none">
       <span class="cd-eyebrow eyebrow">days left</span>
       <div class="flex items-baseline justify-end gap-1.5">
-        <span data-cd-days class="tnum text-[2rem] leading-none font-semibold text-text-2">—</span>
-        <span data-cd-clock class="tnum text-[0.8125rem] text-text-2">&nbsp;</span>
+        <span data-cd-days class="tnum text-[2rem] leading-none font-bold text-text-2">—</span>
+        <span data-cd-clock class="tnum text-[0.8125rem] font-semibold text-text-2">&nbsp;</span>
       </div>
     </div>
   </div>

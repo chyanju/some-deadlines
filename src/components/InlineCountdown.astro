@@ -1,0 +1,15 @@
+---
+// Small inline deadline countdown cell: "(N days left · HH:MM:SS)", or "(passed)".
+// Always renders a cell (empty for TBA) so the deadline grid columns stay aligned.
+// Wired by scripts/countdown.ts via [data-inline-cd] (reads data-deadline; ticks).
+interface Props {
+  ms: number | null;
+}
+const { ms } = Astro.props;
+---
+
+<span class="cd-inline" data-inline-cd data-deadline={ms ?? ""}>
+  {ms != null && (
+    <Fragment>(<span data-inline-days>—</span><span data-inline-clock></span>)</Fragment>
+  )}
+</span>

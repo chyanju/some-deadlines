@@ -231,28 +231,47 @@ html.dark .card.is-urgent:hover {
     0 2px 8px rgba(0, 0, 0, 0.5);
 }
 /* The whole countdown takes ONE colour — the category/urgency colour when due
-   soon, the muted default otherwise — figure AND clock together, for both the big
-   paper figure and the inline abstract one. Size + weight give the hierarchy. */
+   soon, the muted default otherwise — figure AND clock together, for the big
+   paper figure and the inline per-deadline ones. Size + weight give the hierarchy. */
 .is-soon [data-cd-days],
 .is-urgent [data-cd-days],
 .is-soon [data-cd-clock],
 .is-urgent [data-cd-clock],
-.is-soon .abs-cd,
-.is-urgent .abs-cd {
+.is-soon .cd-inline,
+.is-urgent .cd-inline {
   color: color-mix(in oklch, var(--c) 70%, var(--color-text));
 }
 
-/* Inline abstract-deadline countdown: small (inherits the row's 0.8125rem); the
-   "N days left" figure is bolded for emphasis; colour comes from the rule above
-   (urgent) or the muted default below. Hidden on past cards. */
-.abs-cd {
+/* "DAYS LEFT" label above the big figure — bold, to match the figures. */
+.cd-eyebrow {
+  font-weight: 700;
+}
+
+/* Per-deadline rows as an aligned mini-table: icons · label · date · countdown.
+   Rows are display:contents so every cell shares these four auto-sized columns,
+   lining the countdown up across Paper / Abstract. */
+.dl-grid {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  align-items: center;
+  column-gap: 0.5rem;
+  row-gap: 0.3rem;
+  width: max-content;
+  max-width: 100%;
+}
+
+/* Inline per-deadline countdown: small (inherits the row's 0.8125rem) but bold —
+   the "N days left" figure is heaviest. Colour comes from the rule above (urgent)
+   or the muted default. Hidden on past cards. */
+.cd-inline {
   white-space: nowrap;
   color: var(--color-text-2);
-}
-[data-abs-days] {
   font-weight: 600;
 }
-.card.is-past .abs-cd {
+[data-inline-days] {
+  font-weight: 700;
+}
+.card.is-past .cd-inline {
   display: none;
 }
 
