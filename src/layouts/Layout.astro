@@ -24,11 +24,10 @@ const fullTitle = title ? `${title} · ${site.title}` : site.title;
     <meta name="author" content={site.author} />
     <link rel="icon" href="/favicon.png" />
 
-    {/* Apply the theme before first paint to avoid a flash. */}
+    {/* Apply the theme before first paint to avoid a flash (localStorage only). */}
     <script is:inline>
       (() => {
-        const q = new URLSearchParams(location.search).get("theme");
-        const t = q || localStorage.getItem("theme");
+        const t = localStorage.getItem("theme");
         const dark =
           t === "dark" ||
           (!t && window.matchMedia("(prefers-color-scheme: dark)").matches);

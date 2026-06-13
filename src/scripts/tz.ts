@@ -7,8 +7,6 @@ import { STORAGE } from "./storage";
 type Mode = "local" | "aoe";
 
 function getMode(): Mode {
-  const q = new URLSearchParams(location.search).get("tz");
-  if (q === "aoe" || q === "local") return q;
   return localStorage.getItem(STORAGE.tz) === "aoe" ? "aoe" : "local";
 }
 

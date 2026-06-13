@@ -42,11 +42,12 @@ urgency colour. Tokens live in `src/styles/global.css` (`@theme` for light,
 (backdrop-filter)` and collapses to a flat opaque look under
 `prefers-reduced-transparency` (motion is neutralized under `prefers-reduced-motion`).
 
-Niceties: **dark mode** (header toggle, follows system, no flash, `?theme=` URL
-override), a **Local / AoE** deadline time-zone toggle (default Local, `?tz=`
-override), **View Transitions** (`<ClientRouter />`), an urgency ramp (category
-colour intensifies ≤30d, deepens ≤7d), and per-card **.ics download** +
-**Add to Google Calendar** links.
+Niceties: **dark mode** (header toggle, follows system, no flash), a **Local /
+AoE** deadline time-zone toggle (default Local), **View Transitions**
+(`<ClientRouter />`), an urgency ramp (category colour intensifies ≤30d, deepens
+≤7d), and per-card **.ics download** + **Add to Google Calendar** links. Theme and
+time-zone choices persist in `localStorage`; no setting is read from or written to
+the URL.
 
 ## Project structure
 
