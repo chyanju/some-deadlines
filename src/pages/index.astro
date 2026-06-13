@@ -38,31 +38,18 @@ const confJson = JSON.stringify(confData).replace(/</g, "\\u003c");
   {/* Controls live in the sticky header bar so filtering/timezone/view stay
       reachable while scrolling. */}
   <div slot="toolbar" class="flex flex-wrap items-center gap-2">
-    <div
-      class="inline-flex items-center rounded-full border border-border p-0.5 text-sm"
-      role="group"
-      aria-label="View"
-    >
-      <button type="button" data-view-btn="list" class="rounded-full px-3 py-1">
-        Countdowns
+    <div class="tbar-seg" role="group" aria-label="View">
+      <button type="button" data-view-btn="list" title="Countdowns" aria-label="Countdowns">
+        <svg class="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"></path></svg>
       </button>
-      <button type="button" data-view-btn="calendar" class="rounded-full px-3 py-1">
-        Calendar
+      <button type="button" data-view-btn="calendar" title="Calendar" aria-label="Calendar">
+        <svg class="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v3M16 2v3M3.5 9h17M5 5h14a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z"></path></svg>
       </button>
     </div>
 
     <CategoryFilter showPastToggle={true} />
 
     <TzToggle />
-
-    <a
-      href="/some-deadlines.ics"
-      class="inline-flex items-center gap-1.5 text-sm text-text-3 transition-colors hover:text-text-2"
-      title="Subscribe (.ics)"
-    >
-      <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v3M16 2v3M3.5 9h17M5 5h14a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z"></path></svg>
-      .ics
-    </a>
   </div>
 
   {/* ---------------- List view ---------------- */}

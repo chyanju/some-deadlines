@@ -125,7 +125,10 @@ function buildContent(c: Conf): string {
         <div class="mt-0.5 tnum text-[0.9375rem] text-text" data-dl="${c.deadlineMs ?? ""}">${esc(c.dlShort ?? "—")}</div>
       </div>
       ${absBlock}
-      ${c.gcal ? `<a href="${esc(c.gcal)}" target="_blank" rel="noopener" class="inline-flex h-9 items-center rounded-md bg-accent px-4 text-sm font-medium text-accent-fg transition hover:brightness-110">Add to Google Calendar</a>` : ""}
+      <div class="flex flex-wrap gap-2">
+        ${c.gcal ? `<a href="${esc(c.gcal)}" target="_blank" rel="noopener" class="inline-flex h-9 items-center rounded-md bg-accent px-4 text-sm font-medium text-accent-fg transition hover:brightness-110">Add to Google Calendar</a>` : ""}
+        <a href="/conference/${esc(c.id)}.ics" class="inline-flex h-9 items-center rounded-md border border-border px-4 text-sm font-medium text-text transition hover:bg-surface">Download .ics</a>
+      </div>
     </div>
 
     <dl class="mt-5 divide-y divide-border border-t border-border">${facts.join("")}</dl>

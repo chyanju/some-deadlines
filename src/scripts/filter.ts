@@ -81,6 +81,7 @@ export function initFilter(
   const button = root.querySelector<HTMLButtonElement>("[data-filter-button]");
   const menu = root.querySelector<HTMLElement>("[data-filter-menu]");
   const summary = root.querySelector<HTMLElement>("[data-filter-summary]");
+  const dot = root.querySelector<HTMLElement>("[data-filter-dot]");
   const pastBox = root.querySelector<HTMLInputElement>("[data-show-past]");
   const all = allSubs();
 
@@ -98,6 +99,8 @@ export function initFilter(
             ? "No categories"
             : `${selected.size} categor${selected.size === 1 ? "y" : "ies"}`;
     }
+    // active-filter indicator dot (categories narrowed, or past shown)
+    if (dot) dot.hidden = !(selected.size !== all.length || past);
     persist([...selected], all, past);
     onChange?.([...selected], past);
   };

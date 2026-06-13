@@ -13,10 +13,12 @@ const { showPastToggle = false } = Astro.props;
     data-filter-button
     aria-haspopup="true"
     aria-expanded="false"
-    class="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-1.5 text-sm text-text shadow-sm transition-colors"
+    aria-label="Filter categories"
+    title="Filter"
+    class="tbar-icon relative"
   >
     <svg
-      class="h-4 w-4 text-text-3"
+      class="h-[18px] w-[18px]"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -27,19 +29,11 @@ const { showPastToggle = false } = Astro.props;
     >
       <path d="M3 5h18M6 12h12M10 19h4"></path>
     </svg>
-    <span data-filter-summary>All categories</span>
-    <svg
-      class="h-4 w-4 text-text-3"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="1.75"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      aria-hidden="true"
-    >
-      <path d="m6 9 6 6 6-6"></path>
-    </svg>
+    <span
+      data-filter-dot
+      hidden
+      class="absolute top-1 right-1 h-1.5 w-1.5 rounded-full bg-accent"
+    ></span>
   </button>
 
   <div

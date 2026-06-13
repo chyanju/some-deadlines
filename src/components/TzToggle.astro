@@ -3,11 +3,15 @@
 ---
 
 <div
-  class="inline-flex items-center rounded-full border border-border p-0.5 text-xs"
+  class="tbar-seg"
   role="group"
   aria-label="Deadline time zone"
   data-tz-toggle
 >
-  <button type="button" data-tz="local" class="rounded-full px-2.5 py-1">Local</button>
-  <button type="button" data-tz="aoe" class="rounded-full px-2.5 py-1">AoE</button>
+  <button type="button" data-tz="local" title="Your local time" aria-label="Your local time">
+    <svg class="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>
+  </button>
+  <button type="button" data-tz="aoe" title="Anywhere on Earth (UTC-12)" aria-label="Anywhere on Earth (UTC-12)">
+    <svg class="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3a15 15 0 0 1 0 18 15 15 0 0 1 0-18"></path></svg>
+  </button>
 </div>

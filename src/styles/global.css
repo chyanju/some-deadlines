@@ -327,31 +327,92 @@ html.dark .badge {
   opacity: 1;
 }
 
-/* ----------------------------- timezone toggle ----------------------------- */
-[data-tz-toggle] button {
-  border-radius: var(--radius-sm);
-  color: var(--color-text-3);
-  transition:
-    background-color 120ms var(--ease-out),
-    color 120ms var(--ease-out);
+/* ---------------------- Liquid Glass toolbar controls ----------------------
+   Controls sit ON the glass header bar (glass-within-glass), not as separate
+   bordered boxes. Segmented controls are a faint recessed groove with a bright
+   active lozenge; single actions are borderless and reveal a glass highlight on
+   hover. One material vocabulary, uniform sizing. */
+.tbar-seg {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 3px;
+  border-radius: 9999px;
+  background: rgba(120, 120, 140, 0.1);
 }
-[data-tz-toggle] button[aria-pressed="true"] {
-  background: var(--color-accent-tint);
-  color: var(--color-accent);
+html.dark .tbar-seg {
+  background: rgba(0, 0, 0, 0.22);
+}
+.tbar-seg button {
+  border-radius: 9999px;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.8125rem;
   font-weight: 500;
-}
-
-/* ------------------------------- view toggle ------------------------------- */
-[data-view-btn] {
   color: var(--color-text-2);
   transition:
-    background-color 120ms var(--ease-out),
-    color 120ms var(--ease-out);
+    background-color 140ms var(--ease-out),
+    color 140ms var(--ease-out),
+    transform 140ms var(--ease-out);
 }
-[data-view-btn][aria-pressed="true"] {
-  background: var(--color-accent-tint);
-  color: var(--color-accent);
-  font-weight: 500;
+.tbar-seg button:hover {
+  color: var(--color-text);
+}
+.tbar-seg button[aria-pressed="true"] {
+  background: var(--glass-fill-strong);
+  color: var(--color-text);
+  box-shadow:
+    inset 0 1px 0 0 var(--glass-edge-top),
+    0 1px 2px rgba(var(--glass-shadow-rgb), 0.12);
+}
+.tbar-seg button:active {
+  transform: scale(0.95);
+}
+
+.tbar-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border-radius: 9999px;
+  padding: 0.3rem 0.7rem;
+  font-size: 0.8125rem;
+  color: var(--color-text-2);
+  transition:
+    background-color 140ms var(--ease-out),
+    color 140ms var(--ease-out);
+}
+.tbar-btn:hover {
+  background: rgba(120, 120, 140, 0.14);
+  color: var(--color-text);
+}
+html.dark .tbar-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.tbar-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 9999px;
+  color: var(--color-text-3);
+  transition:
+    background-color 140ms var(--ease-out),
+    color 140ms var(--ease-out);
+}
+.tbar-icon:hover {
+  background: rgba(120, 120, 140, 0.14);
+  color: var(--color-text);
+}
+html.dark .tbar-icon:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.tbar-div {
+  width: 1px;
+  height: 1.1rem;
+  background: var(--color-border);
+  opacity: 0.7;
 }
 
 /* ============================ Liquid Glass ============================ */
@@ -452,40 +513,6 @@ header > div {
     transform: none;
     background: transparent;
     box-shadow: none;
-  }
-
-  /* --- floating glass controls --- */
-  [role="group"][aria-label="View"],
-  [data-tz-toggle],
-  [data-filter-button] {
-    background: var(--glass-fill-control);
-    -webkit-backdrop-filter: blur(14px) saturate(160%);
-    backdrop-filter: blur(14px) saturate(160%);
-    border: 1px solid var(--glass-hairline);
-    box-shadow:
-      inset 0 1px 0 0 var(--glass-edge-top),
-      0 1px 3px rgba(var(--glass-shadow-rgb), 0.08),
-      0 4px 12px -4px rgba(var(--glass-shadow-rgb), 0.1);
-  }
-  html.dark [role="group"][aria-label="View"],
-  html.dark [data-tz-toggle],
-  html.dark [data-filter-button] {
-    box-shadow:
-      inset 0 1px 0 0 var(--glass-edge-top),
-      0 2px 8px rgba(0, 0, 0, 0.5);
-  }
-  [data-view-btn][aria-pressed="true"],
-  [data-tz-toggle] button[aria-pressed="true"] {
-    background: color-mix(in oklch, var(--color-accent) 18%, var(--glass-fill-strong));
-    color: var(--color-accent);
-    box-shadow:
-      inset 0 1px 0 0 var(--glass-edge-top),
-      0 1px 3px rgba(var(--glass-shadow-rgb), 0.12);
-  }
-  [data-view-btn]:active,
-  [data-tz-toggle] button:active,
-  [data-filter-button]:active {
-    transform: scale(0.96);
   }
 
   /* dropdown popover — extra blur for legibility over text */

@@ -47,6 +47,25 @@ const { conf } = Astro.props;
           <path d="M7 17 17 7M9 7h8v8"></path>
         </svg>
       </a>
+      <a
+        href={`/conference/${conf.id}.ics`}
+        title="Download this deadline (.ics)"
+        class="ml-1 inline-block align-middle text-text-3 transition-colors hover:text-accent"
+        aria-label="Download .ics"
+      >
+        <svg
+          class="inline h-3.5 w-3.5"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.75"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <path d="M8 2v3M16 2v3M3.5 9h17M5 5h14a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z"></path>
+        </svg>
+      </a>
     </h2>
 
     <div class="mt-1.5 flex flex-wrap items-center gap-1.5">
