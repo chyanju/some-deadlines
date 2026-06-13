@@ -40,7 +40,20 @@ export function initApp(): void {
       const isPast = el.classList.contains("is-past");
       el.hidden = !catMatch || (isPast && !showPast);
     }
+    // empty state when nothing is visible (e.g. all categories cleared)
+    const list = document.getElementById("list");
+    const empty = document.getElementById("empty-state");
+    if (list && empty) {
+      const anyVisible = Array.from(
+        list.querySelectorAll<HTMLElement>("[data-conf]"),
+      ).some((e) => !e.hidden);
+      empty.hidden = anyVisible;
+    }
     renderCalendar?.(subs);
+  });
+
+  document.querySelector("[data-show-all]")?.addEventListener("click", () => {
+    document.querySelector<HTMLButtonElement>("[data-filter-all]")?.click();
   });
 
   for (const b of document.querySelectorAll<HTMLElement>("[data-view-btn]")) {

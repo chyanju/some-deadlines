@@ -59,6 +59,7 @@ const gcal = gcalEventUrl(conf);
         }
         <a
           href={`/conference/${conf.id}.ics`}
+          download={`${conf.id}.ics`}
           title="Download .ics"
           aria-label="Download .ics"
           class="rounded p-1 transition-colors hover:bg-[rgba(120,120,140,0.14)] hover:text-accent dark:hover:bg-[rgba(255,255,255,0.07)]"
