@@ -3,7 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import CategoryFilter from "../components/CategoryFilter.astro";
 import ConferenceCard from "../components/ConferenceCard.astro";
 import TzToggle from "../components/TzToggle.astro";
-import { byDeadline, allConferences, gcalEventUrl } from "../lib/deadlines";
+import { byDeadline, allConferences } from "../lib/deadlines";
 import { types } from "../data/conferences";
 
 // Calendar events (deadline = red/danger, conference span = category color).
@@ -19,19 +19,6 @@ const events = allConferences.flatMap((c) => {
   return out;
 });
 const eventsJson = JSON.stringify(events).replace(/</g, "\\u003c");
-
-// Drawer detail data.
-const confData = allConferences.map((c) => ({
-  id: c.id, title: c.title, year: c.year, full_name: c.full_name ?? "",
-  link: c.link, place: c.place, date: c.date,
-  paperslink: c.paperslink ?? "", pwclink: c.pwclink ?? "",
-  deadlineMs: c.deadlineMs, absMs: c.absDeadlineMs,
-  confTz: c.deadlineInConfTz, absConfTz: c.absInConfTz,
-  dlShort: c.deadlineShort, absShort: c.absShort,
-  cats: c.categories.map((t) => ({ sub: t.sub, name: t.name, color: t.color })),
-  gcal: gcalEventUrl(c),
-}));
-const confJson = JSON.stringify(confData).replace(/</g, "\\u003c");
 ---
 
 <Layout>
@@ -86,20 +73,7 @@ const confJson = JSON.stringify(confData).replace(/</g, "\\u003c");
     </div>
   </div>
 
-  {/* ---------------- Detail drawer ---------------- */}
-  <div id="drawer" hidden class="fixed inset-0 z-40">
-    <div class="absolute inset-0 bg-black/40 backdrop-blur-sm"></div>
-    <div class="absolute inset-0 flex justify-center overflow-auto p-4">
-      <div
-        id="drawer-panel"
-        class="card relative mt-[6vh] mb-8 h-fit w-full max-w-xl p-6"
-      >
-      </div>
-    </div>
-  </div>
-
   <script type="application/json" id="cal-data" set:html={eventsJson} is:inline></script>
-  <script type="application/json" id="conf-data" set:html={confJson} is:inline></script>
 </Layout>
 
 <script>

@@ -1,10 +1,12 @@
 ---
 import type { ProcessedConference } from "../lib/deadlines";
+import { gcalEventUrl } from "../lib/deadlines";
 
 interface Props {
   conf: ProcessedConference;
 }
 const { conf } = Astro.props;
+const gcal = gcalEventUrl(conf);
 ---
 
 <article
@@ -15,58 +17,51 @@ const { conf } = Astro.props;
   class="card flex items-center gap-4 p-5"
 >
   <div class="min-w-0 flex-1">
-    <h2
-      class="font-display text-[1.25rem] leading-tight font-[560] tracking-[-0.012em] text-text"
-    >
-      <button
-        type="button"
-        data-conf-link={conf.id}
-        class="cursor-pointer border-0 bg-transparent p-0 text-left text-inherit transition-colors [font:inherit] hover:text-accent"
+    <div class="flex flex-wrap items-center gap-x-2 gap-y-1">
+      <h2
+        class="font-display text-[1.25rem] leading-tight font-[560] tracking-[-0.012em] text-text"
       >
         {conf.title}
         {conf.year}
-      </button>
-      <a
-        href={conf.link}
-        target="_blank"
-        rel="noopener"
-        title="Conference website"
-        class="ml-0.5 inline-block align-middle text-text-3 transition-colors hover:text-accent"
-        aria-label="Conference website"
-      >
-        <svg
-          class="inline h-3.5 w-3.5"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.75"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          aria-hidden="true"
+      </h2>
+      <div class="flex items-center gap-0.5 text-text-3">
+        <a
+          href={conf.link}
+          target="_blank"
+          rel="noopener"
+          title="Conference website"
+          aria-label="Conference website"
+          class="rounded p-1 transition-colors hover:bg-[rgba(120,120,140,0.14)] hover:text-accent dark:hover:bg-[rgba(255,255,255,0.07)]"
         >
-          <path d="M7 17 17 7M9 7h8v8"></path>
-        </svg>
-      </a>
-      <a
-        href={`/conference/${conf.id}.ics`}
-        title="Download this deadline (.ics)"
-        class="ml-1 inline-block align-middle text-text-3 transition-colors hover:text-accent"
-        aria-label="Download .ics"
-      >
-        <svg
-          class="inline h-3.5 w-3.5"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.75"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          aria-hidden="true"
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"></path></svg>
+        </a>
+        {
+          gcal && (
+            <a
+              href={gcal}
+              target="_blank"
+              rel="noopener"
+              title="Add to Google Calendar"
+              aria-label="Add to Google Calendar"
+              class="rounded p-1 transition-colors hover:bg-[rgba(120,120,140,0.14)] hover:text-accent dark:hover:bg-[rgba(255,255,255,0.07)]"
+            >
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M8 2v3M16 2v3M3.5 9h17M5 5h14a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z" />
+                <path d="M12 13v4M10 15h4" />
+              </svg>
+            </a>
+          )
+        }
+        <a
+          href={`/conference/${conf.id}.ics`}
+          title="Download .ics"
+          aria-label="Download .ics"
+          class="rounded p-1 transition-colors hover:bg-[rgba(120,120,140,0.14)] hover:text-accent dark:hover:bg-[rgba(255,255,255,0.07)]"
         >
-          <path d="M8 2v3M16 2v3M3.5 9h17M5 5h14a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z"></path>
-        </svg>
-      </a>
-    </h2>
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v10m0 0 4-4m-4 4-4-4M5 21h14"></path></svg>
+        </a>
+      </div>
+    </div>
 
     <div class="mt-1.5 flex flex-wrap items-center gap-1.5">
       {

@@ -1,10 +1,9 @@
 // Single-page app orchestrator: list + calendar are two views on one page; the
-// shared filter drives both; clicking a conference opens an in-page drawer.
+// shared filter drives both; everything lives on this one page (no detail route).
 import { initCountdowns } from "./countdown";
 import { initFilter } from "./filter";
 import { initTz } from "./tz";
 import { setupCalendar } from "./calendar";
-import { initDrawer, openDrawer } from "./drawer";
 
 const VIEW_KEY = "some-deadlines-view";
 type View = "list" | "calendar";
@@ -23,8 +22,13 @@ function setView(view: View): void {
 export function initApp(): void {
   initCountdowns();
   initTz();
-  initDrawer();
-  const renderCalendar = setupCalendar(openDrawer);
+  // Clicking a calendar event jumps to that card in the list view (no popup).
+  const renderCalendar = setupCalendar((id) => {
+    setView("list");
+    document
+      .getElementById(id)
+      ?.scrollIntoView({ behavior: "smooth", block: "center" });
+  });
 
   initFilter((subs, showPast) => {
     const set = new Set(subs);

@@ -551,37 +551,6 @@ header > div {
       0 6px 20px -10px rgba(var(--glass-shadow-rgb), 0.18);
   }
 
-  /* modal: the drawer panel (hero glass moment) */
-  #drawer-panel {
-    border-radius: var(--radius-modal);
-    background: var(--glass-fill-strong);
-    -webkit-backdrop-filter: blur(var(--glass-blur-strong)) saturate(var(--glass-saturate-strong));
-    backdrop-filter: blur(var(--glass-blur-strong)) saturate(var(--glass-saturate-strong));
-    border: 1px solid var(--glass-hairline);
-    box-shadow:
-      inset 0 1px 0 0 var(--glass-edge-top),
-      inset 0 -1px 0 0 var(--glass-edge-rim),
-      0 30px 80px -20px rgba(var(--glass-shadow-rgb), 0.4);
-    will-change: backdrop-filter, transform;
-    animation: glass-sheet-in 300ms var(--ease-out);
-  }
-  html.dark #drawer-panel {
-    box-shadow:
-      inset 0 1px 0 0 var(--glass-edge-top),
-      inset 0 -1px 0 0 var(--glass-edge-rim),
-      0 30px 80px -20px rgba(0, 0, 0, 0.65);
-  }
-  /* scrim: dim + light blur (cheaper than the panel so depth reads) */
-  #drawer > div:first-child {
-    background: rgba(var(--glass-shadow-rgb), 0.3);
-    -webkit-backdrop-filter: blur(6px);
-    backdrop-filter: blur(6px);
-  }
-  /* drawer countdown sub-panel: concentric glass */
-  .cd-subpanel {
-    -webkit-backdrop-filter: blur(10px) saturate(150%);
-    backdrop-filter: blur(10px) saturate(150%);
-  }
 }
 
 /* Reduced transparency / contrast: collapse to the opaque Calm Editorial look. */
@@ -592,7 +561,6 @@ header > div {
   }
   .card,
   [data-filter-menu],
-  #drawer-panel,
   header > div,
   [role="group"][aria-label="View"],
   [data-tz-toggle],
@@ -601,11 +569,6 @@ header > div {
     -webkit-backdrop-filter: none;
     backdrop-filter: none;
     border-color: var(--color-border);
-  }
-  #drawer > div:first-child {
-    background: rgba(0, 0, 0, 0.4);
-    -webkit-backdrop-filter: none;
-    backdrop-filter: none;
   }
 }
 
@@ -616,8 +579,5 @@ header > div {
   [data-tz-toggle] button:active,
   [data-filter-button]:active {
     transform: none !important;
-  }
-  #drawer-panel {
-    animation: none !important;
   }
 }
