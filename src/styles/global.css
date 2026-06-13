@@ -42,12 +42,12 @@
   /* Liquid Glass material — light defaults */
   --glass-blur: 18px;
   --glass-saturate: 180%;
-  --glass-blur-card: 20px;
-  --glass-blur-strong: 30px;
+  --glass-blur-card: 22px;
+  --glass-blur-strong: 32px;
   --glass-saturate-strong: 200%;
-  --glass-fill: rgba(255, 255, 255, 0.44);
-  --glass-fill-strong: rgba(255, 255, 255, 0.58);
-  --glass-fill-control: rgba(255, 255, 255, 0.4);
+  --glass-fill: rgba(255, 255, 255, 0.36);
+  --glass-fill-strong: rgba(255, 255, 255, 0.46);
+  --glass-fill-control: rgba(255, 255, 255, 0.28);
   --glass-edge-top: rgba(255, 255, 255, 0.9);
   --glass-edge-rim: rgba(255, 255, 255, 0.45);
   --glass-hairline: rgba(16, 24, 40, 0.1);
@@ -73,9 +73,9 @@ html.dark {
   --color-warn: #fbbf24;
 
   /* Liquid Glass material — dark overrides */
-  --glass-fill: rgba(26, 28, 32, 0.42);
-  --glass-fill-strong: rgba(34, 37, 44, 0.55);
-  --glass-fill-control: rgba(40, 44, 52, 0.34);
+  --glass-fill: rgba(26, 28, 32, 0.34);
+  --glass-fill-strong: rgba(34, 37, 44, 0.44);
+  --glass-fill-control: rgba(40, 44, 52, 0.24);
   --glass-edge-top: rgba(255, 255, 255, 0.16);
   --glass-edge-rim: rgba(255, 255, 255, 0.06);
   --glass-hairline: rgba(255, 255, 255, 0.1);

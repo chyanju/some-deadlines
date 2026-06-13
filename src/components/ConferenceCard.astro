@@ -52,8 +52,8 @@ const { conf } = Astro.props;
     <div class="mt-1.5 flex flex-wrap items-center gap-1.5">
       {
         conf.categories.map((t) => (
-          <span class="badge" style={`--c:${t.color}`} title={t.name}>
-            {t.sub}
+          <span class="badge" style={`--c:${t.color}`}>
+            {t.name}
           </span>
         ))
       }
