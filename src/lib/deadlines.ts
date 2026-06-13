@@ -5,6 +5,7 @@ import type { Conference, ConfType } from "../types";
 
 const FMT = "yyyy-MM-dd HH:mm:ss";
 const TZ_FMT = "ccc, dd LLL yyyy HH:mm:ss";
+const SHORT_FMT = "ccc dd LLL yyyy, HH:mm";
 
 /** Parse a 'YYYY-MM-DD HH:MM:SS' wall-clock time in `zone`. Returns null for TBA/invalid. */
 export function parseInZone(value: string | undefined, zone: string): DateTime | null {
@@ -19,6 +20,10 @@ function inConfTz(dt: DateTime | null, label: string): string | null {
   return dt ? `${dt.toFormat(TZ_FMT)} (${label})` : null;
 }
 
+function shortInConfTz(dt: DateTime | null, label: string): string | null {
+  return dt ? `${dt.toFormat(SHORT_FMT)} ${label}` : null;
+}
+
 /** A conference enriched with computed deadline instants and categories. */
 export interface ProcessedConference extends Conference {
   subs: string[];
@@ -28,10 +33,14 @@ export interface ProcessedConference extends Conference {
   /** Abstract deadline as epoch ms; null when absent/TBA. */
   absDeadlineMs: number | null;
   isTba: boolean;
-  /** Paper deadline rendered in the conference's own timezone. */
+  /** Paper deadline rendered in the conference's own timezone (full). */
   deadlineInConfTz: string | null;
-  /** Abstract deadline rendered in the conference's own timezone. */
+  /** Abstract deadline rendered in the conference's own timezone (full). */
   absInConfTz: string | null;
+  /** Compact paper deadline for cards, e.g. "Thu 13 Nov 2025, 23:59 UTC-12". */
+  deadlineShort: string | null;
+  /** Compact abstract deadline for cards. */
+  absShort: string | null;
 }
 
 export function process(c: Conference): ProcessedConference {
@@ -53,6 +62,8 @@ export function process(c: Conference): ProcessedConference {
     isTba: !dl,
     deadlineInConfTz: inConfTz(dl, c.timezone),
     absInConfTz: inConfTz(abs, c.timezone),
+    deadlineShort: shortInConfTz(dl, c.timezone),
+    absShort: shortInConfTz(abs, c.timezone),
   };
 }
 

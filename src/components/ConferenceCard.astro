@@ -16,7 +16,7 @@ const { conf } = Astro.props;
 >
   <div class="min-w-0 flex-1">
     <h2
-      class="font-display text-[1.25rem] font-[520] leading-tight tracking-[-0.012em] text-text"
+      class="font-display text-[1.25rem] leading-tight font-[560] tracking-[-0.012em] text-text"
     >
       <a
         href={`/conference/${conf.id}/`}
@@ -58,9 +58,22 @@ const { conf } = Astro.props;
       }
     </div>
 
-    <p class="mt-2 text-[0.9375rem] text-text-2">
-      {conf.date} · {conf.place}
-    </p>
+    <p class="mt-2 text-[0.9375rem] text-text-2">{conf.date} · {conf.place}</p>
+
+    <dl class="mt-2 space-y-0.5 text-[0.8125rem]">
+      <div class="flex gap-2">
+        <dt class="eyebrow w-16 shrink-0 pt-px">Paper</dt>
+        <dd class="tnum font-mono text-text">{conf.deadlineShort ?? "TBA"}</dd>
+      </div>
+      {
+        conf.absShort && (
+          <div class="flex gap-2">
+            <dt class="eyebrow w-16 shrink-0 pt-px">Abstract</dt>
+            <dd class="tnum font-mono text-text-2">{conf.absShort}</dd>
+          </div>
+        )
+      }
+    </dl>
   </div>
 
   <div class="w-24 shrink-0 text-right">

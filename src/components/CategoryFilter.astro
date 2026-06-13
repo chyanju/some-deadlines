@@ -1,31 +1,98 @@
 ---
 import { types } from "../data/conferences";
+
+interface Props {
+  showPastToggle?: boolean;
+}
+const { showPastToggle = false } = Astro.props;
 ---
 
-<div class="flex flex-wrap items-center gap-1.5" data-filter>
-  {
-    types.map((t) => (
+<div class="relative inline-block text-left" data-filter>
+  <button
+    type="button"
+    data-filter-button
+    aria-haspopup="true"
+    aria-expanded="false"
+    class="inline-flex items-center gap-2 rounded-md border border-border bg-card px-3 py-1.5 text-sm text-text shadow-sm transition-colors hover:border-border-strong"
+  >
+    <svg
+      class="h-4 w-4 text-text-3"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.75"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M3 5h18M6 12h12M10 19h4"></path>
+    </svg>
+    <span data-filter-summary>All categories</span>
+    <svg
+      class="h-4 w-4 text-text-3"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.75"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true"
+    >
+      <path d="m6 9 6 6 6-6"></path>
+    </svg>
+  </button>
+
+  <div
+    data-filter-menu
+    hidden
+    class="absolute left-0 z-30 mt-2 w-60 rounded-lg border border-border bg-card p-1.5 shadow-lg"
+  >
+    <div class="max-h-72 overflow-auto">
+      {
+        types.map((t) => (
+          <label class="flex cursor-pointer items-center gap-2.5 rounded-md px-2.5 py-1.5 text-sm text-text hover:bg-surface">
+            <input
+              type="checkbox"
+              data-sub={t.sub}
+              class="size-3.5 accent-[var(--color-accent)]"
+            />
+            <span
+              class="inline-block size-2 shrink-0 rounded-full"
+              style={`background:${t.color}`}
+            />
+            <span class="flex-1">{t.name}</span>
+          </label>
+        ))
+      }
+      {
+        showPastToggle && (
+          <>
+            <div class="my-1 h-px bg-border" />
+            <label class="flex cursor-pointer items-center gap-2.5 rounded-md px-2.5 py-1.5 text-sm text-text hover:bg-surface">
+              <input
+                type="checkbox"
+                data-show-past
+                class="size-3.5 accent-[var(--color-accent)]"
+              />
+              <span class="flex-1">Past deadlines</span>
+            </label>
+          </>
+        )
+      }
+    </div>
+    <div
+      class="mt-1 flex justify-between border-t border-border px-2 pt-1.5 text-xs"
+    >
       <button
         type="button"
-        class="chip"
-        data-sub={t.sub}
-        style={`--c:${t.color}`}
-        aria-pressed="true"
-        title={t.name}
+        data-filter-all
+        class="text-text-3 transition-colors hover:text-text-2">Select all</button
       >
-        {t.name}
-      </button>
-    ))
-  }
-  <span class="mx-1 h-4 w-px bg-border" aria-hidden="true"></span>
-  <button
-    type="button"
-    class="rounded-md px-2 py-1 text-xs text-text-3 transition-colors hover:text-text-2"
-    data-filter-all>All</button
-  >
-  <button
-    type="button"
-    class="rounded-md px-2 py-1 text-xs text-text-3 transition-colors hover:text-text-2"
-    data-filter-clear>None</button
-  >
+      <button
+        type="button"
+        data-filter-clear
+        class="text-text-3 transition-colors hover:text-text-2">Clear</button
+      >
+    </div>
+  </div>
 </div>

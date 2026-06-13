@@ -6,37 +6,44 @@ import { byDeadline } from "../lib/deadlines";
 ---
 
 <Layout>
-  <section class="pb-8">
-    <h1
-      class="font-display text-[clamp(2.25rem,5vw,3rem)] leading-[1.08] font-[520] tracking-[-0.022em] text-text"
+  <div class="flex flex-wrap items-center justify-between gap-3">
+    <CategoryFilter showPastToggle={true} />
+    <a
+      href="/some-deadlines.ics"
+      class="inline-flex items-center gap-1.5 text-sm text-text-3 transition-colors hover:text-text-2"
     >
-      Conference Deadlines
-    </h1>
-    <p class="mt-3 max-w-xl text-[1.0625rem] leading-relaxed text-text-2">
-      Live countdowns to academic conference deadlines, shown in your local
-      (<span class="local-tz">local</span>) time. Subscribe via
-      <a
-        href="/some-deadlines.ics"
-        class="text-accent transition-colors hover:underline">.ics</a
-      >.
-    </p>
-  </section>
-
-  <div class="border-t border-border pt-6">
-    <CategoryFilter />
+      <svg
+        class="h-4 w-4"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.75"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+      >
+        <path d="M8 2v3M16 2v3M3.5 9h17M5 5h14a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z"></path>
+      </svg>
+      Subscribe (.ics)
+    </a>
   </div>
+  <p class="mt-2 text-xs text-text-3">
+    Deadline times are in each conference's timezone; countdowns are in your local
+    (<span class="local-tz">local</span>) time.
+  </p>
 
   <section id="upcoming" class="mt-6 space-y-3">
     {byDeadline.map((c) => <ConferenceCard conf={c} />)}
   </section>
 
-  <h2
-    id="past-heading"
-    class="font-display mt-16 mb-4 border-t border-border pt-10 text-[1.75rem] font-[500] tracking-[-0.015em] text-text-2"
+  <div
+    id="past-label"
+    hidden
+    class="eyebrow mt-10 border-t border-border pt-5"
   >
     Past deadlines
-  </h2>
-  <section id="past" class="space-y-2"></section>
+  </div>
+  <section id="past" class="mt-3 space-y-3"></section>
 </Layout>
 
 <script>
@@ -45,19 +52,21 @@ import { byDeadline } from "../lib/deadlines";
 
   function init() {
     initCountdowns();
-    initFilter((subs) => {
+    initFilter((subs, showPast) => {
       const set = new Set(subs);
       for (const el of document.querySelectorAll<HTMLElement>("[data-conf]")) {
-        const cs = (el.dataset.subs ?? "").split(",").filter(Boolean);
-        el.hidden = !cs.some((s) => set.has(s));
+        const cats = (el.dataset.subs ?? "").split(",").filter(Boolean);
+        const catMatch = cats.some((s) => set.has(s));
+        const isPast = el.classList.contains("is-past");
+        el.hidden = !catMatch || (isPast && !showPast);
       }
+      const label = document.getElementById("past-label");
       const past = document.getElementById("past");
-      const heading = document.getElementById("past-heading");
-      if (past && heading) {
+      if (label && past) {
         const anyVisible = Array.from(
           past.querySelectorAll<HTMLElement>("[data-conf]"),
         ).some((e) => !e.hidden);
-        heading.hidden = !anyVisible;
+        label.hidden = !anyVisible;
       }
     });
   }

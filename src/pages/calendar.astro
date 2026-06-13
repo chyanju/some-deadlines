@@ -40,20 +40,9 @@ const eventsJson = JSON.stringify(events).replace(/</g, "\\u003c");
 ---
 
 <Layout title="Calendar">
-  <section class="pb-6">
-    <h1
-      class="font-display text-[clamp(2rem,5vw,2.75rem)] leading-[1.08] font-[520] tracking-[-0.022em] text-text"
-    >
-      Calendar
-    </h1>
-    <p class="mt-3 max-w-xl text-[1.0625rem] leading-relaxed text-text-2">
-      Deadlines and conference dates across the year.
-    </p>
-  </section>
+  <CategoryFilter />
 
-  <div class="border-t border-border pt-6"><CategoryFilter /></div>
-
-  <div class="mt-8 flex items-center justify-center gap-5">
+  <div class="mt-6 flex items-center justify-center gap-5">
     <button
       data-cal-prev
       type="button"
