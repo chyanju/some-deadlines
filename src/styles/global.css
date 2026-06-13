@@ -48,7 +48,7 @@
   --glass-fill: rgba(255, 255, 255, 0.3);
   --glass-fill-strong: rgba(255, 255, 255, 0.4);
   --glass-fill-control: rgba(255, 255, 255, 0.22);
-  --glass-fill-menu: rgba(255, 255, 255, 0.52);
+  --glass-fill-bar: rgba(255, 255, 255, 0.44);
   --glass-edge-top: rgba(255, 255, 255, 0.9);
   --glass-edge-rim: rgba(255, 255, 255, 0.45);
   --glass-hairline: rgba(16, 24, 40, 0.1);
@@ -77,7 +77,7 @@ html.dark {
   --glass-fill: rgba(26, 28, 32, 0.28);
   --glass-fill-strong: rgba(34, 37, 44, 0.38);
   --glass-fill-control: rgba(40, 44, 52, 0.18);
-  --glass-fill-menu: rgba(28, 30, 36, 0.58);
+  --glass-fill-bar: rgba(30, 32, 38, 0.42);
   --glass-edge-top: rgba(255, 255, 255, 0.16);
   --glass-edge-rim: rgba(255, 255, 255, 0.06);
   --glass-hairline: rgba(255, 255, 255, 0.1);
@@ -454,8 +454,8 @@ header > div {
   /* --- content glass: conference cards + calendar month tiles --- */
   .card {
     background: var(--glass-fill);
-    -webkit-backdrop-filter: blur(var(--glass-blur-card)) saturate(160%);
-    backdrop-filter: blur(var(--glass-blur-card)) saturate(160%);
+    -webkit-backdrop-filter: blur(10px) saturate(180%) brightness(1.04);
+    backdrop-filter: blur(10px) saturate(180%) brightness(1.04);
     border: 1px solid var(--glass-hairline);
     border-radius: var(--radius-glass);
     box-shadow:
@@ -528,29 +528,59 @@ header > div {
     box-shadow: none;
   }
 
-  /* dropdown popover — heavy frost so it stays glassy yet text never mixes with
-     the content behind it. Same material family as the header bar. */
+  /* Unified glass chrome — the floating header bar AND the filter popover share
+     ONE liquid-glass material: clearer (low blur) + edge refraction (#liquid-glass)
+     + a crisp specular rim + a glossy top sheen (::before). This is what makes it
+     read as liquid glass rather than plain frosted blur. */
+  header > div,
   [data-filter-menu] {
-    background: var(--glass-fill-menu);
-    -webkit-backdrop-filter: blur(40px) saturate(200%);
-    backdrop-filter: blur(40px) saturate(200%);
+    position: relative;
+    background: var(--glass-fill-bar);
+    -webkit-backdrop-filter: url(#liquid-glass) blur(8px) saturate(185%) brightness(1.05);
+    backdrop-filter: url(#liquid-glass) blur(8px) saturate(185%) brightness(1.05);
     border: 1px solid var(--glass-hairline);
+    border-radius: var(--radius-glass);
     box-shadow:
-      inset 0 1px 0 0 var(--glass-edge-top),
-      0 16px 40px -12px rgba(var(--glass-shadow-rgb), 0.2);
+      inset 0 1px 0.5px 0 rgba(255, 255, 255, 0.85),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.12),
+      inset 0 -10px 20px -12px rgba(255, 255, 255, 0.22),
+      0 10px 30px -10px rgba(var(--glass-shadow-rgb), 0.2);
+  }
+  html.dark header > div,
+  html.dark [data-filter-menu] {
+    box-shadow:
+      inset 0 1px 0.5px 0 rgba(255, 255, 255, 0.18),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.06),
+      inset 0 -10px 20px -12px rgba(255, 255, 255, 0.06),
+      0 12px 34px -10px rgba(0, 0, 0, 0.6);
   }
 
-  /* raised: floating sticky header bar */
-  header > div {
-    background: var(--glass-fill-strong);
-    -webkit-backdrop-filter: blur(var(--glass-blur-strong)) saturate(var(--glass-saturate-strong));
-    backdrop-filter: blur(var(--glass-blur-strong)) saturate(var(--glass-saturate-strong));
-    border: 1px solid var(--glass-hairline);
-    box-shadow:
-      inset 0 1px 0 0 var(--glass-edge-top),
-      0 6px 20px -10px rgba(var(--glass-shadow-rgb), 0.18);
+  /* glossy top sheen — the gloss that separates liquid glass from frosted glass */
+  .card::before,
+  header > div::before,
+  [data-filter-menu]::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    pointer-events: none;
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.3),
+      rgba(255, 255, 255, 0.06) 36%,
+      transparent 60%
+    );
   }
-
+  html.dark .card::before,
+  html.dark header > div::before,
+  html.dark [data-filter-menu]::before {
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.1),
+      transparent 52%
+    );
+  }
 }
 
 /* Reduced transparency / contrast: collapse to the opaque Calm Editorial look. */
