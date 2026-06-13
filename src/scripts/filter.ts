@@ -1,9 +1,14 @@
-// Category filter as a dropdown menu, shared by the index and calendar pages.
-// State persists to localStorage and the ?sub= / ?past= query params.
+// Category filter dropdown. State persists to localStorage and ?sub= / ?past=.
+// The menu is PORTALED to <body> and positioned fixed under the button, so its
+// backdrop-filter composites over the page exactly like the header bar (a menu
+// left nested inside the header's backdrop-filter renders as a weaker, more
+// transparent glass — moving it out makes the two materials identical).
 const KEY = "some-deadlines-subs";
 const PAST_KEY = "some-deadlines-past";
 
 let docWired = false;
+let menuEl: HTMLElement | null = null;
+let buttonEl: HTMLElement | null = null;
 
 function boxes(): HTMLInputElement[] {
   return Array.from(document.querySelectorAll<HTMLInputElement>("[data-sub]"));
@@ -49,26 +54,41 @@ function persist(selected: string[], all: string[], past: boolean): void {
   history.replaceState(null, "", url);
 }
 
+function positionMenu(): void {
+  if (!menuEl || !buttonEl) return;
+  const r = buttonEl.getBoundingClientRect();
+  menuEl.style.position = "fixed";
+  menuEl.style.top = `${Math.round(r.bottom + 8)}px`;
+  menuEl.style.right = `${Math.round(window.innerWidth - r.right)}px`;
+  menuEl.style.left = "auto";
+  menuEl.style.margin = "0";
+  menuEl.style.zIndex = "50";
+}
+function openMenu(): void {
+  if (!menuEl || !buttonEl) return;
+  positionMenu();
+  menuEl.hidden = false;
+  buttonEl.setAttribute("aria-expanded", "true");
+}
 function closeMenu(): void {
-  const root = document.querySelector<HTMLElement>("[data-filter]");
-  const menu = root?.querySelector<HTMLElement>("[data-filter-menu]");
-  const button = root?.querySelector<HTMLElement>("[data-filter-button]");
-  if (menu) menu.hidden = true;
-  button?.setAttribute("aria-expanded", "false");
+  if (!menuEl || !buttonEl) return;
+  menuEl.hidden = true;
+  buttonEl.setAttribute("aria-expanded", "false");
 }
 
 function wireDocOnce(): void {
   if (docWired) return;
   docWired = true;
   document.addEventListener("click", (e) => {
-    const root = document.querySelector<HTMLElement>("[data-filter]");
-    const menu = root?.querySelector<HTMLElement>("[data-filter-menu]");
-    if (root && menu && !menu.hidden && !root.contains(e.target as Node)) {
-      closeMenu();
-    }
+    if (!menuEl || menuEl.hidden) return;
+    const t = e.target as Node;
+    if (!menuEl.contains(t) && !buttonEl?.contains(t)) closeMenu();
   });
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") closeMenu();
+  });
+  window.addEventListener("resize", () => {
+    if (menuEl && !menuEl.hidden) positionMenu();
   });
 }
 
@@ -80,9 +100,15 @@ export function initFilter(
   if (!root) return;
   const button = root.querySelector<HTMLButtonElement>("[data-filter-button]");
   const menu = root.querySelector<HTMLElement>("[data-filter-menu]");
-  const summary = root.querySelector<HTMLElement>("[data-filter-summary]");
+  // Portal the menu to <body> (once) to un-nest it from the header's glass.
+  if (menu && menu.parentElement !== document.body) {
+    document.body.appendChild(menu);
+  }
+  buttonEl = button;
+  menuEl = menu;
+
   const dot = root.querySelector<HTMLElement>("[data-filter-dot]");
-  const pastBox = root.querySelector<HTMLInputElement>("[data-show-past]");
+  const pastBox = menu?.querySelector<HTMLInputElement>("[data-show-past]") ?? null;
   const all = allSubs();
 
   let selected = new Set(loadSelected(all).filter((s) => all.includes(s)));
@@ -91,15 +117,6 @@ export function initFilter(
   const apply = () => {
     for (const b of boxes()) b.checked = selected.has(b.dataset.sub ?? "");
     if (pastBox) pastBox.checked = past;
-    if (summary) {
-      summary.textContent =
-        selected.size === all.length
-          ? "All categories"
-          : selected.size === 0
-            ? "No categories"
-            : `${selected.size} categor${selected.size === 1 ? "y" : "ies"}`;
-    }
-    // active-filter indicator dot (categories narrowed, or past shown)
     if (dot) dot.hidden = !(selected.size !== all.length || past);
     persist([...selected], all, past);
     onChange?.([...selected], past);
@@ -116,11 +133,11 @@ export function initFilter(
     past = pastBox.checked;
     apply();
   });
-  root.querySelector("[data-filter-all]")?.addEventListener("click", () => {
+  menu?.querySelector("[data-filter-all]")?.addEventListener("click", () => {
     selected = new Set(all);
     apply();
   });
-  root.querySelector("[data-filter-clear]")?.addEventListener("click", () => {
+  menu?.querySelector("[data-filter-clear]")?.addEventListener("click", () => {
     selected = new Set();
     apply();
   });
@@ -128,9 +145,8 @@ export function initFilter(
   button?.addEventListener("click", (e) => {
     e.stopPropagation();
     if (!menu) return;
-    const willOpen = menu.hidden;
-    menu.hidden = !willOpen;
-    button.setAttribute("aria-expanded", String(willOpen));
+    if (menu.hidden) openMenu();
+    else closeMenu();
   });
 
   wireDocOnce();

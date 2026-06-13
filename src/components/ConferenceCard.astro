@@ -16,6 +16,7 @@ const iconCls =
   data-conf
   data-deadline={conf.deadlineMs ?? ""}
   data-subs={conf.subs.join(",")}
+  style={`--c:${conf.categories[0]?.color ?? "var(--color-border-strong)"}`}
   class="card p-5"
 >
   {/* Row 1 — title + actions (left), category labels (right) */}

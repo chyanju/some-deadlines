@@ -200,38 +200,37 @@ html.dark .card:hover {
     0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
-/* urgency: left rule + faint tint + colored days figure */
+/* urgency: left rule + tint + days figure, all in the conference's category colour
+   (--c) so the field stays identifiable; tint INTENSITY conveys how soon it is. */
 .card.is-soon {
   box-shadow:
-    inset 3px 0 0 0 var(--color-warn),
+    inset 3px 0 0 0 var(--c),
     0 1px 2px rgba(16, 24, 40, 0.04),
     0 1px 3px rgba(16, 24, 40, 0.06);
-  background: color-mix(in oklch, var(--color-warn) 4%, var(--color-card));
+  background: color-mix(in oklch, var(--c) 6%, var(--color-card));
 }
 .card.is-urgent {
   box-shadow:
-    inset 3px 0 0 0 var(--color-danger),
+    inset 3px 0 0 0 var(--c),
     0 1px 2px rgba(16, 24, 40, 0.04),
     0 1px 3px rgba(16, 24, 40, 0.06);
-  background: color-mix(in oklch, var(--color-danger) 5%, var(--color-card));
+  background: color-mix(in oklch, var(--c) 14%, var(--color-card));
 }
 html.dark .card.is-soon {
   box-shadow:
-    inset 3px 0 0 0 var(--color-warn),
+    inset 3px 0 0 0 var(--c),
     inset 0 1px 0 0 rgba(255, 255, 255, 0.04),
     0 1px 2px rgba(0, 0, 0, 0.4);
 }
 html.dark .card.is-urgent {
   box-shadow:
-    inset 3px 0 0 0 var(--color-danger),
+    inset 3px 0 0 0 var(--c),
     inset 0 1px 0 0 rgba(255, 255, 255, 0.04),
     0 1px 2px rgba(0, 0, 0, 0.4);
 }
-.is-soon [data-cd-days] {
-  color: var(--color-warn);
-}
+.is-soon [data-cd-days],
 .is-urgent [data-cd-days] {
-  color: var(--color-danger);
+  color: color-mix(in oklch, var(--c) 70%, var(--color-text));
 }
 
 /* past = quiet, compact, no hover lift */
@@ -492,23 +491,23 @@ header > div {
       0 18px 44px -8px rgba(0, 0, 0, 0.62);
   }
 
-  /* urgency tints composite OVER the translucent fill */
+  /* urgency tints (category colour --c) composite OVER the translucent fill */
   .card.is-soon {
     background:
-      linear-gradient(0deg, color-mix(in oklch, var(--color-warn) 10%, transparent), color-mix(in oklch, var(--color-warn) 10%, transparent)),
+      linear-gradient(0deg, color-mix(in oklch, var(--c) 12%, transparent), color-mix(in oklch, var(--c) 12%, transparent)),
       var(--glass-fill);
     box-shadow:
-      inset 3px 0 0 0 var(--color-warn),
+      inset 3px 0 0 0 var(--c),
       inset 0 1px 0 0 var(--glass-edge-top),
       inset 0 -1px 0 0 var(--glass-edge-rim),
       0 8px 24px -8px rgba(var(--glass-shadow-rgb), 0.12);
   }
   .card.is-urgent {
     background:
-      linear-gradient(0deg, color-mix(in oklch, var(--color-danger) 12%, transparent), color-mix(in oklch, var(--color-danger) 12%, transparent)),
+      linear-gradient(0deg, color-mix(in oklch, var(--c) 24%, transparent), color-mix(in oklch, var(--c) 24%, transparent)),
       var(--glass-fill);
     box-shadow:
-      inset 3px 0 0 0 var(--color-danger),
+      inset 3px 0 0 0 var(--c),
       inset 0 1px 0 0 var(--glass-edge-top),
       inset 0 -1px 0 0 var(--glass-edge-rim),
       0 8px 24px -8px rgba(var(--glass-shadow-rgb), 0.12);
