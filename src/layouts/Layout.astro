@@ -60,8 +60,10 @@ const fullTitle = title ? `${title} · ${site.title}` : site.title;
     }
   </head>
   <body class="flex min-h-screen flex-col transition-colors">
-    <Header />
-    <main class="mx-auto w-full max-w-3xl flex-1 px-5 py-10">
+    <Header>
+      <slot name="toolbar" slot="toolbar" />
+    </Header>
+    <main class="mx-auto w-full max-w-3xl flex-1 px-5 py-8">
       <slot />
     </main>
     <Footer />

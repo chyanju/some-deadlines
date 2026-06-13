@@ -2,22 +2,27 @@
 import { site } from "../data/site";
 ---
 
-<header class="sticky top-0 z-20 py-2">
+<header class="sticky top-0 z-30 py-2">
   <div
-    class="mx-auto flex max-w-3xl items-center justify-between gap-4 px-5 py-3.5"
+    class="mx-auto flex max-w-3xl flex-wrap items-center gap-x-3 gap-y-2 px-4 py-2.5"
   >
     <a
       href="/"
-      class="font-display text-[1.1875rem] font-[540] tracking-[-0.01em] text-text"
+      class="shrink-0 font-display text-[1.1875rem] font-[540] tracking-[-0.01em] text-text"
     >
       {site.title}
     </a>
-    <nav class="flex items-center gap-1">
+
+    <div class="flex flex-1 flex-wrap items-center gap-2">
+      <slot name="toolbar" />
+    </div>
+
+    <nav class="ml-auto flex shrink-0 items-center gap-1">
       <button
         type="button"
         data-theme-toggle
         aria-label="Toggle dark mode"
-        class="ml-1 rounded-md p-1.5 text-text-3 transition-colors hover:bg-surface hover:text-text"
+        class="rounded-md p-1.5 text-text-3 transition-colors hover:bg-surface hover:text-text"
       >
         <svg
           class="h-[18px] w-[18px] dark:hidden"
