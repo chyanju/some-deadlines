@@ -49,6 +49,11 @@ function apply(mode: Mode): void {
   }
 }
 
+/** Re-format all [data-dl] nodes for the current mode (call after injecting DOM). */
+export function applyTz(): void {
+  apply(getMode());
+}
+
 export function initTz(): void {
   let mode = getMode();
   apply(mode);

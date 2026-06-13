@@ -281,3 +281,16 @@ html.dark .card.is-urgent {
   color: var(--color-accent);
   font-weight: 500;
 }
+
+/* ------------------------------- view toggle ------------------------------- */
+[data-view-btn] {
+  color: var(--color-text-2);
+  transition:
+    background-color 120ms var(--ease-out),
+    color 120ms var(--ease-out);
+}
+[data-view-btn][aria-pressed="true"] {
+  background: var(--color-accent-tint);
+  color: var(--color-accent);
+  font-weight: 500;
+}

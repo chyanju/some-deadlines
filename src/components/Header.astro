@@ -1,14 +1,5 @@
 ---
 import { site } from "../data/site";
-
-const path = Astro.url.pathname;
-const isActive = (href: string) =>
-  href === "/" ? path === "/" : path.startsWith(href);
-
-const links = [
-  { href: "/", label: "Countdowns" },
-  { href: "/calendar/", label: "Calendar" },
-];
 ---
 
 <header
@@ -24,22 +15,6 @@ const links = [
       {site.title}
     </a>
     <nav class="flex items-center gap-1">
-      {
-        links.map((l) => (
-          <a
-            href={l.href}
-            class:list={[
-              "rounded-md px-3 py-1.5 text-sm font-medium transition-colors",
-              isActive(l.href)
-                ? "bg-accent-tint text-accent"
-                : "text-text-2 hover:bg-surface hover:text-text",
-            ]}
-          >
-            {l.label}
-          </a>
-        ))
-      }
-
       <button
         type="button"
         data-theme-toggle

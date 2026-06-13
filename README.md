@@ -54,23 +54,28 @@ src/
   lib/
     deadlines.ts      # Luxon: parse deadline+timezone -> epoch ms + formatting
     ics.ts            # builds the VCALENDAR feed
-  layouts/Layout.astro        # shared HTML shell (one place, not three)
-  components/                 # Header, Footer, ConferenceCard, CategoryFilter
-  scripts/                    # client-side: countdown, filter, calendar, conf page
+  layouts/Layout.astro        # shared HTML shell
+  components/                 # Header, Footer, ConferenceCard, CategoryFilter, TzToggle
+  scripts/                    # client-side: app, countdown, filter, tz, calendar, drawer
   pages/
-    index.astro               # countdown list  ->  /
-    calendar.astro            # year calendar    ->  /calendar/
-    conference/[id].astro     # one static page per conference -> /conference/<id>/
+    index.astro               # the single-page app (list + calendar views + drawer) -> /
+    conference/[id].astro     # static per-conference page — no-JS / deep-link fallback
     some-deadlines.ics.ts     # ICS feed endpoint -> /some-deadlines.ics
 public/
     favicon.png
 ```
 
+**Single-page app.** `index.astro` is the whole app: the **Countdowns** list and
+the **Calendar** are two views toggled in place (no routing), the shared filter
+drives both, and clicking a conference opens an in-page **drawer** (deep-linked via
+`#id`). `scripts/app.ts` orchestrates it.
+
 How it fits together: `conferences.yml` is loaded and validated by
 `conferences.ts`, enriched in `deadlines.ts` (each deadline resolved to an
-absolute epoch-ms instant via Luxon), and rendered by the pages. Countdowns,
-timezone-to-local conversion, filtering, and the calendar grid all run client-side
-from data baked into the page — there is no backend.
+absolute epoch-ms instant via Luxon), and baked into the page as JSON. Countdowns,
+the Local/AoE conversion, filtering, the calendar grid, and the detail drawer all
+run client-side — there is no backend. (The static `/conference/<id>/` pages remain
+as a no-JS fallback and for direct links.)
 
 ## Maintaining conference data
 

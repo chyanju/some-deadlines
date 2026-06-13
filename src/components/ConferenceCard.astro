@@ -20,6 +20,7 @@ const { conf } = Astro.props;
     >
       <a
         href={`/conference/${conf.id}/`}
+        data-conf-link={conf.id}
         class="transition-colors hover:text-accent"
       >
         {conf.title}

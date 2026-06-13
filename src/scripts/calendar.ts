@@ -1,4 +1,5 @@
-import { initFilter } from "./filter";
+// Year-calendar view. setupCalendar() wires the grid + year nav and returns a
+// render(subs) function the app calls whenever the shared filter changes.
 
 interface CalEvent {
   id: string;
@@ -32,13 +33,16 @@ function ymd(y: number, m: number, d: number): string {
   return `${y}-${String(m + 1).padStart(2, "0")}-${String(d).padStart(2, "0")}`;
 }
 
-export function initCalendar(): void {
+/** Wire the calendar; returns a render(subs) callback, or null if not on the page. */
+export function setupCalendar(
+  onEventClick: (id: string) => void,
+): ((subs: string[]) => void) | null {
   const events = readEvents();
   const grid = document.querySelector<HTMLElement>("[data-cal-grid]");
   const yearLabel = document.querySelector<HTMLElement>("[data-cal-year]");
   const prev = document.querySelector<HTMLButtonElement>("[data-cal-prev]");
   const next = document.querySelector<HTMLButtonElement>("[data-cal-next]");
-  if (!grid || !yearLabel) return;
+  if (!grid || !yearLabel) return null;
 
   const years = events.flatMap((e) => [
     Number(e.from.slice(0, 4)),
@@ -48,7 +52,7 @@ export function initCalendar(): void {
   const minYear = years.length ? Math.min(...years) : thisYear;
   const maxYear = years.length ? Math.max(...years) : thisYear;
   let year = Math.min(Math.max(thisYear, minYear), maxYear);
-  let selected = new Set<string>();
+  let lastSubs: string[] = [];
 
   const now = new Date();
   const today = ymd(now.getFullYear(), now.getMonth(), now.getDate());
@@ -102,9 +106,7 @@ export function initCalendar(): void {
             .join("\n"),
         );
         (cell as HTMLButtonElement).type = "button";
-        cell.addEventListener("click", () => {
-          location.href = `/conference/${evs[0].id}/`;
-        });
+        cell.addEventListener("click", () => onEventClick(evs[0].id));
       }
 
       if (ds === today) {
@@ -122,8 +124,8 @@ export function initCalendar(): void {
     return wrap;
   }
 
-  function render(): void {
-    const active = events.filter((e) => e.subs.some((s) => selected.has(s)));
+  function draw(): void {
+    const active = events.filter((e) => e.subs.some((s) => lastSubs.includes(s)));
     yearLabel!.textContent = String(year);
     grid!.innerHTML = "";
     for (let m = 0; m < 12; m++) grid!.appendChild(renderMonth(year, m, active));
@@ -134,18 +136,18 @@ export function initCalendar(): void {
   prev?.addEventListener("click", () => {
     if (year > minYear) {
       year--;
-      render();
+      draw();
     }
   });
   next?.addEventListener("click", () => {
     if (year < maxYear) {
       year++;
-      render();
+      draw();
     }
   });
 
-  initFilter((subs) => {
-    selected = new Set(subs);
-    render();
-  });
+  return (subs: string[]) => {
+    lastSubs = subs;
+    draw();
+  };
 }
