@@ -18,14 +18,14 @@ const { conf } = Astro.props;
     <h2
       class="font-display text-[1.25rem] leading-tight font-[560] tracking-[-0.012em] text-text"
     >
-      <a
-        href={`/conference/${conf.id}/`}
+      <button
+        type="button"
         data-conf-link={conf.id}
-        class="transition-colors hover:text-accent"
+        class="cursor-pointer border-0 bg-transparent p-0 text-left text-inherit transition-colors [font:inherit] hover:text-accent"
       >
         {conf.title}
         {conf.year}
-      </a>
+      </button>
       <a
         href={conf.link}
         target="_blank"

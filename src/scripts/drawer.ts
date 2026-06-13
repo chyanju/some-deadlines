@@ -1,6 +1,6 @@
 // In-page conference detail drawer. Built from the #conf-data JSON so clicking a
-// card or calendar cell opens detail in place (no route change). Deep-links via
-// the URL hash (#id); the static /conference/<id>/ page remains a no-JS fallback.
+// card or calendar cell opens detail in place — there is no detail route at all,
+// everything stays on one page. Deep-links via the URL hash (#id).
 import { formatClock } from "./countdown";
 import { applyTz } from "./tz";
 

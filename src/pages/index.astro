@@ -47,17 +47,14 @@ const confJson = JSON.stringify(confData).replace(/</g, "\\u003c");
       </button>
     </div>
 
-    <CategoryFilter showPastToggle={true} />
-
     <TzToggle />
+
+    <CategoryFilter showPastToggle={true} />
   </div>
 
   {/* ---------------- List view ---------------- */}
   <div id="view-list">
-    <p class="text-xs text-text-3">
-      Deadline times follow the Local / AoE toggle; countdowns show time remaining.
-    </p>
-    <section id="list" class="mt-4 space-y-3">
+    <section id="list" class="space-y-3">
       {byDeadline.map((c) => <ConferenceCard conf={c} />)}
     </section>
   </div>

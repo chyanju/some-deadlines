@@ -39,12 +39,12 @@ const { showPastToggle = false } = Astro.props;
   <div
     data-filter-menu
     hidden
-    class="absolute left-0 z-30 mt-2 w-60 rounded-[14px] border border-border bg-card p-2 shadow-lg"
+    class="absolute right-0 z-30 mt-2 w-max min-w-[12rem] rounded-[14px] border border-border bg-card p-2 shadow-lg"
   >
-    <div class="max-h-72 overflow-auto">
+    <div class="max-h-80 overflow-auto">
       {
         types.map((t) => (
-          <label class="flex cursor-pointer items-center gap-2.5 rounded-md px-2.5 py-1.5 text-sm text-text hover:bg-surface">
+          <label class="menu-row flex cursor-pointer items-center gap-2.5 rounded-md px-2.5 py-1.5 text-sm whitespace-nowrap text-text">
             <input
               type="checkbox"
               data-sub={t.sub}
@@ -54,7 +54,7 @@ const { showPastToggle = false } = Astro.props;
               class="inline-block size-2 shrink-0 rounded-full"
               style={`background:${t.color}`}
             />
-            <span class="flex-1">{t.name}</span>
+            <span>{t.name}</span>
           </label>
         ))
       }
@@ -62,13 +62,13 @@ const { showPastToggle = false } = Astro.props;
         showPastToggle && (
           <>
             <div class="my-1 h-px bg-border" />
-            <label class="flex cursor-pointer items-center gap-2.5 rounded-md px-2.5 py-1.5 text-sm text-text hover:bg-surface">
+            <label class="menu-row flex cursor-pointer items-center gap-2.5 rounded-md px-2.5 py-1.5 text-sm whitespace-nowrap text-text">
               <input
                 type="checkbox"
                 data-show-past
                 class="size-3.5 accent-[var(--color-accent)]"
               />
-              <span class="flex-1">Past deadlines</span>
+              <span>Past deadlines</span>
             </label>
           </>
         )
