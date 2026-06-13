@@ -4,6 +4,4 @@
 export const STORAGE = {
   theme: "theme",
   tz: "some-deadlines-tz",
-  subs: "some-deadlines-subs",
-  past: "some-deadlines-past",
 } as const;

@@ -1,9 +1,9 @@
-// Category filter dropdown. State persists to localStorage and ?sub= / ?past=.
+// Category filter dropdown. Selection is session-only: it is NOT persisted and
+// never modifies the URL — every page load starts with all categories selected.
 // The menu is PORTALED to <body> and positioned fixed under the button, so its
 // backdrop-filter composites over the page exactly like the header bar (a menu
 // left nested inside the header's backdrop-filter renders as a weaker, more
 // transparent glass — moving it out makes the two materials identical).
-import { STORAGE } from "./storage";
 
 let docWired = false;
 let menuEl: HTMLElement | null = null;
@@ -16,41 +16,6 @@ function allSubs(): string[] {
   return boxes()
     .map((b) => b.dataset.sub ?? "")
     .filter(Boolean);
-}
-
-function loadSelected(all: string[]): string[] {
-  const q = new URL(location.href).searchParams.get("sub");
-  if (q) {
-    return q
-      .toUpperCase()
-      .split(",")
-      .map((s) => s.trim())
-      .filter(Boolean);
-  }
-  try {
-    const s = JSON.parse(localStorage.getItem(STORAGE.subs) ?? "null");
-    if (Array.isArray(s)) return s as string[];
-  } catch {
-    /* ignore */
-  }
-  return [...all];
-}
-
-function loadPast(): boolean {
-  const q = new URL(location.href).searchParams.get("past");
-  if (q != null) return q === "1" || q === "true";
-  return localStorage.getItem(STORAGE.past) === "1";
-}
-
-function persist(selected: string[], all: string[], past: boolean): void {
-  localStorage.setItem(STORAGE.subs, JSON.stringify(selected));
-  localStorage.setItem(STORAGE.past, past ? "1" : "0");
-  const url = new URL(location.href);
-  if (selected.length === all.length) url.searchParams.delete("sub");
-  else url.searchParams.set("sub", selected.join(","));
-  if (past) url.searchParams.set("past", "1");
-  else url.searchParams.delete("past");
-  history.replaceState(null, "", url);
 }
 
 function positionMenu(): void {
@@ -110,14 +75,14 @@ export function initFilter(
   const pastBox = menu?.querySelector<HTMLInputElement>("[data-show-past]") ?? null;
   const all = allSubs();
 
-  let selected = new Set(loadSelected(all).filter((s) => all.includes(s)));
-  let past = loadPast();
+  // Session-only defaults: all categories on, past off (no persistence, no URL).
+  let selected = new Set(all);
+  let past = false;
 
   const apply = () => {
     for (const b of boxes()) b.checked = selected.has(b.dataset.sub ?? "");
     if (pastBox) pastBox.checked = past;
     if (dot) dot.hidden = !(selected.size !== all.length || past);
-    persist([...selected], all, past);
     onChange?.([...selected], past);
   };
 
