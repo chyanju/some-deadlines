@@ -42,12 +42,12 @@
   /* Liquid Glass material — light defaults */
   --glass-blur: 18px;
   --glass-saturate: 180%;
-  --glass-blur-card: 16px;
-  --glass-blur-strong: 28px;
-  --glass-saturate-strong: 190%;
-  --glass-fill: rgba(255, 255, 255, 0.58);
-  --glass-fill-strong: rgba(255, 255, 255, 0.7);
-  --glass-fill-control: rgba(255, 255, 255, 0.48);
+  --glass-blur-card: 20px;
+  --glass-blur-strong: 30px;
+  --glass-saturate-strong: 200%;
+  --glass-fill: rgba(255, 255, 255, 0.44);
+  --glass-fill-strong: rgba(255, 255, 255, 0.58);
+  --glass-fill-control: rgba(255, 255, 255, 0.4);
   --glass-edge-top: rgba(255, 255, 255, 0.9);
   --glass-edge-rim: rgba(255, 255, 255, 0.45);
   --glass-hairline: rgba(16, 24, 40, 0.1);
@@ -73,9 +73,9 @@ html.dark {
   --color-warn: #fbbf24;
 
   /* Liquid Glass material — dark overrides */
-  --glass-fill: rgba(26, 28, 32, 0.52);
-  --glass-fill-strong: rgba(34, 37, 44, 0.62);
-  --glass-fill-control: rgba(40, 44, 52, 0.42);
+  --glass-fill: rgba(26, 28, 32, 0.42);
+  --glass-fill-strong: rgba(34, 37, 44, 0.55);
+  --glass-fill-control: rgba(40, 44, 52, 0.34);
   --glass-edge-top: rgba(255, 255, 255, 0.16);
   --glass-edge-rim: rgba(255, 255, 255, 0.06);
   --glass-hairline: rgba(255, 255, 255, 0.1);
@@ -99,7 +99,8 @@ html.dark body {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
 }
 
-/* Ambient mesh — gives the glass something to refract. Fixed behind content. */
+/* Ambient color field — the glass needs visible colour behind it to refract.
+   Fixed behind everything; legibility is preserved by the frosted card fill itself. */
 body::before {
   content: "";
   position: fixed;
@@ -107,24 +108,17 @@ body::before {
   z-index: -2;
   pointer-events: none;
   background:
-    radial-gradient(60rem 48rem at 12% -6%, color-mix(in oklch, var(--color-accent) 14%, transparent), transparent 60%),
-    radial-gradient(48rem 40rem at 106% 6%, color-mix(in oklch, var(--color-warn) 11%, transparent), transparent 55%),
-    radial-gradient(70rem 52rem at 50% 116%, color-mix(in oklch, var(--color-accent) 9%, transparent), transparent 60%);
+    radial-gradient(70rem 60rem at 6% -8%, color-mix(in oklch, var(--color-accent) 30%, transparent), transparent 55%),
+    radial-gradient(56rem 50rem at 102% 2%, color-mix(in oklch, var(--color-warn) 22%, transparent), transparent 52%),
+    radial-gradient(62rem 56rem at 96% 104%, color-mix(in oklch, var(--color-accent) 26%, transparent), transparent 55%),
+    radial-gradient(52rem 50rem at -4% 102%, color-mix(in oklch, #5aa78f 20%, transparent), transparent 55%);
 }
 html.dark body::before {
   background:
-    radial-gradient(60rem 48rem at 12% -6%, color-mix(in oklch, var(--color-accent) 20%, transparent), transparent 60%),
-    radial-gradient(48rem 40rem at 106% 6%, color-mix(in oklch, var(--color-warn) 13%, transparent), transparent 55%),
-    radial-gradient(70rem 52rem at 50% 116%, color-mix(in oklch, var(--color-accent) 14%, transparent), transparent 62%);
-}
-/* Calm reading-well so the centre column keeps contrast; chroma stays in the gutters. */
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -2;
-  pointer-events: none;
-  background: radial-gradient(46% 56% at 50% 42%, var(--color-bg) 0%, transparent 72%);
+    radial-gradient(70rem 60rem at 6% -8%, color-mix(in oklch, var(--color-accent) 34%, transparent), transparent 55%),
+    radial-gradient(56rem 50rem at 102% 2%, color-mix(in oklch, var(--color-warn) 20%, transparent), transparent 52%),
+    radial-gradient(62rem 56rem at 96% 104%, color-mix(in oklch, var(--color-accent) 30%, transparent), transparent 55%),
+    radial-gradient(52rem 50rem at -4% 102%, color-mix(in oklch, #5aa78f 22%, transparent), transparent 55%);
 }
 
 ::selection {
