@@ -1,11 +1,12 @@
-// Live countdowns + past/upcoming split + urgency ramp, all client-side so they
-// are correct at view time. Cards carry data-deadline (epoch ms) and data-subs.
+// Live countdowns + urgency ramp, client-side so they are correct at view time.
+// All conferences live in ONE list (#list): upcoming first (soonest → latest),
+// then past ones appended and dimmed via .is-past (no separate section).
+// Cards carry data-deadline (epoch ms) and data-subs.
 
 const URGENT_MS = 7 * 24 * 60 * 60 * 1000; // <= 7 days  -> danger
 const SOON_MS = 30 * 24 * 60 * 60 * 1000; // 8..30 days -> warn
 let timer = 0;
 
-/** Split a remaining duration into a whole-days figure and an HH:MM:SS clock. */
 export function formatClock(remainingMs: number): { days: number; clock: string } {
   const s = Math.max(0, Math.floor(remainingMs / 1000));
   const days = Math.floor(s / 86400);
@@ -16,7 +17,6 @@ export function formatClock(remainingMs: number): { days: number; clock: string 
   return { days, clock: `${pad(h)}:${pad(m)}:${pad(sec)}` };
 }
 
-/** Localized "in your timezone" string for an epoch-ms instant. */
 export function localString(ms: number): string {
   return new Date(ms).toLocaleString(undefined, {
     dateStyle: "medium",
@@ -24,20 +24,10 @@ export function localString(ms: number): string {
   });
 }
 
-function sortInto(container: HTMLElement | null, direction: 1 | -1): void {
-  if (!container) return;
-  const items = Array.from(container.querySelectorAll<HTMLElement>("[data-conf]"));
-  items.sort(
-    (a, b) => (Number(a.dataset.deadline) - Number(b.dataset.deadline)) * direction,
-  );
-  for (const item of items) container.appendChild(item);
-}
-
 export function initCountdowns(): void {
   if (timer) window.clearInterval(timer);
+  const list = document.getElementById("list");
   const cards = Array.from(document.querySelectorAll<HTMLElement>("[data-conf]"));
-  const upcoming = document.getElementById("upcoming");
-  const past = document.getElementById("past");
   const now = Date.now();
 
   const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
@@ -53,24 +43,31 @@ export function initCountdowns(): void {
 
     if (!ms) {
       if (daysEl) daysEl.textContent = "TBA";
-      if (clockEl) clockEl.textContent = " ";
-      upcoming?.appendChild(card);
+      if (clockEl) clockEl.textContent = " ";
       continue;
     }
     if (ms < now) {
       card.classList.add("is-past");
       if (daysEl) daysEl.textContent = "Passed";
-      past?.appendChild(card);
     } else {
       const rem = ms - now;
       if (rem < URGENT_MS) card.classList.add("is-urgent");
       else if (rem < SOON_MS) card.classList.add("is-soon");
-      upcoming?.appendChild(card);
     }
   }
 
-  sortInto(upcoming, 1);
-  sortInto(past, -1);
+  // One list: upcoming ascending (soonest first), then past descending.
+  if (list) {
+    const ordered = cards.slice().sort((a, b) => {
+      const ap = a.classList.contains("is-past");
+      const bp = b.classList.contains("is-past");
+      if (ap !== bp) return ap ? 1 : -1;
+      const am = Number(a.dataset.deadline) || (ap ? 0 : Infinity);
+      const bm = Number(b.dataset.deadline) || (bp ? 0 : Infinity);
+      return ap ? bm - am : am - bm;
+    });
+    for (const card of ordered) list.appendChild(card);
+  }
 
   const tick = () => {
     const t = Date.now();

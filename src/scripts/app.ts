@@ -36,14 +36,6 @@ export function initApp(): void {
       const isPast = el.classList.contains("is-past");
       el.hidden = !catMatch || (isPast && !showPast);
     }
-    const label = document.getElementById("past-label");
-    const past = document.getElementById("past");
-    if (label && past) {
-      const any = Array.from(
-        past.querySelectorAll<HTMLElement>("[data-conf]"),
-      ).some((e) => !e.hidden);
-      label.hidden = !any;
-    }
     renderCalendar?.(subs);
   });
 
