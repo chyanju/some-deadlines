@@ -31,11 +31,17 @@ later, serve the static `dist/` folder from any static host.
   (body/UI; countdowns and timestamps use Geist with tabular, slashed-zero
   numerals — no monospace).
 
-Design direction — "Calm Editorial Technical": warm-neutral surfaces, one indigo
-accent, red reserved for urgency, tamed category colors (dots / soft badges /
-tinted calendar cells). Tokens live in `src/styles/global.css` (`@theme` for light,
-`html.dark` overrides for dark — components use one set of `bg-card`/`text-text`/…
-utilities, no `dark:` variants needed).
+Design direction — "Calm Editorial Technical" on an Apple **Liquid Glass** material
+layer: a fixed ambient mesh (indigo + warm blooms) gives the glass something to
+refract; cards, controls, the header bar and the detail drawer are translucent
+`backdrop-filter` panels with a specular top/rim highlight and soft depth shadows,
+on a four-rung elevation ladder (bg < card < control/header < drawer-over-scrim).
+One indigo accent, red reserved for urgency, tamed category colors. Tokens live in
+`src/styles/global.css` (`@theme` for light, `html.dark` overrides for dark — one
+set of `bg-card`/`text-text`/… utilities, no `dark:` variants). The whole glass
+layer is gated behind `@supports (backdrop-filter)` and collapses to the flat
+opaque look under `prefers-reduced-transparency` (and motion is neutralized under
+`prefers-reduced-motion`).
 
 Niceties: **dark mode** (header toggle, follows system, no flash, `?theme=` URL
 override), a **Local / AoE** deadline time-zone toggle (default Local, `?tz=`

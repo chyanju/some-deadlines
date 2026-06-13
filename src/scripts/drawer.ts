@@ -110,7 +110,7 @@ function buildContent(c: Conf): string {
     </div>
     <div class="mt-2 flex flex-wrap gap-1.5">${badges}</div>
 
-    <div class="mt-5 rounded-xl border border-border bg-bg p-5" style="border-top:3px solid ${accent}">
+    <div class="cd-subpanel mt-5 rounded-2xl border border-border p-5" style="border-top:3px solid ${accent}; background: color-mix(in oklch, ${accent} 8%, var(--glass-fill))">
       <div data-passed hidden class="text-center font-display text-[1.4rem] font-[500] text-text-2">Deadline passed</div>
       <div data-countdown data-deadline="${c.deadlineMs ?? ""}" class="flex items-start justify-center gap-2 sm:gap-3">
         ${seg("d", "days", false)}${seg("h", "hrs", true)}${seg("m", "min", true)}${seg("s", "sec", true)}

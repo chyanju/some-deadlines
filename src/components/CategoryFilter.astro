@@ -13,7 +13,7 @@ const { showPastToggle = false } = Astro.props;
     data-filter-button
     aria-haspopup="true"
     aria-expanded="false"
-    class="inline-flex items-center gap-2 rounded-md border border-border bg-card px-3 py-1.5 text-sm text-text shadow-sm transition-colors hover:border-border-strong"
+    class="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-1.5 text-sm text-text shadow-sm transition-colors"
   >
     <svg
       class="h-4 w-4 text-text-3"
@@ -45,7 +45,7 @@ const { showPastToggle = false } = Astro.props;
   <div
     data-filter-menu
     hidden
-    class="absolute left-0 z-30 mt-2 w-60 rounded-lg border border-border bg-card p-1.5 shadow-lg"
+    class="absolute left-0 z-30 mt-2 w-60 rounded-[14px] border border-border bg-card p-2 shadow-lg"
   >
     <div class="max-h-72 overflow-auto">
       {

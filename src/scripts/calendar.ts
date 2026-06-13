@@ -59,7 +59,7 @@ export function setupCalendar(
 
   function renderMonth(y: number, m: number, active: CalEvent[]): HTMLElement {
     const wrap = document.createElement("div");
-    wrap.className = "card p-3";
+    wrap.className = "card p-3.5";
 
     const head = document.createElement("div");
     head.className = "eyebrow mb-2 text-center";
@@ -85,16 +85,16 @@ export function setupCalendar(
       const hasEvents = evs.length > 0;
       const cell = document.createElement(hasEvents ? "button" : "div");
       cell.className =
-        "relative flex aspect-square items-center justify-center rounded-md text-text-3 transition";
+        "relative flex aspect-square items-center justify-center rounded-[10px] text-text-3 transition";
       cell.textContent = String(d);
 
       if (hasEvents) {
         const ev = evs.find((e) => e.kind === "deadline") ?? evs[0];
         const c = ev.color;
-        cell.style.backgroundColor = `color-mix(in oklch, ${c} 18%, var(--color-card))`;
+        cell.style.backgroundColor = `color-mix(in oklch, ${c} 20%, transparent)`;
         cell.style.boxShadow = `inset 0 0 0 1.5px color-mix(in oklch, ${c} 42%, transparent)`;
         cell.style.color = `color-mix(in oklch, ${c} 78%, var(--color-text))`;
-        cell.classList.add("cursor-pointer", "font-semibold", "hover:brightness-110");
+        cell.classList.add("cursor-pointer", "font-semibold", "hover:scale-105");
         cell.setAttribute(
           "title",
           evs
