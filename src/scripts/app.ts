@@ -16,6 +16,8 @@ function setView(view: View): void {
   for (const b of document.querySelectorAll<HTMLElement>("[data-view-btn]")) {
     b.setAttribute("aria-pressed", String(b.dataset.viewBtn === view));
   }
+  const seg = document.querySelector<HTMLElement>('[aria-label="View"]');
+  if (seg) seg.dataset.active = view === "calendar" ? "1" : "0";
   localStorage.setItem(VIEW_KEY, view);
 }
 

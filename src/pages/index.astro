@@ -26,6 +26,7 @@ const eventsJson = JSON.stringify(events).replace(/</g, "\\u003c");
       reachable while scrolling. */}
   <div slot="toolbar" class="flex flex-wrap items-center gap-2">
     <div class="tbar-seg" role="group" aria-label="View">
+      <span class="tbar-thumb" aria-hidden="true"></span>
       <button type="button" data-view-btn="list" title="Countdowns" aria-label="Countdowns">
         <svg class="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"></path></svg>
       </button>

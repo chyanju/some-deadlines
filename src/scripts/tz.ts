@@ -47,6 +47,8 @@ function apply(mode: Mode): void {
   )) {
     b.setAttribute("aria-pressed", String(b.dataset.tz === mode));
   }
+  const seg = document.querySelector<HTMLElement>("[data-tz-toggle]");
+  if (seg) seg.dataset.active = mode === "aoe" ? "1" : "0";
 }
 
 /** Re-format all [data-dl] nodes for the current mode (call after injecting DOM). */

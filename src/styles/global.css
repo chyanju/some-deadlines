@@ -334,9 +334,10 @@ html.dark .badge {
    active lozenge; single actions are borderless and reveal a glass highlight on
    hover. One material vocabulary, uniform sizing. */
 .tbar-seg {
+  position: relative;
   display: inline-flex;
   align-items: center;
-  gap: 2px;
+  gap: 0;
   padding: 3px;
   border-radius: 9999px;
   background: rgba(120, 120, 140, 0.1);
@@ -344,26 +345,40 @@ html.dark .badge {
 html.dark .tbar-seg {
   background: rgba(0, 0, 0, 0.22);
 }
+/* sliding active lozenge — translates between the two equal segments */
+.tbar-thumb {
+  position: absolute;
+  top: 3px;
+  bottom: 3px;
+  left: 3px;
+  width: calc((100% - 6px) / 2);
+  border-radius: 9999px;
+  background: var(--glass-fill-strong);
+  box-shadow:
+    inset 0 1px 0 0 var(--glass-edge-top),
+    0 1px 2px rgba(var(--glass-shadow-rgb), 0.12);
+  transition: transform 0.24s var(--ease-out);
+  pointer-events: none;
+  z-index: 0;
+}
+.tbar-seg[data-active="1"] .tbar-thumb {
+  transform: translateX(100%);
+}
 .tbar-seg button {
+  position: relative;
+  z-index: 1;
   border-radius: 9999px;
   padding: 0.25rem 0.75rem;
   font-size: 0.8125rem;
   font-weight: 500;
   color: var(--color-text-2);
   transition:
-    background-color 140ms var(--ease-out),
     color 140ms var(--ease-out),
     transform 140ms var(--ease-out);
 }
-.tbar-seg button:hover {
-  color: var(--color-text);
-}
+.tbar-seg button:hover,
 .tbar-seg button[aria-pressed="true"] {
-  background: var(--glass-fill-strong);
   color: var(--color-text);
-  box-shadow:
-    inset 0 1px 0 0 var(--glass-edge-top),
-    0 1px 2px rgba(var(--glass-shadow-rgb), 0.12);
 }
 .tbar-seg button:active {
   transform: scale(0.95);
@@ -512,6 +527,27 @@ header > div {
       inset 0 -1px 0 0 var(--glass-edge-rim),
       0 8px 24px -8px rgba(var(--glass-shadow-rgb), 0.12);
   }
+  /* Keep the category left-bar (and add the lift shadow) on hover. Without these,
+     html.dark .card:hover (higher specificity) replaces the whole box-shadow and the
+     inset 3px left bar vanishes — the dark-mode hover bug. */
+  .card.is-soon:hover,
+  .card.is-urgent:hover {
+    box-shadow:
+      inset 3px 0 0 0 var(--c),
+      inset 0 1px 0 0 var(--glass-edge-top),
+      inset 0 -1px 0 0 var(--glass-edge-rim),
+      0 2px 4px rgba(var(--glass-shadow-rgb), 0.07),
+      0 16px 40px -8px rgba(var(--glass-shadow-rgb), 0.16);
+  }
+  html.dark .card.is-soon:hover,
+  html.dark .card.is-urgent:hover {
+    box-shadow:
+      inset 3px 0 0 0 var(--c),
+      inset 0 1px 0 0 var(--glass-edge-top),
+      inset 0 -1px 0 0 var(--glass-edge-rim),
+      0 2px 6px rgba(0, 0, 0, 0.5),
+      0 18px 44px -8px rgba(0, 0, 0, 0.62);
+  }
 
   /* past: bottom rung — no blur, no float */
   .card.is-past {
@@ -521,7 +557,8 @@ header > div {
     box-shadow: none;
     border-color: var(--glass-hairline);
   }
-  .card.is-past:hover {
+  .card.is-past:hover,
+  html.dark .card.is-past:hover {
     transform: none;
     background: transparent;
     box-shadow: none;
