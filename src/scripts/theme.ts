@@ -1,8 +1,9 @@
 // Dark-mode toggle. The no-flash class is set by an inline <head> script; this
 // wires the toggle button and re-applies the theme after view-transition swaps.
+import { STORAGE } from "./storage";
 
 function applyStoredTheme(): void {
-  const t = localStorage.getItem("theme");
+  const t = localStorage.getItem(STORAGE.theme);
   const dark =
     t === "dark" ||
     (!t && window.matchMedia("(prefers-color-scheme: dark)").matches);
@@ -15,7 +16,7 @@ export function initTheme(): void {
     const btn = (e.target as HTMLElement).closest("[data-theme-toggle]");
     if (!btn) return;
     const isDark = document.documentElement.classList.toggle("dark");
-    localStorage.setItem("theme", isDark ? "dark" : "light");
+    localStorage.setItem(STORAGE.theme, isDark ? "dark" : "light");
   });
   // The <html> class is reset to the fetched page on swap; re-apply it.
   document.addEventListener("astro:after-swap", applyStoredTheme);

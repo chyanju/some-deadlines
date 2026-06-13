@@ -1,14 +1,15 @@
 // Deadline time-zone display toggle: Local (browser zone) vs AoE (Anywhere on
-// Earth = UTC-12). Default Local. Affects every absolute deadline shown via
-// [data-dl] (epoch ms) and relabels [data-dl-label]. Countdowns are durations,
-// so they are unaffected.
-const KEY = "some-deadlines-tz";
+// Earth = UTC-12). Default Local. Re-formats every absolute deadline shown via
+// [data-dl] (epoch ms). Countdowns are durations, so they are unaffected.
+import { setSegmentValue, onSegmentClick } from "./segment";
+import { STORAGE } from "./storage";
+
 type Mode = "local" | "aoe";
 
 function getMode(): Mode {
   const q = new URLSearchParams(location.search).get("tz");
   if (q === "aoe" || q === "local") return q;
-  return localStorage.getItem(KEY) === "aoe" ? "aoe" : "local";
+  return localStorage.getItem(STORAGE.tz) === "aoe" ? "aoe" : "local";
 }
 
 const BASE: Intl.DateTimeFormatOptions = {
@@ -28,10 +29,7 @@ function format(ms: number, mode: Mode): string {
       " AoE"
     );
   }
-  return new Date(ms).toLocaleString("en-GB", {
-    ...BASE,
-    timeZoneName: "short",
-  });
+  return new Date(ms).toLocaleString("en-GB", { ...BASE, timeZoneName: "short" });
 }
 
 function apply(mode: Mode): void {
@@ -39,33 +37,14 @@ function apply(mode: Mode): void {
     const ms = Number(el.dataset.dl);
     if (ms) el.textContent = format(ms, mode);
   }
-  for (const el of document.querySelectorAll<HTMLElement>("[data-dl-label]")) {
-    el.textContent = mode === "aoe" ? "Anywhere on Earth (AoE)" : "Your local time";
-  }
-  for (const b of document.querySelectorAll<HTMLButtonElement>(
-    "[data-tz-toggle] button",
-  )) {
-    b.setAttribute("aria-pressed", String(b.dataset.tz === mode));
-  }
-  const seg = document.querySelector<HTMLElement>("[data-tz-toggle]");
-  if (seg) seg.dataset.active = mode === "aoe" ? "1" : "0";
-}
-
-/** Re-format all [data-dl] nodes for the current mode (call after injecting DOM). */
-export function applyTz(): void {
-  apply(getMode());
+  setSegmentValue("tz", mode);
 }
 
 export function initTz(): void {
-  let mode = getMode();
-  apply(mode);
-  for (const b of document.querySelectorAll<HTMLButtonElement>(
-    "[data-tz-toggle] button",
-  )) {
-    b.addEventListener("click", () => {
-      mode = b.dataset.tz === "aoe" ? "aoe" : "local";
-      localStorage.setItem(KEY, mode);
-      apply(mode);
-    });
-  }
+  apply(getMode());
+  onSegmentClick("tz", (v) => {
+    const mode: Mode = v === "aoe" ? "aoe" : "local";
+    localStorage.setItem(STORAGE.tz, mode);
+    apply(mode);
+  });
 }

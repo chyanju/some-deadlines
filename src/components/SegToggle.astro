@@ -1,0 +1,35 @@
+---
+// A segmented "switch" pill (the sliding-thumb toggle). Wired by
+// scripts/segment.ts via data-seg / data-seg-btn. Provide one icon per option in
+// the matching slot ("a", "b", "c"), in the same order as `options`.
+interface Option {
+  value: string;
+  title: string;
+}
+interface Props {
+  /** Segment id; scripts target it via [data-seg="name"]. */
+  name: string;
+  /** Accessible group label. */
+  label: string;
+  options: Option[];
+}
+const { name, label, options } = Astro.props;
+---
+
+<div class="tbar-seg" role="group" aria-label={label} data-seg={name}>
+  <span class="tbar-thumb" aria-hidden="true"></span>
+  {
+    options.map((o, i) => (
+      <button
+        type="button"
+        data-seg-btn={o.value}
+        title={o.title}
+        aria-label={o.title}
+      >
+        {i === 0 && <slot name="a" />}
+        {i === 1 && <slot name="b" />}
+        {i === 2 && <slot name="c" />}
+      </button>
+    ))
+  }
+</div>

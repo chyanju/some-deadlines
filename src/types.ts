@@ -32,10 +32,8 @@ export interface Conference {
   end: string;
   /** Category code(s); single value or comma-separated, must exist in types.yml. */
   sub: string;
-  /** Optional free-text / HTML note. */
+  /** Optional author note in the YAML (legacy ai-deadlines field; not rendered —
+   *  the card's website-link icon already links to `link`). Any other extra keys
+   *  in the YAML are simply ignored. */
   note?: string;
-  full_name?: string;
-  paperslink?: string;
-  pwclink?: string;
-  hindex?: number | string;
 }

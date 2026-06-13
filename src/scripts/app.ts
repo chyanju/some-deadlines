@@ -4,8 +4,9 @@ import { initCountdowns } from "./countdown";
 import { initFilter } from "./filter";
 import { initTz } from "./tz";
 import { setupCalendar } from "./calendar";
+import { setSegmentValue, onSegmentClick } from "./segment";
+import { STORAGE } from "./storage";
 
-const VIEW_KEY = "some-deadlines-view";
 type View = "list" | "calendar";
 
 function setView(view: View): void {
@@ -13,12 +14,8 @@ function setView(view: View): void {
   document
     .getElementById("view-calendar")
     ?.toggleAttribute("hidden", view !== "calendar");
-  for (const b of document.querySelectorAll<HTMLElement>("[data-view-btn]")) {
-    b.setAttribute("aria-pressed", String(b.dataset.viewBtn === view));
-  }
-  const seg = document.querySelector<HTMLElement>('[aria-label="View"]');
-  if (seg) seg.dataset.active = view === "calendar" ? "1" : "0";
-  localStorage.setItem(VIEW_KEY, view);
+  setSegmentValue("view", view);
+  localStorage.setItem(STORAGE.view, view);
 }
 
 export function initApp(): void {
@@ -58,15 +55,12 @@ export function initApp(): void {
     document.querySelector<HTMLButtonElement>("[data-filter-all]")?.click();
   });
 
-  for (const b of document.querySelectorAll<HTMLElement>("[data-view-btn]")) {
-    b.addEventListener("click", () =>
-      setView(b.dataset.viewBtn === "calendar" ? "calendar" : "list"),
-    );
-  }
+  onSegmentClick("view", (v) => setView(v === "calendar" ? "calendar" : "list"));
+
   const param = new URLSearchParams(location.search).get("view");
   const saved =
     param === "calendar" || param === "list"
       ? param
-      : localStorage.getItem(VIEW_KEY);
+      : localStorage.getItem(STORAGE.view);
   setView(saved === "calendar" ? "calendar" : "list");
 }

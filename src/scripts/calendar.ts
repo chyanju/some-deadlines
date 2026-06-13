@@ -1,17 +1,7 @@
 // Year-calendar view. setupCalendar() wires the grid + year nav and returns a
 // render(subs) function the app calls whenever the shared filter changes.
-
-interface CalEvent {
-  id: string;
-  title: string;
-  kind: "deadline" | "conference";
-  from: string; // YYYY-MM-DD
-  to: string; // YYYY-MM-DD
-  color: string; // hex (conference) or "var(--color-danger)" (deadline)
-  subs: string[];
-  place: string;
-  dateLabel: string;
-}
+// Event shape is shared with the build-time producer (src/lib/calendar.ts).
+import type { CalEvent } from "../lib/calendar";
 
 const MONTHS = [
   "January", "February", "March", "April", "May", "June",

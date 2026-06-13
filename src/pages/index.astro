@@ -2,38 +2,34 @@
 import Layout from "../layouts/Layout.astro";
 import CategoryFilter from "../components/CategoryFilter.astro";
 import ConferenceCard from "../components/ConferenceCard.astro";
+import SegToggle from "../components/SegToggle.astro";
 import TzToggle from "../components/TzToggle.astro";
 import { byDeadline, allConferences } from "../lib/deadlines";
+import { buildCalendarEvents } from "../lib/calendar";
 import { types } from "../data/conferences";
 
-// Calendar events (deadline = red/danger, conference span = category color).
-const events = allConferences.flatMap((c) => {
-  const out: Array<Record<string, unknown>> = [];
-  if (!c.isTba) {
-    const d = c.deadline.slice(0, 10);
-    out.push({ id: c.id, title: `${c.title} ${c.year}`, kind: "deadline", from: d, to: d, color: "var(--color-danger)", subs: c.subs, place: c.place, dateLabel: c.date });
-  }
-  if (c.start && c.end) {
-    out.push({ id: c.id, title: `${c.title} ${c.year}`, kind: "conference", from: c.start, to: c.end, color: c.categories[0]?.color ?? "#9ca3af", subs: c.subs, place: c.place, dateLabel: c.date });
-  }
-  return out;
-});
-const eventsJson = JSON.stringify(events).replace(/</g, "\\u003c");
+// Calendar events, baked into the page as JSON for scripts/calendar.ts.
+const eventsJson = JSON.stringify(buildCalendarEvents(allConferences)).replace(
+  /</g,
+  "\\u003c",
+);
 ---
 
 <Layout>
   {/* Controls live in the sticky header bar so filtering/timezone/view stay
       reachable while scrolling. */}
   <div slot="toolbar" class="flex flex-wrap items-center gap-2">
-    <div class="tbar-seg" role="group" aria-label="View">
-      <span class="tbar-thumb" aria-hidden="true"></span>
-      <button type="button" data-view-btn="list" title="Countdowns" aria-label="Countdowns">
-        <svg class="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"></path></svg>
-      </button>
-      <button type="button" data-view-btn="calendar" title="Calendar" aria-label="Calendar">
-        <svg class="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v3M16 2v3M3.5 9h17M5 5h14a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z"></path></svg>
-      </button>
-    </div>
+    <SegToggle
+      name="view"
+      label="View"
+      options={[
+        { value: "list", title: "Countdowns" },
+        { value: "calendar", title: "Calendar" },
+      ]}
+    >
+      <svg slot="a" class="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"></path></svg>
+      <svg slot="b" class="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v3M16 2v3M3.5 9h17M5 5h14a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z"></path></svg>
+    </SegToggle>
 
     <TzToggle />
 

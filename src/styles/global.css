@@ -25,29 +25,19 @@
   --color-text-2: #57534e;
   --color-text-3: #8a847c;
   --color-accent: #5b5bd6;
-  --color-accent-fg: #ffffff;
-  --color-accent-tint: color-mix(in oklch, #5b5bd6 12%, transparent);
   --color-danger: #dc2626;
   --color-warn: #b06f0a;
 
-  --radius-sm: 6px;
+  /* --radius-md drives Tailwind's `rounded-md` (filter rows, year-nav buttons). */
   --radius-md: 10px;
   --radius-lg: 16px;
   --radius-glass: 22px;
-  --radius-control: 14px;
-  --radius-modal: 28px;
 
   --ease-out: cubic-bezier(0.2, 0, 0, 1);
 
-  /* Liquid Glass material — light defaults */
-  --glass-blur: 18px;
-  --glass-saturate: 180%;
-  --glass-blur-card: 24px;
-  --glass-blur-strong: 34px;
-  --glass-saturate-strong: 200%;
+  /* Liquid Glass material — light defaults (blur/saturate are inlined per surface) */
   --glass-fill: rgba(255, 255, 255, 0.3);
   --glass-fill-strong: rgba(255, 255, 255, 0.4);
-  --glass-fill-control: rgba(255, 255, 255, 0.22);
   --glass-fill-bar: rgba(255, 255, 255, 0.44);
   --glass-edge-top: rgba(255, 255, 255, 0.9);
   --glass-edge-rim: rgba(255, 255, 255, 0.45);
@@ -68,15 +58,12 @@ html.dark {
   --color-text-2: #a8a39c;
   --color-text-3: #6f6a63;
   --color-accent: #7c7cf0;
-  --color-accent-fg: #0b0c0e;
-  --color-accent-tint: color-mix(in oklch, #7c7cf0 20%, transparent);
   --color-danger: #f87171;
   --color-warn: #fbbf24;
 
   /* Liquid Glass material — dark overrides */
   --glass-fill: rgba(26, 28, 32, 0.28);
   --glass-fill-strong: rgba(34, 37, 44, 0.38);
-  --glass-fill-control: rgba(40, 44, 52, 0.18);
   --glass-fill-bar: rgba(30, 32, 38, 0.42);
   --glass-edge-top: rgba(255, 255, 255, 0.16);
   --glass-edge-rim: rgba(255, 255, 255, 0.06);
@@ -286,48 +273,6 @@ html.dark .badge {
   background: var(--c, #999);
 }
 
-/* ------------------------------ filter chips ------------------------------- */
-
-.chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  cursor: pointer;
-  user-select: none;
-  border-radius: 9999px;
-  border: 1px solid var(--color-border);
-  background: transparent;
-  color: var(--color-text-2);
-  padding: 0.25rem 0.7rem;
-  font-size: 0.8125rem;
-  font-weight: 500;
-  transition:
-    background-color 120ms var(--ease-out),
-    border-color 120ms var(--ease-out),
-    color 120ms var(--ease-out);
-}
-.chip::before {
-  content: "";
-  width: 8px;
-  height: 8px;
-  border-radius: 9999px;
-  background: var(--c, #999);
-  opacity: 0.35;
-  transition: opacity 120ms var(--ease-out);
-}
-.chip:hover {
-  border-color: var(--color-border-strong);
-  color: var(--color-text);
-}
-.chip[aria-pressed="true"] {
-  background: var(--color-card);
-  color: var(--color-text);
-  border-color: var(--color-border-strong);
-}
-.chip[aria-pressed="true"]::before {
-  opacity: 1;
-}
-
 /* ---------------------- Liquid Glass toolbar controls ----------------------
    Controls sit ON the glass header bar (glass-within-glass), not as separate
    bordered boxes. Segmented controls are a faint recessed groove with a bright
@@ -384,26 +329,6 @@ html.dark .tbar-seg {
   transform: scale(0.95);
 }
 
-.tbar-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  border-radius: 9999px;
-  padding: 0.3rem 0.7rem;
-  font-size: 0.8125rem;
-  color: var(--color-text-2);
-  transition:
-    background-color 140ms var(--ease-out),
-    color 140ms var(--ease-out);
-}
-.tbar-btn:hover {
-  background: rgba(120, 120, 140, 0.14);
-  color: var(--color-text);
-}
-html.dark .tbar-btn:hover {
-  background: rgba(255, 255, 255, 0.08);
-}
-
 .tbar-icon {
   display: inline-flex;
   align-items: center;
@@ -424,13 +349,6 @@ html.dark .tbar-icon:hover {
   background: rgba(255, 255, 255, 0.08);
 }
 
-.tbar-div {
-  width: 1px;
-  height: 1.1rem;
-  background: var(--color-border);
-  opacity: 0.7;
-}
-
 /* dropdown menu row — subtle translucent hover (not an opaque fill) */
 .menu-row {
   transition: background-color 120ms var(--ease-out);
@@ -443,16 +361,6 @@ html.dark .menu-row:hover {
 }
 
 /* ============================ Liquid Glass ============================ */
-@keyframes glass-sheet-in {
-  from {
-    opacity: 0;
-    transform: translateY(12px) scale(0.97);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
 
 /* Floating header bar (opaque fallback; glass override under @supports). */
 header > div {
@@ -625,16 +533,12 @@ header > div {
 
 /* Reduced transparency / contrast: collapse to the opaque Calm Editorial look. */
 @media (prefers-reduced-transparency: reduce) {
-  body::before,
-  body::after {
+  body::before {
     display: none;
   }
   .card,
   [data-filter-menu],
-  header > div,
-  [role="group"][aria-label="View"],
-  [data-tz-toggle],
-  [data-filter-button] {
+  header > div {
     background: var(--color-card);
     -webkit-backdrop-filter: none;
     backdrop-filter: none;
@@ -645,9 +549,8 @@ header > div {
 @media (prefers-reduced-motion: reduce) {
   .card:hover,
   .card:active,
-  [data-view-btn]:active,
-  [data-tz-toggle] button:active,
-  [data-filter-button]:active {
+  .tbar-seg button:active,
+  .tbar-icon:active {
     transform: none !important;
   }
 }

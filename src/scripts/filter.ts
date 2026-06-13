@@ -3,8 +3,7 @@
 // backdrop-filter composites over the page exactly like the header bar (a menu
 // left nested inside the header's backdrop-filter renders as a weaker, more
 // transparent glass — moving it out makes the two materials identical).
-const KEY = "some-deadlines-subs";
-const PAST_KEY = "some-deadlines-past";
+import { STORAGE } from "./storage";
 
 let docWired = false;
 let menuEl: HTMLElement | null = null;
@@ -29,7 +28,7 @@ function loadSelected(all: string[]): string[] {
       .filter(Boolean);
   }
   try {
-    const s = JSON.parse(localStorage.getItem(KEY) ?? "null");
+    const s = JSON.parse(localStorage.getItem(STORAGE.subs) ?? "null");
     if (Array.isArray(s)) return s as string[];
   } catch {
     /* ignore */
@@ -40,12 +39,12 @@ function loadSelected(all: string[]): string[] {
 function loadPast(): boolean {
   const q = new URL(location.href).searchParams.get("past");
   if (q != null) return q === "1" || q === "true";
-  return localStorage.getItem(PAST_KEY) === "1";
+  return localStorage.getItem(STORAGE.past) === "1";
 }
 
 function persist(selected: string[], all: string[], past: boolean): void {
-  localStorage.setItem(KEY, JSON.stringify(selected));
-  localStorage.setItem(PAST_KEY, past ? "1" : "0");
+  localStorage.setItem(STORAGE.subs, JSON.stringify(selected));
+  localStorage.setItem(STORAGE.past, past ? "1" : "0");
   const url = new URL(location.href);
   if (selected.length === all.length) url.searchParams.delete("sub");
   else url.searchParams.set("sub", selected.join(","));

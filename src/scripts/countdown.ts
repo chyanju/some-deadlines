@@ -7,7 +7,7 @@ const URGENT_MS = 7 * 24 * 60 * 60 * 1000; // <= 7 days  -> danger
 const SOON_MS = 30 * 24 * 60 * 60 * 1000; // 8..30 days -> warn
 let timer = 0;
 
-export function formatClock(remainingMs: number): { days: number; clock: string } {
+function formatClock(remainingMs: number): { days: number; clock: string } {
   const s = Math.max(0, Math.floor(remainingMs / 1000));
   const days = Math.floor(s / 86400);
   const h = Math.floor((s % 86400) / 3600);
@@ -17,23 +17,11 @@ export function formatClock(remainingMs: number): { days: number; clock: string 
   return { days, clock: `${pad(h)}:${pad(m)}:${pad(sec)}` };
 }
 
-export function localString(ms: number): string {
-  return new Date(ms).toLocaleString(undefined, {
-    dateStyle: "medium",
-    timeStyle: "short",
-  });
-}
-
 export function initCountdowns(): void {
   if (timer) window.clearInterval(timer);
   const list = document.getElementById("list");
   const cards = Array.from(document.querySelectorAll<HTMLElement>("[data-conf]"));
   const now = Date.now();
-
-  const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
-  document.querySelectorAll(".local-tz").forEach((el) => {
-    el.textContent = tz;
-  });
 
   for (const card of cards) {
     const ms = Number(card.dataset.deadline);
