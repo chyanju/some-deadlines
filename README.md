@@ -60,7 +60,6 @@ src/
     site.ts           # site config (title, author, GitHub repo, optional GA id)
   lib/                # build-time logic
     deadlines.ts      # Luxon: parse deadline + timezone -> epoch ms + formatting
-    calendar.ts       # build the calendar events (shared CalEvent type)
     ics.ts            # build VCALENDAR feeds
   layouts/Layout.astro          # shared HTML shell (head, header, liquid-glass filter)
   components/
@@ -70,36 +69,32 @@ src/
     TzToggle.astro              # Local / AoE toggle (uses SegToggle)
     SegToggle.astro             # reusable sliding-thumb segmented toggle
   scripts/                      # client-side, re-run on every astro:page-load
-    app.ts            # orchestrates the page (view switching + filter wiring)
+    app.ts            # orchestrates the page (countdowns + filter wiring)
     countdown.ts      # live countdowns, urgency classes, past-at-bottom ordering
     filter.ts         # category dropdown state (localStorage + ?sub= / ?past=)
     tz.ts             # Local / AoE deadline display
-    calendar.ts       # the year-calendar view
     theme.ts          # dark-mode toggle
-    segment.ts        # segmented-toggle helper (shared by app.ts + tz.ts)
+    segment.ts        # segmented-toggle helper (the Local/AoE toggle)
     storage.ts        # localStorage keys (one source of truth)
   styles/global.css   # design tokens + component classes + the Liquid Glass layer
   pages/
-    index.astro               # the single-page app (list + calendar views) -> /
+    index.astro               # the conference list (the whole app) -> /
     conference/[id].ics.ts    # per-conference calendar file -> /conference/<id>.ics
     some-deadlines.ics.ts     # full ICS feed -> /some-deadlines.ics
 public/
     favicon.png
 ```
 
-**Single-page app.** `index.astro` is the whole app: the **Countdowns** list and
-the **Calendar** are two views toggled in place (no routing), and the shared
-category filter drives both. Everything about a conference lives on its card —
-there is no detail page or drawer. Clicking a day in the calendar just jumps to
-that conference's card in the list. The only non-HTML routes are the `.ics`
-endpoints. `scripts/app.ts` orchestrates it; the client scripts re-run on each
-`astro:page-load` so they survive View Transitions.
+**Single-page app.** `index.astro` is the whole app: a single filterable list of
+conference countdowns, driven by the category filter in the header. Everything
+about a conference lives on its card — there is no detail page or drawer. The only
+non-HTML routes are the `.ics` endpoints. `scripts/app.ts` orchestrates it; the
+client scripts re-run on each `astro:page-load` so they survive View Transitions.
 
 How it fits together: `conferences.yml` is loaded and validated by
 `conferences.ts`, enriched in `deadlines.ts` (each deadline resolved to an
 absolute epoch-ms instant via Luxon), and baked into the page. Countdowns, the
-Local/AoE conversion, filtering, and the calendar grid all run client-side — there
-is no backend.
+Local/AoE conversion, and filtering all run client-side — there is no backend.
 
 ## Maintaining conference data
 
@@ -116,7 +111,7 @@ server hot-reloads on save. Each conference is one list item:
   timezone: UTC-12                 # 'UTC-12'..'UTC+14' or an IANA name
   place: Boulder, Colorado, United States
   date: June 15-19, 2026           # free-text, display only
-  start: 2026-06-15                # conference span (drives the calendar)
+  start: 2026-06-15                # conference span (optional metadata)
   end: 2026-06-19
   sub: "PL"                        # category code(s); must exist in types.yml
 ```
@@ -135,7 +130,7 @@ Conventions:
 ### Categories
 
 Edit `src/data/types.yml` to add/rename a category (`name`, `sub`, `color`); the
-filter menu, badges, and calendar colors update automatically.
+filter menu and card badges update automatically.
 
 ### Timezones
 

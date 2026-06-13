@@ -6,5 +6,4 @@ export const STORAGE = {
   tz: "some-deadlines-tz",
   subs: "some-deadlines-subs",
   past: "some-deadlines-past",
-  view: "some-deadlines-view",
 } as const;
