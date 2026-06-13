@@ -231,8 +231,28 @@ html.dark .card.is-urgent:hover {
     0 2px 8px rgba(0, 0, 0, 0.5);
 }
 .is-soon [data-cd-days],
-.is-urgent [data-cd-days] {
+.is-urgent [data-cd-days],
+.is-soon [data-abs-days],
+.is-urgent [data-abs-days] {
   color: color-mix(in oklch, var(--c) 70%, var(--color-text));
+}
+
+/* Inline abstract-deadline countdown: stays at the row's small size, but the
+   "N days left" figure is emphasised (bold + same colour as the big countdown);
+   parens and clock are muted. Hidden on past cards. */
+.abs-cd {
+  white-space: nowrap;
+  color: var(--color-text-3);
+}
+[data-abs-days] {
+  font-weight: 600;
+  color: var(--color-text-2);
+}
+[data-abs-clock] {
+  color: var(--color-text-3);
+}
+.card.is-past .abs-cd {
+  display: none;
 }
 
 /* past = quiet, compact, no hover lift */

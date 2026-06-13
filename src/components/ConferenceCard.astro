@@ -72,8 +72,9 @@ const iconCls =
                 {abstract && <DeadlineActions item={abstract} />}
               </span>
               <dt class="eyebrow w-16 shrink-0">Abstract</dt>
-              <dd class="tnum text-text-2" data-dl={conf.absDeadlineMs ?? ""}>
-                {conf.absShort}
+              <dd class="tnum text-text-2">
+                <span data-dl={conf.absDeadlineMs ?? ""}>{conf.absShort}</span>
+                <span class="abs-cd" data-abs-cd data-deadline={conf.absDeadlineMs}>(<span data-abs-days>—</span><span data-abs-clock></span>)</span>
               </dd>
             </div>
           )

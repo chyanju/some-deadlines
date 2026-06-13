@@ -57,6 +57,29 @@ export function initCountdowns(): void {
     for (const card of ordered) list.appendChild(card);
   }
 
+  // Inline abstract-deadline countdowns: "(N days left · HH:MM:SS)" or "(passed)".
+  const absCds = Array.from(
+    document.querySelectorAll<HTMLElement>("[data-abs-cd]"),
+  );
+  const renderAbs = (t: number) => {
+    for (const el of absCds) {
+      const ms = Number(el.dataset.deadline);
+      if (!ms) continue;
+      const daysEl = el.querySelector<HTMLElement>("[data-abs-days]");
+      const clockEl = el.querySelector<HTMLElement>("[data-abs-clock]");
+      if (ms < t) {
+        el.classList.add("is-abs-past");
+        if (daysEl) daysEl.textContent = "passed";
+        if (clockEl) clockEl.textContent = "";
+      } else {
+        el.classList.remove("is-abs-past");
+        const { days, clock } = formatClock(ms - t);
+        if (daysEl) daysEl.textContent = `${days} ${days === 1 ? "day" : "days"} left`;
+        if (clockEl) clockEl.textContent = ` · ${clock}`;
+      }
+    }
+  };
+
   const tick = () => {
     const t = Date.now();
     for (const card of cards) {
@@ -68,6 +91,7 @@ export function initCountdowns(): void {
       if (daysEl) daysEl.textContent = String(days);
       if (clockEl) clockEl.textContent = clock;
     }
+    renderAbs(t);
   };
   tick();
   timer = window.setInterval(tick, 1000);
