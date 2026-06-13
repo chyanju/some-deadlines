@@ -1,6 +1,13 @@
 import { DateTime } from "luxon";
 import { site } from "../data/site";
-import type { ProcessedConference } from "./deadlines";
+
+/** One calendar event: a single instant (zero-duration). */
+export interface IcsEvent {
+  /** Stable UID stem ("@some-deadlines" is appended). */
+  uid: string;
+  summary: string;
+  ms: number;
+}
 
 /** Format an epoch-ms instant as an iCalendar UTC timestamp. */
 function fmtUtc(ms: number): string {
@@ -25,10 +32,11 @@ function vevent(uid: string, summary: string, ms: number, stamp: string): string
 }
 
 /**
- * Build a VCALENDAR feed. Deadlines are emitted as UTC instants (no TZID /
- * VTIMEZONE needed) since we already resolved each to an absolute instant.
+ * Build a VCALENDAR feed from explicit events. Each is emitted as a UTC instant
+ * (no TZID / VTIMEZONE needed) since deadlines are already resolved to absolute
+ * instants.
  */
-export function buildIcs(confs: ProcessedConference[]): string {
+export function buildIcs(events: IcsEvent[]): string {
   const stamp = DateTime.utc().toFormat("yyyyMMdd'T'HHmmss'Z'");
   const lines: string[] = [
     "BEGIN:VCALENDAR",
@@ -38,16 +46,7 @@ export function buildIcs(confs: ProcessedConference[]): string {
     `X-WR-CALNAME:${esc(site.title)}`,
     "X-PUBLISHED-TTL:PT1H",
   ];
-  for (const c of confs) {
-    if (c.absDeadlineMs != null) {
-      lines.push(
-        ...vevent(`${c.id}-abstract`, `${c.title} ${c.year} abstract deadline`, c.absDeadlineMs, stamp),
-      );
-    }
-    if (c.deadlineMs != null) {
-      lines.push(...vevent(c.id, `${c.title} ${c.year} deadline`, c.deadlineMs, stamp));
-    }
-  }
+  for (const e of events) lines.push(...vevent(e.uid, e.summary, e.ms, stamp));
   lines.push("END:VCALENDAR");
   return lines.join("\r\n") + "\r\n";
 }

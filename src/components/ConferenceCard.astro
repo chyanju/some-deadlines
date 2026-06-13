@@ -1,14 +1,17 @@
 ---
 import type { ProcessedConference } from "../lib/deadlines";
-import { gcalEventUrl } from "../lib/deadlines";
+import { deadlineItems } from "../lib/deadlines";
+import DeadlineActions from "./DeadlineActions.astro";
 
 interface Props {
   conf: ProcessedConference;
 }
 const { conf } = Astro.props;
-const gcal = gcalEventUrl(conf);
+const items = deadlineItems(conf);
+const paper = items.find((d) => d.kind === "paper");
+const abstract = items.find((d) => d.kind === "abstract");
 const iconCls =
-  "rounded p-1 text-text-3 transition-colors hover:bg-[rgba(120,120,140,0.14)] hover:text-accent dark:hover:bg-[rgba(255,255,255,0.07)]";
+  "shrink-0 rounded p-1 text-text-3 transition-colors hover:bg-[rgba(120,120,140,0.14)] hover:text-accent dark:hover:bg-[rgba(255,255,255,0.07)]";
 ---
 
 <article
@@ -19,7 +22,7 @@ const iconCls =
   style={`--c:${conf.categories[0]?.color ?? "var(--color-border-strong)"}`}
   class="card p-5"
 >
-  {/* Row 1 — title + actions (left), category labels (right) */}
+  {/* Row 1 — title + website link (left), category labels (right) */}
   <div class="flex items-center justify-between gap-3">
     <div class="flex min-w-0 items-center gap-x-1">
       <h2
@@ -28,31 +31,12 @@ const iconCls =
         {conf.title}
         {conf.year}
       </h2>
-      <div class="flex shrink-0 items-center gap-0.5">
-        <a href={conf.link} target="_blank" rel="noopener" title="Conference website" aria-label="Conference website" class={iconCls}>
-          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
-            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
-          </svg>
-        </a>
-        {
-          gcal && (
-            <a href={gcal} target="_blank" rel="noopener" title="Add to Google Calendar" aria-label="Add to Google Calendar" class={iconCls}>
-              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
-                <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
-                <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" />
-                <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
-              </svg>
-            </a>
-          )
-        }
-        <a href={`/conference/${conf.id}.ics`} download={`${conf.id}.ics`} title="Download .ics" aria-label="Download .ics" class={iconCls}>
-          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M8 2v3M16 2v3M3.5 9h17M5 5h14a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z" />
-          </svg>
-        </a>
-      </div>
+      <a href={conf.link} target="_blank" rel="noopener" title="Conference website" aria-label="Conference website" class={iconCls}>
+        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+          <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+        </svg>
+      </a>
     </div>
 
     <div class="flex shrink-0 flex-wrap justify-end gap-1.5">
@@ -66,21 +50,28 @@ const iconCls =
     </div>
   </div>
 
-  {/* Row 2 — dates + deadlines (left), countdown (right, dropped down) */}
+  {/* Row 2 — dates + per-deadline rows w/ their own add-to-calendar icons (left),
+      countdown (right, dropped down) */}
   <div class="mt-2.5 flex items-end justify-between gap-4">
     <div class="min-w-0 flex-1">
       <p class="text-[0.9375rem] text-text-2">{conf.date} · {conf.place}</p>
-      <dl class="mt-1 space-y-0.5 text-[0.8125rem]">
-        <div class="flex gap-2">
-          <dt class="eyebrow w-16 shrink-0 pt-px">Paper</dt>
+      <dl class="mt-1 space-y-1 text-[0.8125rem]">
+        <div class="flex items-center gap-2">
+          <span class="flex min-w-[2.4rem] shrink-0 items-center gap-0.5">
+            {paper && <DeadlineActions item={paper} />}
+          </span>
+          <dt class="eyebrow w-16 shrink-0">Paper</dt>
           <dd class="tnum text-text" data-dl={conf.deadlineMs ?? ""}>
             {conf.deadlineShort ?? "TBA"}
           </dd>
         </div>
         {
           conf.absShort && (
-            <div class="flex gap-2">
-              <dt class="eyebrow w-16 shrink-0 pt-px">Abstract</dt>
+            <div class="flex items-center gap-2">
+              <span class="flex min-w-[2.4rem] shrink-0 items-center gap-0.5">
+                {abstract && <DeadlineActions item={abstract} />}
+              </span>
+              <dt class="eyebrow w-16 shrink-0">Abstract</dt>
               <dd class="tnum text-text-2" data-dl={conf.absDeadlineMs ?? ""}>
                 {conf.absShort}
               </dd>

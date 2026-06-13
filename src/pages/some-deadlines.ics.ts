@@ -1,8 +1,9 @@
 import type { APIRoute } from "astro";
-import { allConferences } from "../lib/deadlines";
+import { allConferences, deadlineItems } from "../lib/deadlines";
 import { buildIcs } from "../lib/ics";
 
+// Full feed: every paper + abstract deadline across all conferences.
 export const GET: APIRoute = () =>
-  new Response(buildIcs(allConferences), {
+  new Response(buildIcs(allConferences.flatMap(deadlineItems)), {
     headers: { "Content-Type": "text/calendar; charset=utf-8" },
   });

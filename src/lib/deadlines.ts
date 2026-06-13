@@ -65,12 +65,45 @@ export const byDeadline: ProcessedConference[] = [...allConferences].sort((a, b)
   return a.deadlineMs - b.deadlineMs;
 });
 
-/** A "Add to Google Calendar" event-template URL for a conference's paper deadline. */
-export function gcalEventUrl(c: ProcessedConference): string | null {
-  if (c.deadlineMs == null) return null;
-  const t = DateTime.fromMillis(c.deadlineMs, { zone: "utc" }).toFormat(
-    "yyyyMMdd'T'HHmmss'Z'",
-  );
-  const text = encodeURIComponent(`${c.title} ${c.year} deadline`);
-  return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${text}&dates=${t}/${t}`;
+/** A single calendar-addable deadline (paper or abstract) of a conference, with
+ *  everything the card and the .ics endpoints need to add just that one date. */
+export interface DeadlineItem {
+  kind: "paper" | "abstract";
+  /** Epoch-ms instant of the deadline. */
+  ms: number;
+  /** Event title, e.g. "[ICSE 2027] Paper Deadline". */
+  summary: string;
+  /** Stable slug, e.g. "icse2027-paper" (the UID stem and .ics filename). */
+  uid: string;
+  /** Per-deadline .ics download path. */
+  icsHref: string;
+  /** "Add to Google Calendar" template URL for this one deadline. */
+  gcalUrl: string;
+}
+
+/** Build a Google Calendar "create event" template URL for one instant. */
+function gcalTemplateUrl(summary: string, ms: number): string {
+  const t = DateTime.fromMillis(ms, { zone: "utc" }).toFormat("yyyyMMdd'T'HHmmss'Z'");
+  return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(summary)}&dates=${t}/${t}`;
+}
+
+/** The calendar-addable deadlines of a conference (paper first, then abstract, to
+ *  match the card). TBA deadlines are omitted — there is nothing to add. */
+export function deadlineItems(c: ProcessedConference): DeadlineItem[] {
+  const out: DeadlineItem[] = [];
+  const add = (kind: "paper" | "abstract", label: string, ms: number) => {
+    const summary = `[${c.title} ${c.year}] ${label} Deadline`;
+    const uid = `${c.id}-${kind}`;
+    out.push({
+      kind,
+      ms,
+      summary,
+      uid,
+      icsHref: `/conference/${uid}.ics`,
+      gcalUrl: gcalTemplateUrl(summary, ms),
+    });
+  };
+  if (c.deadlineMs != null) add("paper", "Paper", c.deadlineMs);
+  if (c.absDeadlineMs != null) add("abstract", "Abstract", c.absDeadlineMs);
+  return out;
 }
