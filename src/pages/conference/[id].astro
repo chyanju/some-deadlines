@@ -1,5 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import TzToggle from "../../components/TzToggle.astro";
 import { allConferences, gcalEventUrl } from "../../lib/deadlines";
 import type { ProcessedConference } from "../../lib/deadlines";
 import type { GetStaticPaths } from "astro";
@@ -99,14 +100,14 @@ if (conf.pwclink)
           ].map((seg, i) => (
             <>
               {i > 0 && (
-                <div class="font-mono text-[clamp(2rem,6vw,3rem)] leading-none text-text-3">
+                <div class="text-[clamp(2rem,6vw,3rem)] leading-none text-text-3">
                   :
                 </div>
               )}
               <div class="text-center">
                 <div
                   data-cd={seg.id}
-                  class={`tnum font-mono text-[clamp(2.5rem,9vw,4rem)] leading-none font-semibold text-text cd-${seg.id}`}
+                  class={`tnum text-[clamp(2.5rem,9vw,4rem)] leading-none font-semibold text-text cd-${seg.id}`}
                 >
                   —
                 </div>
@@ -120,36 +121,38 @@ if (conf.pwclink)
 
     {/* Deadline details */}
     <div class="mt-6 space-y-4 rounded-2xl border border-border bg-card p-6 shadow-sm">
+      <div class="flex items-center justify-between gap-3">
+        <div class="eyebrow">Paper deadline</div>
+        <TzToggle />
+      </div>
       <div>
-        <div class="eyebrow">Paper deadline · conference time</div>
-        <div class="mt-0.5 tnum font-mono text-[0.9375rem] text-text">
+        <div class="eyebrow">Conference time</div>
+        <div class="mt-0.5 tnum text-[0.9375rem] text-text">
           {conf.deadlineInConfTz ?? "TBA"}
         </div>
-        <div class="eyebrow mt-2">
-          Your local (<span class="local-tz">local</span>) time
-        </div>
+        <div class="eyebrow mt-2" data-dl-label>Your local time</div>
         <div
-          data-local-paper
-          data-ms={conf.deadlineMs ?? ""}
-          class="mt-0.5 tnum font-mono text-[0.9375rem] text-text"
+          data-dl={conf.deadlineMs ?? ""}
+          class="mt-0.5 tnum text-[0.9375rem] text-text"
         >
-          —
+          {conf.deadlineShort ?? "—"}
         </div>
       </div>
       {
         conf.absInConfTz && (
           <div class="border-t border-border pt-4">
             <div class="eyebrow">Abstract deadline · conference time</div>
-            <div class="mt-0.5 tnum font-mono text-[0.9375rem] text-text">
+            <div class="mt-0.5 tnum text-[0.9375rem] text-text">
               {conf.absInConfTz}
             </div>
-            <div class="eyebrow mt-2">Your local time</div>
+            <div class="eyebrow mt-2" data-dl-label>
+              Your local time
+            </div>
             <div
-              data-local-abs
-              data-ms={conf.absDeadlineMs ?? ""}
-              class="mt-0.5 tnum font-mono text-[0.9375rem] text-text"
+              data-dl={conf.absDeadlineMs ?? ""}
+              class="mt-0.5 tnum text-[0.9375rem] text-text"
             >
-              —
+              {conf.absShort}
             </div>
           </div>
         )
@@ -197,5 +200,9 @@ if (conf.pwclink)
 
 <script>
   import { initConferencePage } from "../../scripts/conf";
-  document.addEventListener("astro:page-load", initConferencePage);
+  import { initTz } from "../../scripts/tz";
+  document.addEventListener("astro:page-load", () => {
+    initConferencePage();
+    initTz();
+  });
 </script>

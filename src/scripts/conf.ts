@@ -1,21 +1,11 @@
-import { formatClock, localString } from "./countdown";
+import { formatClock } from "./countdown";
 
 let timer = 0;
 
-/** Drive the single-conference detail page: local-time fills + segmented hero countdown. */
+/** Drive the single-conference detail page: the segmented hero countdown.
+ *  (Absolute deadline displays are handled by tz.ts via the Local/AoE toggle.) */
 export function initConferencePage(): void {
   if (timer) window.clearInterval(timer);
-
-  const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
-  document.querySelectorAll(".local-tz").forEach((el) => {
-    el.textContent = tz;
-  });
-
-  for (const sel of ["[data-local-paper]", "[data-local-abs]"]) {
-    const el = document.querySelector<HTMLElement>(sel);
-    const ms = Number(el?.dataset.ms);
-    if (el && ms) el.textContent = localString(ms);
-  }
 
   const hero = document.querySelector<HTMLElement>("[data-countdown]");
   const passed = document.querySelector<HTMLElement>("[data-passed]");

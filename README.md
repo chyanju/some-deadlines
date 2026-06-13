@@ -27,8 +27,9 @@ later, serve the static `dist/` folder from any static host.
 - **Luxon** — timezone math at build time; the browser ships **no** date library.
 - **TypeScript** — typed data model and client scripts.
 - **Type system** (self-hosted variable fonts via fontsource): **Source Serif 4**
-  (a calm, scholarly display serif — wordmark, titles, headings), **Geist**
-  (body/UI), **Geist Mono** (countdown digits + timestamps, tabular slashed-zero).
+  (a calm, scholarly display serif — wordmark, titles, headings) + **Geist**
+  (body/UI; countdowns and timestamps use Geist with tabular, slashed-zero
+  numerals — no monospace).
 
 Design direction — "Calm Editorial Technical": warm-neutral surfaces, one indigo
 accent, red reserved for urgency, tamed category colors (dots / soft badges /
@@ -37,8 +38,9 @@ tinted calendar cells). Tokens live in `src/styles/global.css` (`@theme` for lig
 utilities, no `dark:` variants needed).
 
 Niceties: **dark mode** (header toggle, follows system, no flash, `?theme=` URL
-override), **View Transitions** (`<ClientRouter />`), a departure-board segmented
-countdown on the detail page, and an urgency ramp (amber ≤30d, red ≤7d).
+override), a **Local / AoE** deadline time-zone toggle (default Local, `?tz=`
+override), **View Transitions** (`<ClientRouter />`), a segmented countdown on the
+detail page, and an urgency ramp (amber ≤30d, red ≤7d).
 
 ## Project structure
 

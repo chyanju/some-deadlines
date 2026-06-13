@@ -6,13 +6,13 @@
 /* ----------------------------------------------------------------------------
    Design tokens — "Calm Editorial Technical"
    Warm-neutral surfaces, one indigo accent, red reserved for urgency.
-   Three type voices: Fraunces (display serif), Geist (body), Geist Mono (numbers).
+   Two type voices: Source Serif 4 (display serif) + Geist (body/UI).
+   Clocks use the body font with tabular, slashed-zero numerals (see .tnum).
 ---------------------------------------------------------------------------- */
 @theme {
   --font-sans: "Geist Variable", ui-sans-serif, system-ui, -apple-system,
     "Segoe UI", sans-serif;
   --font-display: "Source Serif 4 Variable", Georgia, "Times New Roman", serif;
-  --font-mono: "Geist Mono Variable", ui-monospace, "SF Mono", monospace;
 
   /* light theme (defaults) */
   --color-bg: #faf9f7;
@@ -266,4 +266,18 @@ html.dark .card.is-urgent {
 }
 .chip[aria-pressed="true"]::before {
   opacity: 1;
+}
+
+/* ----------------------------- timezone toggle ----------------------------- */
+[data-tz-toggle] button {
+  border-radius: var(--radius-sm);
+  color: var(--color-text-3);
+  transition:
+    background-color 120ms var(--ease-out),
+    color 120ms var(--ease-out);
+}
+[data-tz-toggle] button[aria-pressed="true"] {
+  background: var(--color-accent-tint);
+  color: var(--color-accent);
+  font-weight: 500;
 }

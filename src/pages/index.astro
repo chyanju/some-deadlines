@@ -2,34 +2,37 @@
 import Layout from "../layouts/Layout.astro";
 import CategoryFilter from "../components/CategoryFilter.astro";
 import ConferenceCard from "../components/ConferenceCard.astro";
+import TzToggle from "../components/TzToggle.astro";
 import { byDeadline } from "../lib/deadlines";
 ---
 
 <Layout>
-  <div class="flex flex-wrap items-center justify-between gap-3">
+  <div class="flex flex-wrap items-center gap-3">
     <CategoryFilter showPastToggle={true} />
-    <a
-      href="/some-deadlines.ics"
-      class="inline-flex items-center gap-1.5 text-sm text-text-3 transition-colors hover:text-text-2"
-    >
-      <svg
-        class="h-4 w-4"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="1.75"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        aria-hidden="true"
+    <div class="ml-auto flex items-center gap-3">
+      <TzToggle />
+      <a
+        href="/some-deadlines.ics"
+        class="inline-flex items-center gap-1.5 text-sm text-text-3 transition-colors hover:text-text-2"
       >
-        <path d="M8 2v3M16 2v3M3.5 9h17M5 5h14a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z"></path>
-      </svg>
-      Subscribe (.ics)
-    </a>
+        <svg
+          class="h-4 w-4"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.75"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <path d="M8 2v3M16 2v3M3.5 9h17M5 5h14a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z"></path>
+        </svg>
+        .ics
+      </a>
+    </div>
   </div>
   <p class="mt-2 text-xs text-text-3">
-    Deadline times are in each conference's timezone; countdowns are in your local
-    (<span class="local-tz">local</span>) time.
+    Deadline times follow the Local / AoE toggle; countdowns show time remaining.
   </p>
 
   <section id="upcoming" class="mt-6 space-y-3">
@@ -49,9 +52,11 @@ import { byDeadline } from "../lib/deadlines";
 <script>
   import { initCountdowns } from "../scripts/countdown";
   import { initFilter } from "../scripts/filter";
+  import { initTz } from "../scripts/tz";
 
   function init() {
     initCountdowns();
+    initTz();
     initFilter((subs, showPast) => {
       const set = new Set(subs);
       for (const el of document.querySelectorAll<HTMLElement>("[data-conf]")) {

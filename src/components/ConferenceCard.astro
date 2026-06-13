@@ -63,13 +63,17 @@ const { conf } = Astro.props;
     <dl class="mt-2 space-y-0.5 text-[0.8125rem]">
       <div class="flex gap-2">
         <dt class="eyebrow w-16 shrink-0 pt-px">Paper</dt>
-        <dd class="tnum font-mono text-text">{conf.deadlineShort ?? "TBA"}</dd>
+        <dd class="tnum text-text" data-dl={conf.deadlineMs ?? ""}>
+          {conf.deadlineShort ?? "TBA"}
+        </dd>
       </div>
       {
         conf.absShort && (
           <div class="flex gap-2">
             <dt class="eyebrow w-16 shrink-0 pt-px">Abstract</dt>
-            <dd class="tnum font-mono text-text-2">{conf.absShort}</dd>
+            <dd class="tnum text-text-2" data-dl={conf.absDeadlineMs ?? ""}>
+              {conf.absShort}
+            </dd>
           </div>
         )
       }
@@ -80,11 +84,11 @@ const { conf } = Astro.props;
     <div class="cd-eyebrow eyebrow">days left</div>
     <div
       data-cd-days
-      class="tnum font-mono text-[2rem] leading-none font-semibold text-text"
+      class="tnum text-[2rem] leading-none font-semibold text-text"
     >
       —
     </div>
-    <div data-cd-clock class="tnum mt-1 font-mono text-[0.8125rem] text-text-3">
+    <div data-cd-clock class="tnum mt-1 text-[0.8125rem] text-text-3">
       &nbsp;
     </div>
   </div>
