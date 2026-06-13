@@ -534,7 +534,6 @@ header > div {
      read as liquid glass rather than plain frosted blur. */
   header > div,
   [data-filter-menu] {
-    position: relative;
     background: var(--glass-fill-bar);
     -webkit-backdrop-filter: url(#liquid-glass) blur(8px) saturate(185%) brightness(1.05);
     backdrop-filter: url(#liquid-glass) blur(8px) saturate(185%) brightness(1.05);
@@ -545,6 +544,11 @@ header > div {
       inset 0 0 0 1px rgba(255, 255, 255, 0.12),
       inset 0 -10px 20px -12px rgba(255, 255, 255, 0.22),
       0 10px 30px -10px rgba(var(--glass-shadow-rgb), 0.2);
+  }
+  /* header bar needs a positioning context for its sheen; the menu is already
+     absolute (keep it floating — don't override its position). */
+  header > div {
+    position: relative;
   }
   html.dark header > div,
   html.dark [data-filter-menu] {
