@@ -5,4 +5,5 @@ export const STORAGE = {
   theme: "theme",
   tz: "some-deadlines-tz",
   mode: "some-deadlines-mode",
+  sort: "some-deadlines-sort",
 } as const;

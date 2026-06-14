@@ -4,6 +4,7 @@
 @custom-variant dark (&:where(.dark, .dark *));
 @custom-variant simple (&:where(.simple, .simple *));
 @custom-variant aoe (&:where(.aoe, .aoe *));
+@custom-variant sort-checkpoint (&:where(.sort-checkpoint, .sort-checkpoint *));
 
 /* ----------------------------------------------------------------------------
    Design tokens — "Calm Editorial Technical"
@@ -288,22 +289,21 @@ html.simple .cd-inline {
   display: none;
 }
 
-/* past = quiet, compact, no hover lift */
-.card.is-past {
-  opacity: 0.5;
-  box-shadow: none;
-  background: transparent;
-  border-color: var(--color-border);
+/* is-closed = paper submission deadline has passed ("Closed submissions"). Quieter
+   than active cards but kept solid (it still carries the glass) — just dimmed. */
+.card.is-closed {
+  opacity: 0.7;
 }
-.card.is-past:hover {
-  opacity: 0.85;
-  box-shadow: none;
+.card.is-closed:hover {
+  opacity: 0.9;
 }
-.is-past [data-cd-clock],
-.is-past .cd-eyebrow {
+/* is-over = the big figure's primary date has passed / nothing upcoming: show a
+   compact "Passed" / "ended" instead of a number, and drop the clock + label. */
+.is-over [data-cd-clock],
+.is-over .cd-eyebrow {
   display: none;
 }
-.is-past [data-cd-days] {
+.is-over [data-cd-days] {
   font-family: var(--font-display);
   font-optical-sizing: auto;
   font-size: 0.95rem;
@@ -490,20 +490,8 @@ header > div {
       0 18px 44px -8px rgba(0, 0, 0, 0.62);
   }
 
-  /* past: bottom rung — no blur, no float */
-  .card.is-past {
-    background: transparent;
-    -webkit-backdrop-filter: none;
-    backdrop-filter: none;
-    box-shadow: none;
-    border-color: var(--glass-hairline);
-  }
-  .card.is-past:hover,
-  html.dark .card.is-past:hover {
-    transform: none;
-    background: transparent;
-    box-shadow: none;
-  }
+  /* Closed-submission cards keep the glass (just dimmed via .is-closed opacity); no
+     special transparent treatment, so they read as solid frosted cards. */
 
   /* Unified glass chrome — the floating header bar AND the filter popover share
      ONE liquid-glass material: clearer (low blur) + edge refraction (#liquid-glass)

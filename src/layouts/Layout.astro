@@ -38,6 +38,10 @@ const fullTitle = title ? `${title} · ${site.title}` : site.title;
         );
         h.classList.toggle("simple", ls.getItem("some-deadlines-mode") === "simple");
         h.classList.toggle("aoe", ls.getItem("some-deadlines-tz") === "aoe");
+        h.classList.toggle(
+          "sort-checkpoint",
+          ls.getItem("some-deadlines-sort") === "checkpoint",
+        );
       })();
     </script>
 

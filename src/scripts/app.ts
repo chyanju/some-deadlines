@@ -4,19 +4,22 @@ import { initCountdowns } from "./countdown";
 import { initFilter } from "./filter";
 import { initTz } from "./tz";
 import { initMode } from "./mode";
+import { initSort } from "./sort";
 
 export function initApp(): void {
   initCountdowns();
   initTz();
   initMode();
+  initSort();
 
+  // `showPast` reveals "closed submissions" — cards whose paper deadline passed.
   initFilter((subs, showPast) => {
     const set = new Set(subs);
     for (const el of document.querySelectorAll<HTMLElement>("#list [data-conf]")) {
       const cats = (el.dataset.subs ?? "").split(",").filter(Boolean);
       const catMatch = cats.some((s) => set.has(s));
-      const isPast = el.classList.contains("is-past");
-      el.hidden = !catMatch || (isPast && !showPast);
+      const isClosed = el.classList.contains("is-closed");
+      el.hidden = !catMatch || (isClosed && !showPast);
     }
     // empty state when nothing is visible (e.g. all categories cleared)
     const list = document.getElementById("list");

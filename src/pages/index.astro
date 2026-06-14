@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import CategoryFilter from "../components/CategoryFilter.astro";
 import ConferenceCard from "../components/ConferenceCard.astro";
 import ModeToggle from "../components/ModeToggle.astro";
+import SortToggle from "../components/SortToggle.astro";
 import TzToggle from "../components/TzToggle.astro";
 import { byDeadline } from "../lib/deadlines";
 ---
@@ -13,6 +14,7 @@ import { byDeadline } from "../lib/deadlines";
   <div slot="toolbar" class="flex flex-wrap items-center gap-2">
     <ModeToggle />
     <TzToggle />
+    <SortToggle />
     <CategoryFilter showPastToggle={true} />
   </div>
 
