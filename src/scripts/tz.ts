@@ -1,7 +1,7 @@
 // Deadline time-zone display toggle: Local (browser zone) vs AoE (Anywhere on
 // Earth = UTC-12). Default Local. Re-formats every absolute deadline shown via
-// [data-dl] (epoch ms). Countdowns are durations, so they are unaffected.
-import { setSegmentValue, onSegmentClick } from "./segment";
+// [data-dl] (epoch ms); the active mode also shows via the `aoe` class on <html>
+// (drives the toolbar icon). Countdowns are durations, so they are unaffected.
 import { STORAGE } from "./storage";
 
 type Mode = "local" | "aoe";
@@ -31,18 +31,24 @@ function format(ms: number, mode: Mode): string {
 }
 
 function apply(mode: Mode): void {
+  document.documentElement.classList.toggle("aoe", mode === "aoe");
   for (const el of document.querySelectorAll<HTMLElement>("[data-dl]")) {
     const ms = Number(el.dataset.dl);
     if (ms) el.textContent = format(ms, mode);
   }
-  setSegmentValue("tz", mode);
 }
 
+let wired = false;
+
 export function initTz(): void {
-  apply(getMode());
-  onSegmentClick("tz", (v) => {
-    const mode: Mode = v === "aoe" ? "aoe" : "local";
-    localStorage.setItem(STORAGE.tz, mode);
-    apply(mode);
+  apply(getMode()); // re-format the (re-rendered) DOM on every page-load
+  if (wired) return;
+  wired = true;
+  // Delegated so it survives view-transition swaps; toggles Local <-> AoE.
+  document.addEventListener("click", (e) => {
+    if (!(e.target as HTMLElement).closest("[data-tz-toggle]")) return;
+    const next: Mode = getMode() === "aoe" ? "local" : "aoe";
+    localStorage.setItem(STORAGE.tz, next);
+    apply(next);
   });
 }

@@ -2,14 +2,16 @@
 import Layout from "../layouts/Layout.astro";
 import CategoryFilter from "../components/CategoryFilter.astro";
 import ConferenceCard from "../components/ConferenceCard.astro";
+import ModeToggle from "../components/ModeToggle.astro";
 import TzToggle from "../components/TzToggle.astro";
 import { byDeadline } from "../lib/deadlines";
 ---
 
 <Layout>
-  {/* Controls live in the sticky header bar so filter/timezone stay reachable
-      while scrolling. */}
+  {/* Controls live in the sticky header bar so detail/timezone/filter stay
+      reachable while scrolling. */}
   <div slot="toolbar" class="flex flex-wrap items-center gap-2">
+    <ModeToggle />
     <TzToggle />
     <CategoryFilter showPastToggle={true} />
   </div>

@@ -1,7 +1,9 @@
 @import "tailwindcss";
 
-/* Class-based dark mode: toggle `.dark` on <html>. */
+/* Class-based stateful toggles: toggle the class on <html>. */
 @custom-variant dark (&:where(.dark, .dark *));
+@custom-variant simple (&:where(.simple, .simple *));
+@custom-variant aoe (&:where(.aoe, .aoe *));
 
 /* ----------------------------------------------------------------------------
    Design tokens — "Calm Editorial Technical"
@@ -276,7 +278,13 @@ html.dark .card.is-urgent:hover {
 [data-inline-days] {
   font-weight: 700;
 }
-.card.is-past .cd-inline {
+/* Simple mode: hide the inline per-deadline countdowns and drop the deadline grid
+   to 3 columns so it stays tight (display:none on a single grid cell would misflow
+   the auto-placed columns). The .dl-conf row spans 1 / 4 in either column count. */
+html.simple .dl-grid {
+  grid-template-columns: auto auto auto;
+}
+html.simple .cd-inline {
   display: none;
 }
 
@@ -335,60 +343,9 @@ html.dark .badge {
 
 /* ---------------------- Liquid Glass toolbar controls ----------------------
    Controls sit ON the glass header bar (glass-within-glass), not as separate
-   bordered boxes. Segmented controls are a faint recessed groove with a bright
-   active lozenge; single actions are borderless and reveal a glass highlight on
-   hover. One material vocabulary, uniform sizing. */
-.tbar-seg {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  gap: 0;
-  padding: 3px;
-  border-radius: 9999px;
-  background: rgba(120, 120, 140, 0.1);
-}
-html.dark .tbar-seg {
-  background: rgba(0, 0, 0, 0.22);
-}
-/* sliding active lozenge — translates between the two equal segments */
-.tbar-thumb {
-  position: absolute;
-  top: 3px;
-  bottom: 3px;
-  left: 3px;
-  width: calc((100% - 6px) / 2);
-  border-radius: 9999px;
-  background: var(--glass-fill-strong);
-  box-shadow:
-    inset 0 1px 0 0 var(--glass-edge-top),
-    0 1px 2px rgba(var(--glass-shadow-rgb), 0.12);
-  transition: transform 0.24s var(--ease-out);
-  pointer-events: none;
-  z-index: 0;
-}
-.tbar-seg[data-active="1"] .tbar-thumb {
-  transform: translateX(100%);
-}
-.tbar-seg button {
-  position: relative;
-  z-index: 1;
-  border-radius: 9999px;
-  padding: 0.25rem 0.75rem;
-  font-size: 0.8125rem;
-  font-weight: 500;
-  color: var(--color-text-2);
-  transition:
-    color 140ms var(--ease-out),
-    transform 140ms var(--ease-out);
-}
-.tbar-seg button:hover,
-.tbar-seg button[aria-pressed="true"] {
-  color: var(--color-text);
-}
-.tbar-seg button:active {
-  transform: scale(0.95);
-}
-
+   bordered boxes: borderless icon buttons that reveal a glass highlight on hover.
+   Stateful toggles (theme · detail · time-zone) swap their glyph for the current
+   state. One material vocabulary, uniform sizing. */
 .tbar-icon {
   display: inline-flex;
   align-items: center;
@@ -624,7 +581,6 @@ header > div {
 @media (prefers-reduced-motion: reduce) {
   .card:hover,
   .card:active,
-  .tbar-seg button:active,
   .tbar-icon:active {
     transform: none !important;
   }

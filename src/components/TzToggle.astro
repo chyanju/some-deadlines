@@ -1,16 +1,16 @@
 ---
-// Local / AoE deadline time-zone toggle (segment "tz"). Wired by scripts/tz.ts.
-import SegToggle from "./SegToggle.astro";
+// Local / AoE deadline time-zone toggle — a stateful icon button (like the theme
+// toggle). Wired by scripts/tz.ts; the active mode shows via the `aoe` class on
+// <html> (clock = your local time, globe = Anywhere on Earth).
 ---
 
-<SegToggle
-  name="tz"
-  label="Deadline time zone"
-  options={[
-    { value: "local", title: "Your local time" },
-    { value: "aoe", title: "Anywhere on Earth (UTC-12)" },
-  ]}
+<button
+  type="button"
+  data-tz-toggle
+  class="tbar-icon"
+  aria-label="Toggle deadline time zone (Local / Anywhere on Earth)"
+  title="Time zone: Local / AoE"
 >
-  <svg slot="a" class="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>
-  <svg slot="b" class="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3a15 15 0 0 1 0 18 15 15 0 0 1 0-18"></path></svg>
-</SegToggle>
+  <svg class="h-[18px] w-[18px] aoe:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>
+  <svg class="hidden h-[18px] w-[18px] aoe:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3a15 15 0 0 1 0 18 15 15 0 0 1 0-18"></path></svg>
+</button>

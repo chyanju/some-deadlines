@@ -1,0 +1,17 @@
+---
+// Detail-level toggle — a stateful icon button. "complex" (default) shows the
+// inline per-deadline countdowns; "simple" hides them, leaving just the big
+// figure. Wired by scripts/mode.ts; the active mode shows via the `simple` class
+// on <html> (a box with rows = complex/detailed, a plain box = simple).
+---
+
+<button
+  type="button"
+  data-mode-toggle
+  class="tbar-icon"
+  aria-label="Toggle detail (simple / complex)"
+  title="Detail: simple / complex"
+>
+  <svg class="h-[18px] w-[18px] simple:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 10h18M3 14.5h18"></path></svg>
+  <svg class="hidden h-[18px] w-[18px] simple:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect></svg>
+</button>

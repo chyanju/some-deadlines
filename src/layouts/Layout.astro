@@ -24,14 +24,20 @@ const fullTitle = title ? `${title} · ${site.title}` : site.title;
     <meta name="author" content={site.author} />
     <link rel="icon" href="/favicon.png" />
 
-    {/* Apply the theme before first paint to avoid a flash (localStorage only). */}
+    {/* Apply theme / detail / time-zone classes before first paint to avoid a
+        flash (localStorage only — mirrors theme.ts, mode.ts, tz.ts). */}
     <script is:inline>
       (() => {
-        const t = localStorage.getItem("theme");
-        const dark =
+        const ls = localStorage;
+        const h = document.documentElement;
+        const t = ls.getItem("theme");
+        h.classList.toggle(
+          "dark",
           t === "dark" ||
-          (!t && window.matchMedia("(prefers-color-scheme: dark)").matches);
-        document.documentElement.classList.toggle("dark", dark);
+            (!t && window.matchMedia("(prefers-color-scheme: dark)").matches),
+        );
+        h.classList.toggle("simple", ls.getItem("some-deadlines-mode") === "simple");
+        h.classList.toggle("aoe", ls.getItem("some-deadlines-tz") === "aoe");
       })();
     </script>
 

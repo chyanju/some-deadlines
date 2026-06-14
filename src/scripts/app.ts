@@ -3,10 +3,12 @@
 import { initCountdowns } from "./countdown";
 import { initFilter } from "./filter";
 import { initTz } from "./tz";
+import { initMode } from "./mode";
 
 export function initApp(): void {
   initCountdowns();
   initTz();
+  initMode();
 
   initFilter((subs, showPast) => {
     const set = new Set(subs);

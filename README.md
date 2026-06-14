@@ -42,12 +42,14 @@ urgency colour. Tokens live in `src/styles/global.css` (`@theme` for light,
 (backdrop-filter)` and collapses to a flat opaque look under
 `prefers-reduced-transparency` (motion is neutralized under `prefers-reduced-motion`).
 
-Niceties: **dark mode** (header toggle, follows system, no flash), a **Local /
-AoE** deadline time-zone toggle (default Local), **View Transitions**
-(`<ClientRouter />`), an urgency ramp (category colour intensifies ≤30d, deepens
-≤7d), and per-card **.ics download** + **Add to Google Calendar** links. Theme and
-time-zone choices persist in `localStorage`; no setting is read from or written to
-the URL.
+Niceties: three stateful icon toggles in the header — **dark mode** (sun/moon,
+follows system, no flash), **detail** (simple = just the big figure / complex =
+all the inline per-deadline countdowns), and **Local / AoE** deadline time zone
+(clock/globe) — plus a category **filter** with a **Past deadlines** option,
+**View Transitions** (`<ClientRouter />`), an urgency ramp (category colour
+intensifies ≤30d, deepens ≤7d), and per-deadline **.ics download** + **Add to
+Google Calendar** links. Theme / detail / time-zone choices persist in
+`localStorage`; nothing is read from or written to the URL.
 
 ## Project structure
 
@@ -65,17 +67,19 @@ src/
   layouts/Layout.astro          # shared HTML shell (head, header, liquid-glass filter)
   components/
     Header.astro                # sticky glass bar: wordmark + toolbar slot + theme + GitHub
-    ConferenceCard.astro        # one conference (title, links, deadlines, countdown)
-    CategoryFilter.astro        # category dropdown (portaled to <body>)
-    TzToggle.astro              # Local / AoE toggle (uses SegToggle)
-    SegToggle.astro             # reusable sliding-thumb segmented toggle
+    ConferenceCard.astro        # one conference (dates, links, deadlines, countdowns)
+    CategoryFilter.astro        # category + Past-deadlines dropdown (portaled to <body>)
+    DeadlineActions.astro       # per-deadline "Add to Google Calendar" + ".ics" icons
+    InlineCountdown.astro       # small "(N days left · HH:MM:SS)" countdown cell
+    ModeToggle.astro            # detail toggle (simple / complex) — stateful icon button
+    TzToggle.astro              # Local / AoE toggle — stateful icon button
   scripts/                      # client-side, re-run on every astro:page-load
     app.ts            # orchestrates the page (countdowns + filter wiring)
-    countdown.ts      # live countdowns, urgency classes, past-at-bottom ordering
-    filter.ts         # category dropdown state (localStorage + ?sub= / ?past=)
-    tz.ts             # Local / AoE deadline display
+    countdown.ts      # live big + inline countdowns, urgency classes, past-at-bottom
+    filter.ts         # category + Past-deadlines filter (session-only, no URL)
+    tz.ts             # Local / AoE deadline display + toggle
+    mode.ts           # simple / complex detail toggle
     theme.ts          # dark-mode toggle
-    segment.ts        # segmented-toggle helper (the Local/AoE toggle)
     storage.ts        # localStorage keys (one source of truth)
   styles/global.css   # design tokens + component classes + the Liquid Glass layer
   pages/
