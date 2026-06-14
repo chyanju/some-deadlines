@@ -30,6 +30,10 @@ export interface Conference {
   notification?: string;
   /** Deadline timezone: 'UTC-12'..'UTC+14' or an IANA name. */
   timezone: string;
+  /** Host-city IANA timezone for the meeting dates (start/end) — a conference runs
+   *  on its venue's local clock, not the deadline timezone. e.g. 'Europe/Dublin'.
+   *  Optional; defaults to UTC while the venue is TBA. */
+  venue_timezone?: string;
   place: string;
   /** Free-text conference dates for display, e.g. "June 15-19, 2026". */
   date: string;

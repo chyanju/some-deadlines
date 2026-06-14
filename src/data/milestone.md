@@ -113,6 +113,19 @@ dates into one record.
 - **Rebuttal window "A–B":** `rebuttal_start: 'A 00:00:00'`, `rebuttal_end: 'B 23:59:59'`.
 - Not-yet-announced dates → `TBA`.
 
+**Deadlines vs. the meeting — two different timezones.** The dates above (`deadline`,
+`abstract_deadline`, `early_rejection`, `rebuttal_*`, `notification`) are submission/review
+dates in the conference's stated `timezone` (commonly AoE). The conference **meeting itself**
+(`start` / `end` / `date`) is different — it runs on the **host city's local clock**, never
+AoE. "ICSE, Apr 25 in Dublin" means Apr 25 *Dublin* time; nobody schedules a session in AoE. So:
+
+- Record `start` / `end` as bare local dates (`YYYY-MM-DD`) — no clock time, no timezone suffix.
+- Set **`venue_timezone`** to the host city's IANA zone (e.g. `Europe/Dublin`,
+  `America/Los_Angeles`, `Asia/Seoul`) so the time-until-the-conference countdown resolves
+  those bare dates in local time. You're not stating a meeting *time* — you're recording the
+  city's timezone. The deadline `timezone` does **not** apply to the meeting.
+- `venue_timezone` is optional: omit it (it falls back to UTC) only while `place` is `TBA`.
+
 A complete record:
 
 ```yaml
@@ -126,7 +139,8 @@ A complete record:
   rebuttal_start: '2026-09-23 00:00:00'        # optional pair (both or neither)
   rebuttal_end: '2026-09-25 23:59:59'
   notification: '2026-10-20 23:59:59'          # optional — the FIRST binding decision
-  timezone: UTC-12
+  timezone: UTC-12                             # DEADLINE timezone (AoE here)
+  venue_timezone: Europe/Dublin                # MEETING timezone — host city, local time
   place: Dublin, Ireland
   date: April 25 - May 1, 2027
   start: 2027-04-25

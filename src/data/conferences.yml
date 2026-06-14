@@ -11,6 +11,7 @@
   rebuttal_end: '2026-02-22 23:59:59'
   notification: '2026-03-05 23:59:59'
   timezone: UTC-12
+  venue_timezone: America/Denver
   place: Boulder, Colorado, United States
   date: June 15-19, 2026
   start: 2026-06-15
@@ -32,6 +33,7 @@
   rebuttal_end: '2026-09-25 23:59:59'
   notification: '2026-10-20 23:59:59'
   timezone: UTC-12
+  venue_timezone: Europe/Dublin
   place: Dublin, Ireland
   date: April 25 - May 1, 2027
   start: 2027-04-25
@@ -53,6 +55,7 @@
   rebuttal_end: '2026-06-24 23:59:59'
   notification: '2026-07-03 23:59:59'
   timezone: UTC-12
+  venue_timezone: Europe/Prague
   place: Prague, Czechia
   date: September 29 - October 2, 2026
   start: 2026-09-29
@@ -73,6 +76,7 @@
   rebuttal_end: '2025-12-05 23:59:59'
   notification: '2025-12-17 23:59:59'
   timezone: UTC-12
+  venue_timezone: America/Los_Angeles
   place: Oakland, California, United States
   date: October 3-9, 2026
   start: 2026-10-03
@@ -89,6 +93,7 @@
   rebuttal_end: '2026-05-22 23:59:59'
   notification: '2026-06-10 23:59:59'
   timezone: UTC-12
+  venue_timezone: America/Los_Angeles
   place: Oakland, California, United States
   date: October 3-9, 2026
   start: 2026-10-03
@@ -109,6 +114,7 @@
   rebuttal_end: '2026-04-02 23:59:59'
   notification: '2026-04-17 23:59:59'
   timezone: UTC-12
+  venue_timezone: Europe/Lisbon
   place: Lisbon, Portugal
   date: July 26-29, 2026
   start: 2026-07-26
@@ -130,6 +136,7 @@
   rebuttal_end: '2026-05-27 23:59:59'
   notification: '2026-06-18 23:59:59'
   timezone: UTC-12
+  venue_timezone: Europe/Berlin
   place: Munich, Germany
   date: October 12 - 16, 2026
   start: 2026-10-12
@@ -151,6 +158,7 @@
   rebuttal_end: '2025-11-25 23:59:59'
   notification: '2025-12-22 23:59:59'
   timezone: UTC-12
+  venue_timezone: America/Toronto
   place: Montreal, Canada
   date: July 5-9, 2026
   start: 2026-07-05
@@ -167,6 +175,7 @@
   rebuttal_end: '2026-12-18 23:59:59'
   notification: '2027-01-22 23:59:59'
   timezone: UTC-12
+  venue_timezone: Asia/Shanghai
   place: Shenzhen, China
   date: July 12 - 16, 2027
   start: 2027-07-12
@@ -187,6 +196,7 @@
   rebuttal_end: '2026-09-10 23:59:59'
   notification: '2026-10-05 23:59:59'
   timezone: UTC-12
+  venue_timezone: America/Mexico_City
   place: Mexico City, Mexico
   date: January 10 - 16, 2027
   start: 2027-01-10
@@ -209,6 +219,7 @@
   rebuttal_end: '2026-09-04 23:59:59'
   notification: '2026-09-11 23:59:59'
   timezone: UTC-12
+  venue_timezone: America/Toronto
   place: Montreal, Canada
   date: TBA, May 2027
   start: 2027-05-17
@@ -227,6 +238,7 @@
   rebuttal_end: '2027-02-26 23:59:59'
   notification: '2027-03-05 23:59:59'
   timezone: UTC-12
+  venue_timezone: America/Toronto
   place: Montreal, Canada
   date: TBA, May 2027
   start: 2027-05-17
@@ -249,6 +261,7 @@
   rebuttal_end: '2026-03-20 23:59:59'
   notification: '2026-04-09 23:59:59'
   timezone: UTC-12
+  venue_timezone: Europe/Amsterdam
   place: The Hague, The Netherlands
   date: November 15 - 19, 2026
   start: 2026-11-15
@@ -267,6 +280,7 @@
   rebuttal_end: '2026-07-01 23:59:59'
   notification: '2026-07-17 23:59:59'
   timezone: UTC-12
+  venue_timezone: Europe/Amsterdam
   place: The Hague, The Netherlands
   date: November 15 - 19, 2026
   start: 2026-11-15
@@ -286,6 +300,7 @@
   early_rejection: '2026-06-12 23:59:59'
   notification: '2026-07-22 23:59:59'
   timezone: UTC-12
+  venue_timezone: Asia/Seoul
   place: Seoul, Republic of Korea
   date: March 22 - 26, 2027
   start: 2027-03-22
@@ -301,6 +316,7 @@
   early_rejection: '2026-09-25 23:59:59'
   notification: '2026-11-04 23:59:59'
   timezone: UTC-12
+  venue_timezone: Asia/Seoul
   place: Seoul, Republic of Korea
   date: March 22 - 26, 2027
   start: 2027-03-22
@@ -323,6 +339,7 @@
   rebuttal_end: '2025-11-13 23:59:59'
   notification: '2025-12-04 23:59:59'
   timezone: UTC-12
+  venue_timezone: America/New_York
   place: Baltimore, MD, USA
   date: August 12 - 14, 2026
   start: 2026-08-12
@@ -341,6 +358,7 @@
   rebuttal_end: '2026-04-23 23:59:59'
   notification: '2026-05-14 23:59:59'
   timezone: UTC-12
+  venue_timezone: America/New_York
   place: Baltimore, MD, USA
   date: August 12 - 14, 2026
   start: 2026-08-12
@@ -355,6 +373,7 @@
   abstract_deadline: '2026-08-18 23:59:59'
   deadline: '2026-08-25 23:59:59'
   timezone: UTC-12
+  venue_timezone: America/Denver
   place: Denver, CO, USA
   date: August 11 - 13, 2027
   start: 2027-08-11
@@ -369,6 +388,7 @@
   abstract_deadline: '2027-01-19 23:59:59'
   deadline: '2027-01-26 23:59:59'
   timezone: UTC-12
+  venue_timezone: America/Denver
   place: Denver, CO, USA
   date: August 11 - 13, 2027
   start: 2027-08-11
@@ -388,6 +408,7 @@
   deadline: '2025-12-11 22:59:59'
   notification: '2026-03-26 23:59:59'
   timezone: UTC-0
+  venue_timezone: America/Los_Angeles
   place: Seattle, WA, USA
   date: July 13 - 15, 2026
   start: 2026-07-13
@@ -408,6 +429,7 @@
   rebuttal_end: '2026-03-26 23:59:59'
   notification: '2026-04-16 23:59:59'
   timezone: UTC-12
+  venue_timezone: America/Los_Angeles
   place: Oakland, California, United States
   date: October 3 - 9, 2026
   start: 2026-10-03
@@ -428,6 +450,7 @@
   rebuttal_end: '2026-01-16 23:59:59'
   notification: '2026-01-29 23:59:59'
   timezone: UTC-12
+  venue_timezone: Europe/Brussels
   place: Brussels, Belgium
   date: June 29 - July 3, 2026
   start: 2026-06-29
@@ -444,6 +467,7 @@
   rebuttal_end: '2026-03-27 23:59:59'
   notification: '2026-04-09 23:59:59'
   timezone: UTC-12
+  venue_timezone: Europe/Brussels
   place: Brussels, Belgium
   date: June 29 - July 3, 2026
   start: 2026-06-29
@@ -464,6 +488,7 @@
   rebuttal_end: '2026-04-23 23:59:59'
   notification: '2026-05-14 23:59:59'
   timezone: UTC-12
+  venue_timezone: America/Indiana/Indianapolis
   place: Indiana University, Indianapolis, United States
   date: August 24 - 29, 2026
   start: 2026-08-24
@@ -484,6 +509,7 @@
   rebuttal_end: '2026-07-09 23:59:59'
   notification: '2026-07-27 23:59:59'
   timezone: UTC-12
+  venue_timezone: Europe/Athens
   place: Crete, Greece
   date: April 11-15, 2027
   start: 2027-04-11
@@ -500,6 +526,7 @@
   rebuttal_end: '2026-12-04 23:59:59'
   notification: '2026-12-21 23:59:59'
   timezone: UTC-12
+  venue_timezone: Europe/Athens
   place: Crete, Greece
   date: April 11-15, 2027
   start: 2027-04-11
@@ -520,6 +547,7 @@
   rebuttal_end: '2026-12-03 23:59:59'
   notification: '2026-12-17 23:59:59'
   timezone: UTC-12
+  venue_timezone: America/New_York
   place: Pittsburgh, PA, USA
   date: May 10 - 14, 2027
   start: 2027-05-10
@@ -541,6 +569,7 @@
   rebuttal_end: '2026-06-05 23:59:59'
   notification: '2026-06-27 23:59:59'
   timezone: UTC-12
+  venue_timezone: America/Detroit
   place: Detroit, MI, USA
   date: November 2-5, 2026
   start: 2026-11-02
@@ -559,6 +588,7 @@
   deadline: '2026-03-13 23:59:59'
   notification: '2026-05-13 23:59:59'
   timezone: UTC-7
+  venue_timezone: America/Los_Angeles
   place: Arrillaga Alumni Center, Stanford University, United States
   date: July 27-29, 2026
   start: 2026-07-27

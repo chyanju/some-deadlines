@@ -58,9 +58,13 @@ export function process(c: Conference): ProcessedConference {
     };
   });
   const paper = milestones.find((m) => m.key === "paper");
-  const start = c.start ? DateTime.fromISO(c.start, { zone: "utc" }) : null;
-  // Ongoing through the whole end day, so the "ended" instant is the next midnight.
-  const end = c.end ? DateTime.fromISO(c.end, { zone: "utc" }).plus({ days: 1 }) : null;
+  // Meeting dates are the venue's LOCAL time — a conference runs on its host
+  // city's clock, not the deadline timezone (AoE/etc.). Falls back to UTC only
+  // while the venue (and thus its timezone) is still TBA.
+  const venueZone = c.venue_timezone || "utc";
+  const start = c.start ? DateTime.fromISO(c.start, { zone: venueZone }) : null;
+  // Ongoing through the whole end day, so the "ended" instant is the next local midnight.
+  const end = c.end ? DateTime.fromISO(c.end, { zone: venueZone }).plus({ days: 1 }) : null;
   const subs = String(c.sub)
     .split(",")
     .map((s) => s.trim())
