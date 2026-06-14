@@ -12,6 +12,6 @@ const { ms, endMs = null } = Astro.props;
 
 <span class="cd-inline" data-inline-cd data-deadline={ms ?? ""} data-end={endMs ?? ""}>
   {ms != null && (
-    <Fragment>(<span data-inline-days>—</span><span data-inline-clock></span>)</Fragment>
+    <span class="cd-text">(<span data-inline-days>—</span><span data-inline-clock></span>)</span>
   )}
 </span>

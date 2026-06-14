@@ -290,13 +290,10 @@ html.dark .card.is-urgent:hover {
   border-width: 0.28em 0.42em 0.28em 0;
   border-color: transparent var(--c, var(--color-accent)) transparent transparent;
 }
-/* Simple mode: hide the inline per-deadline countdowns and drop the deadline grid
-   to 3 columns so it stays tight (display:none on a single grid cell would misflow
-   the auto-placed columns). The .dl-conf row spans 1 / 4 in either column count. */
-html.simple .dl-grid {
-  grid-template-columns: auto auto auto;
-}
-html.simple .cd-inline {
+/* Simple mode: hide the inline countdown TEXT but keep the .cd-inline cell, so the
+   "primary" marker still shows next to the primary row's date. The countdown column
+   collapses to just that marker. */
+html.simple .cd-text {
   display: none;
 }
 
