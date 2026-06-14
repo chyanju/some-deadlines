@@ -13,8 +13,8 @@ const { showPastToggle = false } = Astro.props;
     data-filter-button
     aria-haspopup="true"
     aria-expanded="false"
-    aria-label="Filter categories"
-    title="Filter"
+    aria-label="Options"
+    title="Options"
     class="tbar-icon relative"
   >
     <svg
@@ -27,7 +27,15 @@ const { showPastToggle = false } = Astro.props;
       stroke-linejoin="round"
       aria-hidden="true"
     >
-      <path d="M3 5h18M6 12h12M10 19h4"></path>
+      <path d="M10 5H3"></path>
+      <path d="M12 19H3"></path>
+      <path d="M14 3v4"></path>
+      <path d="M16 17v4"></path>
+      <path d="M21 12h-9"></path>
+      <path d="M21 19h-5"></path>
+      <path d="M21 5h-7"></path>
+      <path d="M8 10v4"></path>
+      <path d="M8 12H3"></path>
     </svg>
     <span
       data-filter-dot

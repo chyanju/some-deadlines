@@ -45,7 +45,7 @@ urgency colour. Tokens live in `src/styles/global.css` (`@theme` for light,
 Niceties: three stateful icon toggles in the header — **dark mode** (sun/moon,
 follows system, no flash), **detail** (simple = just the big figure / complex =
 all the inline per-deadline countdowns), and **Local / AoE** deadline time zone
-(clock/globe) — plus a **filter / sort menu** (categories, an **Include Closed
+(clock/globe) — plus an **Options menu** (categories, an **Include Closed
 Deadlines** option, and a **sort** choice: by paper submission deadline, or by
 each card's nearest upcoming checkpoint — which also drives what the big figure
 counts to), **View Transitions** (`<ClientRouter />`), an urgency ramp (category
@@ -70,7 +70,7 @@ src/
   components/
     Header.astro                # sticky glass bar: wordmark + toolbar slot + theme + GitHub
     ConferenceCard.astro        # one conference (dates, links, deadlines, countdowns)
-    CategoryFilter.astro        # filter + sort menu: categories, Include Closed
+    CategoryFilter.astro        # Options menu: categories, Include Closed
                                 #   Deadlines, sort radios (portaled to <body>)
     DeadlineActions.astro       # per-deadline "Add to Google Calendar" + ".ics" icons
     InlineCountdown.astro       # small "(N days left · HH:MM:SS)" countdown cell
@@ -134,7 +134,7 @@ Conventions:
   The `# ==== NAME ====` banners are just section headers for scanning the file.
 - A conference whose paper deadline has passed but whose meeting is still upcoming
   (or ongoing) stays in the file; it's hidden by default and revealed via the
-  filter menu's **Include Closed Deadlines** toggle, sorting to the bottom.
+  Options menu's **Include Closed Deadlines** toggle, sorting to the bottom.
 - The loader **validates** on build: a missing required field, an unknown `sub`, or
   a duplicate `id` fails the build with a clear message.
 - Extra keys in the YAML (e.g. a legacy `note:`) are ignored — only the fields in
@@ -143,7 +143,7 @@ Conventions:
 ### Categories
 
 Edit `src/data/types.yml` to add/rename a category (`name`, `sub`, `color`); the
-filter menu and card badges update automatically.
+Options menu and card badges update automatically.
 
 ### Timezones
 
