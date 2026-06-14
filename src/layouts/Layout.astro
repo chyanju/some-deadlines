@@ -55,39 +55,6 @@ const noFlash = noFlashScript();
   <body class="flex min-h-screen min-w-[375px] flex-col transition-colors">
     {/* min-w pins the layout at the iPhone-SE width: narrower screens scroll
         horizontally instead of squeezing the cards until they break. */}
-    {/* Liquid-glass edge refraction filter (used by backdrop-filter on glass chrome). */}
-    <svg
-      aria-hidden="true"
-      focusable="false"
-      width="0"
-      height="0"
-      style="position:absolute"
-    >
-      <filter
-        id="liquid-glass"
-        x="-20%"
-        y="-20%"
-        width="140%"
-        height="140%"
-        color-interpolation-filters="sRGB"
-      >
-        <feTurbulence
-          type="fractalNoise"
-          baseFrequency="0.009 0.011"
-          numOctaves="2"
-          seed="7"
-          result="noise"
-        />
-        <feGaussianBlur in="noise" stdDeviation="2.2" result="noiseBlur" />
-        <feDisplacementMap
-          in="SourceGraphic"
-          in2="noiseBlur"
-          scale="26"
-          xChannelSelector="R"
-          yChannelSelector="G"
-        />
-      </filter>
-    </svg>
     <Header>
       <slot name="toolbar" slot="toolbar" />
     </Header>

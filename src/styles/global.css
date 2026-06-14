@@ -532,13 +532,17 @@ header > div {
 
   /* Closed cards keep the glass, just dimmed via .is-closed opacity. */
 
-  /* The header bar and the filter popover share one glass material: low blur +
-     edge refraction (#liquid-glass) + a specular rim + a top sheen (::before). */
+  /* The header bar and the filter popover share one glass material: a frosted
+     blur + a specular rim + a top sheen (::before). */
   header > div,
   [data-filter-menu] {
     background: var(--glass-fill-bar);
-    -webkit-backdrop-filter: url(#liquid-glass) blur(8px) saturate(185%) brightness(1.05);
-    backdrop-filter: url(#liquid-glass) blur(8px) saturate(185%) brightness(1.05);
+    /* Frosted blur only — no url() SVG filter. A url() filter inside
+       backdrop-filter renders only in Chromium; Safari/iOS and Firefox drop the
+       whole declaration, leaving the bar un-frosted (too transparent). Plain
+       blur frosts consistently across browsers. */
+    -webkit-backdrop-filter: blur(8px) saturate(185%) brightness(1.05);
+    backdrop-filter: blur(8px) saturate(185%) brightness(1.05);
     border: 1px solid var(--glass-hairline);
     border-radius: var(--radius-glass);
     box-shadow:
