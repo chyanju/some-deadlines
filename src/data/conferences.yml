@@ -7,6 +7,9 @@
   id: pldi26
   link: https://pldi26.sigplan.org/
   deadline: '2025-11-13 23:59:59'
+  rebuttal_start: '2026-02-17 00:00:00'
+  rebuttal_end: '2026-02-22 23:59:59'
+  notification: '2026-03-05 23:59:59'
   timezone: UTC-12
   place: Boulder, Colorado, United States
   date: June 15-19, 2026
@@ -25,6 +28,9 @@
   link: https://conf.researchr.org/home/icse-2027
   deadline: '2026-06-30 23:59:59'
   abstract_deadline: '2026-06-23 23:59:59'
+  rebuttal_start: '2026-09-23 00:00:00'
+  rebuttal_end: '2026-09-25 23:59:59'
+  notification: '2026-10-20 23:59:59'
   timezone: UTC-12
   place: Dublin, Ireland
   date: April 25 - May 1, 2027
@@ -43,6 +49,9 @@
   link: https://sigops.org/s/conferences/sosp/2026/index.html
   abstract_deadline: '2026-03-26 23:59:00'
   deadline: '2026-04-01 23:59:00'
+  rebuttal_start: '2026-06-22 00:00:00'
+  rebuttal_end: '2026-06-24 23:59:59'
+  notification: '2026-07-03 23:59:59'
   timezone: UTC-12
   place: Prague, Czechia
   date: September 29 - October 2, 2026
@@ -60,6 +69,9 @@
   id: oopsla2026a
   link: https://2026.splashcon.org/track/oopsla-2026
   deadline: '2025-10-10 23:59:59'
+  rebuttal_start: '2025-12-02 00:00:00'
+  rebuttal_end: '2025-12-05 23:59:59'
+  notification: '2025-12-17 23:59:59'
   timezone: UTC-12
   place: Oakland, California, United States
   date: October 3-9, 2026
@@ -73,6 +85,9 @@
   id: oopsla2026b
   link: https://2026.splashcon.org/track/oopsla-2026
   deadline: '2026-03-17 23:59:59'
+  rebuttal_start: '2026-05-19 00:00:00'
+  rebuttal_end: '2026-05-22 23:59:59'
+  notification: '2026-06-10 23:59:59'
   timezone: UTC-12
   place: Oakland, California, United States
   date: October 3-9, 2026
@@ -90,6 +105,9 @@
   id: cav2026
   link: https://conferences.i-cav.org/2026/
   deadline: '2026-01-28 23:59:59'
+  rebuttal_start: '2026-03-30 00:00:00'
+  rebuttal_end: '2026-04-02 23:59:59'
+  notification: '2026-04-17 23:59:59'
   timezone: UTC-12
   place: Lisbon, Portugal
   date: July 26-29, 2026
@@ -107,6 +125,10 @@
   id: ase2026
   link: https://conf.researchr.org/home/ase-2026
   deadline: '2026-03-26 23:59:59'
+  early_rejection: '2026-05-25 23:59:59'
+  rebuttal_start: '2026-05-25 00:00:00'
+  rebuttal_end: '2026-05-27 23:59:59'
+  notification: '2026-06-18 23:59:59'
   timezone: UTC-12
   place: Munich, Germany
   date: October 12 - 16, 2026
@@ -125,6 +147,9 @@
   link: https://conf.researchr.org/home/fse-2026
   abstract_deadline: '2025-09-04 23:59:59'
   deadline: '2025-09-11 23:59:59'
+  rebuttal_start: '2025-11-21 00:00:00'
+  rebuttal_end: '2025-11-25 23:59:59'
+  notification: '2025-12-22 23:59:59'
   timezone: UTC-12
   place: Montreal, Canada
   date: July 5-9, 2026
@@ -138,6 +163,9 @@
   id: fse2027
   link: https://conf.researchr.org/home/fse-2027
   deadline: '2026-10-02 23:59:59'
+  rebuttal_start: '2026-12-14 00:00:00'
+  rebuttal_end: '2026-12-18 23:59:59'
+  notification: '2027-01-22 23:59:59'
   timezone: UTC-12
   place: Shenzhen, China
   date: July 12 - 16, 2027
@@ -155,6 +183,9 @@
   id: popl2027
   link: https://conf.researchr.org/home/POPL-2027
   deadline: '2026-07-09 23:59:59'
+  rebuttal_start: '2026-09-07 00:00:00'
+  rebuttal_end: '2026-09-10 23:59:59'
+  notification: '2026-10-05 23:59:59'
   timezone: UTC-12
   place: Mexico City, Mexico
   date: January 10 - 16, 2027
@@ -173,6 +204,10 @@
   link: https://sp2027.ieee-security.org/
   abstract_deadline: '2026-06-04 23:59:59'
   deadline: '2026-06-11 23:59:59'
+  early_rejection: '2026-07-27 23:59:59'
+  rebuttal_start: '2026-08-25 00:00:00'
+  rebuttal_end: '2026-09-04 23:59:59'
+  notification: '2026-09-11 23:59:59'
   timezone: UTC-12
   place: Montreal, Canada
   date: TBA, May 2027
@@ -187,6 +222,10 @@
   link: https://sp2027.ieee-security.org/
   abstract_deadline: '2026-11-10 23:59:59'
   deadline: '2026-11-17 23:59:59'
+  early_rejection: '2027-01-18 23:59:59'
+  rebuttal_start: '2027-02-16 00:00:00'
+  rebuttal_end: '2027-02-26 23:59:59'
+  notification: '2027-03-05 23:59:59'
   timezone: UTC-12
   place: Montreal, Canada
   date: TBA, May 2027
@@ -205,6 +244,10 @@
   link: https://www.sigsac.org/ccs/CCS2026/
   abstract_deadline: '2026-01-07 23:59:59'
   deadline: '2026-01-14 23:59:59'
+  early_rejection: '2026-02-20 23:59:59'
+  rebuttal_start: '2026-03-17 00:00:00'
+  rebuttal_end: '2026-03-20 23:59:59'
+  notification: '2026-04-09 23:59:59'
   timezone: UTC-12
   place: The Hague, The Netherlands
   date: November 15 - 19, 2026
@@ -219,6 +262,10 @@
   link: https://www.sigsac.org/ccs/CCS2026/
   abstract_deadline: '2026-04-22 23:59:59'
   deadline: '2026-04-29 23:59:59'
+  early_rejection: '2026-06-12 23:59:59'
+  rebuttal_start: '2026-06-29 00:00:00'
+  rebuttal_end: '2026-07-01 23:59:59'
+  notification: '2026-07-17 23:59:59'
   timezone: UTC-12
   place: The Hague, The Netherlands
   date: November 15 - 19, 2026
@@ -236,6 +283,8 @@
   id: ndss2027a
   link: https://www.ndss-symposium.org/ndss2027/
   deadline: '2026-05-06 23:59:59'
+  early_rejection: '2026-06-12 23:59:59'
+  notification: '2026-07-22 23:59:59'
   timezone: UTC-12
   place: Seoul, Republic of Korea
   date: March 22 - 26, 2027
@@ -249,6 +298,8 @@
   id: ndss2027b
   link: https://www.ndss-symposium.org/ndss2027/
   deadline: '2026-08-19 23:59:59'
+  early_rejection: '2026-09-25 23:59:59'
+  notification: '2026-11-04 23:59:59'
   timezone: UTC-12
   place: Seoul, Republic of Korea
   date: March 22 - 26, 2027
@@ -267,6 +318,10 @@
   link: https://www.usenix.org/conference/usenixsecurity26
   abstract_deadline: '2025-08-19 23:59:59'
   deadline: '2025-08-26 23:59:59'
+  early_rejection: '2025-10-07 23:59:59'
+  rebuttal_start: '2025-11-06 00:00:00'
+  rebuttal_end: '2025-11-13 23:59:59'
+  notification: '2025-12-04 23:59:59'
   timezone: UTC-12
   place: Baltimore, MD, USA
   date: August 12 - 14, 2026
@@ -281,6 +336,10 @@
   link: https://www.usenix.org/conference/usenixsecurity26
   abstract_deadline: '2026-01-29 23:59:59'
   deadline: '2026-02-05 23:59:59'
+  early_rejection: '2026-03-17 23:59:59'
+  rebuttal_start: '2026-04-16 00:00:00'
+  rebuttal_end: '2026-04-23 23:59:59'
+  notification: '2026-05-14 23:59:59'
   timezone: UTC-12
   place: Baltimore, MD, USA
   date: August 12 - 14, 2026
@@ -327,6 +386,7 @@
   link: https://www.usenix.org/conference/osdi26
   abstract_deadline: '2025-12-04 22:59:59'
   deadline: '2025-12-11 22:59:59'
+  notification: '2026-03-26 23:59:59'
   timezone: UTC-0
   place: Seattle, WA, USA
   date: July 13 - 15, 2026
@@ -344,6 +404,9 @@
   id: issta2026
   link: https://conf.researchr.org/home/issta-2026
   deadline: '2026-01-29 23:59:59'
+  rebuttal_start: '2026-03-24 00:00:00'
+  rebuttal_end: '2026-03-26 23:59:59'
+  notification: '2026-04-16 23:59:59'
   timezone: UTC-12
   place: Oakland, California, United States
   date: October 3 - 9, 2026
@@ -361,6 +424,9 @@
   id: ecoop2026a
   link: https://2026.ecoop.org/
   deadline: '2025-11-27 23:59:59'
+  rebuttal_start: '2026-01-12 00:00:00'
+  rebuttal_end: '2026-01-16 23:59:59'
+  notification: '2026-01-29 23:59:59'
   timezone: UTC-12
   place: Brussels, Belgium
   date: June 29 - July 3, 2026
@@ -374,6 +440,9 @@
   id: ecoop2026b
   link: https://2026.ecoop.org/
   deadline: '2026-02-12 23:59:59'
+  rebuttal_start: '2026-03-23 00:00:00'
+  rebuttal_end: '2026-03-27 23:59:59'
+  notification: '2026-04-09 23:59:59'
   timezone: UTC-12
   place: Brussels, Belgium
   date: June 29 - July 3, 2026
@@ -391,6 +460,9 @@
   id: icfp2026
   link: https://icfp26.sigplan.org/
   deadline: '2026-02-19 23:59:59'
+  rebuttal_start: '2026-04-20 00:00:00'
+  rebuttal_end: '2026-04-23 23:59:59'
+  notification: '2026-05-14 23:59:59'
   timezone: UTC-12
   place: Indiana University, Indianapolis, United States
   date: August 24 - 29, 2026
@@ -408,6 +480,9 @@
   id: asplos2027a
   link: https://www.asplos-conference.org/asplos2027/cfp/
   deadline: '2026-04-15 23:59:59'
+  rebuttal_start: '2026-07-06 00:00:00'
+  rebuttal_end: '2026-07-09 23:59:59'
+  notification: '2026-07-27 23:59:59'
   timezone: UTC-12
   place: Crete, Greece
   date: April 11-15, 2027
@@ -421,6 +496,9 @@
   id: asplos2027b
   link: https://www.asplos-conference.org/asplos2027/cfp/
   deadline: '2026-09-09 23:59:59'
+  rebuttal_start: '2026-12-01 00:00:00'
+  rebuttal_end: '2026-12-04 23:59:59'
+  notification: '2026-12-21 23:59:59'
   timezone: UTC-12
   place: Crete, Greece
   date: April 11-15, 2027
@@ -438,6 +516,9 @@
   id: chi2027
   link: https://chi2027.acm.org/
   deadline: '2026-09-10 23:59:59'
+  rebuttal_start: '2026-11-05 00:00:00'
+  rebuttal_end: '2026-12-03 23:59:59'
+  notification: '2026-12-17 23:59:59'
   timezone: UTC-12
   place: Pittsburgh, PA, USA
   date: May 10 - 14, 2027
@@ -456,6 +537,9 @@
   link: https://uist.acm.org/2026/
   abstract_deadline: '2026-03-24 23:59:59'
   deadline: '2026-03-31 23:59:59'
+  rebuttal_start: '2026-05-28 00:00:00'
+  rebuttal_end: '2026-06-05 23:59:59'
+  notification: '2026-06-27 23:59:59'
   timezone: UTC-12
   place: Detroit, MI, USA
   date: November 2-5, 2026
@@ -473,6 +557,7 @@
   id: sbc2026
   link: https://www.sbc-conference.com/2026/
   deadline: '2026-03-13 23:59:59'
+  notification: '2026-05-13 23:59:59'
   timezone: UTC-7
   place: Arrillaga Alumni Center, Stanford University, United States
   date: July 27-29, 2026
