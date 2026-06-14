@@ -9,7 +9,8 @@
 //   - is-over: the primary date has passed / nothing is upcoming (big shows
 //     "Passed"/"ended"). is-soon/is-urgent track the primary's proximity.
 // Inline per-deadline countdowns are independent of mode.
-// Cards carry data-deadline (paper), data-abs, data-start, data-end (epoch ms).
+// Cards carry data-deadline (paper, for "closed" + the default sort); every other
+// milestone instant is read off the inline countdowns ([data-inline-cd]).
 
 const URGENT_MS = 7 * 24 * 60 * 60 * 1000; // <= 7 days  -> danger
 const SOON_MS = 30 * 24 * 60 * 60 * 1000; // 8..30 days -> warn
@@ -35,20 +36,14 @@ const mode = (): Mode =>
     ? "milestone"
     : "deadline";
 
-/** All dated milestones on a card (abstract, paper, early-reject, rebuttal
- *  open/close, notification, conference start/end) — the candidates for the
- *  "milestone" sort and big figure. */
+/** All dated milestones on a card — the candidates for the "milestone" sort and
+ *  big figure. Every milestone (and the meeting) renders an inline countdown
+ *  carrying its instant(s), so we read them straight off those: no per-milestone
+ *  attributes, and a newly added milestone is included automatically. */
 function milestoneDates(card: HTMLElement): number[] {
-  return [
-    num(card.dataset.abs),
-    num(card.dataset.deadline),
-    num(card.dataset.er),
-    num(card.dataset.rstart),
-    num(card.dataset.rend),
-    num(card.dataset.notif),
-    num(card.dataset.start),
-    num(card.dataset.end),
-  ].filter(Boolean);
+  return Array.from(card.querySelectorAll<HTMLElement>("[data-inline-cd]"))
+    .flatMap((el) => [num(el.dataset.deadline), num(el.dataset.end)])
+    .filter(Boolean);
 }
 
 /** The instant the big figure counts to under `m`, or a label when nothing is up. */

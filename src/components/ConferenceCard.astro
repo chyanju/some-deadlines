@@ -1,5 +1,5 @@
 ---
-import type { ProcessedConference, DeadlineItem } from "../lib/deadlines";
+import type { ProcessedConference } from "../lib/deadlines";
 import { deadlineItems, abbrevMonths } from "../lib/deadlines";
 import DeadlineActions from "./DeadlineActions.astro";
 import InlineCountdown from "./InlineCountdown.astro";
@@ -9,32 +9,20 @@ interface Props {
   conf: ProcessedConference;
 }
 const { conf } = Astro.props;
-const items = deadlineItems(conf);
-const find = (k: DeadlineItem["kind"]) => items.find((d) => d.kind === k);
 
-// Every present milestone as a row, sorted chronologically: by Anywhere-on-Earth
-// day, then a canonical phase order for same-day milestones (e.g. ASE's early
-// reject and rebuttal both fall on one day). Paper is always shown (even TBA) and
-// stays emphasised; rebuttal carries its window end.
-interface Row {
-  key: DeadlineItem["kind"];
-  label: string;
-  ms: number | null;
-  endMs: number | null;
-  short: string;
-  item?: DeadlineItem;
-  strong?: boolean;
-}
-const rows: Row[] = [
-  { key: "paper", label: "Paper", ms: conf.deadlineMs, endMs: null, short: conf.deadlineShort ?? "TBA", item: find("paper"), strong: true },
-];
-if (conf.absShort) rows.push({ key: "abstract", label: "Abstract", ms: conf.absDeadlineMs, endMs: null, short: conf.absShort, item: find("abstract") });
-if (conf.earlyRejectShort) rows.push({ key: "early-reject", label: "Early Reject", ms: conf.earlyRejectMs, endMs: null, short: conf.earlyRejectShort, item: find("early-reject") });
-if (conf.rebuttalShort) rows.push({ key: "rebuttal", label: "Rebuttal", ms: conf.rebuttalStartMs, endMs: conf.rebuttalEndMs, short: conf.rebuttalShort, item: find("rebuttal") });
-if (conf.notificationShort) rows.push({ key: "notification", label: "Notification", ms: conf.notificationMs, endMs: null, short: conf.notificationShort, item: find("notification") });
-const PHASE: Record<DeadlineItem["kind"], number> = { abstract: 0, paper: 1, "early-reject": 2, rebuttal: 3, notification: 4 };
-const aoeDay = (ms: number | null) => (ms == null ? Infinity : Math.floor((ms - 12 * 3_600_000) / 86_400_000));
-rows.sort((a, b) => aoeDay(a.ms) - aoeDay(b.ms) || PHASE[a.key] - PHASE[b.key]);
+// Add-to-calendar actions, keyed by milestone so each row can find its own.
+const actionByKey = new Map(deadlineItems(conf).map((d) => [d.kind, d]));
+
+// Milestone rows in chronological order: by Anywhere-on-Earth day, then the
+// registry phase for same-day milestones (e.g. ASE's early reject before its
+// rebuttal). Paper is always shown (even TBA); the rest only when dated.
+const aoeDay = (ms: number | null) =>
+  ms == null ? Infinity : Math.floor((ms - 12 * 3_600_000) / 86_400_000);
+const rows = conf.milestones
+  .filter((m) => m.always || m.short)
+  .sort((a, b) => aoeDay(a.ms) - aoeDay(b.ms) || a.phase - b.phase)
+  .map((m) => ({ m, action: actionByKey.get(m.key) }));
+
 const iconCls =
   "shrink-0 rounded p-1 text-text-3 transition-colors hover:bg-[rgba(120,120,140,0.14)] hover:text-accent dark:hover:bg-[rgba(255,255,255,0.07)]";
 ---
@@ -43,13 +31,6 @@ const iconCls =
   id={conf.id}
   data-conf
   data-deadline={conf.deadlineMs ?? ""}
-  data-abs={conf.absDeadlineMs ?? ""}
-  data-er={conf.earlyRejectMs ?? ""}
-  data-rstart={conf.rebuttalStartMs ?? ""}
-  data-rend={conf.rebuttalEndMs ?? ""}
-  data-notif={conf.notificationMs ?? ""}
-  data-start={conf.startMs ?? ""}
-  data-end={conf.endMs ?? ""}
   data-subs={conf.subs.join(",")}
   style={`--c:${conf.categories[0]?.color ?? "var(--color-border-strong)"}`}
   class="card p-5"
@@ -79,9 +60,8 @@ const iconCls =
     </div>
   </div>
 
-  {/* Row 2 — date·place, then a per-deadline mini-table (icons · label · date ·
-      countdown) with aligned columns; the big paper countdown (the focus) sits on
-      the right. */}
+  {/* Row 2 — date·place, then the milestone mini-table (icons · label · date ·
+      countdown) with aligned columns; the big countdown (the focus) sits right. */}
   <div class="mt-2.5 flex items-end justify-between gap-4">
     <div class="min-w-0 flex-1">
       <dl class="dl-grid mt-0.5 text-[0.8125rem]">
@@ -90,14 +70,14 @@ const iconCls =
           <InlineCountdown ms={conf.startMs} endMs={conf.endMs} />
         </div>
         {
-          rows.map((m) => (
+          rows.map(({ m, action }) => (
             <div class="contents">
               <span class="flex min-w-[2.4rem] items-center gap-0.5">
-                {m.item && <DeadlineActions item={m.item} />}
+                {action && <DeadlineActions item={action} />}
               </span>
               <dt class="eyebrow">{m.label}</dt>
               <dd class={`tnum ${m.strong ? "text-text" : "text-text-2"}`}>
-                <span data-dl={m.ms ?? ""}>{m.short}</span>
+                <span data-dl={m.ms ?? ""}>{m.short ?? "TBA"}</span>
               </dd>
               <InlineCountdown ms={m.ms} endMs={m.endMs} />
             </div>
@@ -106,8 +86,7 @@ const iconCls =
       </dl>
     </div>
 
-    {/* Big paper countdown: number on the left (spans two rows), "days left" over
-        the live clock on the right. */}
+    {/* Big countdown: number on the left, "days left" over the live clock on the right. */}
     <div class="shrink-0 flex items-center gap-2">
       <span data-cd-days class="tnum text-[2.25rem] leading-none font-bold text-text-2">—</span>
       <div class="flex flex-col gap-1 text-left leading-none">

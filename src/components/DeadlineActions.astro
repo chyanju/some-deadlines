@@ -3,6 +3,7 @@
 // milestone row. Each adds only that date (or window, for rebuttal):
 //   - calendar-plus -> add to Google Calendar
 //   - download      -> download the .ics file
+// The tooltip noun (e.g. "rebuttal period") comes from the milestone registry.
 import type { DeadlineItem } from "../lib/deadlines";
 import Icon from "./Icon.astro";
 
@@ -10,14 +11,6 @@ interface Props {
   item: DeadlineItem;
 }
 const { item } = Astro.props;
-const LABELS: Record<DeadlineItem["kind"], string> = {
-  paper: "paper deadline",
-  abstract: "abstract deadline",
-  "early-reject": "early-reject date",
-  rebuttal: "rebuttal period",
-  notification: "notification date",
-};
-const label = LABELS[item.kind];
 const iconCls =
   "rounded p-0.5 text-text-3 transition-colors hover:bg-[rgba(120,120,140,0.14)] hover:text-accent dark:hover:bg-[rgba(255,255,255,0.07)]";
 const svgCls = "h-3.5 w-3.5";
@@ -27,8 +20,8 @@ const svgCls = "h-3.5 w-3.5";
   href={item.gcalUrl}
   target="_blank"
   rel="noopener"
-  title={`Add ${label} to Google Calendar`}
-  aria-label={`Add ${label} to Google Calendar`}
+  title={`Add ${item.noun} to Google Calendar`}
+  aria-label={`Add ${item.noun} to Google Calendar`}
   class={iconCls}
 >
   <Icon name="calendar-plus" class={svgCls} />
@@ -36,8 +29,8 @@ const svgCls = "h-3.5 w-3.5";
 <a
   href={item.icsHref}
   download={`${item.uid}.ics`}
-  title={`Download ${label} (.ics)`}
-  aria-label={`Download ${label} (.ics)`}
+  title={`Download ${item.noun} (.ics)`}
+  aria-label={`Download ${item.noun} (.ics)`}
   class={iconCls}
 >
   <Icon name="download" class={svgCls} />

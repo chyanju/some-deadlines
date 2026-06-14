@@ -2,6 +2,7 @@ import { DateTime } from "luxon";
 import { conferences, typeBySub } from "../data/conferences";
 import { site } from "../data/site";
 import type { Conference, ConfType } from "../types";
+import { MILESTONES, type ProcessedMilestone } from "./milestones";
 
 const FMT = "yyyy-MM-dd HH:mm:ss";
 const SHORT_FMT = "ccc dd LLL yyyy, HH:mm";
@@ -19,44 +20,44 @@ function shortInConfTz(dt: DateTime | null, label: string): string | null {
   return dt ? `${dt.toFormat(SHORT_FMT)} ${label}` : null;
 }
 
-/** A conference enriched with computed deadline instants and categories. */
+/** A conference enriched with computed milestone instants and categories. */
 export interface ProcessedConference extends Conference {
   subs: string[];
   categories: ConfType[];
-  /** Paper deadline as epoch ms (absolute UTC instant); null when TBA. */
+  /** Every dated milestone in registry order (see lib/milestones). */
+  milestones: ProcessedMilestone[];
+  /** Paper deadline as epoch ms — the submission deadline; drives "closed" + the
+   *  default sort. Convenience mirror of the "paper" milestone. */
   deadlineMs: number | null;
-  /** Abstract deadline as epoch ms; null when absent/TBA. */
-  absDeadlineMs: number | null;
+  /** Compact paper deadline for cards, e.g. "Thu 13 Nov 2025, 23:59 UTC-12". */
+  deadlineShort: string | null;
   /** Conference start as epoch ms (midnight UTC of `start`); null when absent. */
   startMs: number | null;
   /** Conference "ended" instant — midnight UTC *after* `end`; null when absent.
    *  The meeting is ongoing while now is in [startMs, endMs), ended at/after endMs. */
   endMs: number | null;
+  /** Paper deadline is TBA/absent. */
   isTba: boolean;
-  /** Compact paper deadline for cards, e.g. "Thu 13 Nov 2025, 23:59 UTC-12". */
-  deadlineShort: string | null;
-  /** Compact abstract deadline for cards. */
-  absShort: string | null;
-  /** Early-rejection notification. */
-  earlyRejectMs: number | null;
-  earlyRejectShort: string | null;
-  /** Author-response (rebuttal) window; ongoing while now is in [start, end). */
-  rebuttalStartMs: number | null;
-  rebuttalEndMs: number | null;
-  rebuttalShort: string | null;
-  /** Acceptance/decision notification. */
-  notificationMs: number | null;
-  notificationShort: string | null;
 }
 
 export function process(c: Conference): ProcessedConference {
   const zone = c.timezone || site.defaultTimezone;
-  const dl = parseInZone(c.deadline, zone);
-  const abs = parseInZone(c.abstract_deadline, zone);
-  const er = parseInZone(c.early_rejection, zone);
-  const rstart = parseInZone(c.rebuttal_start, zone);
-  const rend = parseInZone(c.rebuttal_end, zone);
-  const notif = parseInZone(c.notification, zone);
+  const milestones: ProcessedMilestone[] = MILESTONES.map((d) => {
+    const start = parseInZone(c[d.field] as string | undefined, zone);
+    const end = d.endField ? parseInZone(c[d.endField] as string | undefined, zone) : null;
+    return {
+      key: d.key,
+      label: d.label,
+      ms: start?.toMillis() ?? null,
+      endMs: end?.toMillis() ?? null,
+      short: shortInConfTz(start, c.timezone),
+      calendar: d.calendar,
+      phase: d.phase,
+      always: d.always ?? false,
+      strong: d.strong ?? false,
+    };
+  });
+  const paper = milestones.find((m) => m.key === "paper");
   const start = c.start ? DateTime.fromISO(c.start, { zone: "utc" }) : null;
   // Ongoing through the whole end day, so the "ended" instant is the next midnight.
   const end = c.end ? DateTime.fromISO(c.end, { zone: "utc" }).plus({ days: 1 }) : null;
@@ -70,20 +71,12 @@ export function process(c: Conference): ProcessedConference {
     categories: subs
       .map((s) => typeBySub.get(s))
       .filter((t): t is ConfType => Boolean(t)),
-    deadlineMs: dl?.toMillis() ?? null,
-    absDeadlineMs: abs?.toMillis() ?? null,
+    milestones,
+    deadlineMs: paper?.ms ?? null,
+    deadlineShort: paper?.short ?? null,
     startMs: start?.isValid ? start.toMillis() : null,
     endMs: end?.isValid ? end.toMillis() : null,
-    isTba: !dl,
-    deadlineShort: shortInConfTz(dl, c.timezone),
-    absShort: shortInConfTz(abs, c.timezone),
-    earlyRejectMs: er?.toMillis() ?? null,
-    earlyRejectShort: shortInConfTz(er, c.timezone),
-    rebuttalStartMs: rstart?.toMillis() ?? null,
-    rebuttalEndMs: rend?.toMillis() ?? null,
-    rebuttalShort: shortInConfTz(rstart, c.timezone),
-    notificationMs: notif?.toMillis() ?? null,
-    notificationShort: shortInConfTz(notif, c.timezone),
+    isTba: paper?.ms == null,
   };
 }
 
@@ -96,16 +89,19 @@ export const byDeadline: ProcessedConference[] = [...allConferences].sort((a, b)
   return a.deadlineMs - b.deadlineMs;
 });
 
-/** A single calendar-addable milestone of a conference, with everything the card
- *  and the .ics endpoints need to add just that one date (or window). */
+/** A single calendar-addable milestone, with everything the card and the .ics
+ *  endpoints need to add just that one date (or window, for rebuttal). */
 export interface DeadlineItem {
-  kind: "paper" | "abstract" | "early-reject" | "rebuttal" | "notification";
-  /** Epoch-ms instant of the milestone (the start, for a window like rebuttal). */
+  /** Milestone key (also the .ics uid stem suffix). */
+  kind: string;
+  /** The instant (the start, for a window). */
   ms: number;
-  /** End instant for a window (rebuttal); null/omitted for point milestones. */
-  endMs?: number | null;
+  /** End instant for a window (rebuttal); null for point milestones. */
+  endMs: number | null;
   /** Event title, e.g. "[ICSE 2027] Paper Deadline". */
   summary: string;
+  /** Tooltip noun for the icons, e.g. "paper deadline" / "rebuttal period". */
+  noun: string;
   /** Stable slug, e.g. "icse2027-paper" (the UID stem and .ics filename). */
   uid: string;
   /** Per-milestone .ics download path. */
@@ -124,29 +120,28 @@ function gcalTemplateUrl(summary: string, ms: number, endMs?: number | null): st
   return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(summary)}&dates=${start}/${end}`;
 }
 
-/** The calendar-addable milestones of a conference, in card order (paper,
- *  abstract, early-reject, rebuttal, notification). Rebuttal carries an end
- *  (it is a window); the rest are instants. Absent milestones are omitted. */
+const DEF_BY_KEY = new Map(MILESTONES.map((d) => [d.key, d]));
+
+/** The calendar-addable milestones of a conference, in card order. Milestones with
+ *  no date (or not calendar-addable) are omitted — there is nothing to add. */
 export function deadlineItems(c: ProcessedConference): DeadlineItem[] {
   const out: DeadlineItem[] = [];
-  const add = (kind: DeadlineItem["kind"], label: string, ms: number, endMs?: number | null) => {
-    const summary = `[${c.title} ${c.year}] ${label}`;
-    const uid = `${c.id}-${kind}`;
+  for (const m of c.milestones) {
+    if (!m.calendar || m.ms == null) continue;
+    const def = DEF_BY_KEY.get(m.key)!;
+    const summary = `[${c.title} ${c.year}] ${def.summary}`;
+    const uid = `${c.id}-${m.key}`;
     out.push({
-      kind,
-      ms,
-      endMs: endMs ?? null,
+      kind: m.key,
+      ms: m.ms,
+      endMs: m.endMs,
       summary,
+      noun: def.noun,
       uid,
       icsHref: `/conference/${uid}.ics`,
-      gcalUrl: gcalTemplateUrl(summary, ms, endMs),
+      gcalUrl: gcalTemplateUrl(summary, m.ms, m.endMs),
     });
-  };
-  if (c.deadlineMs != null) add("paper", "Paper Deadline", c.deadlineMs);
-  if (c.absDeadlineMs != null) add("abstract", "Abstract Deadline", c.absDeadlineMs);
-  if (c.earlyRejectMs != null) add("early-reject", "Early Reject", c.earlyRejectMs);
-  if (c.rebuttalStartMs != null) add("rebuttal", "Rebuttal", c.rebuttalStartMs, c.rebuttalEndMs);
-  if (c.notificationMs != null) add("notification", "Notification", c.notificationMs);
+  }
   return out;
 }
 
