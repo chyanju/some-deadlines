@@ -1,14 +1,8 @@
-// Deadline time-zone display toggle: Local (browser zone) vs AoE (Anywhere on
-// Earth = UTC-12). Default Local. Re-formats every absolute deadline shown via
-// [data-dl] (epoch ms); the active mode also shows via the `aoe` class on <html>
-// (drives the toolbar icon). Countdowns are durations, so they are unaffected.
+// Deadline time-zone display: re-format every [data-dl] timestamp into the active
+// zone — Local (browser) or AoE (Anywhere on Earth = UTC-12). The Local/AoE toggle
+// itself is wired generically in toggles.ts; this is just the formatting it
+// triggers (and on each load). Countdowns are durations, so they are unaffected.
 import { STORAGE } from "./storage";
-
-type Mode = "local" | "aoe";
-
-function getMode(): Mode {
-  return localStorage.getItem(STORAGE.tz) === "aoe" ? "aoe" : "local";
-}
 
 const BASE: Intl.DateTimeFormatOptions = {
   weekday: "short",
@@ -20,8 +14,8 @@ const BASE: Intl.DateTimeFormatOptions = {
   hour12: false,
 };
 
-function format(ms: number, mode: Mode): string {
-  if (mode === "aoe") {
+function format(ms: number, aoe: boolean): string {
+  if (aoe) {
     return (
       new Date(ms).toLocaleString("en-GB", { ...BASE, timeZone: "Etc/GMT+12" }) +
       " AoE"
@@ -30,25 +24,11 @@ function format(ms: number, mode: Mode): string {
   return new Date(ms).toLocaleString("en-GB", { ...BASE, timeZoneName: "short" });
 }
 
-function apply(mode: Mode): void {
-  document.documentElement.classList.toggle("aoe", mode === "aoe");
+/** Re-format every shown deadline timestamp ([data-dl]) into the active zone. */
+export function formatDeadlines(): void {
+  const aoe = localStorage.getItem(STORAGE.tz) === "aoe";
   for (const el of document.querySelectorAll<HTMLElement>("[data-dl]")) {
     const ms = Number(el.dataset.dl);
-    if (ms) el.textContent = format(ms, mode);
+    if (ms) el.textContent = format(ms, aoe);
   }
-}
-
-let wired = false;
-
-export function initTz(): void {
-  apply(getMode()); // re-format the (re-rendered) DOM on every page-load
-  if (wired) return;
-  wired = true;
-  // Delegated so it survives view-transition swaps; toggles Local <-> AoE.
-  document.addEventListener("click", (e) => {
-    if (!(e.target as HTMLElement).closest("[data-tz-toggle]")) return;
-    const next: Mode = getMode() === "aoe" ? "local" : "aoe";
-    localStorage.setItem(STORAGE.tz, next);
-    apply(next);
-  });
 }

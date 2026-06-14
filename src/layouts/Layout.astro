@@ -5,6 +5,7 @@ import "../styles/global.css";
 import { ClientRouter } from "astro:transitions";
 import Header from "../components/Header.astro";
 import { site } from "../data/site";
+import { noFlashScript } from "../scripts/toggles";
 
 interface Props {
   title?: string;
@@ -12,6 +13,7 @@ interface Props {
 }
 const { title, description = site.description } = Astro.props;
 const fullTitle = title ? `${title} · ${site.title}` : site.title;
+const noFlash = noFlashScript();
 ---
 
 <!doctype html>
@@ -24,26 +26,9 @@ const fullTitle = title ? `${title} · ${site.title}` : site.title;
     <meta name="author" content={site.author} />
     <link rel="icon" href="/favicon.png" />
 
-    {/* Apply theme / detail / time-zone classes before first paint to avoid a
-        flash (localStorage only — mirrors theme.ts, mode.ts, tz.ts). */}
-    <script is:inline>
-      (() => {
-        const ls = localStorage;
-        const h = document.documentElement;
-        const t = ls.getItem("theme");
-        h.classList.toggle(
-          "dark",
-          t === "dark" ||
-            (!t && window.matchMedia("(prefers-color-scheme: dark)").matches),
-        );
-        h.classList.toggle("simple", ls.getItem("some-deadlines-mode") === "simple");
-        h.classList.toggle("aoe", ls.getItem("some-deadlines-tz") === "aoe");
-        h.classList.toggle(
-          "sort-milestone",
-          ls.getItem("some-deadlines-sort") === "milestone",
-        );
-      })();
-    </script>
+    {/* Set every state class before first paint to avoid a flash. Generated from
+        the toggle registry (scripts/toggles.ts), so keys/classes live in one place. */}
+    <script is:inline set:html={noFlash} />
 
     <ClientRouter />
 
@@ -107,10 +92,5 @@ const fullTitle = title ? `${title} · ${site.title}` : site.title;
     <main class="mx-auto w-full max-w-3xl flex-1 px-5 py-8">
       <slot />
     </main>
-
-    <script>
-      import { initTheme } from "../scripts/theme";
-      initTheme();
-    </script>
   </body>
 </html>

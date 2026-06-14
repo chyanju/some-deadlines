@@ -2,14 +2,12 @@
 // filter drives the list; everything about a conference lives on its card.
 import { initCountdowns } from "./countdown";
 import { initFilter } from "./filter";
-import { initTz } from "./tz";
-import { initMode } from "./mode";
+import { initToggles } from "./toggles";
 import { initSort } from "./sort";
 
 export function initApp(): void {
   initCountdowns();
-  initTz();
-  initMode();
+  initToggles(); // theme · detail · time-zone toggles (one registry)
   initSort();
 
   // `showPast` reveals "closed submissions" — cards whose paper deadline passed.
