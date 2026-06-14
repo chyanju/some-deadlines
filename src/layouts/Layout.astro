@@ -24,7 +24,8 @@ const noFlash = noFlashScript();
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
     <meta name="author" content={site.author} />
-    <link rel="icon" href={`${import.meta.env.BASE_URL}/favicon.png`} />
+    {/* SVG favicon adapts to the OS theme (dark glyph in light mode, white in dark). */}
+    <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}/favicon.svg`} />
 
     {/* Set every state class before first paint to avoid a flash. Generated from
         the toggle registry (scripts/toggles.ts), so keys/classes live in one place. */}
