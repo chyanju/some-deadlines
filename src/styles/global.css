@@ -278,7 +278,7 @@ html.dark .card.is-urgent:hover {
 .dl-date {
   flex-basis: 100%;
 }
-@media (min-width: 640px) {
+@media (min-width: 768px) {
   .dl-grid {
     display: grid;
     grid-template-columns: auto auto auto auto;
