@@ -1,4 +1,4 @@
-/** Site-wide configuration (replaces Jekyll's _config.yml). */
+/** Site-wide configuration. */
 export const site = {
   title: "Some Deadlines",
   description: "Countdowns to some academic conference deadlines",

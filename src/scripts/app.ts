@@ -1,5 +1,5 @@
-// Single-page app: a filterable list of conference countdowns. The category
-// filter drives the list; everything about a conference lives on its card.
+// Client entry — wires the page on each astro:page-load: countdowns, toggles,
+// sort, and the category filter.
 import { initCountdowns } from "./countdown";
 import { initFilter } from "./filter";
 import { initToggles } from "./toggles";

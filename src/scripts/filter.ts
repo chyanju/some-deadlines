@@ -1,9 +1,7 @@
-// Category filter dropdown. Selection is session-only: it is NOT persisted and
-// never modifies the URL — every page load starts with all categories selected.
-// The menu is PORTALED to <body> and positioned fixed under the button, so its
-// backdrop-filter composites over the page exactly like the header bar (a menu
-// left nested inside the header's backdrop-filter renders as a weaker, more
-// transparent glass — moving it out makes the two materials identical).
+// Category filter dropdown. Selection is session-only (not persisted, no URL
+// changes). The menu is portaled to <body> so its backdrop-filter composites over
+// the page like the header bar — nesting it under the header's own backdrop-filter
+// would weaken the effect.
 
 let docWired = false;
 let menuEl: HTMLElement | null = null;

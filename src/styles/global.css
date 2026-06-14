@@ -6,10 +6,7 @@
 @custom-variant aoe (&:where(.aoe, .aoe *));
 
 /* ----------------------------------------------------------------------------
-   Design tokens — "Calm Editorial Technical"
-   Warm-neutral surfaces, one indigo accent, red reserved for urgency.
-   Two type voices: Source Serif 4 (display serif) + Geist (body/UI).
-   Clocks use the body font with tabular, slashed-zero numerals (see .tnum).
+   Design tokens — light defaults; dark overrides under html.dark.
 ---------------------------------------------------------------------------- */
 @theme {
   --font-sans: "Geist Variable", ui-sans-serif, system-ui, -apple-system,
@@ -40,7 +37,7 @@
   /* Subtle hover fill for borderless icon controls (toolbar · menu rows · card icons). */
   --hover-fill: rgba(120, 120, 140, 0.14);
 
-  /* Liquid Glass material — light defaults (blur/saturate are inlined per surface) */
+  /* Glass surface fills — light defaults (blur/saturate inlined per surface). */
   --glass-fill: rgba(255, 255, 255, 0.3);
   --glass-fill-strong: rgba(255, 255, 255, 0.4);
   --glass-fill-bar: rgba(255, 255, 255, 0.44);
@@ -66,7 +63,7 @@ html.dark {
   --color-danger: #f87171;
   --color-warn: #fbbf24;
 
-  /* Liquid Glass material — dark overrides */
+  /* Glass surface fills — dark overrides. */
   --glass-fill: rgba(26, 28, 32, 0.28);
   --glass-fill-strong: rgba(34, 37, 44, 0.38);
   --glass-fill-bar: rgba(30, 32, 38, 0.42);
@@ -95,8 +92,8 @@ html.dark body {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
 }
 
-/* Ambient color field — the glass needs visible colour behind it to refract.
-   Fixed behind everything; legibility is preserved by the frosted card fill itself. */
+/* Ambient colour field behind the glass (gives it something to refract).
+   Fixed and non-interactive. */
 body::before {
   content: "";
   position: fixed;
@@ -355,11 +352,9 @@ html.dark .badge {
   background: var(--c, #999);
 }
 
-/* ---------------------- Liquid Glass toolbar controls ----------------------
-   Controls sit ON the glass header bar (glass-within-glass), not as separate
-   bordered boxes: borderless icon buttons that reveal a glass highlight on hover.
-   Stateful toggles (theme · detail · time-zone) swap their glyph for the current
-   state. One material vocabulary, uniform sizing. */
+/* ---------------------- Toolbar controls ----------------------
+   Borderless icon buttons on the header bar; hover reveals a fill. Stateful
+   toggles (theme · detail · time-zone) swap glyph per state. */
 .tbar-icon {
   display: inline-flex;
   align-items: center;
@@ -399,7 +394,7 @@ html.dark .badge {
   background: var(--hover-fill);
 }
 
-/* ============================ Liquid Glass ============================ */
+/* ============================ Glass surfaces ============================ */
 
 /* Floating header bar (opaque fallback; glass override under @supports). */
 header > div {
@@ -474,9 +469,8 @@ header > div {
       inset 0 -1px 0 0 var(--glass-edge-rim),
       0 8px 24px -8px rgba(var(--glass-shadow-rgb), 0.12);
   }
-  /* Keep the category left-bar (and add the lift shadow) on hover. Without these,
-     html.dark .card:hover (higher specificity) replaces the whole box-shadow and the
-     inset 3px left bar vanishes — the dark-mode hover bug. */
+  /* Re-assert the category left-bar (+ lift shadow) on hover: html.dark .card:hover
+     has higher specificity and would otherwise replace the whole box-shadow. */
   .card.is-soon:hover,
   .card.is-urgent:hover {
     box-shadow:
@@ -486,9 +480,8 @@ header > div {
       0 2px 4px rgba(var(--glass-shadow-rgb), 0.07),
       0 16px 40px -8px rgba(var(--glass-shadow-rgb), 0.16);
   }
-  /* Dark hover must also re-assert the tint background: html.dark .card:hover
-     (0,2,1) sets background:var(--color-elevated), which would otherwise wipe the
-     urgency tint (.card.is-soon = 0,2,0) — the same color must not change on hover. */
+  /* Dark hover must re-assert the tint: html.dark .card:hover sets
+     background:var(--color-elevated), which would otherwise wipe the urgency tint. */
   html.dark .card.is-soon:hover {
     background:
       linear-gradient(0deg, color-mix(in oklch, var(--c) 12%, transparent), color-mix(in oklch, var(--c) 12%, transparent)),
@@ -512,13 +505,10 @@ header > div {
       0 18px 44px -8px rgba(0, 0, 0, 0.62);
   }
 
-  /* Closed-submission cards keep the glass (just dimmed via .is-closed opacity); no
-     special transparent treatment, so they read as solid frosted cards. */
+  /* Closed cards keep the glass, just dimmed via .is-closed opacity. */
 
-  /* Unified glass chrome — the floating header bar AND the filter popover share
-     ONE liquid-glass material: clearer (low blur) + edge refraction (#liquid-glass)
-     + a crisp specular rim + a glossy top sheen (::before). This is what makes it
-     read as liquid glass rather than plain frosted blur. */
+  /* The header bar and the filter popover share one glass material: low blur +
+     edge refraction (#liquid-glass) + a specular rim + a top sheen (::before). */
   header > div,
   [data-filter-menu] {
     background: var(--glass-fill-bar);
@@ -532,8 +522,7 @@ header > div {
       inset 0 -10px 20px -12px rgba(255, 255, 255, 0.22),
       0 10px 30px -10px rgba(var(--glass-shadow-rgb), 0.2);
   }
-  /* header bar needs a positioning context for its sheen; the menu is already
-     absolute (keep it floating — don't override its position). */
+  /* The ::before sheen needs a positioning context; the menu is already absolute. */
   header > div {
     position: relative;
   }
@@ -545,7 +534,7 @@ header > div {
       0 12px 34px -10px rgba(0, 0, 0, 0.6);
   }
 
-  /* glossy top sheen — the gloss that separates liquid glass from frosted glass */
+  /* Top sheen (::before gradient). */
   .card::before,
   header > div::before,
   [data-filter-menu]::before {
@@ -573,7 +562,7 @@ header > div {
   }
 }
 
-/* Reduced transparency / contrast: collapse to the opaque Calm Editorial look. */
+/* Reduced transparency: collapse to the opaque (non-glass) fallback. */
 @media (prefers-reduced-transparency: reduce) {
   body::before {
     display: none;
