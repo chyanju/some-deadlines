@@ -4,7 +4,6 @@
 @custom-variant dark (&:where(.dark, .dark *));
 @custom-variant simple (&:where(.simple, .simple *));
 @custom-variant aoe (&:where(.aoe, .aoe *));
-@custom-variant sort-checkpoint (&:where(.sort-checkpoint, .sort-checkpoint *));
 
 /* ----------------------------------------------------------------------------
    Design tokens — "Calm Editorial Technical"

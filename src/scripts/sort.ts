@@ -1,4 +1,5 @@
-// List sort order. Two modes (a stateful toolbar toggle):
+// List sort order — chosen in the filter/settings menu ([data-sort] radios). Two
+// modes:
 //   - "deadline" (default): by paper submission deadline; the big figure shows it.
 //   - "checkpoint": by each card's nearest upcoming date (abstract / paper /
 //     meeting); the big figure shows that nearest one too.
@@ -16,6 +17,9 @@ function getMode(): Mode {
 
 function apply(m: Mode): void {
   document.documentElement.classList.toggle("sort-checkpoint", m === "checkpoint");
+  for (const r of document.querySelectorAll<HTMLInputElement>("[data-sort]")) {
+    r.checked = r.dataset.sort === m;
+  }
   refreshCountdowns(); // big figures follow the mode
   orderList(); // reorder by the new key
 }
@@ -26,9 +30,10 @@ export function initSort(): void {
   apply(getMode());
   if (wired) return;
   wired = true;
-  document.addEventListener("click", (e) => {
-    if (!(e.target as HTMLElement).closest("[data-sort-toggle]")) return;
-    const next: Mode = getMode() === "checkpoint" ? "deadline" : "checkpoint";
+  document.addEventListener("change", (e) => {
+    const r = (e.target as HTMLElement).closest<HTMLInputElement>("[data-sort]");
+    if (!r) return;
+    const next: Mode = r.dataset.sort === "checkpoint" ? "checkpoint" : "deadline";
     localStorage.setItem(STORAGE.sort, next);
     apply(next);
   });

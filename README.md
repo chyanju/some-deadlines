@@ -42,16 +42,16 @@ urgency colour. Tokens live in `src/styles/global.css` (`@theme` for light,
 (backdrop-filter)` and collapses to a flat opaque look under
 `prefers-reduced-transparency` (motion is neutralized under `prefers-reduced-motion`).
 
-Niceties: four stateful icon toggles in the header — **dark mode** (sun/moon,
+Niceties: three stateful icon toggles in the header — **dark mode** (sun/moon,
 follows system, no flash), **detail** (simple = just the big figure / complex =
-all the inline per-deadline countdowns), **Local / AoE** deadline time zone
-(clock/globe), and **sort** (by paper submission deadline, or by each card's
-nearest upcoming checkpoint — which also drives what the big figure counts to) —
-plus a category **filter** with a **Closed submissions** option, **View
-Transitions** (`<ClientRouter />`), an urgency ramp (category colour intensifies
-≤30d, deepens ≤7d), and per-deadline **.ics download** + **Add to Google
-Calendar** links. Theme / detail / time-zone / sort choices persist in
-`localStorage`; nothing is read from or written to the URL.
+all the inline per-deadline countdowns), and **Local / AoE** deadline time zone
+(clock/globe) — plus a **filter / sort menu** (categories, a **Closed
+submissions** option, and a **sort** choice: by paper submission deadline, or by
+each card's nearest upcoming checkpoint — which also drives what the big figure
+counts to), **View Transitions** (`<ClientRouter />`), an urgency ramp (category
+colour intensifies ≤30d, deepens ≤7d), and per-deadline **.ics download** +
+**Add to Google Calendar** links. Theme / detail / time-zone / sort choices
+persist in `localStorage`; nothing is read from or written to the URL.
 
 ## Project structure
 
@@ -70,11 +70,11 @@ src/
   components/
     Header.astro                # sticky glass bar: wordmark + toolbar slot + theme + GitHub
     ConferenceCard.astro        # one conference (dates, links, deadlines, countdowns)
-    CategoryFilter.astro        # category + Closed-submissions dropdown (portaled to <body>)
+    CategoryFilter.astro        # filter + sort menu: categories, Closed submissions,
+                                #   sort radios (portaled to <body>)
     DeadlineActions.astro       # per-deadline "Add to Google Calendar" + ".ics" icons
     InlineCountdown.astro       # small "(N days left · HH:MM:SS)" countdown cell
     ModeToggle.astro            # detail toggle (simple / complex) — stateful icon button
-    SortToggle.astro            # sort toggle (deadline / nearest checkpoint) — stateful
     TzToggle.astro              # Local / AoE toggle — stateful icon button
   scripts/                      # client-side, re-run on every astro:page-load
     app.ts            # orchestrates the page (countdowns + filter wiring)

@@ -74,6 +74,17 @@ const { showPastToggle = false } = Astro.props;
         )
       }
     </div>
+    <div class="mt-1 border-t border-border pt-1.5">
+      <div class="eyebrow px-2.5 pb-1">Sort by</div>
+      <label class="menu-row flex cursor-pointer items-center gap-2.5 rounded-md px-2.5 py-1.5 text-sm whitespace-nowrap text-text">
+        <input type="radio" name="sort-mode" data-sort="deadline" class="size-3.5 accent-[var(--color-accent)]" />
+        <span>Submission deadline</span>
+      </label>
+      <label class="menu-row flex cursor-pointer items-center gap-2.5 rounded-md px-2.5 py-1.5 text-sm whitespace-nowrap text-text">
+        <input type="radio" name="sort-mode" data-sort="checkpoint" class="size-3.5 accent-[var(--color-accent)]" />
+        <span>Nearest checkpoint</span>
+      </label>
+    </div>
     <div
       class="mt-1 flex justify-between border-t border-border px-2 pt-1.5 text-xs"
     >
