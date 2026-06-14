@@ -1,0 +1,33 @@
+---
+// One stateful toolbar toggle: a borderless icon button whose glyph reflects the
+// current state. Each toggle flips a single class on <html> (dark / simple / aoe);
+// the two glyphs swap on that class via a Tailwind custom-variant. Wiring lives in
+// scripts/toggles.ts, keyed off the matching `data-<toggle>-toggle` attribute.
+//
+// `iconInactive` shows when the class is ABSENT, `iconActive` when it is present.
+// The variant class strings are listed literally so Tailwind emits them.
+import Icon from "./Icon.astro";
+import type { IconName } from "../lib/icons";
+
+interface Props {
+  toggle: "theme" | "mode" | "tz";
+  iconInactive: IconName;
+  iconActive: IconName;
+  label: string;
+  title: string;
+}
+const { toggle, iconInactive, iconActive, label, title } = Astro.props;
+
+const VARIANT = {
+  theme: { off: "h-[18px] w-[18px] dark:hidden", on: "hidden h-[18px] w-[18px] dark:block" },
+  mode: { off: "h-[18px] w-[18px] simple:hidden", on: "hidden h-[18px] w-[18px] simple:block" },
+  tz: { off: "h-[18px] w-[18px] aoe:hidden", on: "hidden h-[18px] w-[18px] aoe:block" },
+} as const;
+const v = VARIANT[toggle];
+const dataAttr: Record<string, string> = { [`data-${toggle}-toggle`]: "" };
+---
+
+<button type="button" {...dataAttr} class="tbar-icon" aria-label={label} title={title}>
+  <Icon name={iconInactive} class={v.off} />
+  <Icon name={iconActive} class={v.on} />
+</button>

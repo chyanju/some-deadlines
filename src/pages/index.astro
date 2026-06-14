@@ -2,8 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import CategoryFilter from "../components/CategoryFilter.astro";
 import ConferenceCard from "../components/ConferenceCard.astro";
-import ModeToggle from "../components/ModeToggle.astro";
-import TzToggle from "../components/TzToggle.astro";
+import IconToggle from "../components/IconToggle.astro";
 import { byDeadline } from "../lib/deadlines";
 ---
 
@@ -11,8 +10,20 @@ import { byDeadline } from "../lib/deadlines";
   {/* Controls live in the sticky header bar so detail/timezone/filter stay
       reachable while scrolling. */}
   <div slot="toolbar" class="flex flex-wrap items-center gap-2">
-    <ModeToggle />
-    <TzToggle />
+    <IconToggle
+      toggle="mode"
+      iconInactive="telescope"
+      iconActive="bird"
+      label="Toggle detail (simple / complex)"
+      title="Detail: simple / complex"
+    />
+    <IconToggle
+      toggle="tz"
+      iconInactive="clock"
+      iconActive="globe"
+      label="Toggle deadline time zone (Local / Anywhere on Earth)"
+      title="Time zone: Local / AoE"
+    />
     <CategoryFilter showPastToggle={true} />
   </div>
 
