@@ -1,9 +1,8 @@
 # Milestone collection guide
 
 The playbook for updating `conferences.yml`. **Read this before adding or refreshing any
-conference.** It defines which dates we collect, which we deliberately skip, where to look, and
-how to handle the messy real-world cases. (Schema: `../types.ts` · data: `conferences.yml` ·
-categories: `types.yml`.)
+conference.** It defines which dates to collect, which to deliberately skip, where to look, and
+how to handle the messy real-world cases.
 
 ---
 
@@ -23,7 +22,7 @@ this rule is how you keep the ~3–5 that actually matter.
 
 ---
 
-## 2. What we collect → which field
+## 2. What to collect → which field
 
 | Milestone | Field(s) | Why it's decisive |
 |---|---|---|
@@ -39,7 +38,7 @@ this rule is how you keep the ~3–5 that actually matter.
 
 ---
 
-## 3. What we deliberately do NOT collect
+## 3. What to deliberately NOT collect
 
 - **Camera-ready / final-version due** — not decisive; almost everyone who reaches it is already in.
 - **Revision deadlines** — major/minor revision due, "revise & resubmit" re-submission. These come
@@ -56,13 +55,13 @@ so those dates have negligible bearing on *whether* it's accepted — exactly wh
 
 ---
 
-## 4. Which conferences we track (by category)
+## 4. Which conferences to track (by category)
 
 **No links here on purpose** — official URLs change every year and the patterns are inconsistent.
 Find the current site by searching e.g. `"<conf> <year> call for papers"` or `"<conf> <year>
 important dates"`, and confirm you're on the **official** page for the **right edition** (see §8.1).
 
-Categories are defined in `types.yml`:
+Categories (use the code in the `sub` field):
 
 - **Programming Languages (PL)** — PLDI, POPL, OOPSLA, ECOOP, ICFP, CAV
 - **Software Engineering (SE)** — ICSE, FSE, ASE, ISSTA
@@ -71,7 +70,7 @@ Categories are defined in `types.yml`:
 - **Computer Architecture (ARCH)** — ASPLOS
 - **More (MORE)** — CHI, UIST, SBC
 
-This is the set we maintain today. Adding a venue is a commitment to keep it current — don't add one
+This is the set tracked today. Adding a venue is a commitment to keep it current — don't add one
 casually (see §8.7).
 
 ---
@@ -95,12 +94,9 @@ dates into one record.
 ## 6. Sourcing — official only
 
 - Use **only the official conference page** (its CFP / "Important Dates" / "Dates" page).
-- **Never** trust aggregators (wikicfp, mirror lists, paper-pilot, etc.) — they are frequently wrong,
-  and a wrong date in a deadline tracker is worse than a missing one.
-- Record the exact official line each date came from. Keeping a scratch proposal in the workspace
-  `chat/` folder (sibling of this repo) is a good habit — the last run left
-  `chat/milestone-data-proposal.md` (sourced dates + quotes) and `chat/deadline-types.md` (the broader
-  catalog of milestone types we considered).
+- **Never** trust aggregators (wikicfp, mirror lists, etc.) — they are frequently wrong, and a wrong
+  date in a deadline tracker is worse than a missing one.
+- For each date, note the official source URL it came from, so the result can be reviewed.
 - If a date isn't on the official page, it does not go in. **Never guess or infer.**
 
 ---
@@ -110,10 +106,9 @@ dates into one record.
 - `'YYYY-MM-DD HH:MM:SS'`, quoted, in the conference's **own** `timezone`. `AoE` = Anywhere on Earth = `UTC-12`.
 - **Submission deadlines:** use the official clock time (usually `23:59:59` AoE).
 - **`notification` / `early_rejection`:** usually published as a bare date → store at `23:59:59`
-  (end of day) so the countdown doesn't flip to "passed" early.
+  (end of day) so it doesn't read as past too early.
 - **Rebuttal window "A–B":** `rebuttal_start: 'A 00:00:00'`, `rebuttal_end: 'B 23:59:59'`.
-- Not-yet-announced fields → `TBA` (the app handles it: a `TBA` deadline shows no countdown;
-  `TBA`/omitted `start`/`end` shows no meeting countdown).
+- Not-yet-announced dates → `TBA`.
 
 A complete record:
 
@@ -133,7 +128,7 @@ A complete record:
   date: April 25 - May 1, 2027
   start: 2027-04-25
   end: 2027-05-01
-  sub: "SE"                                     # category code from types.yml
+  sub: "SE"                                     # category code (see §4)
 ```
 
 ---
@@ -147,22 +142,19 @@ A complete record:
    struck-through old date beside a new one, use the new one. Trust the most recent official info and
    just update — no need to ask for routine reschedules.
 3. **Some milestones announced, others not.** Record what's published and **omit** the fields that
-   aren't out yet — the card simply won't render that row. Never invent the missing one.
+   aren't out yet — never invent a missing one.
 4. **Deadlines known, but the meeting place / dates aren't.** Still record the deadlines. For the
    meeting fields, use `TBA` for `place` / `date` and `TBA` (or omit) for `start` / `end` until they're
    announced — don't fabricate a city or meeting dates. If even the **paper deadline** is unconfirmed,
    don't add the entry yet.
 5. **Tentative / approximate dates** ("around March 4", "early March", "tentative"): a tracker date must
-   be a real, committed date. **Omit it** (or `TBA`) rather than record an approximation.
-   *(Example: CAV's "around March 4" early-reject was omitted.)*
+   be a real, committed date. **Omit it** (or use `TBA`) rather than record an approximation.
 6. **Revise-and-resubmit venues** (e.g. CHI, some PL rounds): map the author-response / revise window to
-   `rebuttal_*`, and the **first** binding decision to `notification`. Note the mapping in your scratch doc.
+   `rebuttal_start` / `rebuttal_end`, and the **first** binding decision to `notification`.
 7. **Don't add brand-new conferences silently.** Adding a venue is a commitment to keep it current.
-   Confirm with the user that it belongs (right category, a venue we want to track) before adding it.
-8. **Historical vs upcoming.** We keep decisive milestones even when they're already in the past — they
-   render as `passed` / `ended` (mostly on dimmed closed cards), and an *upcoming* milestone on an
-   already-closed card is the whole reason the "Nearest Milestone" sort exists. So collect a published
-   decisive date regardless of whether it's past or future.
+   Confirm with the user that it belongs (right category, a venue worth tracking) before adding it.
+8. **Past vs upcoming.** Collect a published decisive date whether it's already past or still upcoming —
+   a closed conference can still have upcoming review milestones worth showing.
 
 ---
 
