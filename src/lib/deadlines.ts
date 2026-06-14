@@ -138,7 +138,7 @@ export function deadlineItems(c: ProcessedConference): DeadlineItem[] {
       summary,
       noun: def.noun,
       uid,
-      icsHref: `/conference/${uid}.ics`,
+      icsHref: `${import.meta.env.BASE_URL}/conference/${uid}.ics`,
       gcalUrl: gcalTemplateUrl(summary, m.ms, m.endMs),
     });
   }
