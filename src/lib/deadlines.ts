@@ -27,6 +27,8 @@ export interface ProcessedConference extends Conference {
   deadlineMs: number | null;
   /** Abstract deadline as epoch ms; null when absent/TBA. */
   absDeadlineMs: number | null;
+  /** Conference start as epoch ms (midnight UTC of `start`); null when absent. */
+  startMs: number | null;
   isTba: boolean;
   /** Compact paper deadline for cards, e.g. "Thu 13 Nov 2025, 23:59 UTC-12". */
   deadlineShort: string | null;
@@ -38,6 +40,7 @@ export function process(c: Conference): ProcessedConference {
   const zone = c.timezone || site.defaultTimezone;
   const dl = parseInZone(c.deadline, zone);
   const abs = parseInZone(c.abstract_deadline, zone);
+  const start = c.start ? DateTime.fromISO(c.start, { zone: "utc" }) : null;
   const subs = String(c.sub)
     .split(",")
     .map((s) => s.trim())
@@ -50,6 +53,7 @@ export function process(c: Conference): ProcessedConference {
       .filter((t): t is ConfType => Boolean(t)),
     deadlineMs: dl?.toMillis() ?? null,
     absDeadlineMs: abs?.toMillis() ?? null,
+    startMs: start?.isValid ? start.toMillis() : null,
     isTba: !dl,
     deadlineShort: shortInConfTz(dl, c.timezone),
     absShort: shortInConfTz(abs, c.timezone),

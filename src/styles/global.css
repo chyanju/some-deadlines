@@ -259,6 +259,11 @@ html.dark .card.is-urgent:hover {
   width: max-content;
   max-width: 100%;
 }
+/* Conference date·place row spans the icons·label·date columns; its countdown
+   sits in the 4th column, aligned with the deadline countdowns. */
+.dl-conf {
+  grid-column: 1 / 4;
+}
 
 /* Inline per-deadline countdown: small (inherits the row's 0.8125rem) but bold —
    the "N days left" figure is heaviest. Colour comes from the rule above (urgent)

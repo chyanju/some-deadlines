@@ -56,8 +56,11 @@ const iconCls =
       the right. */}
   <div class="mt-2.5 flex items-end justify-between gap-4">
     <div class="min-w-0 flex-1">
-      <p class="text-[0.9375rem] text-text-2">{conf.date} · {conf.place}</p>
-      <dl class="dl-grid mt-1.5 text-[0.8125rem]">
+      <dl class="dl-grid mt-0.5 text-[0.8125rem]">
+        <div class="contents">
+          <span class="dl-conf text-text-2">{conf.date} · {conf.place}</span>
+          <InlineCountdown ms={conf.startMs} />
+        </div>
         <div class="contents">
           <span class="flex min-w-[2.4rem] items-center gap-0.5">
             {paper && <DeadlineActions item={paper} />}
