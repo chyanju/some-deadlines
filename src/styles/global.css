@@ -251,22 +251,47 @@ html.dark .card.is-urgent:hover {
   font-weight: 700;
 }
 
-/* Per-deadline rows as an aligned mini-table: icons · label · date · countdown.
-   Rows are display:contents so every cell shares these four auto-sized columns,
-   lining the countdown up across Paper / Abstract. */
+/* Per-deadline rows: icons · label · date · countdown. On phones each row is a
+   flex line that wraps — a long date or countdown moves to the next line as a
+   whole unit instead of breaking mid-value. ≥640px the rows become a 4-column
+   grid so the columns line up across milestones (display:contents lets each
+   row's cells join that grid). */
 .dl-grid {
-  display: grid;
-  grid-template-columns: auto auto auto auto;
-  align-items: center;
-  column-gap: 0.5rem;
-  row-gap: 0.3rem;
-  width: max-content;
-  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
 }
-/* Conference date·place row spans the icons·label·date columns; its countdown
-   sits in the 4th column, aligned with the deadline countdowns. */
-.dl-conf {
-  grid-column: 1 / 4;
+.dl-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: 0.5rem;
+  row-gap: 0.1rem;
+}
+.dl-label,
+.dl-date {
+  white-space: nowrap;
+}
+/* Phones: the date drops to its own line under the label (and the countdown
+   after it), so every milestone reads label / date / countdown uniformly. In the
+   ≥640px grid below, .dl-date is a grid item, so flex-basis is ignored there. */
+.dl-date {
+  flex-basis: 100%;
+}
+@media (min-width: 640px) {
+  .dl-grid {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    align-items: center;
+    gap: 0.3rem 0.5rem;
+  }
+  .dl-row {
+    display: contents;
+  }
+  /* Conference date·place spans icons·label·date; its countdown sits in col 4. */
+  .dl-row-conf .dl-conf-text {
+    grid-column: 1 / 4;
+  }
 }
 
 /* Inline per-deadline countdown: small (inherits the row's 0.8125rem) but bold —

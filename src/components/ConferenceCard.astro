@@ -59,23 +59,27 @@ const iconCls = "icon-link shrink-0 rounded p-1";
     </div>
   </div>
 
-  {/* Row 2 — date·place, then the milestone mini-table (icons · label · date ·
-      countdown) with aligned columns; the big countdown (the focus) sits right. */}
-  <div class="mt-2.5 flex items-end justify-between gap-4">
+  {/* Row 2 — date·place + milestone mini-table (icons · label · date · countdown),
+      with the big countdown (the focus) to the right. On phones the big figure
+      stacks on top and each milestone row reflows (flex-wrap) so a long date never
+      breaks mid-value; ≥640px the rows align as a 4-column grid. */}
+  <div
+    class="mt-2.5 flex flex-col-reverse gap-3 sm:flex-row sm:items-end sm:justify-between sm:gap-4"
+  >
     <div class="min-w-0 flex-1">
-      <dl class="dl-grid mt-0.5 text-[0.8125rem]">
-        <div class="contents">
-          <span class="dl-conf text-text-2">{abbrevMonths(conf.date)} · {conf.place}</span>
+      <dl class="dl-grid text-[0.8125rem]">
+        <div class="dl-row dl-row-conf">
+          <span class="dl-conf-text text-text-2">{abbrevMonths(conf.date)} · {conf.place}</span>
           <InlineCountdown ms={conf.startMs} endMs={conf.endMs} />
         </div>
         {
           rows.map(({ m, action }) => (
-            <div class="contents">
-              <span class="flex min-w-[2.4rem] items-center gap-0.5">
+            <div class="dl-row">
+              <span class="dl-actions flex min-w-[2.4rem] items-center gap-0.5">
                 {action && <DeadlineActions item={action} />}
               </span>
-              <dt class="eyebrow">{m.label}</dt>
-              <dd class={`tnum ${m.strong ? "text-text" : "text-text-2"}`}>
+              <dt class="dl-label eyebrow">{m.label}</dt>
+              <dd class={`dl-date tnum ${m.strong ? "text-text" : "text-text-2"}`}>
                 <span data-dl={m.ms ?? ""}>{m.short ?? "TBA"}</span>
               </dd>
               <InlineCountdown ms={m.ms} endMs={m.endMs} />
