@@ -117,6 +117,10 @@ server hot-reloads on save. Each conference is one list item:
   link: https://pldi26.sigplan.org/
   deadline: '2025-11-13 23:59:59'  # 'YYYY-MM-DD HH:MM:SS' (quoted), or TBA
   abstract_deadline: '2025-11-06 23:59:59'   # optional
+  # optional extra milestones (same format; omit if the conference has none):
+  #   early_rejection: '...'
+  #   rebuttal_start: '...'   rebuttal_end: '...'   # an interval, shown together
+  #   notification: '...'
   timezone: UTC-12                 # 'UTC-12'..'UTC+14' or an IANA name
   place: Boulder, Colorado, United States
   date: June 15-19, 2026           # free-text, display only

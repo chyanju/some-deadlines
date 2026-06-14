@@ -35,6 +35,22 @@ const mode = (): Mode =>
     ? "milestone"
     : "deadline";
 
+/** All dated milestones on a card (abstract, paper, early-reject, rebuttal
+ *  open/close, notification, conference start/end) — the candidates for the
+ *  "milestone" sort and big figure. */
+function milestoneDates(card: HTMLElement): number[] {
+  return [
+    num(card.dataset.abs),
+    num(card.dataset.deadline),
+    num(card.dataset.er),
+    num(card.dataset.rstart),
+    num(card.dataset.rend),
+    num(card.dataset.notif),
+    num(card.dataset.start),
+    num(card.dataset.end),
+  ].filter(Boolean);
+}
+
 /** The instant the big figure counts to under `m`, or a label when nothing is up. */
 function primary(
   card: HTMLElement,
@@ -43,12 +59,7 @@ function primary(
 ): { ms: number } | { label: "Passed" | "ended" | "TBA" } {
   const paper = num(card.dataset.deadline);
   if (m === "milestone") {
-    const up = [
-      num(card.dataset.abs),
-      paper,
-      num(card.dataset.start),
-      num(card.dataset.end),
-    ].filter((x) => x && x > now);
+    const up = milestoneDates(card).filter((x) => x > now);
     return up.length ? { ms: Math.min(...up) } : { label: "ended" };
   }
   if (!paper) return { label: "TBA" };
@@ -126,12 +137,7 @@ function sortKey(
 ): { passed: boolean; key: number } {
   const paper = num(card.dataset.deadline);
   if (m === "milestone") {
-    const dates = [
-      num(card.dataset.abs),
-      paper,
-      num(card.dataset.start),
-      num(card.dataset.end),
-    ].filter(Boolean);
+    const dates = milestoneDates(card);
     const up = dates.filter((x) => x > now);
     if (up.length) return { passed: false, key: Math.min(...up) };
     return { passed: true, key: dates.length ? Math.max(...dates) : 0 };

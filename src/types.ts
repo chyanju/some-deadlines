@@ -21,6 +21,13 @@ export interface Conference {
   deadline: string;
   /** Optional abstract deadline, same format. */
   abstract_deadline?: string;
+  /** Optional early-rejection notification, same format. */
+  early_rejection?: string;
+  /** Optional author-response (rebuttal) window, same format. Both or neither. */
+  rebuttal_start?: string;
+  rebuttal_end?: string;
+  /** Optional acceptance/decision notification, same format. */
+  notification?: string;
   /** Deadline timezone: 'UTC-12'..'UTC+14' or an IANA name. */
   timezone: string;
   place: string;

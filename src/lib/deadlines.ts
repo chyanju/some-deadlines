@@ -37,12 +37,26 @@ export interface ProcessedConference extends Conference {
   deadlineShort: string | null;
   /** Compact abstract deadline for cards. */
   absShort: string | null;
+  /** Early-rejection notification. */
+  earlyRejectMs: number | null;
+  earlyRejectShort: string | null;
+  /** Author-response (rebuttal) window; ongoing while now is in [start, end). */
+  rebuttalStartMs: number | null;
+  rebuttalEndMs: number | null;
+  rebuttalShort: string | null;
+  /** Acceptance/decision notification. */
+  notificationMs: number | null;
+  notificationShort: string | null;
 }
 
 export function process(c: Conference): ProcessedConference {
   const zone = c.timezone || site.defaultTimezone;
   const dl = parseInZone(c.deadline, zone);
   const abs = parseInZone(c.abstract_deadline, zone);
+  const er = parseInZone(c.early_rejection, zone);
+  const rstart = parseInZone(c.rebuttal_start, zone);
+  const rend = parseInZone(c.rebuttal_end, zone);
+  const notif = parseInZone(c.notification, zone);
   const start = c.start ? DateTime.fromISO(c.start, { zone: "utc" }) : null;
   // Ongoing through the whole end day, so the "ended" instant is the next midnight.
   const end = c.end ? DateTime.fromISO(c.end, { zone: "utc" }).plus({ days: 1 }) : null;
@@ -63,6 +77,13 @@ export function process(c: Conference): ProcessedConference {
     isTba: !dl,
     deadlineShort: shortInConfTz(dl, c.timezone),
     absShort: shortInConfTz(abs, c.timezone),
+    earlyRejectMs: er?.toMillis() ?? null,
+    earlyRejectShort: shortInConfTz(er, c.timezone),
+    rebuttalStartMs: rstart?.toMillis() ?? null,
+    rebuttalEndMs: rend?.toMillis() ?? null,
+    rebuttalShort: shortInConfTz(rstart, c.timezone),
+    notificationMs: notif?.toMillis() ?? null,
+    notificationShort: shortInConfTz(notif, c.timezone),
   };
 }
 

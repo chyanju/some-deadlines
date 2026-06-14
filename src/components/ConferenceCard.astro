@@ -20,6 +20,10 @@ const iconCls =
   data-conf
   data-deadline={conf.deadlineMs ?? ""}
   data-abs={conf.absDeadlineMs ?? ""}
+  data-er={conf.earlyRejectMs ?? ""}
+  data-rstart={conf.rebuttalStartMs ?? ""}
+  data-rend={conf.rebuttalEndMs ?? ""}
+  data-notif={conf.notificationMs ?? ""}
   data-start={conf.startMs ?? ""}
   data-end={conf.endMs ?? ""}
   data-subs={conf.subs.join(",")}
@@ -86,6 +90,42 @@ const iconCls =
                 <span data-dl={conf.absDeadlineMs ?? ""}>{conf.absShort}</span>
               </dd>
               <InlineCountdown ms={conf.absDeadlineMs} />
+            </div>
+          )
+        }
+        {
+          conf.earlyRejectShort && (
+            <div class="contents">
+              <span class="min-w-[2.4rem]" />
+              <dt class="eyebrow">Early Reject</dt>
+              <dd class="tnum text-text-2">
+                <span data-dl={conf.earlyRejectMs ?? ""}>{conf.earlyRejectShort}</span>
+              </dd>
+              <InlineCountdown ms={conf.earlyRejectMs} />
+            </div>
+          )
+        }
+        {
+          conf.rebuttalShort && (
+            <div class="contents">
+              <span class="min-w-[2.4rem]" />
+              <dt class="eyebrow">Rebuttal</dt>
+              <dd class="tnum text-text-2">
+                <span data-dl={conf.rebuttalStartMs ?? ""}>{conf.rebuttalShort}</span>
+              </dd>
+              <InlineCountdown ms={conf.rebuttalStartMs} endMs={conf.rebuttalEndMs} />
+            </div>
+          )
+        }
+        {
+          conf.notificationShort && (
+            <div class="contents">
+              <span class="min-w-[2.4rem]" />
+              <dt class="eyebrow">Notification</dt>
+              <dd class="tnum text-text-2">
+                <span data-dl={conf.notificationMs ?? ""}>{conf.notificationShort}</span>
+              </dd>
+              <InlineCountdown ms={conf.notificationMs} />
             </div>
           )
         }
