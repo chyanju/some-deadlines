@@ -49,7 +49,7 @@ all the inline per-deadline countdowns), and **Local / AoE** deadline time zone
 Deadlines** option, and a **sort** choice: by paper submission deadline, or by
 each card's nearest upcoming milestone — which also drives what the big figure
 counts to), **View Transitions** (`<ClientRouter />`), an urgency ramp (category
-colour intensifies ≤30d, deepens ≤7d), and per-deadline **.ics download** +
+colour intensifies ≤30d, deepens ≤7d), and per-milestone **.ics download** +
 **Add to Google Calendar** links. Theme / detail / time-zone / sort choices
 persist in `localStorage`; nothing is read from or written to the URL.
 
@@ -72,7 +72,7 @@ src/
     ConferenceCard.astro        # one conference (dates, links, deadlines, countdowns)
     CategoryFilter.astro        # Options menu: categories, Include Closed
                                 #   Deadlines, sort radios (portaled to <body>)
-    DeadlineActions.astro       # per-deadline "Add to Google Calendar" + ".ics" icons
+    DeadlineActions.astro       # per-milestone "Add to Google Calendar" + ".ics" icons
     InlineCountdown.astro       # small "(N days left · HH:MM:SS)" countdown cell
     ModeToggle.astro            # detail toggle (simple / complex) — stateful icon button
     TzToggle.astro              # Local / AoE toggle — stateful icon button
@@ -88,7 +88,7 @@ src/
   styles/global.css   # design tokens + component classes + the Liquid Glass layer
   pages/
     index.astro               # the conference list (the whole app) -> /
-    conference/[id].ics.ts    # per-conference calendar file -> /conference/<id>.ics
+    conference/[id].ics.ts    # per-milestone calendar file -> /conference/<id>-<kind>.ics
     some-deadlines.ics.ts     # full ICS feed -> /some-deadlines.ics
 public/
     favicon.png

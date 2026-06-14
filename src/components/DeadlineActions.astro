@@ -1,7 +1,7 @@
 ---
-// The two "add this deadline to your calendar" icons, shown before a single
-// paper/abstract deadline row. Each adds only that date. Both are outline
-// (stroke) glyphs from the same Feather family as the toolbar icons:
+// The two "add this milestone to your calendar" icons, shown before each
+// milestone row. Each adds only that date (or window, for rebuttal). Both are
+// outline (stroke) glyphs from the same Feather family as the toolbar icons:
 //   - calendar-with-plus  -> add to Google Calendar
 //   - download            -> download the .ics file
 import type { DeadlineItem } from "../lib/deadlines";
@@ -10,7 +10,14 @@ interface Props {
   item: DeadlineItem;
 }
 const { item } = Astro.props;
-const label = item.kind; // "paper" | "abstract"
+const LABELS: Record<DeadlineItem["kind"], string> = {
+  paper: "paper deadline",
+  abstract: "abstract deadline",
+  "early-reject": "early-reject date",
+  rebuttal: "rebuttal period",
+  notification: "notification date",
+};
+const label = LABELS[item.kind];
 const iconCls =
   "rounded p-0.5 text-text-3 transition-colors hover:bg-[rgba(120,120,140,0.14)] hover:text-accent dark:hover:bg-[rgba(255,255,255,0.07)]";
 const svgCls = "h-3.5 w-3.5";
@@ -20,8 +27,8 @@ const svgCls = "h-3.5 w-3.5";
   href={item.gcalUrl}
   target="_blank"
   rel="noopener"
-  title={`Add ${label} deadline to Google Calendar`}
-  aria-label={`Add ${label} deadline to Google Calendar`}
+  title={`Add ${label} to Google Calendar`}
+  aria-label={`Add ${label} to Google Calendar`}
   class={iconCls}
 >
   <svg class={svgCls} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -32,8 +39,8 @@ const svgCls = "h-3.5 w-3.5";
 <a
   href={item.icsHref}
   download={`${item.uid}.ics`}
-  title={`Download ${label} deadline (.ics)`}
-  aria-label={`Download ${label} deadline (.ics)`}
+  title={`Download ${label} (.ics)`}
+  aria-label={`Download ${label} (.ics)`}
   class={iconCls}
 >
   <svg class={svgCls} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">

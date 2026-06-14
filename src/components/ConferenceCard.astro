@@ -11,6 +11,9 @@ const { conf } = Astro.props;
 const items = deadlineItems(conf);
 const paper = items.find((d) => d.kind === "paper");
 const abstract = items.find((d) => d.kind === "abstract");
+const earlyReject = items.find((d) => d.kind === "early-reject");
+const rebuttal = items.find((d) => d.kind === "rebuttal");
+const notification = items.find((d) => d.kind === "notification");
 const iconCls =
   "shrink-0 rounded p-1 text-text-3 transition-colors hover:bg-[rgba(120,120,140,0.14)] hover:text-accent dark:hover:bg-[rgba(255,255,255,0.07)]";
 ---
@@ -96,7 +99,9 @@ const iconCls =
         {
           conf.earlyRejectShort && (
             <div class="contents">
-              <span class="min-w-[2.4rem]" />
+              <span class="flex min-w-[2.4rem] items-center gap-0.5">
+                {earlyReject && <DeadlineActions item={earlyReject} />}
+              </span>
               <dt class="eyebrow">Early Reject</dt>
               <dd class="tnum text-text-2">
                 <span data-dl={conf.earlyRejectMs ?? ""}>{conf.earlyRejectShort}</span>
@@ -108,7 +113,9 @@ const iconCls =
         {
           conf.rebuttalShort && (
             <div class="contents">
-              <span class="min-w-[2.4rem]" />
+              <span class="flex min-w-[2.4rem] items-center gap-0.5">
+                {rebuttal && <DeadlineActions item={rebuttal} />}
+              </span>
               <dt class="eyebrow">Rebuttal</dt>
               <dd class="tnum text-text-2">
                 <span data-dl={conf.rebuttalStartMs ?? ""}>{conf.rebuttalShort}</span>
@@ -120,7 +127,9 @@ const iconCls =
         {
           conf.notificationShort && (
             <div class="contents">
-              <span class="min-w-[2.4rem]" />
+              <span class="flex min-w-[2.4rem] items-center gap-0.5">
+                {notification && <DeadlineActions item={notification} />}
+              </span>
               <dt class="eyebrow">Notification</dt>
               <dd class="tnum text-text-2">
                 <span data-dl={conf.notificationMs ?? ""}>{conf.notificationShort}</span>

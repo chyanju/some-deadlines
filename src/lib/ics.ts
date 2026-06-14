@@ -1,12 +1,14 @@
 import { DateTime } from "luxon";
 import { site } from "../data/site";
 
-/** One calendar event: a single instant (zero-duration). */
+/** One calendar event: an instant (zero-duration) or a [ms, endMs] window. */
 export interface IcsEvent {
   /** Stable UID stem ("@some-deadlines" is appended). */
   uid: string;
   summary: string;
   ms: number;
+  /** End instant; defaults to `ms` (zero-duration) when null/omitted. */
+  endMs?: number | null;
 }
 
 /** Format an epoch-ms instant as an iCalendar UTC timestamp. */
@@ -19,14 +21,14 @@ function esc(text: string): string {
   return text.replace(/([,;\\])/g, "\\$1").replace(/\r?\n/g, "\\n");
 }
 
-function vevent(uid: string, summary: string, ms: number, stamp: string): string[] {
+function vevent(e: IcsEvent, stamp: string): string[] {
   return [
     "BEGIN:VEVENT",
-    `UID:${uid}@some-deadlines`,
+    `UID:${e.uid}@some-deadlines`,
     `DTSTAMP:${stamp}`,
-    `DTSTART:${fmtUtc(ms)}`,
-    `DTEND:${fmtUtc(ms)}`,
-    `SUMMARY:${esc(summary)}`,
+    `DTSTART:${fmtUtc(e.ms)}`,
+    `DTEND:${fmtUtc(e.endMs ?? e.ms)}`,
+    `SUMMARY:${esc(e.summary)}`,
     "END:VEVENT",
   ];
 }
@@ -46,7 +48,7 @@ export function buildIcs(events: IcsEvent[]): string {
     `X-WR-CALNAME:${esc(site.title)}`,
     "X-PUBLISHED-TTL:PT1H",
   ];
-  for (const e of events) lines.push(...vevent(e.uid, e.summary, e.ms, stamp));
+  for (const e of events) lines.push(...vevent(e, stamp));
   lines.push("END:VCALENDAR");
   return lines.join("\r\n") + "\r\n";
 }

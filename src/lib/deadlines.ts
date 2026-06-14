@@ -96,46 +96,57 @@ export const byDeadline: ProcessedConference[] = [...allConferences].sort((a, b)
   return a.deadlineMs - b.deadlineMs;
 });
 
-/** A single calendar-addable deadline (paper or abstract) of a conference, with
- *  everything the card and the .ics endpoints need to add just that one date. */
+/** A single calendar-addable milestone of a conference, with everything the card
+ *  and the .ics endpoints need to add just that one date (or window). */
 export interface DeadlineItem {
-  kind: "paper" | "abstract";
-  /** Epoch-ms instant of the deadline. */
+  kind: "paper" | "abstract" | "early-reject" | "rebuttal" | "notification";
+  /** Epoch-ms instant of the milestone (the start, for a window like rebuttal). */
   ms: number;
+  /** End instant for a window (rebuttal); null/omitted for point milestones. */
+  endMs?: number | null;
   /** Event title, e.g. "[ICSE 2027] Paper Deadline". */
   summary: string;
   /** Stable slug, e.g. "icse2027-paper" (the UID stem and .ics filename). */
   uid: string;
-  /** Per-deadline .ics download path. */
+  /** Per-milestone .ics download path. */
   icsHref: string;
-  /** "Add to Google Calendar" template URL for this one deadline. */
+  /** "Add to Google Calendar" template URL for this one milestone. */
   gcalUrl: string;
 }
 
-/** Build a Google Calendar "create event" template URL for one instant. */
-function gcalTemplateUrl(summary: string, ms: number): string {
-  const t = DateTime.fromMillis(ms, { zone: "utc" }).toFormat("yyyyMMdd'T'HHmmss'Z'");
-  return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(summary)}&dates=${t}/${t}`;
+/** Build a Google Calendar "create event" template URL for an instant or a
+ *  [start, end] window (end defaults to start -> a zero-duration event). */
+function gcalTemplateUrl(summary: string, ms: number, endMs?: number | null): string {
+  const fmt = (m: number) =>
+    DateTime.fromMillis(m, { zone: "utc" }).toFormat("yyyyMMdd'T'HHmmss'Z'");
+  const start = fmt(ms);
+  const end = endMs != null ? fmt(endMs) : start;
+  return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(summary)}&dates=${start}/${end}`;
 }
 
-/** The calendar-addable deadlines of a conference (paper first, then abstract, to
- *  match the card). TBA deadlines are omitted — there is nothing to add. */
+/** The calendar-addable milestones of a conference, in card order (paper,
+ *  abstract, early-reject, rebuttal, notification). Rebuttal carries an end
+ *  (it is a window); the rest are instants. Absent milestones are omitted. */
 export function deadlineItems(c: ProcessedConference): DeadlineItem[] {
   const out: DeadlineItem[] = [];
-  const add = (kind: "paper" | "abstract", label: string, ms: number) => {
-    const summary = `[${c.title} ${c.year}] ${label} Deadline`;
+  const add = (kind: DeadlineItem["kind"], label: string, ms: number, endMs?: number | null) => {
+    const summary = `[${c.title} ${c.year}] ${label}`;
     const uid = `${c.id}-${kind}`;
     out.push({
       kind,
       ms,
+      endMs: endMs ?? null,
       summary,
       uid,
       icsHref: `/conference/${uid}.ics`,
-      gcalUrl: gcalTemplateUrl(summary, ms),
+      gcalUrl: gcalTemplateUrl(summary, ms, endMs),
     });
   };
-  if (c.deadlineMs != null) add("paper", "Paper", c.deadlineMs);
-  if (c.absDeadlineMs != null) add("abstract", "Abstract", c.absDeadlineMs);
+  if (c.deadlineMs != null) add("paper", "Paper Deadline", c.deadlineMs);
+  if (c.absDeadlineMs != null) add("abstract", "Abstract Deadline", c.absDeadlineMs);
+  if (c.earlyRejectMs != null) add("early-reject", "Early Reject", c.earlyRejectMs);
+  if (c.rebuttalStartMs != null) add("rebuttal", "Rebuttal", c.rebuttalStartMs, c.rebuttalEndMs);
+  if (c.notificationMs != null) add("notification", "Notification", c.notificationMs);
   return out;
 }
 
