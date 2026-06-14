@@ -60,30 +60,32 @@ src/
   types.ts            # Conference + ConfType interfaces (the data model)
   data/
     conferences.yml   # ★ the data — edit this to add/update conferences
+    milestone.md      # guide for authoring conferences.yml (which dates to collect)
     types.yml         # subject categories (PL/SE/SECURITY/OS/ARCH/MORE) + colors
     conferences.ts    # loads + validates the YAML, exports typed records
     site.ts           # site config (title, author, GitHub repo, optional GA id)
   lib/                # build-time logic
-    deadlines.ts      # Luxon: parse deadline + timezone -> epoch ms + formatting
+    milestones.ts     # ★ milestone registry — one entry per dated milestone type
+    deadlines.ts      # Luxon: resolve milestones + timezone -> epoch ms + formatting
+    icons.ts          # central SVG path set (rendered by Icon.astro)
     ics.ts            # build VCALENDAR feeds
-  layouts/Layout.astro          # shared HTML shell (head, header, liquid-glass filter)
+  layouts/Layout.astro          # shared HTML shell (head, header, no-flash, glass filter)
   components/
     Header.astro                # sticky glass bar: wordmark + toolbar slot + theme + GitHub
-    ConferenceCard.astro        # one conference (dates, links, deadlines, countdowns)
+    ConferenceCard.astro        # one conference (dates, links, milestones, countdowns)
     CategoryFilter.astro        # Options menu: categories, Include Closed
                                 #   Deadlines, sort radios (portaled to <body>)
     DeadlineActions.astro       # per-milestone "Add to Google Calendar" + ".ics" icons
     InlineCountdown.astro       # small "(N days left · HH:MM:SS)" countdown cell
-    ModeToggle.astro            # detail toggle (simple / complex) — stateful icon button
-    TzToggle.astro              # Local / AoE toggle — stateful icon button
+    Icon.astro                  # renders one glyph from lib/icons.ts
+    IconToggle.astro            # one stateful toolbar toggle (theme / detail / tz)
   scripts/                      # client-side, re-run on every astro:page-load
-    app.ts            # orchestrates the page (countdowns + filter wiring)
+    app.ts            # orchestrates the page (countdowns + toggles + sort + filter)
     countdown.ts      # live big (mode-aware) + inline countdowns, urgency, orderList
     filter.ts         # category + Closed-submissions filter (session-only, no URL)
     sort.ts           # sort mode (deadline / milestone); drives order + big figure
-    tz.ts             # Local / AoE deadline display + toggle
-    mode.ts           # simple / complex detail toggle
-    theme.ts          # dark-mode toggle
+    toggles.ts        # ★ toggle registry — theme/detail/tz wiring + no-flash script
+    tz.ts             # Local / AoE deadline date formatting
     storage.ts        # localStorage keys (one source of truth)
   styles/global.css   # design tokens + component classes + the Liquid Glass layer
   pages/
@@ -93,6 +95,17 @@ src/
 public/
     favicon.png
 ```
+
+Two small registries are the main extension points:
+
+- **`lib/milestones.ts`** — to add a milestone type (e.g. camera-ready): add its
+  field(s) to `Conference` (`types.ts`), add one entry here, then fill the dates in
+  `conferences.yml`. The parser, card rows, calendar `.ics` items, and the
+  milestone sort all derive from it.
+- **`scripts/toggles.ts`** — the theme / detail / time-zone toggles and the
+  pre-paint no-flash script come from one `TOGGLES` list (key · `<html>` class ·
+  values). Toolbar glyphs live in `lib/icons.ts`, rendered by `Icon.astro` /
+  `IconToggle.astro`.
 
 **Single-page app.** `index.astro` is the whole app: a single filterable list of
 conference countdowns, driven by the category filter in the header. Everything

@@ -37,6 +37,9 @@
 
   --ease-out: cubic-bezier(0.2, 0, 0, 1);
 
+  /* Subtle hover fill for borderless icon controls (toolbar · menu rows · card icons). */
+  --hover-fill: rgba(120, 120, 140, 0.14);
+
   /* Liquid Glass material — light defaults (blur/saturate are inlined per surface) */
   --glass-fill: rgba(255, 255, 255, 0.3);
   --glass-fill-strong: rgba(255, 255, 255, 0.4);
@@ -71,6 +74,8 @@ html.dark {
   --glass-edge-rim: rgba(255, 255, 255, 0.06);
   --glass-hairline: rgba(255, 255, 255, 0.1);
   --glass-shadow-rgb: 0, 0, 0;
+
+  --hover-fill: rgba(255, 255, 255, 0.08);
 }
 
 html {
@@ -368,11 +373,22 @@ html.dark .badge {
     color 140ms var(--ease-out);
 }
 .tbar-icon:hover {
-  background: rgba(120, 120, 140, 0.14);
+  background: var(--hover-fill);
   color: var(--color-text);
 }
-html.dark .tbar-icon:hover {
-  background: rgba(255, 255, 255, 0.08);
+
+/* Borderless icon link — the card's website link + the per-milestone calendar
+   icons: muted, revealing the shared hover fill + accent on hover. The caller sets
+   padding/size (e.g. "icon-link rounded p-1"). */
+.icon-link {
+  color: var(--color-text-3);
+  transition:
+    background-color 140ms var(--ease-out),
+    color 140ms var(--ease-out);
+}
+.icon-link:hover {
+  background: var(--hover-fill);
+  color: var(--color-accent);
 }
 
 /* dropdown menu row — subtle translucent hover (not an opaque fill) */
@@ -380,10 +396,7 @@ html.dark .tbar-icon:hover {
   transition: background-color 120ms var(--ease-out);
 }
 .menu-row:hover {
-  background: rgba(120, 120, 140, 0.14);
-}
-html.dark .menu-row:hover {
-  background: rgba(255, 255, 255, 0.07);
+  background: var(--hover-fill);
 }
 
 /* ============================ Liquid Glass ============================ */
