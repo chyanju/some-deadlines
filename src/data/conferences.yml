@@ -168,34 +168,6 @@
 # ===================== #
 
 - title: S&P (First Deadline)
-  year: 2026
-  id: sp2026a
-  link: https://www.ieee-security.org/TC/SP2026/index.html
-  abstract_deadline: '2025-05-29 23:59:59'
-  deadline: '2025-06-05 23:59:59'
-  timezone: UTC-12
-  place: San Francisco, California, USA
-  date: May 18 - 21, 2026
-  start: 2026-05-18
-  end: 2026-05-21
-  sub: "SECURITY"
-  note: <a href='https://www.ieee-security.org/TC/SP2026/index.html'>conference site</a>
-
-- title: S&P (Second Deadline)
-  year: 2026
-  id: sp2026b
-  link: https://www.ieee-security.org/TC/SP2026/index.html
-  abstract_deadline: '2025-11-06 23:59:59'
-  deadline: '2025-11-13 23:59:59'
-  timezone: UTC-12
-  place: San Francisco, California, USA
-  date: May 18 - 21, 2026
-  start: 2026-05-18
-  end: 2026-05-21
-  sub: "SECURITY"
-  note: <a href='https://www.ieee-security.org/TC/SP2026/index.html'>conference site</a>
-
-- title: S&P (First Deadline)
   year: 2027
   id: sp2027a
   link: https://sp2027.ieee-security.org/

@@ -1,14 +1,16 @@
 ---
-// Small inline deadline countdown cell: "(N days left · HH:MM:SS)", or "(passed)".
-// Always renders a cell (empty for TBA) so the deadline grid columns stay aligned.
-// Wired by scripts/countdown.ts via [data-inline-cd] (reads data-deadline; ticks).
+// Small inline countdown cell: "(N days left · HH:MM:SS)", or "(passed)". When an
+// `endMs` is given (the conference's meeting interval), it shows "(ongoing)" between
+// ms and endMs and "(ended)" after. Always renders a cell (empty for TBA) so the
+// deadline grid columns stay aligned. Wired by scripts/countdown.ts ([data-inline-cd]).
 interface Props {
   ms: number | null;
+  endMs?: number | null;
 }
-const { ms } = Astro.props;
+const { ms, endMs = null } = Astro.props;
 ---
 
-<span class="cd-inline" data-inline-cd data-deadline={ms ?? ""}>
+<span class="cd-inline" data-inline-cd data-deadline={ms ?? ""} data-end={endMs ?? ""}>
   {ms != null && (
     <Fragment>(<span data-inline-days>—</span><span data-inline-clock></span>)</Fragment>
   )}

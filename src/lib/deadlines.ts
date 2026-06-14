@@ -29,6 +29,9 @@ export interface ProcessedConference extends Conference {
   absDeadlineMs: number | null;
   /** Conference start as epoch ms (midnight UTC of `start`); null when absent. */
   startMs: number | null;
+  /** Conference "ended" instant — midnight UTC *after* `end`; null when absent.
+   *  The meeting is ongoing while now is in [startMs, endMs), ended at/after endMs. */
+  endMs: number | null;
   isTba: boolean;
   /** Compact paper deadline for cards, e.g. "Thu 13 Nov 2025, 23:59 UTC-12". */
   deadlineShort: string | null;
@@ -41,6 +44,8 @@ export function process(c: Conference): ProcessedConference {
   const dl = parseInZone(c.deadline, zone);
   const abs = parseInZone(c.abstract_deadline, zone);
   const start = c.start ? DateTime.fromISO(c.start, { zone: "utc" }) : null;
+  // Ongoing through the whole end day, so the "ended" instant is the next midnight.
+  const end = c.end ? DateTime.fromISO(c.end, { zone: "utc" }).plus({ days: 1 }) : null;
   const subs = String(c.sub)
     .split(",")
     .map((s) => s.trim())
@@ -54,6 +59,7 @@ export function process(c: Conference): ProcessedConference {
     deadlineMs: dl?.toMillis() ?? null,
     absDeadlineMs: abs?.toMillis() ?? null,
     startMs: start?.isValid ? start.toMillis() : null,
+    endMs: end?.isValid ? end.toMillis() : null,
     isTba: !dl,
     deadlineShort: shortInConfTz(dl, c.timezone),
     absShort: shortInConfTz(abs, c.timezone),
@@ -110,4 +116,20 @@ export function deadlineItems(c: ProcessedConference): DeadlineItem[] {
   if (c.deadlineMs != null) add("paper", "Paper", c.deadlineMs);
   if (c.absDeadlineMs != null) add("abstract", "Abstract", c.absDeadlineMs);
   return out;
+}
+
+const MONTHS_ABBR: Record<string, string> = {
+  January: "Jan", February: "Feb", March: "Mar", April: "Apr",
+  May: "May", June: "Jun", July: "Jul", August: "Aug",
+  September: "Sep", October: "Oct", November: "Nov", December: "Dec",
+};
+
+/** Abbreviate full English month names in a free-text date, e.g.
+ *  "September 29 - October 2, 2026" -> "Sep 29 - Oct 2, 2026", so the conference
+ *  date stays compact next to the (often long) place. */
+export function abbrevMonths(s: string): string {
+  return s.replace(
+    /\b(January|February|March|April|May|June|July|August|September|October|November|December)\b/g,
+    (m) => MONTHS_ABBR[m],
+  );
 }

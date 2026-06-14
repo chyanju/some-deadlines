@@ -1,6 +1,6 @@
 ---
 import type { ProcessedConference } from "../lib/deadlines";
-import { deadlineItems } from "../lib/deadlines";
+import { deadlineItems, abbrevMonths } from "../lib/deadlines";
 import DeadlineActions from "./DeadlineActions.astro";
 import InlineCountdown from "./InlineCountdown.astro";
 
@@ -58,8 +58,8 @@ const iconCls =
     <div class="min-w-0 flex-1">
       <dl class="dl-grid mt-0.5 text-[0.8125rem]">
         <div class="contents">
-          <span class="dl-conf text-text-2">{conf.date} · {conf.place}</span>
-          <InlineCountdown ms={conf.startMs} />
+          <span class="dl-conf text-text-2">{abbrevMonths(conf.date)} · {conf.place}</span>
+          <InlineCountdown ms={conf.startMs} endMs={conf.endMs} />
         </div>
         <div class="contents">
           <span class="flex min-w-[2.4rem] items-center gap-0.5">

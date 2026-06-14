@@ -66,16 +66,25 @@ export function initCountdowns(): void {
     for (const el of inlineCds) {
       const ms = Number(el.dataset.deadline);
       if (!ms) continue;
+      // `end` set only for the conference (meeting interval [start, end)): show a
+      // countdown before it starts, "ongoing" during, "ended" after. Deadlines have
+      // no end, so they just go from countdown to "passed".
+      const end = Number(el.dataset.end) || 0;
       const daysEl = el.querySelector<HTMLElement>("[data-inline-days]");
       const clockEl = el.querySelector<HTMLElement>("[data-inline-clock]");
-      if (ms < t) {
-        if (daysEl) daysEl.textContent = "passed";
-        if (clockEl) clockEl.textContent = "";
+      let days: string;
+      let clock = "";
+      if (t < ms) {
+        const c = formatClock(ms - t);
+        days = `${c.days} ${c.days === 1 ? "day" : "days"} left`;
+        clock = ` · ${c.clock}`;
+      } else if (end && t < end) {
+        days = "ongoing";
       } else {
-        const { days, clock } = formatClock(ms - t);
-        if (daysEl) daysEl.textContent = `${days} ${days === 1 ? "day" : "days"} left`;
-        if (clockEl) clockEl.textContent = ` · ${clock}`;
+        days = end ? "ended" : "passed";
       }
+      if (daysEl) daysEl.textContent = days;
+      if (clockEl) clockEl.textContent = clock;
     }
   };
 

@@ -45,7 +45,7 @@ urgency colour. Tokens live in `src/styles/global.css` (`@theme` for light,
 Niceties: three stateful icon toggles in the header — **dark mode** (sun/moon,
 follows system, no flash), **detail** (simple = just the big figure / complex =
 all the inline per-deadline countdowns), and **Local / AoE** deadline time zone
-(clock/globe) — plus a category **filter** with a **Past deadlines** option,
+(clock/globe) — plus a category **filter** with a **Closed submissions** option,
 **View Transitions** (`<ClientRouter />`), an urgency ramp (category colour
 intensifies ≤30d, deepens ≤7d), and per-deadline **.ics download** + **Add to
 Google Calendar** links. Theme / detail / time-zone choices persist in
@@ -68,7 +68,7 @@ src/
   components/
     Header.astro                # sticky glass bar: wordmark + toolbar slot + theme + GitHub
     ConferenceCard.astro        # one conference (dates, links, deadlines, countdowns)
-    CategoryFilter.astro        # category + Past-deadlines dropdown (portaled to <body>)
+    CategoryFilter.astro        # category + Closed-submissions dropdown (portaled to <body>)
     DeadlineActions.astro       # per-deadline "Add to Google Calendar" + ".ics" icons
     InlineCountdown.astro       # small "(N days left · HH:MM:SS)" countdown cell
     ModeToggle.astro            # detail toggle (simple / complex) — stateful icon button
@@ -76,7 +76,7 @@ src/
   scripts/                      # client-side, re-run on every astro:page-load
     app.ts            # orchestrates the page (countdowns + filter wiring)
     countdown.ts      # live big + inline countdowns, urgency classes, past-at-bottom
-    filter.ts         # category + Past-deadlines filter (session-only, no URL)
+    filter.ts         # category + Closed-submissions filter (session-only, no URL)
     tz.ts             # Local / AoE deadline display + toggle
     mode.ts           # simple / complex detail toggle
     theme.ts          # dark-mode toggle
@@ -123,12 +123,14 @@ server hot-reloads on save. Each conference is one list item:
 
 Conventions:
 
-- **Delete a conference once it's over.** When the meeting date has passed the
-  record is done — remove it from this file (don't keep it commented out). The
-  `# ==== NAME ====` banners are just section headers for scanning the file.
+- **Delete a conference once the meeting is over.** The conference countdown
+  treats `start`..`end` as an interval — it counts down to `start`, shows
+  "ongoing" during the meeting, then "ended" once `end` has passed. Only after it
+  has **ended** is the record done; remove it then (don't keep it commented out).
+  The `# ==== NAME ====` banners are just section headers for scanning the file.
 - A conference whose paper deadline has passed but whose meeting is still upcoming
-  stays in the file; it's hidden by default and revealed via the filter menu's
-  **Past deadlines** toggle, sorting to the bottom of the list.
+  (or ongoing) stays in the file; it's hidden by default and revealed via the
+  filter menu's **Closed submissions** toggle, sorting to the bottom of the list.
 - The loader **validates** on build: a missing required field, an unknown `sub`, or
   a duplicate `id` fails the build with a clear message.
 - Extra keys in the YAML (e.g. a legacy `note:`) are ignored — only the fields in
