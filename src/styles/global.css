@@ -278,6 +278,18 @@ html.dark .card.is-urgent:hover {
 [data-inline-days] {
   font-weight: 700;
 }
+/* the inline countdown the big figure is counting to gets a small left-pointing
+   marker at its tail (in the card's category colour --c), so the active sort
+   metric is visible at a glance */
+.cd-inline.is-primary::after {
+  content: "";
+  display: inline-block;
+  margin-left: 0.4em;
+  vertical-align: middle;
+  border-style: solid;
+  border-width: 0.28em 0.42em 0.28em 0;
+  border-color: transparent var(--c, var(--color-accent)) transparent transparent;
+}
 /* Simple mode: hide the inline per-deadline countdowns and drop the deadline grid
    to 3 columns so it stays tight (display:none on a single grid cell would misflow
    the auto-placed columns). The .dl-conf row spans 1 / 4 in either column count. */

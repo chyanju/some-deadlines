@@ -103,6 +103,18 @@ function render(now: number): void {
       if (daysEl) daysEl.textContent = pr.label;
       if (clockEl) clockEl.textContent = "";
     }
+    // Mark the inline countdown the big figure is currently counting to (its date
+    // equals the primary; for the conference, before-start matches data-deadline,
+    // ongoing matches data-end). Gets a small left-pointing marker via CSS.
+    const primaryMs = "ms" in pr ? pr.ms : null;
+    for (const inline of card.querySelectorAll<HTMLElement>("[data-inline-cd]")) {
+      const idl = num(inline.dataset.deadline);
+      const iend = num(inline.dataset.end);
+      inline.classList.toggle(
+        "is-primary",
+        primaryMs != null && (idl === primaryMs || iend === primaryMs),
+      );
+    }
   }
   renderInline(now);
 }
