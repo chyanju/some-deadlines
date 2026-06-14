@@ -88,10 +88,12 @@ const iconCls =
       </dl>
     </div>
 
-    <div class="shrink-0 text-right leading-none">
-      <span class="cd-eyebrow eyebrow">days left</span>
-      <div class="flex items-baseline justify-end gap-1.5">
-        <span data-cd-days class="tnum text-[2rem] leading-none font-bold text-text-2">—</span>
+    {/* Big paper countdown: number on the left (spans two rows), "days left" over
+        the live clock on the right. */}
+    <div class="shrink-0 flex items-center gap-2">
+      <span data-cd-days class="tnum text-[2.25rem] leading-none font-bold text-text-2">—</span>
+      <div class="flex flex-col gap-1 text-left leading-none">
+        <span class="cd-eyebrow eyebrow">days left</span>
         <span data-cd-clock class="tnum text-[0.8125rem] font-semibold text-text-2">&nbsp;</span>
       </div>
     </div>
