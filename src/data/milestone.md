@@ -4,11 +4,14 @@ The playbook for updating `conferences.yml`. **Read this before adding or refres
 conference.** It defines which dates to collect, which to deliberately skip, where to look, and
 how to handle the messy real-world cases.
 
+Its scope is only the conference **data** — what goes into `conferences.yml` and how to format
+it. Nothing else about the project (how the site looks or behaves) is needed for this job.
+
 ---
 
 ## 1. The one rule: collect only *decisive* milestones
 
-A date earns a place in the tracker only if it can **directly decide the paper's fate** — a bad
+A date is worth collecting only if it can **directly decide the paper's fate** — a bad
 outcome (or a missed date) at that point can *end* the paper's chances, or it is the *binding*
 accept/reject decision.
 
@@ -95,7 +98,7 @@ dates into one record.
 
 - Use **only the official conference page** (its CFP / "Important Dates" / "Dates" page).
 - **Never** trust aggregators (wikicfp, mirror lists, etc.) — they are frequently wrong, and a wrong
-  date in a deadline tracker is worse than a missing one.
+  date is worse than a missing one.
 - For each date, note the official source URL it came from, so the result can be reviewed.
 - If a date isn't on the official page, it does not go in. **Never guess or infer.**
 
@@ -106,7 +109,7 @@ dates into one record.
 - `'YYYY-MM-DD HH:MM:SS'`, quoted, in the conference's **own** `timezone`. `AoE` = Anywhere on Earth = `UTC-12`.
 - **Submission deadlines:** use the official clock time (usually `23:59:59` AoE).
 - **`notification` / `early_rejection`:** usually published as a bare date → store at `23:59:59`
-  (end of day) so it doesn't read as past too early.
+  (end of day — the date means "by end of that day").
 - **Rebuttal window "A–B":** `rebuttal_start: 'A 00:00:00'`, `rebuttal_end: 'B 23:59:59'`.
 - Not-yet-announced dates → `TBA`.
 
@@ -147,14 +150,14 @@ A complete record:
    meeting fields, use `TBA` for `place` / `date` and `TBA` (or omit) for `start` / `end` until they're
    announced — don't fabricate a city or meeting dates. If even the **paper deadline** is unconfirmed,
    don't add the entry yet.
-5. **Tentative / approximate dates** ("around March 4", "early March", "tentative"): a tracker date must
+5. **Tentative / approximate dates** ("around March 4", "early March", "tentative"): a recorded date must
    be a real, committed date. **Omit it** (or use `TBA`) rather than record an approximation.
 6. **Revise-and-resubmit venues** (e.g. CHI, some PL rounds): map the author-response / revise window to
    `rebuttal_start` / `rebuttal_end`, and the **first** binding decision to `notification`.
 7. **Don't add brand-new conferences silently.** Adding a venue is a commitment to keep it current.
    Confirm with the user that it belongs (right category, a venue worth tracking) before adding it.
 8. **Past vs upcoming.** Collect a published decisive date whether it's already past or still upcoming —
-   a closed conference can still have upcoming review milestones worth showing.
+   a closed conference can still have upcoming review milestones worth recording.
 
 ---
 
