@@ -1,22 +1,22 @@
 // List sort order — chosen in the filter/settings menu ([data-sort] radios). Two
 // modes:
 //   - "deadline" (default): by paper submission deadline; the big figure shows it.
-//   - "checkpoint": by each card's nearest upcoming date (abstract / paper /
+//   - "milestone": by each card's nearest upcoming date (abstract / paper /
 //     meeting); the big figure shows that nearest one too.
 // The mode drives BOTH the order and the big figure (see countdown.ts), via the
-// `sort-checkpoint` class on <html>. Sort applies to all cards; the filter only
+// `sort-milestone` class on <html>. Sort applies to all cards; the filter only
 // controls visibility. Persisted in localStorage.
 import { orderList, refreshCountdowns } from "./countdown";
 import { STORAGE } from "./storage";
 
-type Mode = "deadline" | "checkpoint";
+type Mode = "deadline" | "milestone";
 
 function getMode(): Mode {
-  return localStorage.getItem(STORAGE.sort) === "checkpoint" ? "checkpoint" : "deadline";
+  return localStorage.getItem(STORAGE.sort) === "milestone" ? "milestone" : "deadline";
 }
 
 function apply(m: Mode): void {
-  document.documentElement.classList.toggle("sort-checkpoint", m === "checkpoint");
+  document.documentElement.classList.toggle("sort-milestone", m === "milestone");
   for (const r of document.querySelectorAll<HTMLInputElement>("[data-sort]")) {
     r.checked = r.dataset.sort === m;
   }
@@ -33,7 +33,7 @@ export function initSort(): void {
   document.addEventListener("change", (e) => {
     const r = (e.target as HTMLElement).closest<HTMLInputElement>("[data-sort]");
     if (!r) return;
-    const next: Mode = r.dataset.sort === "checkpoint" ? "checkpoint" : "deadline";
+    const next: Mode = r.dataset.sort === "milestone" ? "milestone" : "deadline";
     localStorage.setItem(STORAGE.sort, next);
     apply(next);
   });

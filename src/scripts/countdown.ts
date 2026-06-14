@@ -2,7 +2,7 @@
 //
 // The big figure shows each card's "primary" date for the current sort mode:
 //   - "deadline" (default): the paper submission deadline.
-//   - "checkpoint": the nearest upcoming date among abstract / paper / meeting.
+//   - "milestone": the nearest upcoming date among abstract / paper / meeting.
 // orderList() sorts by the same key. Two independent states:
 //   - is-closed: paper submission deadline has passed (dim + "Closed submissions"
 //     filter), regardless of sort mode.
@@ -29,10 +29,10 @@ function formatClock(remainingMs: number): { days: number; clock: string } {
   return { days, clock: `${pad(h)}:${pad(m)}:${pad(sec)}` };
 }
 
-type Mode = "deadline" | "checkpoint";
+type Mode = "deadline" | "milestone";
 const mode = (): Mode =>
-  document.documentElement.classList.contains("sort-checkpoint")
-    ? "checkpoint"
+  document.documentElement.classList.contains("sort-milestone")
+    ? "milestone"
     : "deadline";
 
 /** The instant the big figure counts to under `m`, or a label when nothing is up. */
@@ -42,7 +42,7 @@ function primary(
   now: number,
 ): { ms: number } | { label: "Passed" | "ended" | "TBA" } {
   const paper = num(card.dataset.deadline);
-  if (m === "checkpoint") {
+  if (m === "milestone") {
     const up = [
       num(card.dataset.abs),
       paper,
@@ -125,7 +125,7 @@ function sortKey(
   now: number,
 ): { passed: boolean; key: number } {
   const paper = num(card.dataset.deadline);
-  if (m === "checkpoint") {
+  if (m === "milestone") {
     const dates = [
       num(card.dataset.abs),
       paper,

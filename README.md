@@ -47,7 +47,7 @@ follows system, no flash), **detail** (simple = just the big figure / complex =
 all the inline per-deadline countdowns), and **Local / AoE** deadline time zone
 (clock/globe) — plus an **Options menu** (categories, an **Include Closed
 Deadlines** option, and a **sort** choice: by paper submission deadline, or by
-each card's nearest upcoming checkpoint — which also drives what the big figure
+each card's nearest upcoming milestone — which also drives what the big figure
 counts to), **View Transitions** (`<ClientRouter />`), an urgency ramp (category
 colour intensifies ≤30d, deepens ≤7d), and per-deadline **.ics download** +
 **Add to Google Calendar** links. Theme / detail / time-zone / sort choices
@@ -80,7 +80,7 @@ src/
     app.ts            # orchestrates the page (countdowns + filter wiring)
     countdown.ts      # live big (mode-aware) + inline countdowns, urgency, orderList
     filter.ts         # category + Closed-submissions filter (session-only, no URL)
-    sort.ts           # sort mode (deadline / checkpoint); drives order + big figure
+    sort.ts           # sort mode (deadline / milestone); drives order + big figure
     tz.ts             # Local / AoE deadline display + toggle
     mode.ts           # simple / complex detail toggle
     theme.ts          # dark-mode toggle
