@@ -42,6 +42,7 @@ const { showPastToggle = false } = Astro.props;
     class="absolute right-0 z-30 mt-2 w-max min-w-[12rem] rounded-[14px] border border-border bg-card p-2 shadow-lg"
   >
     <div class="max-h-80 overflow-auto">
+      <div class="eyebrow px-2.5 pb-1">Categories</div>
       {
         types.map((t) => (
           <label class="menu-row flex cursor-pointer items-center gap-2.5 rounded-md px-2.5 py-1.5 text-sm whitespace-nowrap text-text">
@@ -58,46 +59,37 @@ const { showPastToggle = false } = Astro.props;
           </label>
         ))
       }
+      <div class="mt-0.5 flex justify-end gap-3 px-2.5 pt-1 text-xs">
+        <button type="button" data-filter-all class="text-text-3 transition-colors hover:text-text-2">Select All</button>
+        <button type="button" data-filter-clear class="text-text-3 transition-colors hover:text-text-2">Clear</button>
+      </div>
       {
         showPastToggle && (
           <>
-            <div class="my-1 h-px bg-border" />
+            <div class="my-1.5 h-px bg-border" />
+            <div class="eyebrow px-2.5 pb-1">Show</div>
             <label class="menu-row flex cursor-pointer items-center gap-2.5 rounded-md px-2.5 py-1.5 text-sm whitespace-nowrap text-text">
               <input
                 type="checkbox"
                 data-show-past
                 class="size-3.5 accent-[var(--color-accent)]"
               />
-              <span>Closed submissions</span>
+              <span>Include Closed Deadlines</span>
             </label>
           </>
         )
       }
     </div>
     <div class="mt-1 border-t border-border pt-1.5">
-      <div class="eyebrow px-2.5 pb-1">Sort by</div>
+      <div class="eyebrow px-2.5 pb-1">Sort By</div>
       <label class="menu-row flex cursor-pointer items-center gap-2.5 rounded-md px-2.5 py-1.5 text-sm whitespace-nowrap text-text">
         <input type="radio" name="sort-mode" data-sort="deadline" class="size-3.5 accent-[var(--color-accent)]" />
-        <span>Submission deadline</span>
+        <span>Submission Deadline</span>
       </label>
       <label class="menu-row flex cursor-pointer items-center gap-2.5 rounded-md px-2.5 py-1.5 text-sm whitespace-nowrap text-text">
         <input type="radio" name="sort-mode" data-sort="checkpoint" class="size-3.5 accent-[var(--color-accent)]" />
-        <span>Nearest checkpoint</span>
+        <span>Nearest Checkpoint</span>
       </label>
-    </div>
-    <div
-      class="mt-1 flex justify-between border-t border-border px-2 pt-1.5 text-xs"
-    >
-      <button
-        type="button"
-        data-filter-all
-        class="text-text-3 transition-colors hover:text-text-2">Select all</button
-      >
-      <button
-        type="button"
-        data-filter-clear
-        class="text-text-3 transition-colors hover:text-text-2">Clear</button
-      >
     </div>
   </div>
 </div>
