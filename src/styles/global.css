@@ -288,13 +288,14 @@ html.simple .cd-inline {
   display: none;
 }
 
-/* is-closed = paper submission deadline has passed ("Closed submissions"). Quieter
-   than active cards but kept solid (it still carries the glass) — just dimmed. */
+/* is-closed = paper submission deadline has passed ("Closed submissions"). Clearly
+   faded so it reads as distinct from active cards (it keeps the glass for legibility);
+   brightens on hover. */
 .card.is-closed {
-  opacity: 0.7;
+  opacity: 0.5;
 }
 .card.is-closed:hover {
-  opacity: 0.9;
+  opacity: 0.8;
 }
 /* is-over = the big figure's primary date has passed / nothing upcoming: show a
    compact "Passed" / "ended" instead of a number, and drop the clock + label. */
