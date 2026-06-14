@@ -52,7 +52,9 @@ const noFlash = noFlashScript();
       )
     }
   </head>
-  <body class="flex min-h-screen flex-col transition-colors">
+  <body class="flex min-h-screen min-w-[375px] flex-col transition-colors">
+    {/* min-w pins the layout at the iPhone-SE width: narrower screens scroll
+        horizontally instead of squeezing the cards until they break. */}
     {/* Liquid-glass edge refraction filter (used by backdrop-filter on glass chrome). */}
     <svg
       aria-hidden="true"
