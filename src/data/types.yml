@@ -8,12 +8,6 @@
 - name: Security
   sub: SECURITY
   color: "#5aa78f"
-- name: Operating Systems
-  sub: OS
-  color: "#a99fce"
-- name: Computer Architecture
-  sub: ARCH
-  color: "#97ab6c"
 - name: More
   sub: MORE
   color: "#d2ad55"
