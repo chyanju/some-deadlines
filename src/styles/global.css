@@ -347,6 +347,47 @@ html.simple .cd-text {
   color: var(--color-text-3);
 }
 
+/* ongoing = the meeting is in progress: its countdown anchor (the meeting START)
+   is already past, so the card dims like a closed card (is-closed) — but it has
+   NOT ended, so it keeps its category colour: a left rule + a blue "ongoing"
+   figure. The sort pins it to the top (a countdown approaching zero). No un-dim,
+   no tint; the dim of is-closed stands, only fainter-but-blue. The hover rules
+   re-assert the left rule so it survives the base .card:hover shadow. */
+.card.is-ongoing {
+  box-shadow:
+    inset 3px 0 0 0 var(--c),
+    0 1px 2px rgba(16, 24, 40, 0.04),
+    0 1px 3px rgba(16, 24, 40, 0.06);
+}
+.card.is-ongoing:hover {
+  box-shadow:
+    inset 3px 0 0 0 var(--c),
+    0 4px 12px rgba(16, 24, 40, 0.08);
+}
+html.dark .card.is-ongoing {
+  box-shadow:
+    inset 3px 0 0 0 var(--c),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.04),
+    0 1px 2px rgba(0, 0, 0, 0.4);
+}
+html.dark .card.is-ongoing:hover {
+  box-shadow:
+    inset 3px 0 0 0 var(--c),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.06),
+    0 2px 8px rgba(0, 0, 0, 0.5);
+}
+.is-ongoing [data-cd-clock],
+.is-ongoing .cd-eyebrow {
+  display: none;
+}
+.is-ongoing [data-cd-days] {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+  font-size: 1rem;
+  font-weight: 600;
+  color: color-mix(in oklch, var(--c) 72%, var(--color-text));
+}
+
 /* --------------------------------- badges ---------------------------------- */
 
 .badge {

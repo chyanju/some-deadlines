@@ -46,14 +46,28 @@ function milestoneDates(card: HTMLElement): number[] {
     .filter(Boolean);
 }
 
+/** End instant of an in-progress meeting (start <= now < end), else null. The
+ *  meeting is the only inline countdown carrying a data-end (the [start, end)
+ *  interval). While it's ongoing we never count down to its end — it's "ongoing"
+ *  and pinned to the top of the milestone sort. */
+function ongoingEnd(card: HTMLElement, now: number): number | null {
+  for (const el of card.querySelectorAll<HTMLElement>("[data-inline-cd]")) {
+    const start = num(el.dataset.deadline);
+    const end = num(el.dataset.end);
+    if (start && end && start <= now && now < end) return end;
+  }
+  return null;
+}
+
 /** The instant the big figure counts to under `m`, or a label when nothing is up. */
 function primary(
   card: HTMLElement,
   m: Mode,
   now: number,
-): { ms: number } | { label: "Passed" | "ended" | "TBA" } {
+): { ms: number } | { label: "Passed" | "ended" | "TBA" | "ongoing" } {
   const paper = num(card.dataset.deadline);
   if (m === "milestone") {
+    if (ongoingEnd(card, now) != null) return { label: "ongoing" };
     const up = milestoneDates(card).filter((x) => x > now);
     return up.length ? { ms: Math.min(...up) } : { label: "ended" };
   }
@@ -93,7 +107,7 @@ function render(now: number): void {
   for (const card of cards) {
     const paper = num(card.dataset.deadline);
     card.classList.toggle("is-closed", paper > 0 && paper < now);
-    card.classList.remove("is-soon", "is-urgent", "is-over");
+    card.classList.remove("is-soon", "is-urgent", "is-over", "is-ongoing");
     const daysEl = card.querySelector<HTMLElement>("[data-cd-days]");
     const clockEl = card.querySelector<HTMLElement>("[data-cd-clock]");
     const pr = primary(card, m, now);
@@ -104,6 +118,13 @@ function render(now: number): void {
       const { days, clock } = formatClock(rem);
       if (daysEl) daysEl.textContent = String(days);
       if (clockEl) clockEl.textContent = clock;
+    } else if (pr.label === "ongoing") {
+      // meeting in progress: dimmed via is-closed (its anchor — the meeting start
+      // — is past) but keeps the category colour (is-ongoing) since it hasn't
+      // ended. Pinned to the top by sortKey/orderList.
+      card.classList.add("is-ongoing");
+      if (daysEl) daysEl.textContent = "ongoing";
+      if (clockEl) clockEl.textContent = "";
     } else {
       if (pr.label !== "TBA") card.classList.add("is-over");
       if (daysEl) daysEl.textContent = pr.label;
@@ -129,17 +150,19 @@ function sortKey(
   card: HTMLElement,
   m: Mode,
   now: number,
-): { passed: boolean; key: number } {
+): { ongoing: boolean; passed: boolean; key: number } {
   const paper = num(card.dataset.deadline);
   if (m === "milestone") {
+    const oe = ongoingEnd(card, now);
+    if (oe != null) return { ongoing: true, passed: false, key: oe }; // ongoing -> top (soonest-ending first)
     const dates = milestoneDates(card);
     const up = dates.filter((x) => x > now);
-    if (up.length) return { passed: false, key: Math.min(...up) };
-    return { passed: true, key: dates.length ? Math.max(...dates) : 0 };
+    if (up.length) return { ongoing: false, passed: false, key: Math.min(...up) };
+    return { ongoing: false, passed: true, key: dates.length ? Math.max(...dates) : 0 };
   }
-  if (!paper) return { passed: false, key: Infinity }; // TBA -> end of upcoming
-  if (paper < now) return { passed: true, key: paper };
-  return { passed: false, key: paper };
+  if (!paper) return { ongoing: false, passed: false, key: Infinity }; // TBA -> end of upcoming
+  if (paper < now) return { ongoing: false, passed: true, key: paper };
+  return { ongoing: false, passed: false, key: paper };
 }
 
 /** Reorder #list by the current sort mode: upcoming ascending, then passed/ended
@@ -152,15 +175,11 @@ export function orderList(): void {
   const keyed = Array.from(
     list.querySelectorAll<HTMLElement>("[data-conf]"),
   ).map((card) => ({ card, ...sortKey(card, m, now) }));
-  keyed.sort((a, b) =>
-    a.passed !== b.passed
-      ? a.passed
-        ? 1
-        : -1
-      : a.passed
-        ? b.key - a.key
-        : a.key - b.key,
-  );
+  keyed.sort((a, b) => {
+    if (a.ongoing !== b.ongoing) return a.ongoing ? -1 : 1; // ongoing meetings first
+    if (a.passed !== b.passed) return a.passed ? 1 : -1; // then upcoming, passed last
+    return a.passed ? b.key - a.key : a.key - b.key; // upcoming asc; passed most-recent first
+  });
   for (const { card } of keyed) list.appendChild(card);
 }
 
