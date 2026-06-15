@@ -64,14 +64,17 @@ so those dates have negligible bearing on *whether* it's accepted — exactly wh
 Find the current site by searching e.g. `"<conf> <year> call for papers"` or `"<conf> <year>
 important dates"`, and confirm you're on the **official** page for the **right edition** (see §8.1).
 
-Categories (use the code in the `sub` field):
+Categories (use the code in the `sub` field) — there are exactly **four**:
 
 - **Programming Languages (PL)** — PLDI, POPL, OOPSLA, ECOOP, ICFP, CAV
 - **Software Engineering (SE)** — ICSE, FSE, ASE, ISSTA
 - **Security (SECURITY)** — IEEE S&P (Oakland), ACM CCS, NDSS, USENIX Security
-- **Operating Systems (OS)** — SOSP, OSDI
-- **Computer Architecture (ARCH)** — ASPLOS
-- **More (MORE)** — CHI, UIST, SBC
+- **More (MORE)** — everything else worth tracking, regardless of domain: SOSP, OSDI, ASPLOS,
+  CHI, UIST, SBC
+
+**No other categories.** Systems, architecture, HCI, and any other area do **not** get their own
+category — they all go under **More**. Anything that isn't clearly PL / SE / Security is **More**
+by default; never introduce a new category for it.
 
 This is the set tracked today. Adding a venue is a commitment to keep it current — don't add one
 casually (see §8.7).
@@ -87,7 +90,7 @@ dates into one record.
 - **Security — "cycles":** S&P First / Second deadline · CCS First / Second review cycle ·
   NDSS Summer / Fall · USENIX Security Cycle 1 / 2.
 - **PL — "rounds":** OOPSLA Round 1 / 2 · ECOOP Round 1 / 2.
-- **Architecture:** ASPLOS spring / fall cycles.
+- **ASPLOS** (under More): spring / fall cycles.
 - **PACMPL venues** (PLDI / POPL / OOPSLA / ICFP / ECOOP) usually run a two-round review. The binding
   `notification` is the **first** author notification (conditional accept / reject) — *not* the later
   revision deadline or final-acceptance step (see §3).
