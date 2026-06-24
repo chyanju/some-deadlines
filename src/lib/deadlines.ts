@@ -102,6 +102,8 @@ export interface DeadlineItem {
   ms: number;
   /** End instant for a window (rebuttal); null for point milestones. */
   endMs: number | null;
+  /** Timezone for the all-day calendar date (the deadline's own zone). */
+  tz: string;
   /** Event title, e.g. "[ICSE 2027] Paper Deadline". */
   summary: string;
   /** Tooltip noun for the icons, e.g. "paper deadline" / "rebuttal period". */
@@ -114,13 +116,21 @@ export interface DeadlineItem {
   gcalUrl: string;
 }
 
-/** Build a Google Calendar "create event" template URL for an instant or a
- *  [start, end] window (end defaults to start -> a zero-duration event). */
-function gcalTemplateUrl(summary: string, ms: number, endMs?: number | null): string {
-  const fmt = (m: number) =>
-    DateTime.fromMillis(m, { zone: "utc" }).toFormat("yyyyMMdd'T'HHmmss'Z'");
-  const start = fmt(ms);
-  const end = endMs != null ? fmt(endMs) : start;
+/** Build a Google Calendar "create event" template URL as an ALL-DAY event:
+ *  date-only `YYYYMMDD/YYYYMMDD` with an exclusive end (a point milestone is one
+ *  day; a window spans start..end). Matches the all-day .ics; the day is taken
+ *  in the deadline's own `tz` so it isn't shifted by the viewer's zone. */
+function gcalTemplateUrl(
+  summary: string,
+  ms: number,
+  endMs: number | null,
+  tz: string,
+): string {
+  const date = (m: number) => DateTime.fromMillis(m, { zone: tz }).toFormat("yyyyMMdd");
+  const datePlus1 = (m: number) =>
+    DateTime.fromMillis(m, { zone: tz }).plus({ days: 1 }).toFormat("yyyyMMdd");
+  const start = date(ms);
+  const end = datePlus1(endMs ?? ms);
   return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(summary)}&dates=${start}/${end}`;
 }
 
@@ -130,6 +140,7 @@ const DEF_BY_KEY = new Map(MILESTONES.map((d) => [d.key, d]));
  *  no date (or not calendar-addable) are omitted — there is nothing to add. */
 export function deadlineItems(c: ProcessedConference): DeadlineItem[] {
   const out: DeadlineItem[] = [];
+  const tz = c.timezone || site.defaultTimezone;
   for (const m of c.milestones) {
     if (!m.calendar || m.ms == null) continue;
     const def = DEF_BY_KEY.get(m.key)!;
@@ -139,11 +150,12 @@ export function deadlineItems(c: ProcessedConference): DeadlineItem[] {
       kind: m.key,
       ms: m.ms,
       endMs: m.endMs,
+      tz,
       summary,
       noun: def.noun,
       uid,
       icsHref: `${import.meta.env.BASE_URL}/conference/${uid}.ics`,
-      gcalUrl: gcalTemplateUrl(summary, m.ms, m.endMs),
+      gcalUrl: gcalTemplateUrl(summary, m.ms, m.endMs, tz),
     });
   }
   return out;
