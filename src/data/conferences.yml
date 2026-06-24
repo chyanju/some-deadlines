@@ -49,8 +49,8 @@
   year: 2026
   id: sosp2026
   link: https://sigops.org/s/conferences/sosp/2026/index.html
-  abstract_deadline: '2026-03-26 23:59:00'
-  deadline: '2026-04-01 23:59:00'
+  abstract_deadline: '2026-03-26 23:59:59'
+  deadline: '2026-04-01 23:59:59'
   rebuttal_start: '2026-06-22 00:00:00'
   rebuttal_end: '2026-06-24 23:59:59'
   notification: '2026-07-03 23:59:59'
@@ -121,6 +121,23 @@
   end: 2026-07-29
   sub: "PL"
   note: <a href='https://conferences.i-cav.org/2026/'>conference site</a>
+
+- title: CAV
+  year: 2027
+  id: cav2027
+  link: https://conferences.i-cav.org/2027/
+  deadline: '2027-01-20 23:59:59'
+  rebuttal_start: '2027-04-05 00:00:00'
+  rebuttal_end: '2027-04-08 23:59:59'
+  notification: '2027-04-23 23:59:59'
+  timezone: UTC-12
+  venue_timezone: Europe/Amsterdam
+  place: Amsterdam, Netherlands
+  date: July 19-23, 2027
+  start: 2027-07-19
+  end: 2027-07-23
+  sub: "PL"
+  note: <a href='https://conferences.i-cav.org/2027/'>conference site</a>
 
 # ===================== #
 # ======== ASE ======== #
@@ -222,8 +239,8 @@
   venue_timezone: America/Toronto
   place: Montreal, Canada
   date: TBA, May 2027
-  start: 2027-05-17
-  end: 2027-05-20
+  start: TBA
+  end: TBA
   sub: "SECURITY"
   note: <a href='https://sp2027.ieee-security.org/'>conference site</a>
 
@@ -241,8 +258,8 @@
   venue_timezone: America/Toronto
   place: Montreal, Canada
   date: TBA, May 2027
-  start: 2027-05-17
-  end: 2027-05-20
+  start: TBA
+  end: TBA
   sub: "SECURITY"
   note: <a href='https://sp2027.ieee-security.org/'>conference site</a>
 
@@ -297,7 +314,7 @@
   id: ndss2027a
   link: https://www.ndss-symposium.org/ndss2027/
   deadline: '2026-05-06 23:59:59'
-  early_rejection: '2026-06-12 23:59:59'
+  early_rejection: '2026-06-18 23:59:59'
   notification: '2026-07-22 23:59:59'
   timezone: UTC-12
   venue_timezone: Asia/Seoul
@@ -416,6 +433,26 @@
   sub: "MORE"
   note: <a href='https://www.usenix.org/conference/osdi26'>conference site</a>
 
+# OSDI 2027: the official page lists bare dates only (no clock time / timezone) and
+# the full CFP isn't posted yet; deadline times below use the AoE (UTC-12, 23:59:59)
+# default per milestone.md §7 — re-verify the exact time/timezone once the full CFP
+# is published (OSDI '26 used 5:59pm EST = UTC-0).
+- title: OSDI
+  year: 2027
+  id: osdi2027
+  link: https://www.usenix.org/conference/osdi27
+  abstract_deadline: '2026-12-01 23:59:59'
+  deadline: '2026-12-08 23:59:59'
+  notification: '2027-03-16 23:59:59'
+  timezone: UTC-12
+  venue_timezone: America/New_York
+  place: Baltimore, MD, USA
+  date: July 7 - 9, 2027
+  start: 2027-07-07
+  end: 2027-07-09
+  sub: "MORE"
+  note: <a href='https://www.usenix.org/conference/osdi27'>conference site</a>
+
 # ======================= #
 # ======== ISSTA ======== #
 # ======================= #
@@ -510,7 +547,7 @@
   notification: '2026-07-27 23:59:59'
   timezone: UTC-12
   venue_timezone: Europe/Athens
-  place: Crete, Greece
+  place: Heraklion, Crete, Greece
   date: April 11-15, 2027
   start: 2027-04-11
   end: 2027-04-15
@@ -527,7 +564,7 @@
   notification: '2026-12-21 23:59:59'
   timezone: UTC-12
   venue_timezone: Europe/Athens
-  place: Crete, Greece
+  place: Heraklion, Crete, Greece
   date: April 11-15, 2027
   start: 2027-04-11
   end: 2027-04-15
