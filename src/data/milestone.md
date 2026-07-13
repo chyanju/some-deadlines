@@ -77,7 +77,8 @@ category — they all go under **More**. Anything that isn't clearly PL / SE / S
 by default; never introduce a new category for it.
 
 This is the set tracked today. Adding a venue is a commitment to keep it current — don't add one
-casually (see §8.7).
+casually (see §8.7). `conferences.yml` holds only each venue's current / upcoming edition; a fully
+finished edition is deleted from it (see §8.8), and the venue reappears there when its next CFP is out.
 
 ---
 
@@ -167,14 +168,27 @@ A complete record:
    meeting fields, use `TBA` for `place` / `date` and `TBA` (or omit) for `start` / `end` until they're
    announced — don't fabricate a city or meeting dates. If even the **paper deadline** is unconfirmed,
    don't add the entry yet.
-5. **Tentative / approximate dates** ("around March 4", "early March", "tentative"): a recorded date must
-   be a real, committed date. **Omit it** (or use `TBA`) rather than record an approximation.
+5. **Tentative / approximate dates — distinguish two kinds.**
+   - A *vague* date with no committed day ("around March 4", "early March", "spring", "TBD") is not a real
+     date — **omit it** (or use `TBA`). Never record an approximation.
+   - A **specific calendar date the official page merely labels "(tentative)"** (e.g. NDSS's
+     "Wed 29 July 2026 (tentative)") *is* the official's current best answer. **Record it, with a trailing
+     `# tentative` comment**, and prefer it over a now-stale earlier value — this is just §8.2 (take the
+     latest official date) applied to a soft one. *Exception:* never do this for a *submission* deadline
+     (paper / abstract) — a soft submission date is too costly to get wrong, so wait for the firm one.
 6. **Revise-and-resubmit venues** (e.g. CHI, some PL rounds): map the author-response / revise window to
    `rebuttal_start` / `rebuttal_end`, and the **first** binding decision to `notification`.
 7. **Don't add brand-new conferences silently.** Adding a venue is a commitment to keep it current.
    Confirm with the user that it belongs (right category, a venue worth tracking) before adding it.
-8. **Past vs upcoming.** Collect a published decisive date whether it's already past or still upcoming —
-   a closed conference can still have upcoming review milestones worth recording.
+8. **Past vs upcoming — and retiring a finished edition.** Collect a published decisive date whether it's
+   already past or still upcoming — an edition whose *submission* has closed can still have upcoming review
+   milestones (rebuttal / notification) or an upcoming meeting worth keeping. But once an edition is
+   **fully finished** — its **meeting end date has passed**, so nothing about it is still upcoming —
+   **delete the entry outright.** Don't keep it around, and don't comment it out: this is a git repo, so a
+   past edition lives in the commit history and is one `git log` away if ever needed. If the next edition's
+   official CFP is already out, replace the finished row with it (roll over: bump `year` / `id` / `link` /
+   dates / `place`); if not, just delete the row — the venue reappears in the data when its next CFP is
+   published. Either way the venue stays in the §4 tracked list.
 
 ---
 

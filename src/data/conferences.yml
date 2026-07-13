@@ -1,27 +1,4 @@
 # ====================== #
-# ======== PLDI ======== #
-# ====================== #
-
-# PLDI 2026 — meeting over (Jun 15-19 2026); no PLDI 2027 CFP published yet.
-# Kept commented for reference; re-add PLDI once the 2027 CFP goes live.
-# - title: PLDI
-#   year: 2026
-#   id: pldi26
-#   link: https://pldi26.sigplan.org/
-#   deadline: '2025-11-13 23:59:59'
-#   rebuttal_start: '2026-02-17 00:00:00'
-#   rebuttal_end: '2026-02-22 23:59:59'
-#   notification: '2026-03-05 23:59:59'
-#   timezone: UTC-12
-#   venue_timezone: America/Denver
-#   place: Boulder, Colorado, United States
-#   date: June 15-19, 2026
-#   start: 2026-06-15
-#   end: 2026-06-19
-#   sub: "PL"
-#   note: <a href='https://pldi26.sigplan.org/'>conference site</a>
-
-# ====================== #
 # ======== ICSE ======== #
 # ====================== #
 
@@ -166,26 +143,6 @@
 # ====================== #
 # ======== FSE ========= #
 # ====================== #
-
-# FSE 2026 — meeting over (Jul 5-9 2026); superseded by FSE 2027 below.
-# Kept commented for reference.
-# - title: FSE
-#   year: 2026
-#   id: fse2026
-#   link: https://conf.researchr.org/home/fse-2026
-#   abstract_deadline: '2025-09-04 23:59:59'
-#   deadline: '2025-09-11 23:59:59'
-#   rebuttal_start: '2025-11-21 00:00:00'
-#   rebuttal_end: '2025-11-25 23:59:59'
-#   notification: '2025-12-22 23:59:59'
-#   timezone: UTC-12
-#   venue_timezone: America/Toronto
-#   place: Montreal, Canada
-#   date: July 5-9, 2026
-#   start: 2026-07-05
-#   end: 2026-07-09
-#   sub: "SE"
-#   note: <a href='https://conf.researchr.org/home/fse-2026'>conference site</a>
 
 - title: FSE
   year: 2027
@@ -519,42 +476,6 @@
   end: 2027-07-02
   sub: "PL"
   note: <a href='https://2027.ecoop.org/'>conference site</a>
-
-# ECOOP 2026 — meeting over (Jun 29-Jul 3 2026); superseded by ECOOP 2027 above.
-# Kept commented for reference.
-# - title: ECOOP (Round 1)
-#   year: 2026
-#   id: ecoop2026a
-#   link: https://2026.ecoop.org/
-#   deadline: '2025-11-27 23:59:59'
-#   rebuttal_start: '2026-01-12 00:00:00'
-#   rebuttal_end: '2026-01-16 23:59:59'
-#   notification: '2026-01-29 23:59:59'
-#   timezone: UTC-12
-#   venue_timezone: Europe/Brussels
-#   place: Brussels, Belgium
-#   date: June 29 - July 3, 2026
-#   start: 2026-06-29
-#   end: 2026-07-03
-#   sub: "PL"
-#   note: <a href='https://2026.ecoop.org/'>conference site</a>
-#
-# - title: ECOOP (Round 2)
-#   year: 2026
-#   id: ecoop2026b
-#   link: https://2026.ecoop.org/
-#   deadline: '2026-02-12 23:59:59'
-#   rebuttal_start: '2026-03-23 00:00:00'
-#   rebuttal_end: '2026-03-27 23:59:59'
-#   notification: '2026-04-09 23:59:59'
-#   timezone: UTC-12
-#   venue_timezone: Europe/Brussels
-#   place: Brussels, Belgium
-#   date: June 29 - July 3, 2026
-#   start: 2026-06-29
-#   end: 2026-07-03
-#   sub: "PL"
-#   note: <a href='https://2026.ecoop.org/'>conference site</a>
 
 # ====================== #
 # ======== ICFP ======== #
