@@ -2,22 +2,24 @@
 # ======== PLDI ======== #
 # ====================== #
 
-- title: PLDI
-  year: 2026
-  id: pldi26
-  link: https://pldi26.sigplan.org/
-  deadline: '2025-11-13 23:59:59'
-  rebuttal_start: '2026-02-17 00:00:00'
-  rebuttal_end: '2026-02-22 23:59:59'
-  notification: '2026-03-05 23:59:59'
-  timezone: UTC-12
-  venue_timezone: America/Denver
-  place: Boulder, Colorado, United States
-  date: June 15-19, 2026
-  start: 2026-06-15
-  end: 2026-06-19
-  sub: "PL"
-  note: <a href='https://pldi26.sigplan.org/'>conference site</a>
+# PLDI 2026 — meeting over (Jun 15-19 2026); no PLDI 2027 CFP published yet.
+# Kept commented for reference; re-add PLDI once the 2027 CFP goes live.
+# - title: PLDI
+#   year: 2026
+#   id: pldi26
+#   link: https://pldi26.sigplan.org/
+#   deadline: '2025-11-13 23:59:59'
+#   rebuttal_start: '2026-02-17 00:00:00'
+#   rebuttal_end: '2026-02-22 23:59:59'
+#   notification: '2026-03-05 23:59:59'
+#   timezone: UTC-12
+#   venue_timezone: America/Denver
+#   place: Boulder, Colorado, United States
+#   date: June 15-19, 2026
+#   start: 2026-06-15
+#   end: 2026-06-19
+#   sub: "PL"
+#   note: <a href='https://pldi26.sigplan.org/'>conference site</a>
 
 # ====================== #
 # ======== ICSE ======== #
@@ -165,23 +167,25 @@
 # ======== FSE ========= #
 # ====================== #
 
-- title: FSE
-  year: 2026
-  id: fse2026
-  link: https://conf.researchr.org/home/fse-2026
-  abstract_deadline: '2025-09-04 23:59:59'
-  deadline: '2025-09-11 23:59:59'
-  rebuttal_start: '2025-11-21 00:00:00'
-  rebuttal_end: '2025-11-25 23:59:59'
-  notification: '2025-12-22 23:59:59'
-  timezone: UTC-12
-  venue_timezone: America/Toronto
-  place: Montreal, Canada
-  date: July 5-9, 2026
-  start: 2026-07-05
-  end: 2026-07-09
-  sub: "SE"
-  note: <a href='https://conf.researchr.org/home/fse-2026'>conference site</a>
+# FSE 2026 — meeting over (Jul 5-9 2026); superseded by FSE 2027 below.
+# Kept commented for reference.
+# - title: FSE
+#   year: 2026
+#   id: fse2026
+#   link: https://conf.researchr.org/home/fse-2026
+#   abstract_deadline: '2025-09-04 23:59:59'
+#   deadline: '2025-09-11 23:59:59'
+#   rebuttal_start: '2025-11-21 00:00:00'
+#   rebuttal_end: '2025-11-25 23:59:59'
+#   notification: '2025-12-22 23:59:59'
+#   timezone: UTC-12
+#   venue_timezone: America/Toronto
+#   place: Montreal, Canada
+#   date: July 5-9, 2026
+#   start: 2026-07-05
+#   end: 2026-07-09
+#   sub: "SE"
+#   note: <a href='https://conf.researchr.org/home/fse-2026'>conference site</a>
 
 - title: FSE
   year: 2027
@@ -315,7 +319,7 @@
   link: https://www.ndss-symposium.org/ndss2027/
   deadline: '2026-05-06 23:59:59'
   early_rejection: '2026-06-18 23:59:59'
-  notification: '2026-07-22 23:59:59'
+  notification: '2026-07-29 23:59:59'  # tentative (per official NDSS 2027 CFP)
   timezone: UTC-12
   venue_timezone: Asia/Seoul
   place: Seoul, Republic of Korea
@@ -389,6 +393,10 @@
   link: https://www.usenix.org/conference/usenixsecurity27
   abstract_deadline: '2026-08-18 23:59:59'
   deadline: '2026-08-25 23:59:59'
+  early_rejection: '2026-10-06 23:59:59'
+  rebuttal_start: '2026-11-05 00:00:00'
+  rebuttal_end: '2026-11-12 23:59:59'
+  notification: '2026-12-03 23:59:59'
   timezone: UTC-12
   venue_timezone: America/Denver
   place: Denver, CO, USA
@@ -404,6 +412,10 @@
   link: https://www.usenix.org/conference/usenixsecurity27
   abstract_deadline: '2027-01-19 23:59:59'
   deadline: '2027-01-26 23:59:59'
+  early_rejection: '2027-03-09 23:59:59'
+  rebuttal_start: '2027-04-08 00:00:00'
+  rebuttal_end: '2027-04-15 23:59:59'
+  notification: '2027-05-06 23:59:59'
   timezone: UTC-12
   venue_timezone: America/Denver
   place: Denver, CO, USA
@@ -433,18 +445,14 @@
   sub: "MORE"
   note: <a href='https://www.usenix.org/conference/osdi26'>conference site</a>
 
-# OSDI 2027: the official page lists bare dates only (no clock time / timezone) and
-# the full CFP isn't posted yet; deadline times below use the AoE (UTC-12, 23:59:59)
-# default per milestone.md §7 — re-verify the exact time/timezone once the full CFP
-# is published (OSDI '26 used 5:59pm EST = UTC-0).
 - title: OSDI
   year: 2027
   id: osdi2027
   link: https://www.usenix.org/conference/osdi27
-  abstract_deadline: '2026-12-01 23:59:59'
-  deadline: '2026-12-08 23:59:59'
+  abstract_deadline: '2026-12-01 22:59:59'
+  deadline: '2026-12-08 22:59:59'
   notification: '2027-03-16 23:59:59'
-  timezone: UTC-12
+  timezone: UTC-0
   venue_timezone: America/New_York
   place: Baltimore, MD, USA
   date: July 7 - 9, 2027
@@ -479,38 +487,74 @@
 # ======================= #
 
 - title: ECOOP (Round 1)
-  year: 2026
-  id: ecoop2026a
-  link: https://2026.ecoop.org/
-  deadline: '2025-11-27 23:59:59'
-  rebuttal_start: '2026-01-12 00:00:00'
-  rebuttal_end: '2026-01-16 23:59:59'
-  notification: '2026-01-29 23:59:59'
+  year: 2027
+  id: ecoop2027a
+  link: https://2027.ecoop.org/
+  deadline: '2026-11-19 23:59:59'
+  rebuttal_start: '2027-01-11 00:00:00'
+  rebuttal_end: '2027-01-15 23:59:59'
+  notification: '2027-01-28 23:59:59'
   timezone: UTC-12
-  venue_timezone: Europe/Brussels
-  place: Brussels, Belgium
-  date: June 29 - July 3, 2026
-  start: 2026-06-29
-  end: 2026-07-03
+  venue_timezone: Europe/Rome
+  place: Turin, Italy
+  date: June 28 - July 2, 2027
+  start: 2027-06-28
+  end: 2027-07-02
   sub: "PL"
-  note: <a href='https://2026.ecoop.org/'>conference site</a>
+  note: <a href='https://2027.ecoop.org/'>conference site</a>
 
 - title: ECOOP (Round 2)
-  year: 2026
-  id: ecoop2026b
-  link: https://2026.ecoop.org/
-  deadline: '2026-02-12 23:59:59'
-  rebuttal_start: '2026-03-23 00:00:00'
-  rebuttal_end: '2026-03-27 23:59:59'
-  notification: '2026-04-09 23:59:59'
+  year: 2027
+  id: ecoop2027b
+  link: https://2027.ecoop.org/
+  deadline: '2027-02-11 23:59:59'
+  rebuttal_start: '2027-03-22 00:00:00'
+  rebuttal_end: '2027-03-26 23:59:59'
+  notification: '2027-04-08 23:59:59'
   timezone: UTC-12
-  venue_timezone: Europe/Brussels
-  place: Brussels, Belgium
-  date: June 29 - July 3, 2026
-  start: 2026-06-29
-  end: 2026-07-03
+  venue_timezone: Europe/Rome
+  place: Turin, Italy
+  date: June 28 - July 2, 2027
+  start: 2027-06-28
+  end: 2027-07-02
   sub: "PL"
-  note: <a href='https://2026.ecoop.org/'>conference site</a>
+  note: <a href='https://2027.ecoop.org/'>conference site</a>
+
+# ECOOP 2026 — meeting over (Jun 29-Jul 3 2026); superseded by ECOOP 2027 above.
+# Kept commented for reference.
+# - title: ECOOP (Round 1)
+#   year: 2026
+#   id: ecoop2026a
+#   link: https://2026.ecoop.org/
+#   deadline: '2025-11-27 23:59:59'
+#   rebuttal_start: '2026-01-12 00:00:00'
+#   rebuttal_end: '2026-01-16 23:59:59'
+#   notification: '2026-01-29 23:59:59'
+#   timezone: UTC-12
+#   venue_timezone: Europe/Brussels
+#   place: Brussels, Belgium
+#   date: June 29 - July 3, 2026
+#   start: 2026-06-29
+#   end: 2026-07-03
+#   sub: "PL"
+#   note: <a href='https://2026.ecoop.org/'>conference site</a>
+#
+# - title: ECOOP (Round 2)
+#   year: 2026
+#   id: ecoop2026b
+#   link: https://2026.ecoop.org/
+#   deadline: '2026-02-12 23:59:59'
+#   rebuttal_start: '2026-03-23 00:00:00'
+#   rebuttal_end: '2026-03-27 23:59:59'
+#   notification: '2026-04-09 23:59:59'
+#   timezone: UTC-12
+#   venue_timezone: Europe/Brussels
+#   place: Brussels, Belgium
+#   date: June 29 - July 3, 2026
+#   start: 2026-06-29
+#   end: 2026-07-03
+#   sub: "PL"
+#   note: <a href='https://2026.ecoop.org/'>conference site</a>
 
 # ====================== #
 # ======== ICFP ======== #
