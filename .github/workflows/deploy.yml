@@ -19,10 +19,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: withastro/action@v3 # installs deps, runs `astro build`, uploads dist/
+      - uses: actions/checkout@v7
+      - uses: withastro/action@v6 # installs deps, runs `astro build`, uploads dist/
         with:
-          node-version: "22" # Astro 6 requires Node >=22.12 (the action defaults to 20)
+          node-version: "24" # Astro 6 needs Node >=22.12; pin 24 (matches the runner + action default)
 
   deploy:
     needs: build
@@ -32,4 +32,4 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
