@@ -276,6 +276,8 @@
   link: https://www.ndss-symposium.org/ndss2027/
   deadline: '2026-05-06 23:59:59'
   early_rejection: '2026-06-18 23:59:59'
+  rebuttal_start: '2026-07-15 00:00:00'  # tentative (per official NDSS 2027 CFP)
+  rebuttal_end: '2026-07-17 23:59:59'    # tentative
   notification: '2026-07-29 23:59:59'  # tentative (per official NDSS 2027 CFP)
   timezone: UTC-12
   venue_timezone: Asia/Seoul
