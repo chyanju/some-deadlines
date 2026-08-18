@@ -122,6 +122,31 @@
   sub: "PL"
   note: <a href='https://conferences.i-cav.org/2027/'>conference site</a>
 
+# ======================= #
+# ======== TACAS ======== #
+# ======================= #
+# ONE-OFF: added by request for the 2027 edition only. TACAS is deliberately NOT
+# in the milestone.md §4 tracked-venue list — do not roll it over to 2028. When
+# the meeting ends (Apr 15 2027), delete it per §8.8 and let the venue go.
+# Dates per the official ETAPS 2027 CFP (https://etaps.org/2027/cfp/), all AoE.
+
+- title: TACAS
+  year: 2027
+  id: tacas2027
+  link: https://etaps.org/2027/conferences/tacas/
+  deadline: '2026-10-15 23:59:59'
+  rebuttal_start: '2026-12-07 00:00:00'
+  rebuttal_end: '2026-12-09 23:59:59'
+  notification: '2026-12-22 23:59:59'
+  timezone: UTC-12
+  venue_timezone: Europe/Copenhagen
+  place: Copenhagen, Denmark
+  date: April 12-15, 2027
+  start: 2027-04-12
+  end: 2027-04-15
+  sub: "PL"
+  note: <a href='https://etaps.org/2027/conferences/tacas/'>conference site</a>
+
 # ===================== #
 # ======== ASE ======== #
 # ===================== #
