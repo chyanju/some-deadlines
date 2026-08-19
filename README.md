@@ -1,3 +1,5 @@
+
+
 # Some Deadlines
 
 Countdown tracker for academic conference deadlines. Static site, built with
@@ -9,6 +11,7 @@ Astro + Tailwind CSS v4.
 npm install
 npm run dev     # dev server with hot reload
 npm run build   # static build -> dist/
+npm run preview # preview the static build (dist/)
 npm run check   # type-check
 ```
 
