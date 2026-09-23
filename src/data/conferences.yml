@@ -101,6 +101,40 @@
   sub: ["PL"]
   note: <a href='https://2026.splashcon.org/track/oopsla-2026'>conference site</a>
 
+# OOPSLA 2027 — deadline timezone not yet stated on the official page; AoE as in
+# every prior edition (re-confirm when the CFP text is posted). Round 2 has only
+# its submission date published so far (milestone.md §8.3: record what's out).
+- title: OOPSLA (Round 1)
+  year: 2027
+  id: oopsla2027a
+  link: https://2027.splashcon.org/
+  deadline: '2026-10-14 23:59:59'
+  rebuttal_start: '2026-12-01 00:00:00'
+  rebuttal_end: '2026-12-05 23:59:59'
+  notification: '2026-12-18 23:59:59'
+  timezone: UTC-12
+  venue_timezone: Europe/Prague
+  place: Prague, Czechia
+  date: October 10-15, 2027
+  start: 2027-10-10
+  end: 2027-10-15
+  sub: ["PL"]
+  note: <a href='https://2027.splashcon.org/'>conference site</a>
+
+- title: OOPSLA (Round 2)
+  year: 2027
+  id: oopsla2027b
+  link: https://2027.splashcon.org/
+  deadline: '2027-04-07 23:59:59'
+  timezone: UTC-12
+  venue_timezone: Europe/Prague
+  place: Prague, Czechia
+  date: October 10-15, 2027
+  start: 2027-10-10
+  end: 2027-10-15
+  sub: ["PL"]
+  note: <a href='https://2027.splashcon.org/'>conference site</a>
+
 # ===================== #
 # ======== CAV ======== #
 # ===================== #
@@ -222,15 +256,15 @@
   abstract_deadline: '2026-06-04 23:59:59'
   deadline: '2026-06-11 23:59:59'
   early_rejection: '2026-07-27 23:59:59'
-  rebuttal_start: '2026-08-25 00:00:00'
-  rebuttal_end: '2026-09-04 23:59:59'
+  rebuttal_start: '2026-08-20 00:00:00'  # reviews released
+  rebuttal_end: '2026-09-03 23:59:59'    # end of the interactive rebuttal
   notification: '2026-09-11 23:59:59'
   timezone: UTC-12
   venue_timezone: America/Toronto
   place: Montreal, Canada
-  date: TBA, May 2027
-  start: TBA
-  end: TBA
+  date: May 17-19, 2027
+  start: 2027-05-17
+  end: 2027-05-19
   sub: "SECURITY"
   note: <a href='https://sp2027.ieee-security.org/'>conference site</a>
 
@@ -241,15 +275,15 @@
   abstract_deadline: '2026-11-10 23:59:59'
   deadline: '2026-11-17 23:59:59'
   early_rejection: '2027-01-18 23:59:59'
-  rebuttal_start: '2027-02-16 00:00:00'
-  rebuttal_end: '2027-02-26 23:59:59'
+  rebuttal_start: '2027-02-11 00:00:00'  # reviews released
+  rebuttal_end: '2027-02-26 23:59:59'    # end of the interactive rebuttal
   notification: '2027-03-05 23:59:59'
   timezone: UTC-12
   venue_timezone: America/Toronto
   place: Montreal, Canada
-  date: TBA, May 2027
-  start: TBA
-  end: TBA
+  date: May 17-19, 2027
+  start: 2027-05-17
+  end: 2027-05-19
   sub: "SECURITY"
   note: <a href='https://sp2027.ieee-security.org/'>conference site</a>
 
@@ -322,8 +356,10 @@
   id: ndss2027b
   link: https://www.ndss-symposium.org/ndss2027/
   deadline: '2026-08-19 23:59:59'
-  early_rejection: '2026-09-25 23:59:59'
-  notification: '2026-11-04 23:59:59'
+  early_rejection: '2026-10-16 23:59:59'  # Round 2 notification (moved from 25 Sep)
+  rebuttal_start: '2026-11-11 00:00:00'
+  rebuttal_end: '2026-11-13 23:59:59'
+  notification: '2026-11-24 23:59:59'  # moved from 4 Nov
   timezone: UTC-12
   venue_timezone: Asia/Seoul
   place: Seoul, Republic of Korea
@@ -336,44 +372,6 @@
 # ======================== #
 # ======== USENIX ======== #
 # ======================== #
-
-- title: USENIX Security (Cycle 1)
-  year: 2026
-  id: usenix2026a
-  link: https://www.usenix.org/conference/usenixsecurity26
-  abstract_deadline: '2025-08-19 23:59:59'
-  deadline: '2025-08-26 23:59:59'
-  early_rejection: '2025-10-07 23:59:59'
-  rebuttal_start: '2025-11-06 00:00:00'
-  rebuttal_end: '2025-11-13 23:59:59'
-  notification: '2025-12-04 23:59:59'
-  timezone: UTC-12
-  venue_timezone: America/New_York
-  place: Baltimore, MD, USA
-  date: August 12 - 14, 2026
-  start: 2026-08-12
-  end: 2026-08-14
-  sub: "SECURITY"
-  note: <a href='https://www.usenix.org/conference/usenixsecurity26'>conference site</a>
-
-- title: USENIX Security (Cycle 2)
-  year: 2026
-  id: usenix2026b
-  link: https://www.usenix.org/conference/usenixsecurity26
-  abstract_deadline: '2026-01-29 23:59:59'
-  deadline: '2026-02-05 23:59:59'
-  early_rejection: '2026-03-17 23:59:59'
-  rebuttal_start: '2026-04-16 00:00:00'
-  rebuttal_end: '2026-04-23 23:59:59'
-  notification: '2026-05-14 23:59:59'
-  timezone: UTC-12
-  venue_timezone: America/New_York
-  place: Baltimore, MD, USA
-  date: August 12 - 14, 2026
-  start: 2026-08-12
-  end: 2026-08-14
-  sub: "SECURITY"
-  note: <a href='https://www.usenix.org/conference/usenixsecurity26'>conference site</a>
 
 - title: USENIX Security (Cycle 1)
   year: 2027
@@ -454,6 +452,26 @@
   sub: "SE"
   note: <a href='https://conf.researchr.org/home/issta-2026'>conference site</a>
 
+# ISSTA 2027 — deadline timezone not yet stated on the official page; AoE as in
+# every prior edition. Re-confirm when the full CFP text is posted.
+- title: ISSTA
+  year: 2027
+  id: issta2027
+  link: https://conf.researchr.org/home/issta-2027
+  abstract_deadline: '2027-01-08 23:59:59'
+  deadline: '2027-01-11 23:59:59'
+  rebuttal_start: '2027-03-22 00:00:00'
+  rebuttal_end: '2027-03-25 23:59:59'
+  notification: '2027-04-20 23:59:59'
+  timezone: UTC-12
+  venue_timezone: Asia/Singapore
+  place: Singapore
+  date: September 7 - 10, 2027
+  start: 2027-09-07
+  end: 2027-09-10
+  sub: "SE"
+  note: <a href='https://conf.researchr.org/home/issta-2027'>conference site</a>
+
 # ======================= #
 # ======== ECOOP ======== #
 # ======================= #
@@ -497,21 +515,21 @@
 # ====================== #
 
 - title: ICFP
-  year: 2026
-  id: icfp2026
-  link: https://icfp26.sigplan.org/
-  deadline: '2026-02-19 23:59:59'
-  rebuttal_start: '2026-04-20 00:00:00'
-  rebuttal_end: '2026-04-23 23:59:59'
-  notification: '2026-05-14 23:59:59'
+  year: 2027
+  id: icfp2027
+  link: https://icfp27.sigplan.org/
+  deadline: '2027-02-25 23:59:59'
+  rebuttal_start: '2027-04-19 00:00:00'
+  rebuttal_end: '2027-04-22 23:59:59'
+  notification: '2027-05-07 23:59:59'
   timezone: UTC-12
-  venue_timezone: America/Indiana/Indianapolis
-  place: Indiana University, Indianapolis, United States
-  date: August 24 - 29, 2026
-  start: 2026-08-24
-  end: 2026-08-29
+  venue_timezone: Europe/Amsterdam
+  place: Nijmegen, Netherlands
+  date: September 26 - October 1, 2027
+  start: 2027-09-26
+  end: 2027-10-01
   sub: "PL"
-  note: <a href='https://icfp26.sigplan.org/'>conference site</a>
+  note: <a href='https://icfp27.sigplan.org/'>conference site</a>
 
 # ======================== #
 # ======== ASPLOS ======== #
@@ -593,5 +611,4 @@
   end: 2026-11-05
   sub: "MORE"
   note: <a href='https://uist.acm.org/2026/'>conference site</a>
-
 
