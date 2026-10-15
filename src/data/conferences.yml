@@ -41,65 +41,9 @@
   sub: "SE"
   note: <a href='https://conf.researchr.org/home/icse-2027'>conference site</a>
 
-# ====================== #
-# ======== SOSP ======== #
-# ====================== #
-
-- title: SOSP
-  year: 2026
-  id: sosp2026
-  link: https://sigops.org/s/conferences/sosp/2026/index.html
-  abstract_deadline: '2026-03-26 23:59:59'
-  deadline: '2026-04-01 23:59:59'
-  rebuttal_start: '2026-06-22 00:00:00'
-  rebuttal_end: '2026-06-24 23:59:59'
-  notification: '2026-07-03 23:59:59'
-  timezone: UTC-12
-  venue_timezone: Europe/Prague
-  place: Prague, Czechia
-  date: September 29 - October 2, 2026
-  start: 2026-09-29
-  end: 2026-10-02
-  sub: "MORE"
-  note: <a href='https://sigops.org/s/conferences/sosp/2026/index.html'>conference site</a>
-
 # ======================== #
 # ======== OOPSLA ======== #
 # ======================== #
-
-- title: OOPSLA (Round 1)
-  year: 2026
-  id: oopsla2026a
-  link: https://2026.splashcon.org/track/oopsla-2026
-  deadline: '2025-10-10 23:59:59'
-  rebuttal_start: '2025-12-02 00:00:00'
-  rebuttal_end: '2025-12-05 23:59:59'
-  notification: '2025-12-17 23:59:59'
-  timezone: UTC-12
-  venue_timezone: America/Los_Angeles
-  place: Oakland, California, United States
-  date: October 3-9, 2026
-  start: 2026-10-03
-  end: 2026-10-09
-  sub: ["PL"]
-  note: <a href='https://2026.splashcon.org/track/oopsla-2026'>conference site</a>
-
-- title: OOPSLA (Round 2)
-  year: 2026
-  id: oopsla2026b
-  link: https://2026.splashcon.org/track/oopsla-2026
-  deadline: '2026-03-17 23:59:59'
-  rebuttal_start: '2026-05-19 00:00:00'
-  rebuttal_end: '2026-05-22 23:59:59'
-  notification: '2026-06-10 23:59:59'
-  timezone: UTC-12
-  venue_timezone: America/Los_Angeles
-  place: Oakland, California, United States
-  date: October 3-9, 2026
-  start: 2026-10-03
-  end: 2026-10-09
-  sub: ["PL"]
-  note: <a href='https://2026.splashcon.org/track/oopsla-2026'>conference site</a>
 
 # OOPSLA 2027 — deadline timezone not yet stated on the official page; AoE as in
 # every prior edition (re-confirm when the CFP text is posted). Round 2 has only
@@ -434,23 +378,6 @@
 # ======================= #
 # ======== ISSTA ======== #
 # ======================= #
-
-- title: ISSTA
-  year: 2026
-  id: issta2026
-  link: https://conf.researchr.org/home/issta-2026
-  deadline: '2026-01-29 23:59:59'
-  rebuttal_start: '2026-03-24 00:00:00'
-  rebuttal_end: '2026-03-26 23:59:59'
-  notification: '2026-04-16 23:59:59'
-  timezone: UTC-12
-  venue_timezone: America/Los_Angeles
-  place: Oakland, California, United States
-  date: October 3 - 9, 2026
-  start: 2026-10-03
-  end: 2026-10-09
-  sub: "SE"
-  note: <a href='https://conf.researchr.org/home/issta-2026'>conference site</a>
 
 # ISSTA 2027 — deadline timezone not yet stated on the official page; AoE as in
 # every prior edition. Re-confirm when the full CFP text is posted.
